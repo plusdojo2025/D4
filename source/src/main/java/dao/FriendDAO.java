@@ -29,7 +29,7 @@ public class FriendDAO {
 					"root", "password");
 			
 			// SQL文を準備する
-			sql = "select * from friend WHERE myId = ?";
+			sql = "select * from friendList WHERE myId = ?";
 			
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -91,7 +91,7 @@ public class FriendDAO {
 	        conn.setAutoCommit(false);  // トランザクション開始
 
 	        // 自分から相手への申請（状態1）
-	        String mSql = "INSERT INTO FrinedList VALUES (?, ?, 1)";
+	        String mSql = "INSERT INTO frinedList VALUES (?, ?, 1)";
 	        PreparedStatement mStmt = conn.prepareStatement(mSql);
 	        mStmt.setString(1, friend.getMyId());
 	        mStmt.setString(2, friend.getFriendId());
