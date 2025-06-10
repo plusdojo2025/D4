@@ -3,9 +3,9 @@ package dto;
 import java.io.Serializable;
 
 public class Icon implements Serializable{
-	private int days;
-	private int id;
-	private String pass;
+	private int days;    /*報酬配布日数*/
+	private int id;      /*アイコンid*/
+	private String pass; /*画像のパス*/
 	
 	public int getDays() {
 		return days;
@@ -26,6 +26,7 @@ public class Icon implements Serializable{
 		this.pass = pass;
 	}
 	
+	/*コンストラクタ*/
 	public Icon(int id, int days, String pass) {
 		this.id = id;
 		this.days = days;
