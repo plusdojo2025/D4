@@ -3,9 +3,9 @@ package dto;
 import java.io.Serializable;
 
 public class Friend implements Serializable{
-	private String myId;
-	private String friendId;
-	private int state;
+	private String myId;     /*自分のid*/
+	private String friendId; /*相手のid*/
+	private int state;       /*承認状態*/
 	
 	public String getMyId() {
 		return myId;
@@ -26,6 +26,7 @@ public class Friend implements Serializable{
 		this.state = state;
 	}
 	
+	/*コンストラクタ*/
 	public Friend(String myId, String friendId, int state){
 		this.myId = myId;
 		this.friendId = friendId;

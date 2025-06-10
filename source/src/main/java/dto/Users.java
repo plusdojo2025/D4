@@ -83,4 +83,16 @@ public class Users implements Serializable{
 		
 	}
 	
+	public Users(){
+		
+		this.id = "";
+		this.pw = "";
+		this.height = 0;
+		this.name = "";
+		this.theme = 1;
+		this.icon =  1;
+		this.vPrivate = 0;
+		this.sPrivate = 0;
+		this.wPrivate = 0;
+	}
 }
