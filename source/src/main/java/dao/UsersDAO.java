@@ -10,7 +10,7 @@ import dto.Users;
 
 public class UsersDAO {
 	/*引数のユーザー情報でログイン、成功ならtrueを返す*/
-	public boolean isLoginOk(Users users) {
+	public boolean isLoginOK(Users users) {
 		Connection conn = null;
 		boolean loginResult = false;
 		

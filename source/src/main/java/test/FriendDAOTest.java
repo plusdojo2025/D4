@@ -8,7 +8,7 @@ import dto.Friend;
 
 public class FriendDAOTest {
 	public static void showAllData(List<Friend> friendList) {
-		for (Friend friend : friendList) {				
+		for (Friend friend : friendList) {
 			System.out.println("myId：" + friend.getMyId());
 			System.out.println("friendId：" + friend.getFriendId());
 			System.out.println("state：" + friend.getState());
