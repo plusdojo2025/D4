@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>フレンド詳細|健康日和</title>
 </head>
 <body>
 <!-- 詳細情報表示 -->

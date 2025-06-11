@@ -1,31 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>フレンド一覧|健康日和</title>
 </head>
 <body>
 
 <!-- フォーム(id検索) -->
+<form class="searchFriend" method="POST" action="/webapp/FriendListServlet">
 <!-- テキストボックス -->
-<!-- ボタン(承認画面に移動) -->
-<!-- フォーム終わり -->
+<label>ID検索<br>
+<input type="text" name="searchId" placeholder="idで検索"></label>
 
-<!-- リスト(申請一覧) -->
-<!-- テキスト(相手の名前) -->
 <!-- ボタン(詳細画面に移動) -->
-<!-- リスト終わり-->
+<input type="submit" name="searchSubmit" value="検索">
+<!-- フォーム終わり -->
+</form>
+
+<p>申請一覧</p>
+<!-- スクロールできるリスト(申請一覧を表示) -->
+<ul>
+<!-- forEach で状態が2のもののみ表示-->
+<c:forEach var="e" items="${friendList}">
+<c:if test="${e.state == 2}">
+	<li>
+	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
+	<form class="checkApply" method="POST" action="/webapp/FriendListServlet">
+	<!-- 非表示でidを持つ -->
+	<input type="hidden" name="friendId" value="${e.friendId}" class="id">
+	<!-- テキスト(相手の名前) -->
+	<p>${e.friendName}</p>
+	<!-- ボタン(詳細画面に移動) -->
+	<input type="submit" name="searchSubmit" value="詳細">
+	</form>
+	<!-- フォーム終わり -->
+	</li>
+</c:if>
+</c:forEach>
+<!-- 繰り返し終わり -->
+</ul>
+<!-- リスト終わり -->
+
 
 <p>フレンド一覧</p>
-<!-- 可変長のテーブル(フレンドを一覧表示) -->
-<!-- フォーム(フレンド1理を対象に詳細ページへ移動するため) -->
-
-<!-- テキスト(相手の名前) -->
-<!-- ボタン(詳細画面に移動) -->
-<!-- フォーム終わり -->
-<!-- 可変長のテーブル終わり -->
+<!-- スクロールできるリスト(フレンドを一覧表示) -->
+<ul>
+<!-- foreach で状態が3のもののみ表示-->
+<c:forEach var="e" items="${friendList}">
+<c:if test="${e.state == 3}">
+	<li>
+	<!-- フォーム(フレンド1人を対象に詳細ページへ移動する) -->
+	<form class="check" method="POST" action="/webapp/FriendListServlet">
+	<!-- 非表示でidを持つ -->
+	<input type="hidden" name="friendId" value="${e.friendId}" class="id">
+	<!-- テキスト(相手の名前) -->
+	<p>${e.friendName}</p>
+	<!-- ボタン(詳細画面に移動) -->
+	<input type="submit" name="searchSubmit" value="確認">
+	</form>
+	<!-- フォーム終わり -->
+	</li>
+</c:if>
+</c:forEach>
+<!-- 繰り返し終わり -->
+</ul>
+<!-- リスト終わり -->
 
 </body>
 </html>

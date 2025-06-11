@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +18,7 @@ import dto.Ranking;
 
 public class RankingDAO {
 
-	public Ranking select(String startDate) {
+	public Ranking select(String userid, String startDate) {
 		Connection conn = null;
 		
 		Ranking ranking = new Ranking();
@@ -37,9 +41,10 @@ public class RankingDAO {
 			           + "AND healthList.date BETWEEN ? AND DATE_ADD(?, INTERVAL 6 DAY)";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, startDate);
+			pStmt.setString(1, userid);
 			pStmt.setString(2, startDate);
-
+			pStmt.setString(3, startDate);
+			
 			ResultSet rs = pStmt.executeQuery();
 			
 			List<Health> healthList = new ArrayList<Health>();
@@ -66,7 +71,7 @@ public class RankingDAO {
 
 			}
 			
-			ranking = new Ranking(0, name, sumScore/day, id, healthList);
+			ranking = new Ranking(0, name, (double) sumScore/day, id, healthList);
 		
 
 			rs.close();
@@ -157,7 +162,7 @@ public class RankingDAO {
 		else if (450 > sleep) {
 			sleepScore = 4;
 		}
-		else if (450 < sleep) {
+		else {
 			sleepScore = 5;
 		}
 		
@@ -173,7 +178,7 @@ public class RankingDAO {
 		else if (6500 > walk) {
 			walkScore = 4;
 		}
-		else if (6500 < walk) {
+		else {
 			walkScore = 5;
 		}
 		
@@ -183,15 +188,18 @@ public class RankingDAO {
 	//全員分のランキングのスコアをリストを作る
 	public List<Ranking> makeRanking(List<Friend> friendList){
 		List<Ranking> rankingList = new ArrayList<Ranking>();
-		
+		String date = LocalDate.now()
+			    .with(TemporalAdjusters.previousOrSame(DayOfWeek.SUNDAY))
+			    .format(DateTimeFormatter.ISO_LOCAL_DATE);
+
 		for(Friend friend : friendList) {
 			
 			if(friend.getState() == 3) {
-				Ranking ranking = select(friend.getFriendId());
+				Ranking ranking = select(friend.getFriendId(), date);
 				rankingList.add(ranking);
 			}	
 		}
-		Ranking ranking = select((friendList.get(0)).getMyId());
+		Ranking ranking = select((friendList.get(0)).getMyId(), date);
 		rankingList.add(ranking);
 		
 		List<Ranking> rankingResult = addRankToRankingList(rankingList); 
