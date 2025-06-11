@@ -1,1 +1,29 @@
 @charset "UTF-8";
+
+    .login {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* ボックス間の間隔 */
+      width: 200px; /* 必要に応じて調整 */
+      margin: 0 auto;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      padding: 5px;
+      font-size: 14px;
+    }
+.button{
+	text-align:center;
+}
+
+.back{
+	text-align:center;
+}
+    
