@@ -27,7 +27,6 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
@@ -37,12 +36,11 @@ public class FriendListServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得する
 		String myId = (session.getAttribute("id")).toString();
-		*/
-		String myId = "user001";
+
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
-		Friend sFriend = new Friend(myId, "", "", 0);
+		Friend sFriend = new Friend(myId);
 		
 		try {
 			List<Friend> friendList = fDao.select(sFriend);
@@ -80,8 +78,24 @@ public class FriendListServlet extends HttpServlet {
 		// friendLsitの情報と対象のユーザー情報を取得
 		UsersDAO uDao = new UsersDAO();
 		FriendDAO fDao = new FriendDAO();
-		Users sUsers = new Users();
-		Friend sFriend = new Friend(myId, "", "", 0);
+		Users sUsers = new Users(friendId);
+		Friend sFriend = new Friend(myId, friendId);
+		
+		try {
+			//List<Users> usersList = uDao.select();
+			List<Friend> friendList = fDao.select(sFriend);
+			
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("friendList", friendList);
+			
+			// フレンド一覧ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/FriendList.jsp");
+			dispatcher.forward(request, response);
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 	}
+	
 
 }

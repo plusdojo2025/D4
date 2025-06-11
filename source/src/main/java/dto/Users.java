@@ -12,6 +12,7 @@ public class Users implements Serializable{
 	private int vPrivate; 	/*野菜情報の公開設定*/
 	private int sPrivate; 	/*睡眠情報の公開設定*/
 	private int wPrivate; 	/*運動情報の公開設定*/
+	private int clogin;     /*連続ログイン日数*/
 	
 	public String getId() {
 		return id;
@@ -67,7 +68,12 @@ public class Users implements Serializable{
 	public void setwPrivate(int wPrivate) {
 		this.wPrivate = wPrivate;
 	}
-	
+	public int getClogin() {
+		return clogin;
+	}
+	public void setClogin(int clogin) {
+		this.clogin = clogin;
+	}
 	/*コンストラクタ*/
 	public Users(String id, String pw, int height, String name,
 					int theme, int icon, int vPrivate, int sPrivate, int wPrivate){
@@ -80,6 +86,7 @@ public class Users implements Serializable{
 		this.vPrivate = vPrivate;
 		this.sPrivate = sPrivate;
 		this.wPrivate = wPrivate;
+		this.clogin = 0;
 		
 	}
 	
@@ -94,6 +101,7 @@ public class Users implements Serializable{
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;
+		this.clogin = 0;
 	}
 	
 	public Users(){
@@ -107,5 +115,6 @@ public class Users implements Serializable{
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;
+		this.clogin = 0;
 	}
 }
