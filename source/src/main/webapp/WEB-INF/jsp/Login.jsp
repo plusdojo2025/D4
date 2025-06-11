@@ -8,44 +8,36 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-<div>
 	<%-- ヘッダー --%>
 	<h1>
 	<%--ここにロゴ画像を入れる --%>
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
+	<div class="main">
 	<form method="POST" action="/D4/LoginServlet">
-		<table>
-			<tr>
-				<td>
-					<label>ID<br>
-					<input type="text" name="id">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>パスワード<br>
-					<input type="password" name="pw">
-					</label>
-				</td>
-			<tr>
-			<tr>
-				<td>
-					<input type="submit" value="ログイン">
-					<input type="reset" value="リセット">
-					<span id="error_message"></span>
-				</td>
-			<tr>
-			
-		</table>
+  	<div class="login">
+    <div class="input-group">
+      <label for="textbox1">ID</label>
+      <input type="text" id="textbox1" placeholder="入力してください">
+    </div>
+    <div class="input-group">
+      <label for="textbox2">パスワード</label>
+      <input type="text" id="textbox2" placeholder="入力してください">
+    </div>
+  </div>	
+	<div class="button">
+		<input type="submit" value="ログイン">
+		<input type="reset" value="リセット">
+	</div>
 	</form>
-	<a href="/D4/RegistServlet">新規登録はこちらから</a>
+	
+	<div class="back">
+		<a href="/D4/RegistServlet">新規登録はこちらから</a>
+	</div>
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<div>
-		<p>&copy;2025HAL</p>
 	</div>
 	<%-- フッターここまで --%>
 </div>

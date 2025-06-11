@@ -8,67 +8,50 @@
 <link rel="stylesheet" type="text/css" href="css/regist.css">
 </head>
 <body>
-	<div>
+<div class="logo">
 	<%-- ヘッダー --%>
 	<h1>
 	<%--ここにロゴ画像を入れる --%>
 	</h1>
 	<%-- ヘッダーここまで --%>
-	<%-- メイン --%>
+</div>	
+	<%-- メイン --%>	
 	<form method="POST" action="/D4/RegistServlet">
-		<table>
-			<tr>
-				<td>
-					<label>新規ID<br>
-					<input type="text" name="id">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>新規パスワード<br>
-					<input type="text" name="pw">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>新規パスワード(確認用)<br>
-					<input type="text" name="rePw">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>現在の身長(cm)<br>
-					<input type="text" name="height">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>現在の体重(kg)<br>
-					<input type="text" name="weight">
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label>ニックネーム<br>
-					<input type="text" name="name">
-					</label>
-				</td>
-			</tr>
-						<tr>
-				<td>
-					<input type="submit" value="登録">
-					<input type="reset" value="リセット">
-				</td>
-			<tr>
-			
-		</table>
+  <div class="new_info">
+    <div class="box">
+      <label for="box1">新規ID</label>
+      <input type="text" id="box1">
+    </div>
+    <div class="box">
+      <label for="box2">新規パスワード</label>
+      <input type="text" id="box2">
+    </div>
+    <div class="box">
+      <label for="box3">新規パスワード(確認)</label>
+      <input type="text" id="box3">
+    </div>
+    <div class="box">
+      <label for="box4">現在の身長(cm)</label>
+      <input type="text" id="box4">
+    </div>
+    <div class="box">
+      <label for="box5">現在の体重(kg)</label>
+      <input type="text" id="box5">
+    </div>
+    <div class="box">
+      <label for="box6">ニックネーム</label>
+      <input type="text" id="box6">
+    </div>
+  </div>
+	
+	<div class="button">
+		<input type="submit" value="登録">
+		<input type="reset" value="リセット">
+	</div>
 	</form>
-	<a href= "/D4/LoginServlet">戻る</a>
+	<div class="back">
+		<a href= "/D4/LoginServlet">戻る</a>
+	</div>
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<div>
