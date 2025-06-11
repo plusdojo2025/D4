@@ -4,9 +4,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ログインページ|けんこう日和</title>
 </head>
 <body>
-
+<div>
+	<%-- ヘッダー --%>
+	<h1>
+	<%--ここにロゴ画像を入れる --%>
+	</h1>
+	<%-- ヘッダーここまで --%>
+	<%-- メイン --%>
+	<form>
+		<table>
+			<tr>
+				<td>
+					<label>ID<br>
+					<input type="text">
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>パスワード<br>
+					<input type="password">
+					</label>
+				</td>
+			<tr>
+			<tr>
+				<td>
+					<input type="submit" value="ログイン">
+					<input type="reset" value="リセット">
+				</td>
+			<tr>
+			
+		</table>
+	</form>
+	<p>新規登録はこちらから</p>
+	<%-- メインここまで --%>
+	<%-- フッター --%>
+	<div>
+		<p>&copy;2025HAL</p>
+	</div>
+	<%-- フッターここまで --%>
+</div>
 </body>
 </html>
