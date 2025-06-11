@@ -29,7 +29,9 @@ public class FriendDAO {
 					"root", "password");
 			
 			// SQL文を準備する
-			sql = "select * from friendList WHERE myId = ?";
+			sql = "SELECT f.myId, f.friendId, f.state, u.name "
+					+ "FROM friendList f JOIN users u ON f.friendId = u.id "
+					+ "WHERE f.myId = ?";
 			
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -45,11 +47,12 @@ public class FriendDAO {
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				Friend fr = new Friend(
-						rs.getString("myId"), 
-						rs.getString("friendId"), 
-						rs.getInt("state")
-				);
+			    Friend fr = new Friend(
+			        rs.getString("myId"), 
+			        rs.getString("friendId"), 
+			        rs.getString("name"),
+			        rs.getInt("state")
+			    );
 		
 				friendList.add(fr);
 			}

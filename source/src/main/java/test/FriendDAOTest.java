@@ -21,15 +21,15 @@ public class FriendDAOTest {
 		try {
 			// select()のテスト
 			System.out.println("---------- select()のテスト ----------");
-			List<Friend> friendListSel1 = dao.select(new Friend("user001", "user002", 0));
+			List<Friend> friendListSel1 = dao.select(new Friend("user001"));
 			FriendDAOTest.showAllData(friendListSel1);
 		
 			// insert()のテスト
 			System.out.println("---------- insert()のテスト ----------");
-			Friend insRec = new Friend("user001","user003",1);
+			Friend insRec = new Friend("user001","user003", 1);
 			if (dao.insert(insRec)) {
 				System.out.println("登録成功！");
-				List<Friend> friendListIns = dao.select(new Friend("user001", "", 0));
+				List<Friend> friendListIns = dao.select(new Friend("user001"));
 				FriendDAOTest.showAllData(friendListIns);
 			} else {
 				System.out.println("登録失敗！");
@@ -41,7 +41,7 @@ public class FriendDAOTest {
 			Friend upRec = friendListUp.get(0);
 			if (dao.update(upRec)) {
 				System.out.println("更新成功！");
-				friendListUp = dao.select(new Friend("user001", "", 0));
+				friendListUp = dao.select(new Friend("user001"));
 				FriendDAOTest.showAllData(friendListUp);
 			} else {
 				System.out.println("更新失敗！");
@@ -50,11 +50,11 @@ public class FriendDAOTest {
 				
 			// delete()のテスト
 			System.out.println("---------- delete()のテスト ----------");
-			List<Friend> friendListDel = dao.select(new Friend("user001", "user002", 0));
+			List<Friend> friendListDel = dao.select(new Friend("user001"));
 			Friend delRec = friendListDel.get(0);
 			if (dao.delete(delRec)) {
 				System.out.println("削除成功！");
-				friendListDel = dao.select(new Friend("user001", "", 0));
+				friendListDel = dao.select(new Friend("user001"));
 				FriendDAOTest.showAllData(friendListDel);
 			} else {
 				System.out.println("削除失敗！");
