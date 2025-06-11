@@ -19,15 +19,10 @@ public class FriendDAOTest {
 	public static void main(String[] args) {
 		FriendDAO dao = new FriendDAO();
 		try {
-			// select()のテスト1
-			System.out.println("---------- select()のテスト1 ----------");
+			// select()のテスト
+			System.out.println("---------- select()のテスト ----------");
 			List<Friend> friendListSel1 = dao.select(new Friend("user001", "user002", 0));
 			FriendDAOTest.showAllData(friendListSel1);
-		
-			// select()のテスト2
-			System.out.println("---------- select()のテスト2 ----------");
-			List<Friend> friendListSel2 = dao.select(new Friend("user001", "", 0));
-			FriendDAOTest.showAllData(friendListSel2);
 		
 			// insert()のテスト
 			System.out.println("---------- insert()のテスト ----------");
