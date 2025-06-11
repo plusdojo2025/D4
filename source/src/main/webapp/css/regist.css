@@ -3,8 +3,8 @@
 
 .new_info {
   			display: grid;
-      		grid-template-columns: repeat(1, 1fr); /* 横2列 */
-     		gap: 10px; /* ボックス間の余白 */
+      		grid-template-columns: repeat(2, 1fr); /* 横2列 */
+     		gap: 20px; /* ボックス間の余白 */
       		max-width: 400px; /* 全体の幅を調整 */
       		margin: 0 auto; /* 中央揃え */
 }
@@ -16,7 +16,7 @@
 
 label {
       margin-bottom: 5px;
-      font-weight: bold;
+      font-size: 20px;
 }
 input {
       padding: 8px;
@@ -24,6 +24,7 @@ input {
 }
 
 .button{
+	margin-top:20px;
 	text-align:center;
 }
 
