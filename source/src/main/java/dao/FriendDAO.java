@@ -91,13 +91,13 @@ public class FriendDAO {
 	        conn.setAutoCommit(false);  // トランザクション開始
 
 	        // 自分から相手への申請（状態1）
-	        String mSql = "INSERT INTO frinedList VALUES (?, ?, 1)";
+	        String mSql = "INSERT INTO friendList VALUES (?, ?, 1)";
 	        PreparedStatement mStmt = conn.prepareStatement(mSql);
 	        mStmt.setString(1, friend.getMyId());
 	        mStmt.setString(2, friend.getFriendId());
 
 	        // 相手から自分への状態（状態2）
-	        String fSql = "INSERT INTO FrinedList VALUES (?, ?, 2)";
+	        String fSql = "INSERT INTO friendList VALUES (?, ?, 2)";
 	        PreparedStatement fStmt = conn.prepareStatement(fSql);
 	        fStmt.setString(1, friend.getFriendId());
 	        fStmt.setString(2, friend.getMyId());
