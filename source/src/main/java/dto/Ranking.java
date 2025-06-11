@@ -43,6 +43,7 @@ public class Ranking implements Serializable {
 		this.healthList = healthList;
 	}
 	
+	
 	//コンストラクタ
 	public Ranking(int rank, String name, double score, int id, List<Health> healthList) {
 		super();
