@@ -24,7 +24,7 @@ public class UsersDAOTest {
 	// ユーザーが見つからない場合のテスト
 	public static void testIsLoginOK2() {
 		UsersDAO dao = new UsersDAO();
-		if(!dao.isLoginOK(new Users("id", "pass",170,"test",1,2,1,1,1))) {
+		if(!dao.isLoginOK(new Users("id", "pass",165,"test",1,1,1,1,1))) {
 			System.out.println("testIsLoginOK2：テストが成功しました");
 		} else {
 			System.out.println("testIsLoginOK2：テストが失敗しました");
