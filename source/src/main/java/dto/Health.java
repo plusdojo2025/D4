@@ -67,7 +67,7 @@ public class Health implements Serializable {
 	}
 	
 	public Health(String id, String date, int vegetable, int sleep, int walk, int stress,
-			int weight) {
+			double weight) {
 		this.id = id;
 		this.date= date;
 		this.vegetable = vegetable;
