@@ -176,6 +176,8 @@ public class HealthDAO {
 		return result;
 	}	
 	
+	
+	
 	public boolean delete(String Id, String date) {
 	    String sql = "DELETE FROM healthlist WHERE id = ? AND date = ?";
 	    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
@@ -190,9 +192,7 @@ public class HealthDAO {
 	        e.printStackTrace();
 	        return false;
 	    }
-	}
-	
-	
+	}	
 }			
 
 	
