@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
+<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
 <div>
@@ -19,14 +20,14 @@
 			<tr>
 				<td>
 					<label>ID<br>
-					<input type="text">
+					<input type="text" name="id">
 					</label>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label>パスワード<br>
-					<input type="password">
+					<input type="password" name="pw">
 					</label>
 				</td>
 			<tr>
@@ -49,4 +50,5 @@
 	<%-- フッターここまで --%>
 </div>
 </body>
+<script src="/D4/js/login.js"></script>
 </html>

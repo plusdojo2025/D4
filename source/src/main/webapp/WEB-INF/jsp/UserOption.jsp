@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー編集 | けんこう日和</title>
+<link rel="stylesheet" type="text/css" href="css/userOption.css">
 </head>
 <body>
 	<%-- ヘッダー --%>
@@ -31,10 +32,6 @@
 	</form>
 	
 	<%-- メインここまで --%>
-	<%-- フッター --%>
-	<footer>
-		<p>&copy;2025HAL</p>
-	</footer>
-	<%-- フッターここまで --%>
 </body>
+<script src="/D4/js/useroption.js"></script>
 </html>

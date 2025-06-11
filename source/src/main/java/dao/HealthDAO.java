@@ -150,7 +150,9 @@ public class HealthDAO {
 			pStmt.setInt(5, card.getWalk());
 			pStmt.setInt(6, card.getStress());
 			pStmt.setDouble(7, card.getWeight());
-	
+			pStmt.setString(8, card.getId());
+			pStmt.setString(9, card.getDate());
+			
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -173,6 +175,24 @@ public class HealthDAO {
 		// 結果を返す
 		return result;
 	}	
+	
+	public boolean delete(String Id, String date) {
+	    String sql = "DELETE FROM healthlist WHERE id = ? AND date = ?";
+	    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+	    		+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+	    		"root", "password");
+	    	PreparedStatement stmt = conn.prepareStatement(sql)) {
+	    	stmt.setString(1, Id);
+	    	stmt.setString(2, date);
+	        int result = stmt.executeUpdate();
+	        return result > 0;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	
+	
 }			
 
 	
