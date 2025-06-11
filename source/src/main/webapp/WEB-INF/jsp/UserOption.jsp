@@ -33,9 +33,6 @@
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<footer>
-		<div>
-		<a href="/D4/EvaluationServlet"><%--img src ="ページトップボタン画像リンク"　alt ="ページトップに戻る" --%>test</a>
-		</div>
 		<p>&copy;2025HAL</p>
 	</footer>
 	<%-- フッターここまで --%>
