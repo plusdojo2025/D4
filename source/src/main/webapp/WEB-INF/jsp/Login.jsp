@@ -14,7 +14,7 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	<form>
+	<form method="POST" action="/D4/LoginServlet">
 		<table>
 			<tr>
 				<td>
