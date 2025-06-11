@@ -19,11 +19,11 @@
   	<div class="login">
     <div class="input-group">
       <label for="textbox1">ID</label>
-      <input type="text" id="textbox1" placeholder="入力してください">
+      <input type="text" id="textbox1">
     </div>
     <div class="input-group">
       <label for="textbox2">パスワード</label>
-      <input type="text" id="textbox2" placeholder="入力してください">
+      <input type="text" id="textbox2">
     </div>
   </div>	
 	<div class="button">

@@ -12,12 +12,12 @@
       flex-direction: column;
     }
     label {
-      margin-bottom: 5px;
-      font-weight: bold;
+      font-size: 20px;
     }
     input {
-      padding: 5px;
-      font-size: 14px;
+      padding: 10px;
+      font-size: 15px;
+      margin-top :15px;
     }
 .button{
 	text-align:center;
