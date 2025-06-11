@@ -29,6 +29,8 @@ public class HealthDAOTest {
 		List<Health> healthListSel1 = dao.select(new Health("user001", "2025-06-09", 0, 0, 8000, 0, 0.0));
 		HealthDAOTest.showAllData(healthListSel1);
 
+		//主キー重複エラーを防ぐため、事前に該当データを削除
+	    dao.delete("user001", "2025-06-01");
 
 		// insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
