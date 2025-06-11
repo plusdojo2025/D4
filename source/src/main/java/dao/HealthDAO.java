@@ -150,7 +150,9 @@ public class HealthDAO {
 			pStmt.setInt(5, card.getWalk());
 			pStmt.setInt(6, card.getStress());
 			pStmt.setDouble(7, card.getWeight());
-	
+			pStmt.setString(8, card.getId());
+			pStmt.setString(9, card.getDate());
+			
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
