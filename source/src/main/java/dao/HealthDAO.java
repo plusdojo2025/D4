@@ -71,6 +71,109 @@ public class HealthDAO {
 
 		// 結果を返す
 		return cardList;
+	}		
 
-     }
+	
+	// レコードの登録
+	public boolean insert(Health card) {
+		Connection conn = null;
+		boolean result = false;
+			
+		try {
+			//JDBCドライバ読み込み
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			// SQL文を準備する
+			String sql = "INSERT INTO healthList VALUES (?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			// SQL文を完成させる
+			pStmt.setString(1, card.getId());
+			pStmt.setString(2, card.getDate());
+			pStmt.setInt(3, card.getVegetable());
+			pStmt.setInt(4, card.getSleep());
+			pStmt.setInt(5, card.getWalk());
+			pStmt.setInt(6, card.getStress());
+			pStmt.setDouble(7, card.getWeight());
+		
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+			
+		// 結果を返す
+		return result;
 	}
+
+	// レコードの更新し
+	public boolean update(Health card) {
+		Connection conn = null;
+		boolean result = false;
+			
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+
+			// SQL文を準備する
+			String sql = "UPDATE healthList SET id=?, date=?,vegetable=?, sleep=?, walk=?, stress=?, weight=?" + "WHERE id=? AND date=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			// SQL文を完成させる
+			pStmt.setString(1, card.getId());
+			pStmt.setString(2, card.getDate());
+			pStmt.setInt(3, card.getVegetable());
+			pStmt.setInt(4, card.getSleep());
+			pStmt.setInt(5, card.getWalk());
+			pStmt.setInt(6, card.getStress());
+			pStmt.setDouble(7, card.getWeight());
+	
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}	
+}			
+
+	
+
