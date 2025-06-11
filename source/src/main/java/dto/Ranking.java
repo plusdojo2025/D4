@@ -7,7 +7,7 @@ public class Ranking implements Serializable {
 	private int rank;
 	private String name;
 	private double score;
-	private int id;
+	private String id;
 	private List<Health> healthList;
 	
 	
@@ -30,10 +30,10 @@ public class Ranking implements Serializable {
 	public void setScore(double score) {
 		this.score = score;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public List<Health> getHealthList() {
@@ -45,14 +45,21 @@ public class Ranking implements Serializable {
 	
 	
 	//コンストラクタ
-	public Ranking(int rank, String name, double score, int id, List<Health> healthList) {
-		super();
+	public Ranking(int rank, String name, double score, String id, List<Health> healthList) {
 		this.rank = rank;
 		this.name = name;
 		this.score = score;
 		this.id = id;
 		this.healthList = healthList;
 	}
+	
+	public Ranking() {
+		this.rank = 0;
+		this.name = "";
+		this.score = 0;
+		this.id = "";		
+	}
+	
 	
 	
 }
