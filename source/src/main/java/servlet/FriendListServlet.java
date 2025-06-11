@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
+import dao.UsersDAO;
 import dto.Friend;
+import dto.Users;
 
 /**
  * Servlet implementation class FriendListServlet
@@ -68,7 +70,18 @@ public class FriendListServlet extends HttpServlet {
 			response.sendRedirect("/webapp/LoginServlet");
 			return;
 		}
-
+		
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String myId = (session.getAttribute("id")).toString();
+		String friendId = request.getParameter("friendId");
+		
+		//
+		// friendLsitの情報と対象のユーザー情報を取得
+		UsersDAO uDao = new UsersDAO();
+		FriendDAO fDao = new FriendDAO();
+		Users sUsers = new Users();
+		Friend sFriend = new Friend(myId, "", "", 0);
 	}
 
 }
