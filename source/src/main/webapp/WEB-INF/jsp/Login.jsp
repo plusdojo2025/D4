@@ -34,12 +34,13 @@
 				<td>
 					<input type="submit" value="ログイン">
 					<input type="reset" value="リセット">
+					<span id="error_message"></span>
 				</td>
 			<tr>
 			
 		</table>
 	</form>
-	<p>新規登録はこちらから</p>
+	<a href="/D4/RegistServlet">新規登録はこちらから</a>
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<div>
