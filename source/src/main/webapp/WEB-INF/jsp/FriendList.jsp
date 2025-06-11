@@ -24,20 +24,21 @@
 <ul>
 <!-- forEach で状態が2のもののみ表示-->
 <c:forEach var="e" items="${friendList}">
+<c:if test="${e.state == 2}">
 	<li>
 	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
 	<form class="checkApply" method="POST" action="/webapp/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}" class="id">
 	<!-- テキスト(相手の名前) -->
-	<p>${e.friendId}</p>
+	<p>${e.friendName}</p>
 	<!-- ボタン(詳細画面に移動) -->
 	<input type="submit" name="searchSubmit" value="詳細">
 	</form>
 	<!-- フォーム終わり -->
 	</li>
+</c:if>
 </c:forEach>
-<!-- /foreach -->
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
@@ -47,19 +48,22 @@
 <!-- スクロールできるリスト(フレンドを一覧表示) -->
 <ul>
 <!-- foreach で状態が3のもののみ表示-->
+<c:forEach var="e" items="${friendList}">
+<c:if test="${e.state == 3}">
 	<li>
 	<!-- フォーム(フレンド1人を対象に詳細ページへ移動する) -->
 	<form class="check" method="POST" action="/webapp/FriendListServlet">
 	<!-- 非表示でidを持つ -->
-	<!-- input type="hidden" name="friendId" value="${e.friendId}" class="id" -->
+	<input type="hidden" name="friendId" value="${e.friendId}" class="id">
 	<!-- テキスト(相手の名前) -->
-	<p>フレンドの名前</p>
+	<p>${e.friendName}</p>
 	<!-- ボタン(詳細画面に移動) -->
 	<input type="submit" name="searchSubmit" value="確認">
 	</form>
 	<!-- フォーム終わり -->
 	</li>
-<!-- /foreach -->
+</c:if>
+</c:forEach>
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
