@@ -74,7 +74,7 @@ public class HealthDAO {
 	}		
 
 	
-	// レコードの登録
+	// レコードの登録 insert
 	public boolean insert(Health card) {
 		Connection conn = null;
 		boolean result = false;
