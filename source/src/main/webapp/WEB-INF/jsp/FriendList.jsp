@@ -9,7 +9,7 @@
 <body>
 
 <!-- フォーム(id検索) -->
-<form class="searchFriend" method="POST" action="/webapp/FriendListServlet">
+<form class="searchFriend" method="POST" action="/D4/FriendListServlet">
 <!-- テキストボックス -->
 <label>ID検索<br>
 <input type="text" name="friendId" placeholder="idで検索"></label>
@@ -27,7 +27,7 @@
 <c:if test="${e.state == 2}">
 	<li>
 	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
-	<form class="checkApply" method="POST" action="/webapp/FriendListServlet">
+	<form class="checkApply" method="POST" action="/D4/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<!-- テキスト(相手の名前) -->
@@ -52,7 +52,7 @@
 <c:if test="${e.state == 3}">
 	<li>
 	<!-- フォーム(フレンド1人を対象に詳細ページへ移動する) -->
-	<form class="check" method="POST" action="/webapp/FriendListServlet">
+	<form class="check" method="POST" action="/D4/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<!-- テキスト(相手の名前) -->
