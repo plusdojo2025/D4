@@ -14,6 +14,7 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
+<div class="profile">
 	<h2>プロフィールを編集</h2><p>現在のログイン日数:</p>
 	<form>
         <button>アイコンボタン(仮)</button><br>
@@ -30,7 +31,7 @@
 		非公開設定&emsp;&emsp;食事<input type="checkbox">&emsp;&emsp;睡眠<input type="checkbox">&emsp;&emsp;運動<input type="checkbox"><br>
         <button type="submit">保存</button>
 	</form>
-	
+</div>	
 	<%-- メインここまで --%>
 </body>
 <script src="/D4/js/useroption.js"></script>

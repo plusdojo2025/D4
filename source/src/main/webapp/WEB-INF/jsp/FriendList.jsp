@@ -36,7 +36,7 @@
  </nav>
 </aside>
 <!-- フォーム(id検索) -->
-<form class="searchFriend" method="POST" action="/D4/FriendListServlet">
+<form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
 <!-- テキストボックス -->
 <label>ID検索<br>
 <input type="text" name="friendId" placeholder="idで検索"></label>
@@ -106,4 +106,5 @@
     <p>&copy;2025HARU</p>
 </footer>
 </body>
+<script src="/webapp/friendList.js"></script>
 </html>

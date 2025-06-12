@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,6 +35,22 @@ public class HealthServlet extends HttpServlet {
 			return;
 		}
 		
+		// weight がまだセッションに存在しない場合のみ追加
+		if (session.getAttribute("weight") == null) {
+			
+			HealthDAO hDao = new HealthDAO();
+			Users loginUser = (Users) session.getAttribute("users");
+			String myId = loginUser.getId().toString();
+			LocalDateTime yesterday = LocalDateTime.now().minusDays(1);
+			String date = yesterday.toLocalDate().toString();
+			
+			List<Health> healthList = hDao.select(new Health(myId, date));
+			
+			if (healthList != null && !healthList.isEmpty()) {
+			    session.setAttribute("weight", healthList.get(0).getWeight());
+			}
+		}
+		
 		 //登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Health.jsp");
 		dispatcher.forward(request, response);
@@ -62,16 +79,12 @@ public class HealthServlet extends HttpServlet {
 		//現在日時
 		LocalDateTime today = LocalDateTime.now();
 		String date = today.toLocalDate().toString();
-		
-		//String date = request.getParameter("date");
-		
+				
 		int vegetable = Integer.parseInt(request.getParameter("vegetable"));
 		
 		int sleepHour = Integer.parseInt(request.getParameter("sleep_hour"));
 		int sleepMinute = Integer.parseInt(request.getParameter("sleep_minute"));
 		int sleep = 60*sleepHour + sleepMinute;
-		System.out.println(sleep);
-		
 		
 		int walk; 
 		String checkWalk = request.getParameter("walk");
@@ -90,9 +103,7 @@ public class HealthServlet extends HttpServlet {
 		}else {
 			weight= Double.parseDouble(checkWeight);
 		}
-		
-		System.out.println(id);
-		System.out.println(date);
+
 
 	
 		// 登録処理を行う

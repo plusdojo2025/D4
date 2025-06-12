@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
 import dto.Users;
 
 /**
@@ -37,6 +38,7 @@ public class UserOptionServlet extends HttpServlet {
 		String myId = loginUser.getId().toString();
 		
 		// 検索処理を行う
+		UsersDAO uDao = new UsersDAO();
 		
 		// ユーザー編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserOption.jsp");

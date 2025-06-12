@@ -3,7 +3,7 @@ body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   background-color: #8bdb9f;
-  color: #ffffff;  
+  /*color: #ffffff;*/
 }
 
 header {
@@ -113,6 +113,11 @@ a:hover {
     color: #ffa4a4;
     text-decoration: none;
 }
+
+.copyright{
+	color:#fff;
+}
+
 footer {
   text-align: center;
   padding: 8px 0;
