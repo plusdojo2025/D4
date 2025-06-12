@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>処理結果</title>
+<title>処理結果 | けんこう日和</title>
 </head>
 <body>
 <h1><img src=""></h1>

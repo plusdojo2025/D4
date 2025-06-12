@@ -8,13 +8,22 @@
 <link rel="stylesheet" type="text/css" href="css/regist.css">
 </head>
 <body>
+    <%-- ヘッダー --%>
+<header>
 <div class="logo">
-	<%-- ヘッダー --%>
-	<h1>
-	<%--ここにロゴ画像を入れる --%>
-	</h1>
+<%--ここにロゴ画像を入れる --%>
+</div>
+<nav class="nav-menu">
+  <ul>
+    <li><img src=""><a href="">情報登録</a></li>
+    <li class="with-border"><img src=""><a href="">評価</a></li>
+    <li class="with-border"><img src=""><a href="">ランキング</a></li>
+    <li class="with-border"><img src=""><a href="">フレンド</a></li>
+  </ul>
+ </nav>
+</header>	
 	<%-- ヘッダーここまで --%>
-</div>	
+	
 	<%-- メイン --%>	
 <div class="regist-form">
 	<form method="POST" action="/D4/LoginServlet">

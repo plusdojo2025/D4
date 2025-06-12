@@ -10,13 +10,13 @@
 <!-- 詳細情報表示 -->
 
 <!-- ボタンで送るためのフォーム -->
-<form class="friendInfo" method="POST" action="/webapp/FriendListServlet">
+<form class="friendInfo" method="POST" action="/D4/FriendListServlet">
 <!-- 非表示でidを持つ -->
 <input type="hidden" name="friendId" value="${user.id}" class="id">
 <!-- テキスト(相手の名前) -->
-<p>${usersList.name}</p>
+<p>${user.name}</p>
 <!-- テキスト(連続ログイン) -->
-<p>${userList.nLogin}</p>
+<p>${user.nLogin}</p>
 
 <!-- 表示制御(stateが1なら申請中、2なら申請されている状態、3ならフレンド) -->
 
@@ -28,17 +28,17 @@
 <c:if test="${f.friendId == user.id}">
 
 	<!--  ボタン(戻る/申請(押せない)の処理　状態は1) -->
-	<c:if test="${friendList.state == 1}">
+	<c:if test="${f.state == 1}">
 		<input type="submit" name="submit" value="戻る">
 		<input type="submit" name="submit" value="申請済" disabled>
 	</c:if>
 	<!-- ボタン(拒否/承認の処理　状態は2) -->
-	<c:if test="${friendList.state == 2}">
+	<c:if test="${f.state == 2}">
 		<input type="submit" name="submit" value="拒否">
 		<input type="submit" name="submit" value="承認">
 	</c:if>
 	<!-- ボタン(戻る/削除の処理 状態は3) -->
-	<c:if test="${friendList.state == 3}">
+	<c:if test="${f.state == 3}">
 		<input type="submit" name="submit" value="戻る">
 		<input type="submit" name="submit" value="削除">
 	</c:if>
