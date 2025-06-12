@@ -27,6 +27,7 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
@@ -36,7 +37,8 @@ public class FriendListServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得する
 		String myId = (session.getAttribute("id")).toString();
-
+		*/
+		String myId = "user001";
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();

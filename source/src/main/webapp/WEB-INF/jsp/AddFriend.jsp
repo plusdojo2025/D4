@@ -12,7 +12,7 @@
 <!-- ボタンで送るためのフォーム -->
 <form class="friendInfo" method="POST" action="/webapp/FriendListServlet">
 <!-- 非表示でidを持つ -->
-<input type="hidden" name="friendId" value="${usersList.id}" class="id">
+<input type="hidden" name="friendId" value="${user.id}" class="id">
 <!-- テキスト(相手の名前) -->
 <p>${usersList.name}</p>
 <!-- テキスト(連続ログイン) -->
