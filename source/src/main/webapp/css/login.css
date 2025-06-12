@@ -60,7 +60,7 @@ input {
 }
 
 .login-form {
-  border: 5px solid #98e4ab; /* 枠線の色と太さ */
+  border: 5px solid #8bdb9f; /* 枠線の色と太さ */
   border-radius: 30px; /* 角を丸くする */
   padding: 20px; /* 内側の余白 */
   width: 300px; /* フォームの幅 */
