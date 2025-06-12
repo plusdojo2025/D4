@@ -8,18 +8,14 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
+<%-- ヘッダー --%>
 <header>
 <div class="logo"><%--ここにロゴ画像を入れる --%>
 <img src="/D4/img/情報登録w.png">
 </div>
 </header>
+<%-- ヘッダーここまで --%>
 <main>
-	<%-- ヘッダー --%>
-	<h1>
-		<%--ここにロゴ画像を入れる --%>
-	</h1>
-	<%-- ヘッダーここまで --%>
-	<%-- メイン --%>
 <div class="login-form">
 	<form method="post" action="${pageContext.request.contextPath}/LoginServlet">
 		<div class="login">
