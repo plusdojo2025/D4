@@ -50,6 +50,9 @@
 	<div></div>
 	<%-- フッターここまで --%>
 </main>
+<footer>
+    <p>&copy;2025HARU</p>
+</footer>
 </body>
 <!-- <script src="/D4/js/login.js"></script> -->
 
