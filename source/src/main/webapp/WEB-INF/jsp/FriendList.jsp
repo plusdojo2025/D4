@@ -7,7 +7,7 @@
 <title>フレンド一覧|健康日和</title>
 <link rel="stylesheet" type="text/css" href="css/friendList.css">
 </head>
-<body>
+<body id="top">
 <%-- ヘッダー --%>
 <header>
 <div class="logo">
@@ -94,6 +94,12 @@
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
+<div>
+    <a href="#top" class="page_top">
+      <img src="top-icon.png" class="top-icon" alt="トップへ">
+      TOP
+    </a>
+  </div>
  </section>
 </main>
 <footer>
