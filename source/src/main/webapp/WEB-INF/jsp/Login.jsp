@@ -14,6 +14,7 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
+<div class="login-form">
 	<form method="post" action="${pageContext.request.contextPath}/LoginServlet">
 		<div class="login">
 			<div class="input-group">
@@ -36,6 +37,7 @@
 	<div class="back">
 		<a href="/D4/RegistServlet">新規登録はこちらから</a>
 	</div>
+</div>
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<div></div>

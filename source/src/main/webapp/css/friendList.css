@@ -2,11 +2,12 @@
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #d2f8d8;
+  background-color: #b1edbc;
   color: #ffffff;
 }
+
 header {
-  background-color: #d2f8d8;
+  background-color: #b1edbc;
   text-align: center;
   padding: 20px 0;
 }
@@ -46,11 +47,26 @@ header {
 }
 main .content {
   background-color: white;
-  min-height: 300px;
-  border-top-left-radius: 50% 20%;
-  border-top-right-radius: 50% 20%;
+  min-height: 800px;
+  border-top-left-radius: 1000px 300px;
+  border-top-right-radius: 1000px 300px;
   padding: 40px;
 }
+
+  
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 /*ロゴ画像*/
 .logo img{
   align-items: center;
@@ -64,6 +80,52 @@ main .content {
 }
 
 .nav-menu a:hover {
-  color: #13916b; /* ホバー時に少し色を変える例（任意） */
+  color: #ffebeb; /* ホバー時に少し色を変える例（任意） */
+}
+
+footer {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #b1edbc;
+  font-size: 12px;
+}
+.side-panel {
+  position: fixed;
+  top: 300px; 
+  right: 20px;
+  background-color: #b1edbc;
+  border-radius: 20px;
+  padding: 10px;
+  width: 120px;
+  color: white;
+}
+.nav-side li img {
+  width: 40px; /* 横幅を小さく */
+  height: auto; /* 高さは自動調整でバランスを保つ */
+  margin-right: 5px; /* テキストとの余白 */
+  vertical-align: middle; /* 行の中央に揃える */
+}
+.nav-side ul {
+  list-style: none; /* ・を消す */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-side li {
+  display: flex;
+  flex-direction: column; /* 画像の下に文字 */
+  align-items: center;     /* 中央揃え */
+  margin-bottom: 10px;
+}
+
+.nav-side li a {
+  text-decoration: none; /* 下線を消す */
+  color: white;          /* お好みの文字色 */
+  font-size: 14px;
+}
+.logout-border {
+  border-top: 1px solid white;
+  padding-top: 10px; /* 線と内容の間に余白を追加（任意） */
+  margin-top: 10px;  /* 線と上の項目との間隔を追加（任意） */
 }
 
