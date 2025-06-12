@@ -36,15 +36,13 @@ public class FriendListServlet extends HttpServlet {
 		}
 		
 		// リクエストパラメータを取得する
+		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		Users loginUser = (Users) session.getAttribute("users");
 		String myId = loginUser.getId().toString();
 	
-		
-		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
 		Friend sFriend = new Friend(myId);
-		
 		
 		try {
 			List<Friend> friendList = fDao.select(sFriend);
