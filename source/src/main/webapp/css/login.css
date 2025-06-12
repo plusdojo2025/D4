@@ -113,6 +113,11 @@ a:hover {
     color: #ffa4a4;
     text-decoration: none;
 }
+
+.copyright{
+	color:#fff;
+}
+
 footer {
   text-align: center;
   padding: 8px 0;
