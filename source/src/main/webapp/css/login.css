@@ -12,23 +12,35 @@
       flex-direction: column;
 }
 label {
-      font-size: 20px;
+      font-size: 26px;
 }
 
 input {
-    	background-color: #98e4ab;
+    	background-color: #fcfefc; /*テキストボックス背景色*/
       	padding: 10px;
       	font-size: 15px;
       	margin-top :15px;
       	border-radius: 15px; /* 角を丸くする */
-      	outline: none;
+      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
 .button{
 	text-align:center;
 }
 
+#log{
+	font-size:22px;
+	width:130px;
+	height:70px;
+}
+
+#res{
+	width:100px;
+	margin-top:40px
+}
+
+
 .bt{
-	background-color: #98e4ab; /* ボタンの背景色 */
+	background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
@@ -36,6 +48,15 @@ input {
   	border-radius: 30px; /* 角を丸くする */
   	cursor: pointer; /* ホバー時にポインターを表示 */
   	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.bt:hover {
+  background-color: #88df9b; /* ホバー時の背景色 */
+}
+
+.bt:active {
+  background-color: #66d780; /* クリック時の背景色 */
+  transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
 .login-form {
@@ -47,7 +68,25 @@ input {
   background-color:#d2f8d8;
 }
 
+
+
 .back{
+	font-size: 20px;
 	text-align:center;
+	text-decoration: none;
 }
+
+a{
+	color:#6262ff;
+}
+a:link{
+	color: #F07D34;
+	text-decoration: none;
+}
+
+a:hover {
+    color: #ffa4a4;
+    text-decoration: none;
+}
+
     
