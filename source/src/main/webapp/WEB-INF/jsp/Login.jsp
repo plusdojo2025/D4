@@ -14,7 +14,7 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	<div class="main">
+	<div class="login-form">
 	<form method="POST" action="/D4/LoginServlet">
   	<div class="login">
     <div class="input-group">
@@ -27,8 +27,8 @@
     </div>
   </div>	
 	<div class="button">
-		<input type="submit" value="ログイン">
-		<input type="reset" value="リセット">
+		<input type="submit" class="bt" value="ログイン">
+		<input type="reset"  class="bt" value="リセット">
 	</div>
 	</form>
 	
