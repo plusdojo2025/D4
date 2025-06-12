@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -103,9 +102,8 @@ public class  AddFriendServlet extends HttpServlet {
 		    //戻る
 		    case "戻る":
 		    	//フレンドリストに戻る
-		    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/FriendList.jsp");
-				dispatcher.forward(request, response);
-		    	break;
+		    	response.sendRedirect("/D4/FriendListServlet");
+				return;
 		    
 		    default:
 		    	
