@@ -1,1 +1,69 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #d2f8d8;
+  color: #ffffff;
+}
+header {
+  background-color: #d2f8d8;
+  text-align: center;
+  padding: 20px 0;
+}
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 評価の左側に白い縦線を表示 */
+.nav-menu li.with-border {
+  border-left: 1px solid #ffffff;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+.nav-menu li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-menu li img {
+  width: 40px;
+  /*height: 40px;*/
+  margin-bottom: 5px;
+  height: auto;
+}
+main .content {
+  background-color: white;
+  min-height: 300px;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+  padding: 40px;
+}
+/*ロゴ画像*/
+.logo img{
+  align-items: center;
+  width: 30px;
+  height: auto;
+}
+/*リンクの文字の色*/
+.nav-menu a {
+  color: white;
+  text-decoration: none; /* 必要なら下線を消す */
+}
+
+.nav-menu a:hover {
+  color: #13916b; /* ホバー時に少し色を変える例（任意） */
+}
+
