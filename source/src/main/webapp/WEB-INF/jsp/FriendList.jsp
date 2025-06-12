@@ -100,5 +100,5 @@
     <p>&copy;2025HARU</p>
 </footer>
 </body>
-<script src="/webapp/friendList.js"></script>
+<script src="/webapp/js/friendList.js"></script>
 </html>
