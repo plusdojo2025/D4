@@ -25,6 +25,16 @@
 </header>
 <main>
  <section class="content">
+<aside class="side-panel"> 
+<nav class="nav-side">
+  <ul>
+  <li class="with-border"><img src="/D4/img/ボーナスw.png"><a href="/D4/BornusServlet">ログインボーナス</a></li>
+  <li class="with-border"><img src="/D4/img/ユーザー情報w.png"><a href="/D4/UserOptionServlet">ユーザー情報</a></li>
+  <li class="with-border logout-border"><img src="/D4/img/logoutw.png"><a href="/D4/LoginServlet">ログアウト</a></li>
+</ul>
+  
+ </nav>
+</aside>
 <!-- フォーム(id検索) -->
 <form class="searchFriend" method="POST" action="/D4/FriendListServlet">
 <!-- テキストボックス -->
@@ -86,5 +96,8 @@
 <!-- リスト終わり -->
  </section>
 </main>
+<footer>
+    <p>&copy;2025HARU</p>
+</footer>
 </body>
 </html>
