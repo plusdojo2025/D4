@@ -9,9 +9,8 @@
 </head>
 <body>
 <header>
-<div class="logo">
+<div class="logo"><%--ここにロゴ画像を入れる --%>
 <img src="/D4/img/情報登録w.png">
-<%--ここにロゴ画像を入れる --%>
 </div>
 </header>
 <main>
