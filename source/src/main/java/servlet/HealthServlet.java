@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.HealthDAO;
 import dto.Health;
+import dto.Users;
 
 /**
  * Servlet implementation class HealthServlet
@@ -19,28 +21,18 @@ import dto.Health;
 @WebServlet("/HealthServlet")
 public class HealthServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-	 
-
-	    public HealthServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//もしもログインしていなかったらログインサーブレットにリダイレクトする
-		//HttpSession session = request.getSession();
-		//if (session.getAttribute("id") == null) {
-			//response.sendRedirect("/D4/LoginServlet");
-			//return;
-		//}
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/webapp/LoginServlet");
+			return;
+		}
 		
 		 //登録ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Health.jsp");
@@ -54,15 +46,18 @@ public class HealthServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//HttpSession session = request.getSession();
-		
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/webapp/LoginServlet");
+			return;
+		}
 		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		
-		//String id = session.getAttribute("id").toString();
-		String id ="user001";	
-		//String date = "2025-06-12";
+		Users loginUser = (Users) session.getAttribute("users");
+		String id = loginUser.getId().toString();
 		
 		//現在日時
 		LocalDateTime today = LocalDateTime.now();
@@ -70,15 +65,15 @@ public class HealthServlet extends HttpServlet {
 		
 		//String date = request.getParameter("date");
 		
-		int    vegetable = Integer.parseInt(request.getParameter("vegetable"));
+		int vegetable = Integer.parseInt(request.getParameter("vegetable"));
 		
-		int    sleepHour = Integer.parseInt(request.getParameter("sleep_hour"));
-		int    sleepMinute = Integer.parseInt(request.getParameter("sleep_minute"));
-		int    sleep = 60*sleepHour + sleepMinute;
+		int sleepHour = Integer.parseInt(request.getParameter("sleep_hour"));
+		int sleepMinute = Integer.parseInt(request.getParameter("sleep_minute"));
+		int sleep = 60*sleepHour + sleepMinute;
 		System.out.println(sleep);
 		
 		
-		int    walk; 
+		int walk; 
 		String checkWalk = request.getParameter("walk");
 		if(checkWalk == null || checkWalk.isEmpty()){
 			walk=0;

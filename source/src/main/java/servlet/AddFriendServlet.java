@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
 import dto.Friend;
+import dto.Users;
 
 
 @WebServlet("/AddFriendServlet")
@@ -26,14 +27,15 @@ public class  AddFriendServlet extends HttpServlet {
 	
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("users") == null) {
 			response.sendRedirect("/webapp/LoginServlet");
 			return;
 		}
 		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String myId = (session.getAttribute("id")).toString();
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
 		String friendId = request.getParameter("friendId");
 		String action = request.getParameter("submit");
 		
