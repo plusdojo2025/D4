@@ -27,6 +27,7 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
@@ -36,7 +37,8 @@ public class FriendListServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得する
 		String myId = (session.getAttribute("id")).toString();
-
+		*/
+		String myId = "user001";
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
@@ -74,7 +76,6 @@ public class FriendListServlet extends HttpServlet {
 		String myId = (session.getAttribute("id")).toString();
 		String friendId = request.getParameter("friendId");
 		
-		//
 		// friendLsitの情報と対象のユーザー情報を取得
 		UsersDAO uDao = new UsersDAO();
 		FriendDAO fDao = new FriendDAO();
@@ -82,11 +83,26 @@ public class FriendListServlet extends HttpServlet {
 		Friend sFriend = new Friend(myId, friendId);
 		
 		try {
-			//List<Users> usersList = uDao.select();
+			List<Users> usersList = uDao.select(sUsers);
 			List<Friend> friendList = fDao.select(sFriend);
 			
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("friendList", friendList);
+			request.setAttribute("user", usersList.get(0));
+			
+			boolean hasFriend = false; // フレンドリストにない場合の処理に使う
+
+			// friendList の中を1つずつ調べる
+			for (Friend f : friendList) {
+			    //対象がフレンドリストに登録されているなら
+			    if (f.getFriendId().equals(usersList.get(0).getId())) {
+			        hasFriend = true;  // 存在している判定
+			        break;
+			    }
+			}
+
+			// JSPで使うためにリクエストにセット
+			request.setAttribute("hasFriend", hasFriend);
 			
 			// フレンド一覧ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/FriendList.jsp");

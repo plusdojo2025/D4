@@ -85,38 +85,47 @@ public class UsersDAO {
 					"root", "password");
 			
 			/*SELECT文を準備*/
+			//ユーザー情報の取得
 			String sql = "SELECT * FROM users WHERE id = ? ";
 			
-			String cLogSql = "WITH login_data AS SELECT id AS user_id, date AS login_date, "
-					+ "ROW_NUMBER() OVER (PARTITION BY id ORDER BY date) AS rn "
-					+ "FROM healthList), "
-					+ "streaks AS (SELECT user_id, login_date, "
-					+ "DATE_SUB(login_date, INTERVAL rn DAY) AS streak_group "
-					+ "FROM login_data) "
-					+ "SELECT user_id, COUNT(*) AS consecutive_days, "
-					+ "MIN(login_date) AS start_date, "
-					+ "MAX(login_date) AS end_date "
-					+ "FROM streaks GROUP BY user_id, streak_group ORDER BY user_id, start_date";
-			
+			//連続ログインに数の算出
+			String rLogSql = "WITH login_data AS "
+					+ "(SELECT id AS user_id, date AS login_date, ROW_NUMBER() OVER (PARTITION BY id ORDER BY date) "
+					+ "AS rn FROM healthList WHERE id = ?), streaks AS (SELECT user_id, login_date, DATE_SUB"
+					+ "(login_date, INTERVAL rn DAY) AS streak_group FROM login_data), grouped_streaks "
+					+ "AS (SELECT user_id, COUNT(*) AS consecutive_days, MIN(login_date) AS start_date, "
+					+ "MAX(login_date) AS end_date FROM streaks GROUP BY user_id, streak_group), ranked_streaks "
+					+ "AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY end_date DESC) "
+					+ "AS recent_rank, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY consecutive_days DESC, end_date DESC) "
+					+ "AS longest_rank FROM grouped_streaks) SELECT user_id, MAX(CASE WHEN recent_rank = 1 THEN consecutive_days END) "
+					+ "AS latest_streak_days, MAX(CASE WHEN longest_rank = 1 THEN consecutive_days END) "
+					+ "AS longest_streak_days FROM ranked_streaks GROUP BY user_id";
+
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, users.getId());
 			
-			// SELECT文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
+			PreparedStatement lStmt = conn.prepareStatement(rLogSql);
+			pStmt.setString(1, users.getId());
 			
+			// SELECT文を実行し、結果表を取得する
+			ResultSet prs = pStmt.executeQuery();
+			ResultSet lrs = lStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
+			while (prs.next()) {
+				lrs.next();
 				Users tmpUser = new Users(
-						rs.getString("id"), 
-						rs.getString("pw"), 
-						rs.getInt("height"),
-						rs.getString("name"),
-						rs.getInt("theme"),
-						rs.getInt("icon"),
-						rs.getInt("vPrivate"),
-						rs.getInt("sPrivate"),
-						rs.getInt("wPrivate")
+						prs.getString("id"), 
+						prs.getString("pw"), 
+						prs.getInt("height"),
+						prs.getString("name"),
+						prs.getInt("theme"),
+						prs.getInt("icon"),
+						prs.getInt("vPrivate"),
+						prs.getInt("sPrivate"),
+						prs.getInt("wPrivate"),
+						lrs.getInt("longest_streak_days"),
+						lrs.getInt("latest_streak_days")
 						);
 				
 				usersList.add(tmpUser);
@@ -140,6 +149,7 @@ public class UsersDAO {
 		/*結果を返す*/
 		return usersList;
 	}
+	
 	//insertを実装
 	
 	//deleteを実装(テストデータの削除用)
