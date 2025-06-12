@@ -20,7 +20,7 @@ header {
 }
 main {
   background-color: white;
-  min-height: 800px;
+  min-height: 500px;
   border-top-left-radius: 1000px 300px;
   border-top-right-radius: 1000px 300px;
   padding: 40px;
@@ -113,5 +113,10 @@ a:hover {
     color: #ffa4a4;
     text-decoration: none;
 }
-
+footer {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #b1edbc;
+  font-size: 12px;
+}
     
