@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.Users;
+
 /**
  * Servlet implementation class UserOptionServlet
  */
@@ -28,6 +30,13 @@ public class UserOptionServlet extends HttpServlet {
 			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
+		
+		// リクエストパラメータを取得する
+		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+		
+		// 検索処理を行う
 		
 		// ユーザー編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserOption.jsp");
