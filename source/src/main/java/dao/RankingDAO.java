@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import dto.Friend;
@@ -18,193 +19,157 @@ import dto.Ranking;
 
 public class RankingDAO {
 
-	public Ranking select(String userid, String startDate) {
-		Connection conn = null;
-		
-		Ranking ranking = new Ranking();
-		int sumScore = 0;
-		int day = 0;
+    // 指定ユーザーの1週間分の健康データを取得し、スコア平均を計算してRankingオブジェクトを返す
+    public Ranking select(String userid, String startDate) {
+        Connection conn = null;
+        Ranking ranking = new Ranking();
+        int sumScore = 0;
+        int dayCount = 0;
 
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+        try {
+            // JDBCドライバのロード
+            Class.forName("com.mysql.cj.jdbc.Driver");
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
-				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
-				"root", "password");
+            // データベースに接続
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/d4?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+                "root", "password"
+            );
 
-			String sql = "SELECT users.id, users.name, healthList.date, "
-			           + "healthList.vegetable, healthList.sleep, healthList.walk, "
-			           + "healthList.stress, healthList.weight "
-			           + "FROM healthList "
-			           + "JOIN users ON healthList.id = users.id "
-			           + "WHERE users.id = ? "
-			           + "AND healthList.date BETWEEN ? AND DATE_ADD(?, INTERVAL 6 DAY)";
+            // SQL文を定義（指定ユーザーの1週間分の健康情報を取得）
+            String sql = 
+                "SELECT users.id, users.name, healthList.date, " +
+                "healthList.vegetable, healthList.sleep, healthList.walk, " +
+                "healthList.stress, healthList.weight " +
+                "FROM healthList " +
+                "JOIN users ON healthList.id = users.id " +
+                "WHERE users.id = ? " +
+                "AND healthList.date BETWEEN ? AND DATE_ADD(?, INTERVAL 6 DAY)";
 
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, userid);
-			pStmt.setString(2, startDate);
-			pStmt.setString(3, startDate);
-			
-			ResultSet rs = pStmt.executeQuery();
-			
-			List<Health> healthList = new ArrayList<Health>();
-			
-			String name = "";
-			String id = "";
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, userid);
+            pStmt.setString(2, startDate);
+            pStmt.setString(3, startDate);
 
-			while (rs.next()) {
-				id = rs.getString("id");
-				name = rs.getString("name");
-				String date = rs.getString("date");
-				int vegetable = rs.getInt("vegetable");
-				int sleep = rs.getInt("sleep");
-				int walk = rs.getInt("walk");
-				int stress = rs.getInt("stress");
-				double weight = rs.getDouble("weight");
-				
-				sumScore += calSum(vegetable, sleep, walk);
-				day += 1;
+            ResultSet rs = pStmt.executeQuery();
 
-				Health health = new Health(id, date, vegetable, sleep, walk, stress, weight);
-				
-				healthList.add(health);
+            List<Health> healthList = new ArrayList<>();
+            String name = "";
+            String id = "";
 
-			}
-			
-			ranking = new Ranking(0, name, (double) sumScore/day, id, healthList);
-		
+            // 検索結果からHealthリストとスコアを作成
+            while (rs.next()) {
+                id = rs.getString("id");
+                name = rs.getString("name");
+                String date = rs.getString("date");
+                int vegetable = rs.getInt("vegetable");
+                int sleep = rs.getInt("sleep");
+                int walk = rs.getInt("walk");
+                int stress = rs.getInt("stress");
+                double weight = rs.getDouble("weight");
 
-			rs.close();
-			pStmt.close();
+                // 日ごとのスコアを計算し、合計に加算
+                sumScore += calSum(vegetable, sleep, walk);
+                dayCount++;
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+                // Healthオブジェクトをリストに追加
+                healthList.add(new Health(id, date, vegetable, sleep, walk, stress, weight));
+            }
 
-		return ranking;
-	}
-	
-	// 1週間のcalSumの平均のスコアの順位の計算をする
-	public List<Ranking> addRankToRankingList(List<Ranking> rankingList) {
-	    // バブルソート
-	    int i = 0;
-	    int j = 0;
-	    while (i < rankingList.size() - 1) {
-	        while (j < rankingList.size() - 1 - i) {
-	            Ranking r1 = rankingList.get(j);
-	            Ranking r2 = rankingList.get(j + 1);
-	            if (r1.getScore() < r2.getScore()) {
-	                // 入れ替え
-	                rankingList.set(j, r2);
-	                rankingList.set(j + 1, r1);
-	            }
-	            j++;
-	        }
-	        i++;
-	    }
-	    
+            // 平均スコアを算出し、Rankingオブジェクトを生成
+            double avgScore = (dayCount > 0) ? (double) sumScore / dayCount : 0.0;
+            ranking = new Ranking(0, name, avgScore, id, healthList);
 
-	    // 順位を付ける
-	    int index = 0;
-	    int rank = 1;
-	    int sameCount = 1;
-	    double prevScore = -1;
+            rs.close();
+            pStmt.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            // 接続を切る
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-	    while (index < rankingList.size()) {
-	        Ranking current = rankingList.get(index);
-	        double score = current.getScore();
+        return ranking;
+    }
 
-	        if (index == 0) {
-	            current.setRank(rank);
-	        } else if (score == prevScore) {
-	            current.setRank(rank);
-	            sameCount++;
-	        } else {
-	            rank += sameCount;
-	            current.setRank(rank);
-	            sameCount = 1;
-	        }
+    // ランキングリストに順位を追加する（スコアが高い順）
+    public List<Ranking> addRankToRankingList(List<Ranking> rankingList) {
+        // バブルソートでスコアの降順に並べ替え
+        for (int i = 0; i < rankingList.size() - 1; i++) {
+            for (int j = 0; j < rankingList.size() - 1 - i; j++) {
+                if (rankingList.get(j).getScore() < rankingList.get(j + 1).getScore()) {
+                    Collections.swap(rankingList, j, j + 1);
+                }
+            }
+        }
 
-	        prevScore = score;
-	        index++;
-	    }
+        // 同スコアは同順位として順位を付与
+        int rank = 1;
+        int sameCount = 1;
+        double prevScore = -1;
 
-	    return rankingList;
-	}
+        for (int index = 0; index < rankingList.size(); index++) {
+            Ranking current = rankingList.get(index);
+            double score = current.getScore();
 
-	
-	
-	// 1日分のスコアの合計を求める
-	public int calSum (int vegetable, int sleep, int walk) {
-		
-		int sleepScore = 0;
-		int walkScore = 0;
-		
-		if (300 > sleep) {
-			sleepScore = 1;
-		}
-		else if (350 > sleep) {
-			sleepScore = 2;
-		}
-		else if (400 > sleep) {
-			sleepScore = 3;
-		}
-		else if (450 > sleep) {
-			sleepScore = 4;
-		}
-		else {
-			sleepScore = 5;
-		}
-		
-		if (2000 > walk) {
-			walkScore = 1;
-		}
-		else if (3500 > walk) {
-			walkScore = 2;
-		}
-		else if (5000 > walk) {
-			walkScore = 3;
-		}
-		else if (6500 > walk) {
-			walkScore = 4;
-		}
-		else {
-			walkScore = 5;
-		}
-		
-		return vegetable + sleepScore + walkScore;
-	}
-	
-	//全員分のランキングのスコアをリストを作る
-	public List<Ranking> makeRanking(List<Friend> friendList){
-		List<Ranking> rankingList = new ArrayList<Ranking>();
-		String date = LocalDate.now()
-			    .with(TemporalAdjusters.previousOrSame(DayOfWeek.SUNDAY))
-			    .format(DateTimeFormatter.ISO_LOCAL_DATE);
+            if (index == 0) {
+                current.setRank(rank);
+            } else if (score == prevScore) {
+                current.setRank(rank);
+                sameCount++;
+            } else {
+                rank += sameCount;
+                current.setRank(rank);
+                sameCount = 1;
+            }
 
-		for(Friend friend : friendList) {
-			
-			if(friend.getState() == 3) {
-				Ranking ranking = select(friend.getFriendId(), date);
-				rankingList.add(ranking);
-			}	
-		}
-		Ranking ranking = select((friendList.get(0)).getMyId(), date);
-		rankingList.add(ranking);
-		
-		List<Ranking> rankingResult = addRankToRankingList(rankingList); 
-			
-		return rankingResult;
-	}
-	
+            prevScore = score;
+        }
+
+        return rankingList;
+    }
+
+    // 1日分の健康スコアを計算する（野菜 + 睡眠スコア + 歩数スコア）
+    public int calSum(int vegetable, int sleep, int walk) {
+        int sleepScore = (sleep < 300) ? 1 :
+                         (sleep < 350) ? 2 :
+                         (sleep < 400) ? 3 :
+                         (sleep < 450) ? 4 : 5;
+
+        int walkScore = (walk < 2000) ? 1 :
+                        (walk < 3500) ? 2 :
+                        (walk < 5000) ? 3 :
+                        (walk < 6500) ? 4 : 5;
+
+        return vegetable + sleepScore + walkScore;
+    }
+
+    // フレンド＋自分のランキングを1週間分生成し、順位を付けて返す
+    public List<Ranking> makeRanking(List<Friend> friendList) {
+        List<Ranking> rankingList = new ArrayList<>();
+
+        // 今週の日曜日の日付を取得
+        String startDate = LocalDate.now()
+                .with(TemporalAdjusters.previousOrSame(DayOfWeek.SUNDAY))
+                .format(DateTimeFormatter.ISO_LOCAL_DATE);
+
+        // フレンドリストから状態3のユーザーを対象にランキングデータを取得
+        for (Friend friend : friendList) {
+            if (friend.getState() == 3) {
+                rankingList.add(select(friend.getFriendId(), startDate));
+            }
+        }
+
+        // 自分自身のランキングも追加
+        rankingList.add(select(friendList.get(0).getMyId(), startDate));
+
+        // 順位を付けて返す
+        return addRankToRankingList(rankingList);
+    }
 }
