@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
 import dao.UsersDAO;
@@ -39,10 +38,12 @@ public class FriendListServlet extends HttpServlet {
 		String myId = (session.getAttribute("id")).toString();
 		*/
 		String myId = "user001";
+		
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
 		Friend sFriend = new Friend(myId);
+		
 		
 		try {
 			List<Friend> friendList = fDao.select(sFriend);
@@ -64,16 +65,18 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/webapp/LoginServlet");
 			return;
 		}
-		
+		*/
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String myId = (session.getAttribute("id")).toString();
+		//String myId = (session.getAttribute("id")).toString();
+		String myId = "user001";
 		String friendId = request.getParameter("friendId");
 		
 		// friendLsitの情報と対象のユーザー情報を取得
@@ -81,7 +84,6 @@ public class FriendListServlet extends HttpServlet {
 		FriendDAO fDao = new FriendDAO();
 		Users sUsers = new Users(friendId);
 		Friend sFriend = new Friend(myId, friendId);
-		
 		try {
 			List<Users> usersList = uDao.select(sUsers);
 			List<Friend> friendList = fDao.select(sFriend);
@@ -104,8 +106,8 @@ public class FriendListServlet extends HttpServlet {
 			// JSPで使うためにリクエストにセット
 			request.setAttribute("hasFriend", hasFriend);
 			
-			// フレンド一覧ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/FriendList.jsp");
+			// フレンド詳細ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AddFriend.jsp");
 			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
