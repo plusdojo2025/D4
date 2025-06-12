@@ -13,62 +13,33 @@ import dto.Users;
 public class UsersDAO {
 	/*引数のユーザー情報でログイン、成功ならtrueを返す*/
 	public boolean isLoginOK(Users users) {
-		Connection conn = null;
-		boolean loginResult = false;
-		
-		try {
-			/*JDBCドライバの読み込み*/
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			/*データベースに接続*/
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+	    Connection conn = null;
+	    boolean loginResult = false;
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
-			
-			/*SELECT文を準備*/
-			String sql = "SELECT count(*) FROM users WHERE id=? AND pw=? AND height=? AND name=? AND theme=? "
-					+ "AND icon=? AND vPrivate=? AND sPrivate=? AND wPrivate=?";
-			
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, users.getId());
-			pStmt.setString(2, users.getPw());
-			pStmt.setInt(3, users.getHeight());
-			pStmt.setString(4, users.getName());
-			pStmt.setInt(5, users.getTheme());
-			pStmt.setInt(6, users.getIcon());
-			pStmt.setInt(7, users.getvPrivate());
-			pStmt.setInt(8, users.getsPrivate());
-			pStmt.setInt(9, users.getwPrivate());
-			
-			// SELECT文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-			
-			/*ユーザーIDとパスワードが一致するユーザーがいれば結果をtrueにする*/
-			rs.next();
-			if(rs.getInt("count(*)") ==1 ) {
-				loginResult = true;
-			}
-			
-		} catch(SQLException e) {
-			e.printStackTrace();
-			loginResult = false;
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			loginResult = false;
-		}finally {
-			/*データベース切断*/
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-					loginResult = false;
-				}
-			}
-		}
-		/*結果を返す*/
-		return loginResult;
+
+	        String sql = "SELECT count(*) AS cnt FROM users WHERE id=? AND pw=?";
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, users.getId());
+	        pStmt.setString(2, users.getPw());
+	        ResultSet rs = pStmt.executeQuery();
+	        if (rs.next() && rs.getInt("cnt") == 1) {
+	            loginResult = true;
+	        }
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+	        }
+	    }
+	    return loginResult;
 	}
+
+
 	
 	//selectを実装 idのみを引数に検索
 	public List<Users> select(Users users) {
@@ -88,32 +59,72 @@ public class UsersDAO {
 			//ユーザー情報の取得
 			String sql = "SELECT * FROM users WHERE id = ? ";
 			
-			//連続ログインに数の算出
-			String rLogSql = "WITH login_data AS "
-					+ "(SELECT id AS user_id, date AS login_date, ROW_NUMBER() OVER (PARTITION BY id ORDER BY date) "
-					+ "AS rn FROM healthList WHERE id = ?), streaks AS (SELECT user_id, login_date, DATE_SUB"
-					+ "(login_date, INTERVAL rn DAY) AS streak_group FROM login_data), grouped_streaks "
-					+ "AS (SELECT user_id, COUNT(*) AS consecutive_days, MIN(login_date) AS start_date, "
-					+ "MAX(login_date) AS end_date FROM streaks GROUP BY user_id, streak_group), ranked_streaks "
-					+ "AS (SELECT *, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY end_date DESC) "
-					+ "AS recent_rank, ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY consecutive_days DESC, end_date DESC) "
-					+ "AS longest_rank FROM grouped_streaks) SELECT user_id, MAX(CASE WHEN recent_rank = 1 THEN consecutive_days END) "
-					+ "AS latest_streak_days, MAX(CASE WHEN longest_rank = 1 THEN consecutive_days END) "
-					+ "AS longest_streak_days FROM ranked_streaks GROUP BY user_id";
+			//ユーザー変数を用いて連続ログイン日数を算出
+			
+			//ユーザー変数の初期化
+			String resetSql = "SET @prev_date := NULL, @streak_group := 0, @pd := NULL, @sg := 0";
+			//対象となるデータの切り出し
+			String cutSql = "SELECT user_id, login_date, @streak_group := "
+					+ "IF(DATEDIFF(login_date, @prev_date) = 1, @streak_group, @streak_group + 1) "
+					+ "AS streak_group, @prev_date := login_date FROM "
+					+ "(SELECT id AS user_id, date AS login_date FROM healthList WHERE id = ? ORDER BY login_date)"
+					+ " AS ordered";
 
+			//最長連続ログイン日数の算出
+			String mLogSql = "SELECT user_id, COUNT(*) AS longest_streak_days "
+					+ "FROM (SELECT user_id, login_date, "
+					+ "@sg := IF(DATEDIFF(login_date, @pd) = 1, @sg, @sg + 1) "
+					+ "AS streak_group, @pd := login_date FROM (SELECT id AS user_id, date "
+					+ "AS login_date FROM healthList WHERE id = ? ORDER BY login_date) AS t1, "
+					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
+					+ "streaks GROUP BY user_id, streak_group ORDER BY COUNT(*) "
+					+ "DESC, MAX(login_date) DESC LIMIT 1";
+			
+			//最新連続ログイン日数の算出
+			String nLogSql = "SELECT user_id, COUNT(*) AS latest_streak_days "
+					+ "FROM (SELECT user_id, login_date, "
+					+ "@sg := IF(DATEDIFF(login_date, @pd) = 1, @sg, @sg + 1) "
+					+ "AS streak_group, @pd := login_date FROM (SELECT id AS user_id, date "
+					+ "AS login_date FROM healthList WHERE id = ? ORDER BY login_date) AS t1, "
+					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
+					+ "streaks GROUP BY user_id, streak_group ORDER BY MAX(login_date) "
+					+ "DESC LIMIT 1";
+
+			//SQL文を完成
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, users.getId());
-			
-			PreparedStatement lStmt = conn.prepareStatement(rLogSql);
-			pStmt.setString(1, users.getId());
+			PreparedStatement resetStmt = conn.prepareStatement(resetSql);
+			PreparedStatement cutStmt = conn.prepareStatement(cutSql);
+			cutStmt.setString(1, users.getId());
+			PreparedStatement mlStmt = conn.prepareStatement(mLogSql);
+			mlStmt.setString(1, users.getId());
+			PreparedStatement nlStmt = conn.prepareStatement(nLogSql);
+			nlStmt.setString(1, users.getId());
 			
 			// SELECT文を実行し、結果表を取得する
 			ResultSet prs = pStmt.executeQuery();
-			ResultSet lrs = lStmt.executeQuery();
+			resetStmt.executeQuery();
+			cutStmt.executeQuery();
+			ResultSet mrs = mlStmt.executeQuery();
+			ResultSet nrs = nlStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
 			while (prs.next()) {
-				lrs.next();
+				
+				//日々のデータがなかった場合の処理
+				 int mLogin = 0;
+				 int nLogin = 0;
+
+				 if (mrs.next()) {
+					 mLogin = mrs.getInt("longest_streak_days");
+					 if (mrs.wasNull()) mLogin = 0;
+				 }
+
+				 if (nrs.next()) {
+					 nLogin = nrs.getInt("latest_streak_days");
+					 if (nrs.wasNull()) nLogin = 0;
+				 }
+			    
 				Users tmpUser = new Users(
 						prs.getString("id"), 
 						prs.getString("pw"), 
@@ -124,8 +135,8 @@ public class UsersDAO {
 						prs.getInt("vPrivate"),
 						prs.getInt("sPrivate"),
 						prs.getInt("wPrivate"),
-						lrs.getInt("longest_streak_days"),
-						lrs.getInt("latest_streak_days")
+						mLogin,
+						nLogin
 						);
 				
 				usersList.add(tmpUser);

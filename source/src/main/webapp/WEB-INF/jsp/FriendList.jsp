@@ -5,11 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>フレンド一覧|健康日和</title>
+<link rel="stylesheet" type="text/css" href="css/friendList.css">
 </head>
 <body>
-
+<%-- ヘッダー --%>
+<header>
+<div class="logo">
+<img src="/D4/img/情報登録w.png">
+<%--ここにロゴ画像を入れる --%>
+</div>
+<nav class="nav-menu">
+  <ul>
+    <li><img src="/D4/img/情報登録w.png"><a href="/D4/HealthServlet">情報登録</a></li>
+    <li class="with-border"><img src="/D4/img/評価w.png"><a href="/D4/EvaluationServlet">評価</a></li>
+    <li class="with-border"><img src="/D4/img/ランキングw.png"><a href="/D4/RankingServlet">ランキング</a></li>
+    <li class="with-border"><img src="/D4/img/フレンドw.png"><a href="/D4/FriendListServlet">フレンド</a></li>
+  </ul>
+ </nav>
+</header>
+<main>
+ <section class="content">
 <!-- フォーム(id検索) -->
-<form class="searchFriend" method="POST" action="/webapp/FriendListServlet">
+<form class="searchFriend" method="POST" action="/D4/FriendListServlet">
 <!-- テキストボックス -->
 <label>ID検索<br>
 <input type="text" name="friendId" placeholder="idで検索"></label>
@@ -27,7 +44,7 @@
 <c:if test="${e.state == 2}">
 	<li>
 	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
-	<form class="checkApply" method="POST" action="/webapp/FriendListServlet">
+	<form class="checkApply" method="POST" action="/D4/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<!-- テキスト(相手の名前) -->
@@ -52,7 +69,7 @@
 <c:if test="${e.state == 3}">
 	<li>
 	<!-- フォーム(フレンド1人を対象に詳細ページへ移動する) -->
-	<form class="check" method="POST" action="/webapp/FriendListServlet">
+	<form class="check" method="POST" action="/D4/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<!-- テキスト(相手の名前) -->
@@ -67,6 +84,7 @@
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
-
+ </section>
+</main>
 </body>
 </html>
