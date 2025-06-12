@@ -12,6 +12,8 @@ public class Users implements Serializable{
 	private int vPrivate; 	/*野菜情報の公開設定*/
 	private int sPrivate; 	/*睡眠情報の公開設定*/
 	private int wPrivate; 	/*運動情報の公開設定*/
+	private int mLogin;     /*最長連続ログイン日数*/
+	private int nLogin;     /*最新連続ログイン日数*/
 	
 	public String getId() {
 		return id;
@@ -67,8 +69,33 @@ public class Users implements Serializable{
 	public void setwPrivate(int wPrivate) {
 		this.wPrivate = wPrivate;
 	}
-	
+	public int getmLogin() {
+		return mLogin;
+	}
+	public void setmLogin(int mLogin) {
+		this.mLogin = mLogin;
+	}
+	public int getnLogin() {
+		return nLogin;
+	}
+	public void setnLogin(int nLogin) {
+		this.nLogin = nLogin;
+	}
 	/*コンストラクタ*/
+	public Users(String id, String pw, int height, String name,
+			int theme, int icon, int vPrivate, int sPrivate, int wPrivate, int mLogin, int nLogin){
+		this.id = id;
+		this.pw = pw;
+		this.height = height;
+		this.name = name;
+		this.theme = theme;
+		this.icon = icon;
+		this.vPrivate = vPrivate;
+		this.sPrivate = sPrivate;
+		this.wPrivate = wPrivate;
+		this.mLogin = mLogin;
+		this.nLogin = nLogin;
+	}
 	public Users(String id, String pw, int height, String name,
 					int theme, int icon, int vPrivate, int sPrivate, int wPrivate){
 		this.id = id;
@@ -80,6 +107,8 @@ public class Users implements Serializable{
 		this.vPrivate = vPrivate;
 		this.sPrivate = sPrivate;
 		this.wPrivate = wPrivate;
+		this.mLogin = 0;
+		this.nLogin = 0;
 		
 	}
 	
@@ -94,6 +123,8 @@ public class Users implements Serializable{
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;
+		this.mLogin = 0;
+		this.nLogin = 0;
 	}
 	
 	public Users(){
@@ -107,5 +138,7 @@ public class Users implements Serializable{
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;
+		this.mLogin = 0;
+		this.nLogin = 0;
 	}
 }

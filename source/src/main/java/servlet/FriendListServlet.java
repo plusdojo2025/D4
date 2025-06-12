@@ -27,22 +27,22 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
+		
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 		
 		// リクエストパラメータを取得する
-		String myId = (session.getAttribute("id")).toString();
-		*/
-		String myId = "user001";
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+	
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
-		Friend sFriend = new Friend(myId, "", "", 0);
+		Friend sFriend = new Friend(myId);
 		
 		try {
 			List<Friend> friendList = fDao.select(sFriend);
@@ -66,22 +66,54 @@ public class FriendListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String myId = (session.getAttribute("id")).toString();
+		
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+		
 		String friendId = request.getParameter("friendId");
 		
-		//
 		// friendLsitの情報と対象のユーザー情報を取得
 		UsersDAO uDao = new UsersDAO();
 		FriendDAO fDao = new FriendDAO();
-		Users sUsers = new Users();
-		Friend sFriend = new Friend(myId, "", "", 0);
+		Users sUsers = new Users(friendId);
+		Friend sFriend = new Friend(myId, friendId);
+		try {
+			List<Users> usersList = uDao.select(sUsers);
+			List<Friend> friendList = fDao.select(sFriend);
+			
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("friendList", friendList);
+			request.setAttribute("user", usersList.get(0));
+			
+			boolean hasFriend = false; // フレンドリストにない場合の処理に使う
+
+			// friendList の中を1つずつ調べる
+			for (Friend f : friendList) {
+			    //対象がフレンドリストに登録されているなら
+			    if (f.getFriendId().equals(usersList.get(0).getId())) {
+			        hasFriend = true;  // 存在している判定
+			        break;
+			    }
+			}
+
+			// JSPで使うためにリクエストにセット
+			request.setAttribute("hasFriend", hasFriend);
+			
+			// フレンド詳細ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AddFriend.jsp");
+			dispatcher.forward(request, response);
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 	}
+	
 
 }

@@ -221,7 +221,7 @@ public class FriendDAO {
 	        mStmt.setString(1, friend.getMyId());
 	        mStmt.setString(2, friend.getFriendId());
 	        
-	        // 相手から自分への承認（状態2）
+	        // 相手から自分への拒否（状態2）
 	        String fSql = "DELETE FROM friendList WHERE myId = ? AND friendId = ?;";
 	        PreparedStatement fStmt = conn.prepareStatement(fSql);
 	        fStmt.setString(1, friend.getFriendId());
