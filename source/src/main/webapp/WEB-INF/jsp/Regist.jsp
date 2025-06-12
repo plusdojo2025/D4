@@ -54,7 +54,7 @@
     			</div>	
 				
 				<div class="button">
-					<input type="submit" class="bt"  id="log" value="ログイン">
+					<input type="submit" class="bt"  id="log" value="登録">
 					<input type="reset"  class="bt"  id="res" value="リセット">
 				</div>
 		</div>
