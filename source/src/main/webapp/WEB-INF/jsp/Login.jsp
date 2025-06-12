@@ -14,8 +14,7 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	<form method="post"
-		action="${pageContext.request.contextPath}/LoginServlet">
+	<form method="post" action="${pageContext.request.contextPath}/LoginServlet">
 		<div class="login">
 			<div class="input-group">
 				<label for="textbox1">ID</label> 
@@ -41,7 +40,6 @@
 	<%-- フッター --%>
 	<div></div>
 	<%-- フッターここまで --%>
-	</div>
 </body>
 <!-- <script src="/D4/js/login.js"></script> -->
 

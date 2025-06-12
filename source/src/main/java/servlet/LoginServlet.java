@@ -19,15 +19,15 @@ import dto.Users;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8");
 
 		String id = request.getParameter("id");
@@ -59,15 +59,16 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 			if (isFirstLogin) {
-				response.sendRedirect(request.getContextPath() + "/HealthServlet");
+				response.sendRedirect("HealthServlet");
 			} else {
-				response.sendRedirect(request.getContextPath() + "/EvaluationServlet");
+				response.sendRedirect("EvaluationServlet");
 			}
 		} else {
 			request.setAttribute("errorMsg", "ログイン失敗！IDまたはPWに間違いがあります。");
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
 			dispatcher.forward(request, response);
+
 		}
 	}
 
