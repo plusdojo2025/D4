@@ -8,6 +8,13 @@
 <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
+<header>
+<div class="logo">
+<img src="/D4/img/情報登録w.png">
+<%--ここにロゴ画像を入れる --%>
+</div>
+</header>
+<main>
 	<%-- ヘッダー --%>
 	<h1>
 		<%--ここにロゴ画像を入れる --%>
@@ -40,6 +47,7 @@
 	<%-- フッター --%>
 	<div></div>
 	<%-- フッターここまで --%>
+</main>
 </body>
 <!-- <script src="/D4/js/login.js"></script> -->
 

@@ -1,5 +1,30 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #8bdb9f;
+  color: #ffffff;  
+}
 
+header {
+  background-color: #8bdb9f;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold; /* 文字を太くする */
+}
+/*ロゴ画像*/
+.logo img{
+  align-items: center;
+  width: 30px;
+  height: auto;
+}
+main {
+  background-color: white;
+  min-height: 800px;
+  border-top-left-radius: 1000px 300px;
+  border-top-right-radius: 1000px 300px;
+  padding: 40px;
+}
 .login {
       display: flex;
       flex-direction: column;

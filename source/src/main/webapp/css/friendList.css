@@ -2,14 +2,15 @@
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #b1edbc;
-  color: #ffffff;
+  background-color: #8bdb9f;
+  color: #ffffff;  
 }
 
 header {
-  background-color: #b1edbc;
+  background-color: #8bdb9f;
   text-align: center;
   padding: 20px 0;
+  font-weight: bold; /* 文字を太くする */
 }
 .nav-menu ul {
   display: flex;
@@ -76,11 +77,11 @@ main {
 /*リンクの文字の色*/
 .nav-menu a {
   color: white;
-  text-decoration: none; /* 必要なら下線を消す */
+  text-decoration: none; /* 下線を消す */
 }
 
 .nav-menu a:hover {
-  color: #ffebeb; /* ホバー時に少し色を変える例（任意） */
+  color: #ffebeb; /* ホバー時に少し色を変える */
 }
 
 footer {
@@ -122,10 +123,15 @@ footer {
   text-decoration: none; /* 下線を消す */
   color: white;          /* お好みの文字色 */
   font-size: 14px;
+  transition: color 0.3s;
 }
 .logout-border {
   border-top: 1px solid white;
   padding-top: 10px; /* 線と内容の間に余白を追加（任意） */
   margin-top: 10px;  /* 線と上の項目との間隔を追加（任意） */
+}
+
+.nav-side li a:hover {
+  color: #ffebeb; /* ホバー時の文字色 */
 }
 
