@@ -24,7 +24,7 @@ public class BornusServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("users") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 		
