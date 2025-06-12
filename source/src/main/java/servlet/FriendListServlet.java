@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
 import dao.UsersDAO;
@@ -26,24 +27,22 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
+		
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 		
 		// リクエストパラメータを取得する
-		String myId = (session.getAttribute("id")).toString();
-		*/
-		String myId = "user001";
-		
 		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+	
 		// 検索処理を行う
 		FriendDAO fDao = new FriendDAO();
 		Friend sFriend = new Friend(myId);
-		
 		
 		try {
 			List<Friend> friendList = fDao.select(sFriend);
@@ -65,18 +64,19 @@ public class FriendListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
-		*/
+		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		//String myId = (session.getAttribute("id")).toString();
-		String myId = "user001";
+		
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+		
 		String friendId = request.getParameter("friendId");
 		
 		// friendLsitの情報と対象のユーザー情報を取得

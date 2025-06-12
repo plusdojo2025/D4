@@ -40,7 +40,55 @@ public class UsersDAO {
 	}
 
 
-	
+	//insert
+	public boolean insert (Users users) {
+		Connection conn = null;
+		boolean result = false;
+		
+		try {
+			//JDBCドライバ読み込み
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			// SQL文を準備する
+			String sql = "INSERT INTO usersList VALUES (?, ?, ?, ? )";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+			// SQL文を完成させる
+			pStmt.setString(1, users.getId());
+			pStmt.setString(2, users.getPw());			
+			pStmt.setInt(3, users.getHeight());
+			pStmt.setString(4, users.getName());
+		
+			
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+						
+					// 結果を返す
+		return result;
+	}
+			
+			
 	//selectを実装 idのみを引数に検索
 	public List<Users> select(Users users) {
 		Connection conn = null;
@@ -161,8 +209,8 @@ public class UsersDAO {
 		return usersList;
 	}
 	
-	//insertを実装
-	
+		
 	//deleteを実装(テストデータの削除用)
 	
-}
+	}
+	

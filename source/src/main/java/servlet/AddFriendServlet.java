@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.FriendDAO;
+import dto.Friend;
+import dto.Users;
+
 
 @WebServlet("/AddFriendServlet")
 public class  AddFriendServlet extends HttpServlet {
@@ -22,44 +26,84 @@ public class  AddFriendServlet extends HttpServlet {
 	
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/webapp/LoginServlet");
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
 			return;
 		}
 		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String myId = (session.getAttribute("id")).toString();
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
 		String friendId = request.getParameter("friendId");
 		String action = request.getParameter("submit");
 		
 		//パラメーターの種類を使って処理を切り替え・各処理に応じて画面遷移
+		FriendDAO fDao = new FriendDAO();
 		switch (action) {
 			//申請
 		    case "申請":
+		    	try {
+					if (fDao.insert(new Friend(myId, friendId, 0))) { // 更新成功
+						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+					} else { // 更新失敗
+						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+					}
+				} catch (Exception e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
 		    	
 		    	break;
 		    
 		    //承認
 		    case "承認":
-		    	
+		    	try {
+					if (fDao.update(new Friend(myId, friendId, 0))) { // 更新成功
+						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+					} else { // 更新失敗
+						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+					}
+				} catch (Exception e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
 		    	break;
 			
 		
 		    //拒否
 		    case "拒否":
-		    	
+		    	try {
+					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
+						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+					} else { // 更新失敗
+						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+					}
+				} catch (Exception e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
 		    	break;
 		
 		    //削除
 		    case "削除":
-		    	
+		    	try {
+					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
+						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+					} else { // 更新失敗
+						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+					}
+				} catch (Exception e) {
+					// TODO 自動生成された catch ブロック
+					e.printStackTrace();
+				}
 		    	break;
 		    	
 		    //戻る
 		    case "戻る":
-		    	
-		    	break;
+		    	//フレンドリストに戻る
+		    	response.sendRedirect("/D4/FriendListServlet");
+				return;
 		    
 		    default:
 		    	

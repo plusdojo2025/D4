@@ -50,6 +50,14 @@ public class EvaluationServlet extends HttpServlet {
 		}
 
 		request.setAttribute("healthList", convertedList);
+
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		session = request.getSession();
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+		// 評価ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
 		dispatcher.forward(request, response);
 	}

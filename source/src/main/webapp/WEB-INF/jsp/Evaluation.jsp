@@ -9,24 +9,69 @@
 </head>
 <body>
 	<table>
-		<c:forEach var="h" items="${healthList}">
-			<tr>
+		<tr>
+			<div class = "allscore">
 				<td>全体スコア</td>
-				<td><div class="card-review_star" data-rating="${h.vegetable}"></div></td>
+				<td><input type="radio" id="star1" name="rating" value="1"></td>
+				<label for="star1" title="1 star"></label>
+				<td><input type="radio" id="star2" name="rating" value="2"></td>
+				<label for="star2" title="2 stars"></label>
+				<td><input type="radio" id="star3" name="rating" value="3"></td>
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4">
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="star5" name="rating" value="5">
+				<label for="star5" title="5 stars"></label>
+			</div>
+		</tr>
+			<tr>
+				<div class = "vege">
+			<td>野菜</td>
+				<input type="radio" id="star1" name="rating" value="1">
+				<label for="star1" title="1 star"></label>
+				<input type="radio" id="star2" name="rating" value="2">
+				<label for="star2" title="2 stars"></label>
+				<input type="radio" id="star3" name="rating" value="3">
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4">
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="star5" name="rating" value="5">
+				<label for="star5" title="5 stars"></label>
+		</div>
+
 			</tr>
 			<tr>
-				<td>野菜の量</td>
-				<td><div class="card-review_star" data-rating="${h.vegetable}"></div></td>
+				<div class = "sle">
+			<td>睡眠</td>
+				<input type="radio" id="star1" name="rating" value="1">
+				<label for="star1" title="1 star"></label>
+				<input type="radio" id="star2" name="rating" value="2">
+				<label for="star2" title="2 stars"></label>
+				<input type="radio" id="star3" name="rating" value="3">
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4">
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="star5" name="rating" value="5">
+				<label for="star5" title="5 stars"></label>
+		</div>
+
 			</tr>
 			<tr>
-				<td>睡眠時間</td>
-				<td><div class="card-review_star" data-rating="${h.sleep}"></div></td>
+				<div class = "steps">
+			<td>運動量</td>
+				<input type="radio" id="star1" name="rating" value="1">
+				<label for="star1" title="1 star"></label>
+				<input type="radio" id="star2" name="rating" value="2">
+				<label for="star2" title="2 stars"></label>
+				<input type="radio" id="star3" name="rating" value="3">
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="star4" name="rating" value="4">
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="star5" name="rating" value="5">
+				<label for="star5" title="5 stars"></label>
+		</div>
+
 			</tr>
-			<tr>
-				<td>運動量</td>
-				<td><div class="card-review_star" data-rating="${h.walk}"></div></td>
-			</tr>
-		</c:forEach>
 
 	</table>
 
