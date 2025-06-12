@@ -57,7 +57,7 @@
 	 <label><input type="radio" name="stress" value="3"> 高い</label><br>
 	
 <br>
-体重（ｋｇ）<br><input type="text" name="weight"><br>
+体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
 <br>
 	<input type="submit">
 	<input type="reset">
