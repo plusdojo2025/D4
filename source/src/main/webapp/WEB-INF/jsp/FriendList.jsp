@@ -94,13 +94,14 @@
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
+</section>
 <div>
     <a href="#top" class="page_top">
-      <img src="top-icon.png" class="top-icon" alt="トップへ">
+      <img src="/D4/img/評価w.png" class="top-icon">
       TOP
     </a>
   </div>
- </section>
+ 
 </main>
 <footer>
     <p>&copy;2025HARU</p>
