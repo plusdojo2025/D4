@@ -122,9 +122,9 @@ public class HealthServlet extends HttpServlet {
 		    success = bDao.insert(health);
 		}
 		if (success) {
-		    request.setAttribute("result", new Result("今日の記録を保存しました。", "/D4/EvaluationServlet"));
+		    request.setAttribute("redirect", new Result("今日の記録を保存しました。", "/D4/EvaluationServlet"));
 		} else {
-		    request.setAttribute("result", new Result("記録の保存に失敗しました。", "/D4/EvaluationServlet"));
+		    request.setAttribute("redirect", new Result("記録の保存に失敗しました。", "/D4/EvaluationServlet"));
 		}
 		
 		// 結果ページにフォワードする
