@@ -12,9 +12,9 @@ import dto.Health;
 
 public class HealthDAO {
 
-	public List<Health> select(Health card) {
+	public List<Health> select(Health health) {
 		Connection conn = null;
-		List<Health> cardList = new ArrayList<Health>();
+		List<Health> healthList = new ArrayList<Health>();
 		
 		try {
 			//JDBCドライバ読み込み
@@ -31,13 +31,13 @@ public class HealthDAO {
 
 
 			// SQL文を完成させる
-			if (card.getId() != null) {
-				pStmt.setString(1, card.getId() );
+			if (health.getId() != null) {
+				pStmt.setString(1, health.getId() );
 			} else {
 				pStmt.setString(1,"");
 			}
-			if (card.getDate() != null) {
-				pStmt.setString(2, card.getDate());
+			if (health.getDate() != null) {
+				pStmt.setString(2, health.getDate());
 			} else {
 				pStmt.setString(2, "");
 			}
@@ -47,16 +47,16 @@ public class HealthDAO {
 
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
-					Health health = new Health(rs.getString("id"), rs.getString("date"), rs.getInt("vegetable"),
+					Health newHealth = new Health(rs.getString("id"), rs.getString("date"), rs.getInt("vegetable"),
 							rs.getInt("sleep"), rs.getInt("walk"), rs.getInt("stress"),rs.getInt("weight"));
-					cardList.add(health);
+					healthList.add(newHealth);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			healthList = null;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			healthList = null;
 		} finally {
 			// データベースを切断
 			if (conn != null) {
@@ -64,13 +64,13 @@ public class HealthDAO {
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					healthList = null;
 			}
 		}
 	}
 
 		// 結果を返す
-		return cardList;
+		return healthList;
 	}		
 
 	
