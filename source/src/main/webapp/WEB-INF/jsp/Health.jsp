@@ -88,7 +88,6 @@
 			  	</c:forEach>
 			</div>
 			
-			
 	<!-- 時間（0～10時間） -->
 	<c:set var="sleep_hour" value="${empty health || health.sleep == null ? 0 : ((health.sleep - (health.sleep % 60)) / 60)}" />
 	<c:set var="sleep_minute" value="${empty health || health.sleep == null ? 0 : health.sleep % 60}" />
