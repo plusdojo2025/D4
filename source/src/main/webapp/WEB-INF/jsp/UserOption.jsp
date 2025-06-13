@@ -28,7 +28,7 @@
 			<input type="text"><br>
 		</label>
 		<button>テーマボタン(仮)</button><br>
-		非公開設定&emsp;&emsp;食事<input type="checkbox">&emsp;&emsp;睡眠<input type="checkbox">&emsp;&emsp;運動<input type="checkbox"><br>
+		非公開設定食事<input type="checkbox">睡眠<input type="checkbox">運動<input type="checkbox"><br>
         <button type="submit">保存</button>
 	</form>
 </div>	

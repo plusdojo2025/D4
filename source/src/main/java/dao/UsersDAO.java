@@ -55,7 +55,7 @@ public class UsersDAO {
 					"root", "password");
 			
 			// SQL文を準備する
-			String sql = "INSERT INTO usersList VALUES (?, ?, ?, ? )";
+			String sql = "INSERT INTO users VALUES (?, ?, ?, ? )";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			// SQL文を完成させる
