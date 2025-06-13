@@ -75,7 +75,7 @@
 </aside>
 <!-- サイドパネル -->
 
-<div class="health">
+<div class="health" id="select-animate">
 	<form  method="POST" action="/D4/HealthServlet">
 		<p>野菜摂取量<br>
 		 一日の目標摂取量：３５０ｇ【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
@@ -95,7 +95,7 @@
 	 <div class="box"> 
 		<div class="info">  
 		  	<p>睡眠時間<br>
-		  		<select name="sleep_hour">
+		  		<select name="sleep_hour" id="select-animate">
 					<option value="0" selected>時間</option>
 					<option value="1">1時間</option>
 					<option value="2">2時間</option>
@@ -110,7 +110,7 @@
 	  			</select>
 	
 	  <!-- 分（0分,  30分, ） -->
-				<select name="sleep_minute">
+				<select name="sleep_minute" id="select-animate">
 					<option value="0" selected>分</option>
 					<option value="15">15分</option>
 					<option value="30">30分</option>
@@ -119,11 +119,11 @@
 		</div>
 	 	 		<br><br>
 				<div class="info">  	 
-					運動量(歩数）<br><input type="text" name="walk"><br><br>
+					<p>運動量(歩数）<br><input type="text" name="walk"><br><br>
 				</div>
 	
 			<div class="info stress-level"> 
-				<div class="label">ストレス度</div>
+				<div class="label"><p>ストレス度</div>
 					<div class="radio-group">
 		    			<label>
 		      				<input type="radio" name="stress" value="1" checked>
@@ -141,7 +141,7 @@
 			</div>
 		
 			<div class="info"> 
-				体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
+				<p>体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
 				<br>
 			</div>
 		</div>	
