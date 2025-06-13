@@ -12,6 +12,7 @@
 <header>
 <div class="logo">
 <%--ここにロゴ画像を入れる --%>
+<img src="/D4/img/情報登録w.png">
 </div>
 
 </header>	
