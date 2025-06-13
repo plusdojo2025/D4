@@ -11,81 +11,72 @@
 	<table>
 		<tr>
 			<div class = "allscore">
-				<td>全体スコア</td>
-				<td><input type="radio" id="star1" name="rating" value="1"></td>
+				全体スコア
+				<input type="radio" id="allstar1" name="rating" value="1" disabled>
 				<label for="star1" title="1 star"></label>
-				<td><input type="radio" id="star2" name="rating" value="2"></td>
+				<input type="radio" id="allstar2" name="rating" value="2" disabled>
 				<label for="star2" title="2 stars"></label>
-				<td><input type="radio" id="star3" name="rating" value="3"></td>
+				<input type="radio" id="allstar3" name="rating" value="3" disabled>
 				<label for="star3" title="3 stars"></label>
-				<input type="radio" id="star4" name="rating" value="4">
+				<input type="radio" id="allstar4" name="rating" value="4" disabled>
 				<label for="star4" title="4 stars"></label>
-				<input type="radio" id="star5" name="rating" value="5">
+				<input type="radio" id="allstar5" name="rating" value="5" disabled>	
+				<label for="star5" title="5 stars"></label>
+			</div>
+			
+			<div class = "yesterday">
+				前日比
+			</div>
+		</tr>
+
+		<tr>
+			<div class = "vege">
+				野菜
+				<input type="radio" id="vegetable-star1" name="rating" value="1" disabled>
+				<label for="star1" title="1 star"></label>
+				<input type="radio" id="vegetable-star2" name="rating" value="2" disabled>
+				<label for="star2" title="2 stars"></label>
+				<input type="radio" id="vegetable-star3" name="rating" value="3" disabled>
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="vegetable-star4" name="rating" value="4" disabled>
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="vegetable-star5" name="rating" value="5" disabled>
+				<label for="star5" title="5 stars"></label>
+				
+			</div>
+		</tr>
+		<tr>
+			<div class = "sle">
+				睡眠
+				<input type="radio" id="sleep-star1" name="rating" value="1" disabled>
+				<label for="star1" title="1 star"></label>
+				<input type="radio" id="sleep-star2" name="rating" value="2" disabled>
+				<label for="star2" title="2 stars"></label>
+				<input type="radio" id="sleep-star3" name="rating" value="3" disabled> 
+				<label for="star3" title="3 stars"></label>
+				<input type="radio" id="sleep-star4" name="rating" value="4" disabled>
+				<label for="star4" title="4 stars"></label>
+				<input type="radio" id="sleep-star5" name="rating" value="5" disabled>
 				<label for="star5" title="5 stars"></label>
 			</div>
 		</tr>
-			<tr>
-				<div class = "vege">
-			<td>野菜</td>
-				<input type="radio" id="star1" name="rating" value="1">
+			
+		<tr>
+			<div class = "steps">
+				運動量
+				<input type="radio" id="steps-star1" name="rating" value="1" disabled>
 				<label for="star1" title="1 star"></label>
-				<input type="radio" id="star2" name="rating" value="2">
+				<input type="radio" id="steps-star2" name="rating" value="2" disabled>
 				<label for="star2" title="2 stars"></label>
-				<input type="radio" id="star3" name="rating" value="3">
+				<input type="radio" id="steps-star3" name="rating" value="3" disabled>
 				<label for="star3" title="3 stars"></label>
-				<input type="radio" id="star4" name="rating" value="4">
+				<input type="radio" id="steps-star4" name="rating" value="4" disabled>
 				<label for="star4" title="4 stars"></label>
-				<input type="radio" id="star5" name="rating" value="5">
+				<input type="radio" id="star5" name="rating" value="5" disabled>
 				<label for="star5" title="5 stars"></label>
-		</div>
-
-			</tr>
-			<tr>
-				<div class = "sle">
-			<td>睡眠</td>
-				<input type="radio" id="star1" name="rating" value="1">
-				<label for="star1" title="1 star"></label>
-				<input type="radio" id="star2" name="rating" value="2">
-				<label for="star2" title="2 stars"></label>
-				<input type="radio" id="star3" name="rating" value="3">
-				<label for="star3" title="3 stars"></label>
-				<input type="radio" id="star4" name="rating" value="4">
-				<label for="star4" title="4 stars"></label>
-				<input type="radio" id="star5" name="rating" value="5">
-				<label for="star5" title="5 stars"></label>
-		</div>
-
-			</tr>
-			<tr>
-				<div class = "steps">
-			<td>運動量</td>
-				<input type="radio" id="star1" name="rating" value="1">
-				<label for="star1" title="1 star"></label>
-				<input type="radio" id="star2" name="rating" value="2">
-				<label for="star2" title="2 stars"></label>
-				<input type="radio" id="star3" name="rating" value="3">
-				<label for="star3" title="3 stars"></label>
-				<input type="radio" id="star4" name="rating" value="4">
-				<label for="star4" title="4 stars"></label>
-				<input type="radio" id="star5" name="rating" value="5">
-				<label for="star5" title="5 stars"></label>
-		</div>
-
-			</tr>
-
+			</div>
+		</tr>
 	</table>
-
-	<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.card-review_star').forEach(el => {
-        const rating = parseInt(el.dataset.rating, 10) || 0;
-        const pct = (rating / 5) * 100;
-        el.style.setProperty('--starWidth', ${pct}%);
-        el.setAttribute('role', 'img');
-        el.setAttribute('aria-label', ${rating} / 5 stars);
-      });
-    });
-  </script>
 
 </body>
 </html>
