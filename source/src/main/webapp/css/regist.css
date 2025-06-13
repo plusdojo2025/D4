@@ -119,6 +119,10 @@ a:hover {
     text-decoration: none;
 }
 
+.copyright{
+	color:#fff;
+}
+
 footer {
   text-align: center;
   padding: 8px 0;
