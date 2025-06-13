@@ -17,19 +17,28 @@
 <div class="profile">
 	<h2>プロフィールを編集</h2><p>現在のログイン日数:</p>
 	<form>
-        <button>アイコンボタン(仮)</button><br>
-		<label>ID<br>
-			<input type="text"><br>
-		</label>
-		<label>ニックネーム<br>
-			<input type="text"><br>
-		</label>
-		<label>身長(cm)<br>
-			<input type="text"><br>
-		</label>
-		<button>テーマボタン(仮)</button><br>
+			<div class="profile">
+			    <div class="input-group">
+      				<label for="textbox1">新規ID</label>
+      				<input type="text" id="textbox1">
+    			</div>
+			    <div class="input-group">
+      				<label for="textbox1">新規パスワード</label>
+      				<input type="text" id="textbox1">
+    			</div>
+			    <div class="input-group">
+      				<label for="textbox1">新規パスワード(確認用)</label>
+      				<input type="text" id="textbox1">
+    			</div>
+			    <div class="input-group">
+      				<label for="textbox1">現在の身長(cm)</label>
+      				<input type="text" id="textbox1">
+    			</div>
+
+				<button>テーマボタン(仮)</button><br>
 		非公開設定食事<input type="checkbox">睡眠<input type="checkbox">運動<input type="checkbox"><br>
         <button type="submit">保存</button>
+        </div>
 	</form>
 </div>	
 	<%-- メインここまで --%>
