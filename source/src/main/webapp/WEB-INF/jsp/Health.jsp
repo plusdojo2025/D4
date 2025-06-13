@@ -80,8 +80,8 @@
 		</div>	
 		
 		<div class="button">
-			<input type="submit">
-			<input type="reset">
+			<input type="submit" class="bt"  id="log">
+			<input type="reset"  class="bt"  id="log">
 		</div>
 	</form>
 </div>
