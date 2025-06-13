@@ -21,31 +21,31 @@
 	<%-- メイン --%>	
 <main>	
 	<div class="regist-form">
-		<form method="POST" action="/D4/LoginServlet">
+		<form method="POST" action="/D4/RegistServlet">
 			<div class="regist">
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="id">
     			</div>
 			    <div class="input-group">
       				<label for="textbox1">新規パスワード</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="pw">
     			</div>
 			    <div class="input-group">
       				<label for="textbox1">新規パスワード(確認用)</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="pw2">
     			</div>
 			    <div class="input-group">
       				<label for="textbox1">現在の身長(cm)</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="height">
     			</div>
 			    <div class="input-group">
       				<label for="textbox1">現在の体重(kg)</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="weight">
     			</div>    			    							
 			    <div class="input-group">
       				<label for="textbox1">ニックネーム</label>
-      				<input type="text" id="textbox1">
+      				<input type="text" id="textbox1" name="name">
     			</div>	
 				
 				<div class="button">
