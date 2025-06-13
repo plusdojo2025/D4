@@ -95,7 +95,7 @@
 	<div class="box"> 
 		<div class="info">  
 		  	<p>睡眠時間<br>
-		  		<select name="sleep_hour">
+		  		<select name="sleep_hour" class="pull">
 					<option value="0" <c:if test="${sleep_hour == 0}">selected</c:if>>0時間</option>
 					<option value="1" <c:if test="${sleep_hour == 1}">selected</c:if>>1時間</option>
 					<option value="2" <c:if test="${sleep_hour == 2}">selected</c:if>>2時間</option>
@@ -110,7 +110,7 @@
 	  			</select>
 	
 	  <!-- 分（0分, 15分, 30分, 45分） -->
-				<select name="sleep_minute">
+				<select name="sleep_minute" class="pull">
 					<option value="0" <c:if test="${sleep_minute == 0}">selected</c:if>>0分</option>
 					<option value="15"<c:if test="${sleep_minute == 15}">selected</c:if>>15分</option>
 					<option value="30"<c:if test="${sleep_minute == 30}">selected</c:if>>30分</option>
