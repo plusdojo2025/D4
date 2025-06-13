@@ -18,9 +18,10 @@
 	<%-- ヘッダーここまで --%>
 	
 	<%-- メイン --%>	
-<div class="regist-form">
-	<form method="POST" action="/D4/LoginServlet">
-		<div class="regist">
+<main>	
+	<div class="regist-form">
+		<form method="POST" action="/D4/LoginServlet">
+			<div class="regist">
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>
       				<input type="text" id="textbox1">
@@ -56,8 +57,8 @@
 		<a href="/D4/LoginServlet">戻る</a>
 	</div>
 	
-</div>
-
+	</div>
+</main>
 	<%-- メインここまで --%>	
 </body>
 
