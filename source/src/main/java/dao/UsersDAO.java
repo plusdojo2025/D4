@@ -222,7 +222,7 @@ public class UsersDAO {
 			
 			
 			//ユーザー情報の更新
-			String sql ="UPDATE users heignt = ?, name = ?, theme = ?, icon = ?, "
+			String sql ="UPDATE users SET height = ?, name = ?, theme = ?, icon = ?, "
 					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 					
