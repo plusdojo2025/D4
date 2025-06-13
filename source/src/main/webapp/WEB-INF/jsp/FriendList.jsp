@@ -7,7 +7,7 @@
 <title>フレンド一覧|健康日和</title>
 <link rel="stylesheet" type="text/css" href="css/friendList.css">
 </head>
-<body>
+<body id="top">
 <%-- ヘッダー --%>
 <header>
 <div class="logo">
@@ -94,11 +94,18 @@
 <!-- 繰り返し終わり -->
 </ul>
 <!-- リスト終わり -->
- </section>
+</section>
+<div>
+    <a href="#top" class="page_top">
+      <img src="/D4/img/評価w.png" class="top-icon">
+      TOP
+    </a>
+  </div>
+ 
 </main>
 <footer>
     <p>&copy;2025HARU</p>
 </footer>
 </body>
-<script src="/webapp/friendList.js"></script>
+<script src="js/friendList.js"></script>
 </html>
