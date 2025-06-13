@@ -1,7 +1,61 @@
 @charset "UTF-8";
 
-.profile{
-	text-align:center;
+.profileBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 600px;
+  margin: 0 auto;
 }
 
+.iconArea {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconBtn {
+  padding: 10px 15px;
+  height: 50px;
+}
+
+.inputArea {
+  flex: 1;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.input-group2 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* モーダル背景 */
+.popup-overlay {
+  position: fixed;      /* 画面固定 */
+  top: 0; left: 0;      /* 画面左上 */
+  width: 100vw;         /* 画面幅いっぱい */
+  height: 100vh;        /* 画面高さいっぱい */
+  background-color: rgba(0,0,0,0.5); /* 半透明の黒背景 */
+  display: none;        /* 初期非表示 */
+  justify-content: center; /* 中央寄せ（flexbox） */
+  align-items: center;     /* 中央寄せ */
+  z-index: 9999;        /* 他より前面に */
+}
+
+/* モーダル本体 */
+.popup-window {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 90vw;		/* 最大横幅 */
+  max-height: 90vh;		/* 最大縦幅 */
+  overflow-y: auto;     /* 縦スクロール可 */
+  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
+}
 

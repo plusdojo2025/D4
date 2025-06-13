@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import dto.Users;
 
@@ -55,7 +53,7 @@ public class UsersDAO {
 					"root", "password");
 			
 			// SQL文を準備する
-			String sql = "INSERT INTO usersList VALUES (?, ?, ?, ? )";
+			String sql = "INSERT INTO users (id, pw, height, name) VALUES (?, ?, ?, ? )";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			// SQL文を完成させる
@@ -90,9 +88,9 @@ public class UsersDAO {
 			
 			
 	//selectを実装 idのみを引数に検索
-	public List<Users> select(Users users) {
+	public Users select(String id) {
 		Connection conn = null;
-		List<Users> usersList = new ArrayList<Users>();
+		Users user = new Users();
 		
 		try {
 			/*JDBCドライバの読み込み*/
@@ -105,7 +103,10 @@ public class UsersDAO {
 			
 			/*SELECT文を準備*/
 			//ユーザー情報の取得
-			String sql = "SELECT * FROM users WHERE id = ? ";
+			String sql = "SELECT u.id, u.pw, u.height, u.name, u.vPrivate, "
+					+ "u.sPrivate, u.wPrivate, t.name AS theme, i.path AS icon "
+					+ "FROM users u LEFT JOIN themeList t ON u.theme = t.id "
+					+ "LEFT JOIN iconList i ON u.icon = i.id WHERE u.id = ? ";
 			
 			//ユーザー変数を用いて連続ログイン日数を算出
 			
@@ -137,17 +138,18 @@ public class UsersDAO {
 					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
 					+ "streaks GROUP BY user_id, streak_group ORDER BY MAX(login_date) "
 					+ "DESC LIMIT 1";
+			
 
 			//SQL文を完成
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, users.getId());
+			pStmt.setString(1, id);
 			PreparedStatement resetStmt = conn.prepareStatement(resetSql);
 			PreparedStatement cutStmt = conn.prepareStatement(cutSql);
-			cutStmt.setString(1, users.getId());
+			cutStmt.setString(1, id);
 			PreparedStatement mlStmt = conn.prepareStatement(mLogSql);
-			mlStmt.setString(1, users.getId());
+			mlStmt.setString(1, id);
 			PreparedStatement nlStmt = conn.prepareStatement(nLogSql);
-			nlStmt.setString(1, users.getId());
+			nlStmt.setString(1, id);
 			
 			// SELECT文を実行し、結果表を取得する
 			ResultSet prs = pStmt.executeQuery();
@@ -157,7 +159,7 @@ public class UsersDAO {
 			ResultSet nrs = nlStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (prs.next()) {
+			if(prs.next()) {
 				
 				//日々のデータがなかった場合の処理
 				 int mLogin = 0;
@@ -173,21 +175,20 @@ public class UsersDAO {
 					 if (nrs.wasNull()) nLogin = 0;
 				 }
 			    
-				Users tmpUser = new Users(
-						prs.getString("id"), 
-						prs.getString("pw"), 
-						prs.getInt("height"),
-						prs.getString("name"),
-						prs.getInt("theme"),
-						prs.getInt("icon"),
-						prs.getInt("vPrivate"),
-						prs.getInt("sPrivate"),
-						prs.getInt("wPrivate"),
-						mLogin,
-						nLogin
-						);
+				 user = new Users(
+						 prs.getString("id"), 
+						 prs.getString("pw"), 
+						 prs.getInt("height"),
+						 prs.getString("name"),
+						 prs.getString("theme"),
+						 prs.getString("icon"),
+						 prs.getInt("vPrivate"),
+						 prs.getInt("sPrivate"),
+						 prs.getInt("wPrivate"),
+						 mLogin,
+						 nLogin
+						 );
 				
-				usersList.add(tmpUser);
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -206,10 +207,111 @@ public class UsersDAO {
 			}
 		}
 		/*結果を返す*/
-		return usersList;
+		return user;
 	}
 	
+	//updateを実装
+	public boolean update(Users user) {
+		Connection conn = null;
+		boolean result = false;
+		int iconId = -1;
+		int themeId = -1;
 		
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			
+			//ユーザー情報の更新
+			String sql ="UPDATE users SET pw = ? height = ?, name = ?, theme = ?, icon = ?, "
+					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+	
+			//メインのSQLに格納するデータを取得
+			String getIconIdSql ="select id from iconList where path = ?";
+			String getThemeIdSql ="select id from themeList where name = ?";
+			PreparedStatement iStmt = conn.prepareStatement(getIconIdSql);
+			PreparedStatement tStmt = conn.prepareStatement(getThemeIdSql);
+			//SQL文を完成
+			if (user.getTheme() != null) {
+				tStmt.setString(1, user.getTheme());
+			} else {
+				tStmt.setString(1, "");
+			}
+			if (user.getIcon() != null) {
+				iStmt.setString(1, user.getIcon());
+			} else {
+				iStmt.setString(1, "");
+			}
+			
+			//SQL文を実行
+			ResultSet trs = tStmt.executeQuery();
+			ResultSet irs = iStmt.executeQuery();
+			
+			//結果から値を取得
+			if (trs.next()) {
+				 themeId = trs.getInt("id");
+				 if (trs.wasNull()) themeId = 0;
+			 }
+			 if (irs.next()) {
+				 iconId = irs.getInt("id");
+				 if (irs.wasNull()) iconId = 0;
+			 }
+			 
+			// SQL文を完成
+			 if (user.getPw() != null) {
+					stmt.setString(1, user.getPw());
+				} else {
+					stmt.setString(1, "");
+				}
+			stmt.setInt(2, user.getHeight());
+		
+			if (user.getName() != null) {
+				stmt.setString(3, user.getName());
+			} else {
+				stmt.setString(3, "");
+			}
+			stmt.setInt(4, themeId);
+			stmt.setInt(5, iconId);
+			stmt.setInt(6, user.getvPrivate());
+			stmt.setInt(7, user.getsPrivate());
+			stmt.setInt(8, user.getwPrivate());
+			if (user.getId() != null) {
+				stmt.setString(9, user.getId());
+			} else {
+				stmt.setString(9, "");
+			}
+			
+			// SQL文を実行し、結果表を取得する
+			if (stmt.executeUpdate() == 1) {
+				result = true;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
+	
 	//deleteを実装(テストデータの削除用)
 	
 	}

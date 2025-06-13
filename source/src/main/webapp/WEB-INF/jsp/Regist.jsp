@@ -12,15 +12,17 @@
 <header>
 <div class="logo">
 <%--ここにロゴ画像を入れる --%>
+<img src="/D4/img/情報登録w.png">
 </div>
 
 </header>	
 	<%-- ヘッダーここまで --%>
 	
 	<%-- メイン --%>	
-<div class="regist-form">
-	<form method="POST" action="/D4/LoginServlet">
-		<div class="regist">
+<main>	
+	<div class="regist-form">
+		<form method="POST" action="/D4/LoginServlet">
+			<div class="regist">
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>
       				<input type="text" id="textbox1">
@@ -56,8 +58,11 @@
 		<a href="/D4/LoginServlet">戻る</a>
 	</div>
 	
-</div>
-
+	</div>
+</main>
+<footer>
+    <p class="copyright">&copy;2025HARU</p>
+</footer>
 	<%-- メインここまで --%>	
 </body>
 

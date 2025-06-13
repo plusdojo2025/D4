@@ -14,8 +14,9 @@ import dao.FriendDAO;
 import dao.RankingDAO;
 import dto.Friend;
 import dto.Ranking;
+import dto.Users; // ★追記
 
-@WebServlet("/Ranking")
+@WebServlet("/RankingServlet")
 public class RankingServlet extends HttpServlet {
 
     // ランキング一覧画面の表示（GET）
@@ -23,20 +24,28 @@ public class RankingServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        String userId = (String) session.getAttribute("userId");
 
-        // ログインチェックを一時スキップ
-        /* if (userId == null) {
-            request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp").forward(request, response);
-            return;
-        } */
+        // 再取得してuserIdはnullに(テスト用)
+        //session.invalidate();
+        //session = request.getSession();
 
+        // usersオブジェクトからuserIdを取得する
+        Users loginUser = (Users) session.getAttribute("users");
+        String userId = (loginUser != null) ? loginUser.getId() : null;
+
+        // もしもログインしていなかったらログインサーブレットにリダイレクトする
+     		if (session.getAttribute("users") == null) {
+     			response.sendRedirect("/D4/LoginServlet");
+     			return;
+     		}
+        
         // 仮ユーザーIDをセット（テスト用）
+        /*
         if (userId == null) {
-            userId = "user001";  // ← DBに存在するユーザーIDに変更
+            userId = "user002";  // DBに存在するユーザーIDに変更
             session.setAttribute("userId", userId);
         }
-
+        */
 
         try {
             // 自分のIDを条件にフレンド一覧を取得
@@ -67,7 +76,10 @@ public class RankingServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        String myId = (String) session.getAttribute("userId");
+
+        // ★POSTでも"users"からIDを取得
+        Users loginUser = (Users) session.getAttribute("users");
+        String myId = (loginUser != null) ? loginUser.getId() : null;
         String friendId = request.getParameter("friendId");
 
         if (myId == null || friendId == null) {

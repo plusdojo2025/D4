@@ -19,38 +19,33 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- 外部JS -->
     <script src="<%= request.getContextPath() %>/js/ranking.js" defer></script>
+    
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .tab {
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            margin-right: 4px;
+        }
+        canvas {
+            max-width: 600px;
+            max-height: 400px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
 
 </head>
 <body>
 
-<h2><%= friend.getName() %> とあなたの比較</h2>
+<h2><%= friend.getName() %>さんの情報</h2>
 <p>ID: <%= friend.getId() %></p>
 <p>ログイン日数: <%= friendHealth.size() %>日</p>
 
-<table border="1">
-    <tr>
-        <th>日付</th>
-        <th>相手 睡眠(h)</th>
-        <th>自分 睡眠(h)</th>
-    </tr>
-    <%
-        for (int i = 0; i < friendHealth.size(); i++) {
-            Health f = friendHealth.get(i);
-            Health m = (i < myHealth.size()) ? myHealth.get(i) : null;
-    %>
-    <tr>
-        <td><%= f.getDate() %></td>
-        <td><%= f.getSleep() %>分</td>
-        <td><%= (m != null ? m.getSleep() : "-") %>分</td>
-    </tr>
-    <%
-        }
-    %>
-</table>
-
-<form action="Ranking" method="get">
-    <input type="submit" value="← ランキング画面へ戻る">
-</form>
+<h2><%= friend.getName() %>さんとあなたの比較</h2>
 
 <!-- タブ -->
 <div id="tab-menu">
@@ -100,6 +95,10 @@
 
     const friendName = "<%= friend.getName() %>";
 </script>
+
+<form action="RankingServlet" method="get">
+    <input type="submit" value="← ランキング画面へ戻る">
+</form>
 
 </body>
 </html>
