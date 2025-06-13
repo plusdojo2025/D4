@@ -99,6 +99,21 @@ input {
   background-color:#d2f8d8;
 }
 
+#select-animate {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .back{
 	font-size: 26px;
 	text-align:center;
