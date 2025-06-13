@@ -55,7 +55,7 @@ public class UsersDAO {
 					"root", "password");
 			
 			// SQL文を準備する
-			String sql = "INSERT INTO usersList VALUES (?, ?, ?, ? )";
+			String sql = "INSERT INTO users VALUES (?, ?, ?, ? )";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			
 			// SQL文を完成させる
@@ -209,7 +209,71 @@ public class UsersDAO {
 		return usersList;
 	}
 	
+	//updateを実装
+	public boolean update(Users user) {
+		Connection conn = null;
+		boolean result = false;
 		
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			
+			//ユーザー情報の更新
+			String sql ="UPDATE users heignt = ?, name = ?, theme = ?, icon = ?, "
+					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+					
+			// SQL文を完成
+			
+			stmt.setInt(1, user.getHeight());
+		
+			if (user.getName() != null) {
+				stmt.setString(2, user.getName());
+			} else {
+				stmt.setString(2, "");
+			}
+			stmt.setInt(3, user.getTheme());
+			stmt.setInt(4, user.getIcon());
+			stmt.setInt(5, user.getvPrivate());
+			stmt.setInt(6, user.getsPrivate());
+			stmt.setInt(7, user.getwPrivate());
+			if (user.getId() != null) {
+				stmt.setString(8, user.getId());
+			} else {
+				stmt.setString(8, "");
+			}
+			
+			// SQL文を実行し、結果表を取得する
+			if (stmt.executeUpdate() == 1) {
+				result = true;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
+	
 	//deleteを実装(テストデータの削除用)
 	
 	}
