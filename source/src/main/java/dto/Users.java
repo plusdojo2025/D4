@@ -7,8 +7,8 @@ public class Users implements Serializable{
 	private String pw; 		/*パスワード*/
 	private int height; 	/*身長*/
 	private String name; 	/*ニックネーム*/
-	private int theme; 		/*テーマ*/
-	private int icon; 		/*アイコン*/
+	private String theme; 		/*テーマ*/
+	private String icon; 		/*アイコン*/
 	private int vPrivate; 	/*野菜情報の公開設定*/
 	private int sPrivate; 	/*睡眠情報の公開設定*/
 	private int wPrivate; 	/*運動情報の公開設定*/
@@ -39,16 +39,16 @@ public class Users implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getTheme() {
+	public String getTheme() {
 		return theme;
 	}
-	public void setTheme(int theme) {
+	public void setTheme(String theme) {
 		this.theme = theme;
 	}
-	public int getIcon() {
+	public String getIcon() {
 		return icon;
 	}
-	public void setIcon(int icon) {
+	public void setIcon(String icon) {
 		this.icon = icon;
 	}
 	public int getvPrivate() {
@@ -83,7 +83,7 @@ public class Users implements Serializable{
 	}
 	/*コンストラクタ*/
 	public Users(String id, String pw, int height, String name,
-			int theme, int icon, int vPrivate, int sPrivate, int wPrivate, int mLogin, int nLogin){
+			String theme, String icon, int vPrivate, int sPrivate, int wPrivate, int mLogin, int nLogin){
 		this.id = id;
 		this.pw = pw;
 		this.height = height;
@@ -96,8 +96,9 @@ public class Users implements Serializable{
 		this.mLogin = mLogin;
 		this.nLogin = nLogin;
 	}
+	
 	public Users(String id, String pw, int height, String name,
-					int theme, int icon, int vPrivate, int sPrivate, int wPrivate){
+			String theme, String icon, int vPrivate, int sPrivate, int wPrivate){
 		this.id = id;
 		this.pw = pw;
 		this.height = height;
@@ -109,7 +110,20 @@ public class Users implements Serializable{
 		this.wPrivate = wPrivate;
 		this.mLogin = 0;
 		this.nLogin = 0;
-		
+	}
+	
+	public Users(String id, String pw, int height, String name){
+		this.id = id;
+		this.pw = pw;
+		this.height = height;
+		this.name = name;
+		this.theme = "";
+		this.icon = "";
+		this.vPrivate = 0;
+		this.sPrivate = 0;
+		this.wPrivate = 0;
+		this.mLogin = 0;
+		this.nLogin = 0;
 	}
 	
 	public Users(String id){
@@ -118,8 +132,8 @@ public class Users implements Serializable{
 		this.pw = "";
 		this.height = 0;
 		this.name = "";
-		this.theme = 1;
-		this.icon =  1;
+		this.theme = "";
+		this.icon =  "";
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;
@@ -133,8 +147,8 @@ public class Users implements Serializable{
 		this.pw = "";
 		this.height = 0;
 		this.name = "";
-		this.theme = 1;
-		this.icon =  1;
+		this.theme = "";
+		this.icon =  "";
 		this.vPrivate = 0;
 		this.sPrivate = 0;
 		this.wPrivate = 0;

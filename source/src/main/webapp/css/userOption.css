@@ -1,7 +1,37 @@
 @charset "UTF-8";
 
-.profile{
-	text-align:center;
+.profileBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 600px;
+  margin: 0 auto;
 }
 
+.iconArea {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconBtn {
+  padding: 10px 15px;
+  height: 50px;
+}
+
+.inputArea {
+  flex: 1;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.input-group2 {
+  display: flex;
+  flex-direction: column;
+}
 
