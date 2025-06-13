@@ -10,6 +10,7 @@ public class UsersDAOTest {
 		testIsLoginOK1(); /*ユーザーがみつかる時*/
 		testIsLoginOK2(); /*ユーザーがみつからないとき時*/
 		insertTest();
+		updateTest();
 	}
 	
 	/*ユーザーが見つかるときのテスト*/
@@ -33,14 +34,24 @@ public class UsersDAOTest {
 	}
 	
 	//Insert テスト
-		public static void insertTest() {
+	public static void insertTest() {
 		UsersDAO dao = new UsersDAO();
 		if(dao.insert(new Users("users0", "password",160,"test",1,1,1,1,1))) {
 			System.out.println("insertTestが成功しました");
 		} else {
 			System.out.println("insertTest：テストが失敗しました");
 		}
-	}	      
+	}	
+	
+	//Update テスト
+	public static void updateTest() {
+		UsersDAO dao = new UsersDAO();
+		if(dao.update(new Users("user002", "", 179, "Tanaka", 1, 1, 0, 0, 0))) {
+			System.out.println("updateTestが成功しました");
+		} else {
+			System.out.println("updateTest：テストが失敗しました");
+		}
+	}	
 }
 
 
