@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
 import dto.Users;
@@ -44,6 +45,9 @@ public class RegistServlet extends HttpServlet {
 	    int height = Integer.parseInt(request.getParameter("height"));
 	    int weight = Integer.parseInt(request.getParameter("weight"));
 	    String name = request.getParameter("name");
+	    
+	    HttpSession session = request.getSession();
+	    session.setAttribute("weight", weight);
 	    
 	    // パスワード確認チェック
 	    if (!pw.equals(pw2)) {
