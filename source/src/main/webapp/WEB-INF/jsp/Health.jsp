@@ -75,10 +75,10 @@
 </aside>
 <!-- サイドパネル -->
 
-<div class="health">
+<div class="health" id="select-animate">
 	<form  method="POST" action="/D4/HealthServlet">
-		<p>野菜摂取量<br>
-		 一日の目標摂取量：３５０ｇ【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
+		<p>野菜摂取量</p>
+		 一日の目標摂取量：３５０ｇ<br>【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
 				<c:forEach var="i" begin="1" end="5">
 				    <input type="radio" id="star${i}" name="vegetable" value="${i}"
@@ -119,12 +119,12 @@
 				</select>
 		</div>
 	 	 		<br><br>
-				<div class="info">  	 
-				<input type="text" name="walk" value="<c:out value='${health.walk}' default=''/>">
+				<div class="info">
+					<p>運動量(歩数)<br><input type="text" name="walk" value="<c:out value='${health.walk}' default=''/>"><br><br>
 				</div>
 	
 			<div class="info stress-level"> 
-				<div class="label">ストレス度</div>
+				<div class="label"><p>ストレス度</div>
 					<div class="radio-group">
 					  <label>
 					    <input type="radio" name="stress" value="1"
@@ -145,14 +145,14 @@
 				</div>
 				
 			<div class="info"> 
-				体重（ｋｇ）<br><input type="text" name="weight" value="<c:choose><c:when test='${not empty health.weight}'>${health.weight}</c:when><c:when test='${not empty sessionScope.weight}'>${sessionScope.weight}</c:when><c:otherwise></c:otherwise></c:choose>"><br>
+				<p>体重（ｋｇ）<br><input type="text" name="weight" value="<c:choose><c:when test='${not empty health.weight}'>${health.weight}</c:when><c:when test='${not empty sessionScope.weight}'>${sessionScope.weight}</c:when><c:otherwise></c:otherwise></c:choose>"><br>
 				<br>
 			</div>
 		</div>	
 		
 		<div class="button">
 			<input type="submit" class="bt"  id="log">
-			<input type="reset"  class="bt"  id="log">
+			<input type="reset"  class="bt"  id="res">
 		</div>
 	</form>
 </div>

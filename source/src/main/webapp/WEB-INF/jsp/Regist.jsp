@@ -20,7 +20,7 @@
 	
 	<%-- メイン --%>	
 <main>	
-	<div class="regist-form">
+	<div class="regist-form" id="select-animate">
 		<form method="POST" action="/D4/RegistServlet">
 			<div class="regist">
 			    <div class="input-group">
