@@ -10,7 +10,7 @@ import java.util.List;
 import dto.Theme;
 
 public class ThemeDAO {
-	public List<Theme> select(Theme List) {
+	public List<Theme> select() {
 		Connection conn = null;
 		List<Theme> themeList = new ArrayList<Theme>();
 

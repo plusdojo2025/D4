@@ -12,7 +12,7 @@ import dto.Icon;
 
 public class IconDAO {
 
-	public List<Icon> findAll() {
+	public List<Icon> select() {
 		Connection conn = null;
 		List<Icon> iconList = new ArrayList<Icon>();
 
@@ -37,7 +37,7 @@ public class IconDAO {
 				Icon icon = new Icon(
 					rs.getInt("id"),
 					rs.getInt("days"),
-					rs.getString("pass")
+					rs.getString("path")
 				);
 				iconList.add(icon);
 			}

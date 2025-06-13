@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Icon implements Serializable{
 	private int days;    /*報酬配布日数*/
 	private int id;      /*アイコンid*/
-	private String pass; /*画像のパス*/
-	
+	private String path; /*画像のパス*/
+
 	public int getDays() {
 		return days;
 	}
@@ -19,23 +19,23 @@ public class Icon implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPass() {
-		return pass;
+	public String getPath() {
+		return path;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPath(String path) {
+		this.path = path;
 	}
 	
 	/*コンストラクタ*/
-	public Icon(int id, int days, String pass) {
+	public Icon(int id, int days, String path) {
 		this.id = id;
 		this.days = days;
-		this.pass = pass;
+		this.path = path;
 	}
 	
 	public Icon() {
 		this.id = 0;
 		this.days = 0;
-		this.pass="";
+		this.path="";
 	}
 }
