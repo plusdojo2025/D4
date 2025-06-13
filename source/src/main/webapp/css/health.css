@@ -182,11 +182,11 @@ input {
 }
 
 .pull{
-	border: 5px solid #98e4ab; /* 枠線の色と太さ */
+	border: 3px solid #98e4ab; /* 枠線の色と太さ */
 	border-radius: 30px; /* 角を丸くする */
 	padding: 20px; /* 内側の余白 */
 	width: 90px; /* フォームの幅 */
-	height:65px;	/* フォームの高さ */
+	height:55px;	/* フォームの高さ */
 	margin: 0 auto; /* 中央揃え */
 	background-color:#fcfefc;
 	margin-top:10px;
