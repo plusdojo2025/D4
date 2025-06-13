@@ -25,26 +25,24 @@ public class RankingServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
 
-        // 再取得して userId は null に(テスト用)
+        // 再取得してuserIdはnullに(テスト用)
         //session.invalidate();
         //session = request.getSession();
 
-        // ★"users" オブジェクトから userId を取得する
+        // usersオブジェクトからuserIdを取得する
         Users loginUser = (Users) session.getAttribute("users");
         String userId = (loginUser != null) ? loginUser.getId() : null;
 
-        // ログインチェック
+        // もしもログインしていなかったらログインサーブレットにリダイレクトする
+     		if (session.getAttribute("users") == null) {
+     			response.sendRedirect("/D4/LoginServlet");
+     			return;
+     		}
         
-        if (userId == null) {
-    		response.sendRedirect("LoginServlet");
-    		return;
-		}
-        
-
         // 仮ユーザーIDをセット（テスト用）
         /*
         if (userId == null) {
-            userId = "user002";  // ← DBに存在するユーザーIDに変更
+            userId = "user002";  // DBに存在するユーザーIDに変更
             session.setAttribute("userId", userId);
         }
         */

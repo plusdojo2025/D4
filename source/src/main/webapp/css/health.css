@@ -1,1 +1,40 @@
 @charset "UTF-8";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f8;
+}
+
+form {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: gray;
+  border-radius: 50%;
+  cursor: pointer;
+}

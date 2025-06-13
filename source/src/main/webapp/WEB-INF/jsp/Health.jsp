@@ -7,7 +7,7 @@
 <title>情報登録</title>
 </head>
 <body>
-<form method="POST" action="/D4/HealthServlet">
+<form  method="POST" action="/D4/HealthServlet">
 
 
 <p>野菜摂取量<br>
@@ -61,7 +61,6 @@
 <br>
 	<input type="submit">
 	<input type="reset">
-	
-</form>
+</form>	
 </body>
 </html>
