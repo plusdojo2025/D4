@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import dto.Users;
 
@@ -90,9 +88,9 @@ public class UsersDAO {
 			
 			
 	//selectを実装 idのみを引数に検索
-	public List<Users> select(Users users) {
+	public Users select(String id) {
 		Connection conn = null;
-		List<Users> usersList = new ArrayList<Users>();
+		Users user = new Users();
 		
 		try {
 			/*JDBCドライバの読み込み*/
@@ -140,14 +138,14 @@ public class UsersDAO {
 
 			//SQL文を完成
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, users.getId());
+			pStmt.setString(1, id);
 			PreparedStatement resetStmt = conn.prepareStatement(resetSql);
 			PreparedStatement cutStmt = conn.prepareStatement(cutSql);
-			cutStmt.setString(1, users.getId());
+			cutStmt.setString(1, id);
 			PreparedStatement mlStmt = conn.prepareStatement(mLogSql);
-			mlStmt.setString(1, users.getId());
+			mlStmt.setString(1, id);
 			PreparedStatement nlStmt = conn.prepareStatement(nLogSql);
-			nlStmt.setString(1, users.getId());
+			nlStmt.setString(1, id);
 			
 			// SELECT文を実行し、結果表を取得する
 			ResultSet prs = pStmt.executeQuery();
@@ -157,7 +155,7 @@ public class UsersDAO {
 			ResultSet nrs = nlStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (prs.next()) {
+			if(prs.next()) {
 				
 				//日々のデータがなかった場合の処理
 				 int mLogin = 0;
@@ -173,21 +171,20 @@ public class UsersDAO {
 					 if (nrs.wasNull()) nLogin = 0;
 				 }
 			    
-				Users tmpUser = new Users(
-						prs.getString("id"), 
-						prs.getString("pw"), 
-						prs.getInt("height"),
-						prs.getString("name"),
-						prs.getInt("theme"),
-						prs.getInt("icon"),
-						prs.getInt("vPrivate"),
-						prs.getInt("sPrivate"),
-						prs.getInt("wPrivate"),
-						mLogin,
-						nLogin
-						);
+				 user = new Users(
+						 prs.getString("id"), 
+						 prs.getString("pw"), 
+						 prs.getInt("height"),
+						 prs.getString("name"),
+						 prs.getInt("theme"),
+						 prs.getInt("icon"),
+						 prs.getInt("vPrivate"),
+						 prs.getInt("sPrivate"),
+						 prs.getInt("wPrivate"),
+						 mLogin,
+						 nLogin
+						 );
 				
-				usersList.add(tmpUser);
 			}
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -206,7 +203,7 @@ public class UsersDAO {
 			}
 		}
 		/*結果を返す*/
-		return usersList;
+		return user;
 	}
 	
 	//updateを実装

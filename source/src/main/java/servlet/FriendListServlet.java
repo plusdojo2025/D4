@@ -82,22 +82,21 @@ public class FriendListServlet extends HttpServlet {
 		// friendLsitの情報と対象のユーザー情報を取得
 		UsersDAO uDao = new UsersDAO();
 		FriendDAO fDao = new FriendDAO();
-		Users sUsers = new Users(friendId);
 		Friend sFriend = new Friend(myId, friendId);
 		try {
-			List<Users> usersList = uDao.select(sUsers);
+			Users friendUser = uDao.select(friendId);
 			List<Friend> friendList = fDao.select(sFriend);
 			
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("friendList", friendList);
-			request.setAttribute("user", usersList.get(0));
+			request.setAttribute("user", friendUser);
 			
 			boolean hasFriend = false; // フレンドリストにない場合の処理に使う
 
 			// friendList の中を1つずつ調べる
 			for (Friend f : friendList) {
 			    //対象がフレンドリストに登録されているなら
-			    if (f.getFriendId().equals(usersList.get(0).getId())) {
+			    if (f.getFriendId().equals(friendUser.getId())) {
 			        hasFriend = true;  // 存在している判定
 			        break;
 			    }

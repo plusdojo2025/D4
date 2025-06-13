@@ -33,12 +33,15 @@ public class UserOptionServlet extends HttpServlet {
 		}
 		
 		// リクエストパラメータを取得する
-		// セッションスコープから自分のIDを取得して、それをもとにフレンド関連のデータを取得
+		// セッションスコープから自分のデータを取得
 		Users loginUser = (Users) session.getAttribute("users");
-		String myId = loginUser.getId().toString();
-		
+		String myId = loginUser.getId();
 		// 検索処理を行う
 		UsersDAO uDao = new UsersDAO();
+		Users user = uDao.select(myId);
+		
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("userInfo", user);
 		
 		// ユーザー編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserOption.jsp");
