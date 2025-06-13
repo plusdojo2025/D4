@@ -73,7 +73,7 @@
 <!-- 詳細情報表示 -->
 
 <!-- ボタンで送るためのフォーム -->
-<form class="friendInfo" method="POST" action="/D4/FriendListServlet">
+<form class="friendInfo" method="POST" action="/D4/AddFriendServlet">
 <!-- 非表示でidを持つ -->
 <input type="hidden" name="friendId" value="${user.id}" class="id">
 <!-- テキスト(相手の名前) -->
