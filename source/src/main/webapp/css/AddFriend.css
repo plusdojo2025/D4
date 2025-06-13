@@ -22,26 +22,40 @@ main {
 
 main .content {
   background-color: white;
-  min-height: 600px;
+  min-height: 800px;
   border-top-left-radius: 1000px 300px;
   border-top-right-radius: 1000px 300px;
   padding: 40px;
 }
+ 
+html, body {
+  height: 100%;
+}
 
-/* ロゴ画像 */
-.logo img {
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/*ロゴ画像*/
+.logo img{
   align-items: center;
   width: 30px;
   height: auto;
 }
 
-/* フッター */
+/*フッター*/
 footer {
   text-align: center;
   padding: 8px 0;
   background-color: #8bdb9f;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: bold; /* 文字を太くする */
+  color: #ffffff;
 }
 
 /* 右のサイドバー */
@@ -78,6 +92,9 @@ footer {
 }
 
 .nav-side li a {
+  display: flex;              
+  flex-direction: column;     
+  align-items: center;
   text-decoration: none;
   color: white;
   font-size: 14px;
@@ -144,16 +161,16 @@ footer {
 
 .nav-menu li a {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* ここを row に変更して横並びにする */
   align-items: center;
   text-decoration: none;
   color: #ffffff;
+  gap: 5px; /* 画像と文字の間隔 */
 }
 
 .nav-menu li img {
   width: 40px;
   height: auto;
-  margin-bottom: 5px;
 }
 
 .nav-menu a {
@@ -164,6 +181,7 @@ footer {
 .nav-menu a:hover {
   color: #fbd5de;
 }
+
 /*フレンド詳細*/
 .friendInfo {
   display: flex;
