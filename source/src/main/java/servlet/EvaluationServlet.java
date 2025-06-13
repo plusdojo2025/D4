@@ -1,7 +1,6 @@
-package servlet;
-
-import java.io.IOException;
-import java.util.ArrayList;
+	package servlet;
+	
+	import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,75 +14,69 @@ import javax.servlet.http.HttpSession;
 import dao.HealthDAO;
 import dto.Health;
 import dto.Users;
+	
+	@WebServlet("/EvaluationServlet")
+	public class EvaluationServlet extends HttpServlet {
+	    private static final long serialVersionUID = 1L;
+	
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        HttpSession session = request.getSession();
+	        Users user = (Users) session.getAttribute("users");
 
-@WebServlet("/EvaluationServlet")
-public class EvaluationServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	        if (user == null) {
+	            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+	            return;
+	        }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        // --- 日付の計算（Java8以降の LocalDateを使う例） ---
+	        java.time.LocalDate todayDate = java.time.LocalDate.now();
+	        java.time.LocalDate yesterdayDate = todayDate.minusDays(1);
 
-		// セッションからユーザー情報を取得
-		HttpSession session = request.getSession();
-		Users user = (Users) session.getAttribute("users");
-//		if (user == null) {
-//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-//			return;
-//		}
+	        String today = todayDate.toString();       // 例: "2025-06-13"
+	        String yesterday = yesterdayDate.toString(); // 例: "2025-06-12"
 
-		HealthDAO dao = new HealthDAO();
-		Health searchCondition = new Health();
-		searchCondition.setId(user.getId());
+	        HealthDAO healthDao = new HealthDAO();
 
-		List<Health> rawList = dao.select(searchCondition);
+	        // 今日のデータを取得
+	        Health todayCondition = new Health();
+	        todayCondition.setId(user.getId());
+	        todayCondition.setDate(today);
 
-		// スコア変換処理
-		List<Health> convertedList = new ArrayList<>();
-		for (Health h : rawList) {
-			Health converted = new Health();
-			converted.setId(h.getId());
-			converted.setDate(h.getDate());
-			converted.setVegetable(convertVegetableToRating(h.getVegetable()));
-			converted.setSleep(convertSleepToRating(h.getSleep()));
-			converted.setWalk(convertWalkToRating(h.getWalk()));
-			converted.setWeight(h.getWeight());
-			convertedList.add(converted);
-		}
+	        List<Health> todayList = healthDao.select(todayCondition);
 
-		request.setAttribute("healthList", convertedList);
+	        // 昨日のデータを取得
+	        Health yesterdayCondition = new Health();
+	        yesterdayCondition.setId(user.getId());
+	        yesterdayCondition.setDate(yesterday);
 
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		session = request.getSession();
-		if (session.getAttribute("users") == null) {
-			response.sendRedirect("/D4/LoginServlet");
-			return;
-		}
-		// 評価ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
-		dispatcher.forward(request, response);
-	}
+	        List<Health> yesterdayList = healthDao.select(yesterdayCondition);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+	        // データの取り出しと差分計算
+	        Health todayData = todayList.isEmpty() ? null : todayList.get(0);
+	        Health yesterdayData = yesterdayList.isEmpty() ? null : yesterdayList.get(0);
 
-	private int convertWalkToRating(int walk) {
-		if (walk >= 6500 && walk <= 8000) return 5;
-		if (walk >= 5000) return 4;
-		if (walk >= 3500) return 3;
-		if (walk >= 2000) return 2;
-		return 1;
-	}
+	        int vegDiff = 0;
+	        int sleepDiff = 0;
+	        int walkDiff = 0;
 
-	private int convertSleepToRating(int sleepMinutes) {
-		if (sleepMinutes >= 450) return 5;
-		if (sleepMinutes >= 400) return 4;
-		if (sleepMinutes >= 350) return 3;
-		if (sleepMinutes >= 300) return 2;
-		return 1;
-	}
+	        if (todayData != null && yesterdayData != null) {
+	            vegDiff = convertVegetableToRating(todayData.getVegetable()) - convertVegetableToRating(yesterdayData.getVegetable());
+	            sleepDiff = convertSleepToRating(todayData.getSleep()) - convertSleepToRating(yesterdayData.getSleep());
+	            walkDiff = convertWalkToRating(todayData.getWalk()) - convertWalkToRating(yesterdayData.getWalk());
+	            
+	            
+	        }
 
-	private int convertVegetableToRating(int veg) {
-		if (veg >= 1 && veg <= 5) return veg;
-		return 1;
-	}
+	        // 今日のデータをJSPに渡す（差分も一緒に）
+	        request.setAttribute("todayData", todayData);
+	        request.setAttribute("vegDiff", vegDiff);
+	        request.setAttribute("sleepDiff", sleepDiff);
+	        request.setAttribute("walkDiff", walkDiff);
+
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
+	        dispatcher.forward(request, response);
+	        
+	        
+	    }
+
 }
