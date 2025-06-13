@@ -14,33 +14,37 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-<div class="profile">
 	<h2>プロフィールを編集</h2><p>現在のログイン日数:</p>
 	<form>
-			<div class="profile">
+		<div class="icon">	
+			<button>アイコンボタン(仮)</button>
+		</div>	
+		<div class="profile">
 			    <div class="input-group">
-      				<label for="textbox1">新規ID</label>
+      				<label for="textbox1">ニックネーム</label>
       				<input type="text" id="textbox1">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">新規パスワード</label>
+      				<label for="textbox1">身長</label>
       				<input type="text" id="textbox1">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">新規パスワード(確認用)</label>
-      				<input type="text" id="textbox1">
-    			</div>
-			    <div class="input-group">
-      				<label for="textbox1">現在の身長(cm)</label>
+      				<label for="textbox1">ID</label>
       				<input type="text" id="textbox1">
     			</div>
 
-				<button>テーマボタン(仮)</button><br>
-		非公開設定食事<input type="checkbox">睡眠<input type="checkbox">運動<input type="checkbox"><br>
-        <button type="submit">保存</button>
+			<div class="input-group">
+				<button>テーマボタン(仮)</button>
+			</div>
+
+        </div>	
+        <div class="noPublic">
+			非公開設定食事<input type="checkbox">睡眠<input type="checkbox">運動<input type="checkbox">
+		</div>
+		<div class="save">
+        	<button type="submit">保存</button>
         </div>
-	</form>
-</div>	
+	</form>	
 	<%-- メインここまで --%>
 </body>
 <script src="/D4/js/useroption.js"></script>

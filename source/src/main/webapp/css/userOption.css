@@ -1,7 +1,15 @@
 @charset "UTF-8";
 
 .profile{
-	text-align:center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* ボックス間の間隔 */
+    width: 450px; /* 幅を広げる */
+    margin: 0 auto;
 }
 
-
+.input-group {
+    flex: 1 1 45%; /* 2列になるように調整 */
+    display: flex;
+    flex-direction: column;
+}
