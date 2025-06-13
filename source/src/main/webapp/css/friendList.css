@@ -104,23 +104,25 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #c5efff;
-  width: 60px;
-  height: 60px;
+  background-color: #89eca0; /*色の変更*/
+  width: 80px;              /* 幅を大きく */
+  height: 80px;             /* 高さを大きく */
   border-radius: 50%;
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 16px;          /* 文字サイズアップ */
   margin: 0 auto;
   position: relative;
-  bottom: -20px;
+  bottom: -20px;            /* 必要に応じて調整 */
 }
 
 .page_top img.top-icon {
-  width: 24px;
-  height: 24px;
-  margin-bottom: 4px;
+  width: 32px;              /* アイコンを大きく */
+  height: 32px;
+  margin-bottom: 6px;
 }
+
 /*メニュー*/
 .nav-menu ul {
   display: flex;
