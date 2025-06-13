@@ -116,12 +116,5 @@ public class HealthServlet extends HttpServlet {
 		} else { // 登録失敗
 		request.setAttribute("result", new Result("記録の登録に失敗しました。", "/D4/EvaluationServlet"));
 		}
-	
-		// 結果ページにフォワードする
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			//dispatcher.forward(request, response);
 	}
-	}
-
-
-
+}
