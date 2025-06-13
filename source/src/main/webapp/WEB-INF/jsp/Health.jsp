@@ -17,12 +17,32 @@
 <!-- ヘッダーナビ -->
 <nav class="nav-menu">
   <ul>
-    <li><a href="/D4/HealthServlet"><img src="/D4/img/情報登録w.png" alt="情報登録">情報登録</a></li>
-    <li class="with-border"><a href="/D4/EvaluationServlet"><img src="/D4/img/評価w.png" alt="評価">評価</a></li>
-    <li class="with-border"><a href="/D4/RankingServlet"><img src="/D4/img/ランキングw.png" alt="ランキング">ランキング</a></li>
-    <li class="with-border"><a href="/D4/FriendListServlet"><img src="/D4/img/フレンドw.png" alt="フレンド">フレンド</a></li>
+    <li>
+      <a href="/D4/HealthServlet">
+        <img src="/D4/img/情報登録w.png" alt="情報登録">
+        <span>情報登録</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/EvaluationServlet">
+        <img src="/D4/img/評価w.png" alt="評価">
+        <span>評価</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/RankingServlet">
+        <img src="/D4/img/ランキングw.png" alt="ランキング">
+        <span>ランキング</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/FriendListServlet">
+        <img src="/D4/img/フレンドw.png" alt="フレンド">
+        <span>フレンド</span>
+      </a>
+    </li>
   </ul>
- </nav>
+</nav>
 </header>
 <!-- ヘッダーナビ -->
 
@@ -30,14 +50,28 @@
 <!-- サイドパネル -->
 <section class="content">
 <aside class="side-panel"> 
-<nav class="nav-side">
-  <ul>
-  <li class="with-border"><a href="/D4/BornusServlet"><img src="/D4/img/ボーナスw.png"><br>ログインボーナス</a></li>
-  <li class="with-border"><a href="/D4/UserOptionServlet"><img src="/D4/img/ユーザー情報w.png">ユーザー情報</a></li>
-  <li class="with-border logout-border"><a href="/D4/LoginServlet"><img src="/D4/img/logoutw.png">ログアウト</a></li>
-</ul>
-  
- </nav>
+  <nav class="nav-side">
+    <ul>
+      <li class="with-border">
+        <a href="/D4/BornusServlet">
+          <img src="/D4/img/ボーナスw.png" alt="ログインボーナス">
+          ログインボーナス
+        </a>
+      </li>
+      <li class="with-border">
+        <a href="/D4/UserOptionServlet">
+          <img src="/D4/img/ユーザー情報w.png" alt="ユーザー情報">
+          ユーザー情報
+        </a>
+      </li>
+      <li class="with-border logout-border">
+        <a href="/D4/LoginServlet">
+          <img src="/D4/img/logoutw.png" alt="ログアウト">
+          ログアウト
+        </a>
+      </li>
+    </ul>
+  </nav>
 </aside>
 <!-- サイドパネル -->
 

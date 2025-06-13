@@ -109,40 +109,45 @@ form{
   color: white;
 }
 
-.nav-side li img {
-  width: 40px; /* 横幅を小さく */
-  height: auto; /* 高さは自動調整でバランスを保つ */
-  margin-right: 5px; /* テキストとの余白 */
-  vertical-align: middle; /* 行の中央に揃える */
-}
 .nav-side ul {
-  list-style: none; /* ・を消す */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .nav-side li {
   display: flex;
-  flex-direction: column; /* 画像の下に文字 */
-  align-items: center;     /* 中央揃え */
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.nav-side li a {
-  text-decoration: none; /* 下線を消す */
-  color: white;          /* お好みの文字色 */
-  font-size: 14px;
-  transition: color 0.3s;
-  font-weight: bold; /* 文字を太くする */
+.nav-side li img {
+  width: 40px;
+  height: auto;
+  margin-right: 5px;
+  vertical-align: middle;
 }
-.logout-border {
-  border-top: 1px solid white;
-  padding-top: 10px; /* 線と内容の間に余白を追加（任意） */
-  margin-top: 10px;  /* 線と上の項目との間隔を追加（任意） */
+
+.nav-side li a {
+  display: flex;              
+  flex-direction: column;     
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav-side li a:hover {
-  color: #fbd5de; /* ホバー時の文字色 */
+  color: #fbd5de;
+}
+
+.logout-border {
+  border-top: 1px solid white;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 /*サイドパネル*/
 
@@ -238,42 +243,41 @@ input {
   padding: 0;
   margin: 0;
 }
+
 .nav-menu li {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-/* 評価の左側に白い縦線を表示 */
 .nav-menu li.with-border {
   border-left: 1px solid #ffffff;
   padding-left: 20px;
   margin-left: 20px;
 }
+
 .nav-menu li a {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* ここを row に変更して横並びにする */
   align-items: center;
   text-decoration: none;
   color: #ffffff;
+  gap: 5px; /* 画像と文字の間隔 */
 }
 
 .nav-menu li img {
   width: 40px;
-  /*height: 40px;*/
-  margin-bottom: 5px;
   height: auto;
 }
-/*リンクの文字の色*/
+
 .nav-menu a {
   color: white;
-  text-decoration: none; /* 下線を消す */
+  text-decoration: none;
 }
 
 .nav-menu a:hover {
-  color: #fbd5de; /* ホバー時に少し色を変える */
+  color: #fbd5de;
 }
-
 
 footer {
   text-align: center;
