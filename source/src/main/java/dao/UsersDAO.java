@@ -103,7 +103,10 @@ public class UsersDAO {
 			
 			/*SELECT文を準備*/
 			//ユーザー情報の取得
-			String sql = "SELECT * FROM users WHERE id = ? ";
+			String sql = "SELECT u.id, u.pw, u.height, u.name, u.vPrivate, "
+					+ "u.sPrivate, u.wPrivate, t.name AS theme, i.path AS icon "
+					+ "FROM users u LEFT JOIN themeList t ON u.theme = t.id "
+					+ "LEFT JOIN iconList i ON u.icon = i.id WHERE u.id = ? ";
 			
 			//ユーザー変数を用いて連続ログイン日数を算出
 			
@@ -135,6 +138,7 @@ public class UsersDAO {
 					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
 					+ "streaks GROUP BY user_id, streak_group ORDER BY MAX(login_date) "
 					+ "DESC LIMIT 1";
+			
 
 			//SQL文を完成
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -176,8 +180,8 @@ public class UsersDAO {
 						 prs.getString("pw"), 
 						 prs.getInt("height"),
 						 prs.getString("name"),
-						 prs.getInt("theme"),
-						 prs.getInt("icon"),
+						 prs.getString("theme"),
+						 prs.getString("icon"),
 						 prs.getInt("vPrivate"),
 						 prs.getInt("sPrivate"),
 						 prs.getInt("wPrivate"),
@@ -210,6 +214,8 @@ public class UsersDAO {
 	public boolean update(Users user) {
 		Connection conn = null;
 		boolean result = false;
+		int iconId = -1;
+		int themeId = -1;
 		
 		try {
 			// JDBCドライバを読み込む
@@ -225,9 +231,39 @@ public class UsersDAO {
 			String sql ="UPDATE users SET height = ?, name = ?, theme = ?, icon = ?, "
 					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-					
-			// SQL文を完成
+	
+			//メインのSQLに格納するデータを取得
+			String getIconIdSql ="select id from iconList where path = ?";
+			String getThemeIdSql ="select id from themeList where name = ?";
+			PreparedStatement iStmt = conn.prepareStatement(getIconIdSql);
+			PreparedStatement tStmt = conn.prepareStatement(getThemeIdSql);
+			//SQL文を完成
+			if (user.getTheme() != null) {
+				tStmt.setString(1, user.getTheme());
+			} else {
+				tStmt.setString(1, "");
+			}
+			if (user.getIcon() != null) {
+				iStmt.setString(1, user.getIcon());
+			} else {
+				iStmt.setString(1, "");
+			}
 			
+			//SQL文を実行
+			ResultSet trs = tStmt.executeQuery();
+			ResultSet irs = iStmt.executeQuery();
+			
+			//結果から値を取得
+			if (trs.next()) {
+				 themeId = trs.getInt("id");
+				 if (trs.wasNull()) themeId = 0;
+			 }
+			 if (irs.next()) {
+				 iconId = irs.getInt("id");
+				 if (irs.wasNull()) iconId = 0;
+			 }
+			 
+			// SQL文を完成
 			stmt.setInt(1, user.getHeight());
 		
 			if (user.getName() != null) {
@@ -235,8 +271,8 @@ public class UsersDAO {
 			} else {
 				stmt.setString(2, "");
 			}
-			stmt.setInt(3, user.getTheme());
-			stmt.setInt(4, user.getIcon());
+			stmt.setInt(3, themeId);
+			stmt.setInt(4, iconId);
 			stmt.setInt(5, user.getvPrivate());
 			stmt.setInt(6, user.getsPrivate());
 			stmt.setInt(7, user.getwPrivate());
