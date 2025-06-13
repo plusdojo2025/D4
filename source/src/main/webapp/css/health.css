@@ -1,40 +1,67 @@
 @charset "UTF-8";
 
-body {
+form{
+	text-align:center;
+}
+
+.hearth{
+	margin: 0 auto;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* ボックス間の間隔 */
+    width: 450px; /* 幅を広げる */
+    margin: 0 auto;
+}
+
+.info{
+	flex: 1 1 45%; /* 2列になるように調整 */
+    display: flex;
+    flex-direction: column;
+}
+
+.stress-level {
+  flex-direction: row; /* 横並びにする */
+  align-items: center; /* 垂直方向の中央揃え（任意） */
+  gap: 10px; /* ラジオボタン間の余白（任意） */
+}
+.stress-level label {
+  margin-right: 10px;
+}
+
+.stress-level {
+  flex-direction: column; /* 縦方向にラベル→選択肢の順に並べる */
+}
+
+.stress-level .radio-group {
+  display: flex;           /* 横並びにする */
+  gap: 10px;               /* 選択肢の間隔 */
+  margin-top: 5px;         /* ラベルとの間隔 */
+}
+
+.stress-level {
+  flex-direction: column;
+}
+
+.radio-group {
   display: flex;
-  justify-content: center;
+  gap: 20px; /* ボタン同士の間隔 */
+  margin-top: 8px;
+}
+
+.radio-group label {
+  display: flex;
+  flex-direction: column; /* 縦に並べる：ボタン→文字 */
   align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f8;
+  font-size: 14px;
 }
 
-form {
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 20px 40px;
-  border-radius: 10px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.button{
+	  display: flex;
+  justify-content: center; /* 中央揃え */
+  gap: 20px;               /* ボタン間のスペース */
+  margin-top: 20px;        /* 上部の余白（任意） */
 }
 
-.rating {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-.rating input[type="radio"] {
-  display: none;
-}
-
-.rating label {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: gray;
-  border-radius: 50%;
-  cursor: pointer;
-}
