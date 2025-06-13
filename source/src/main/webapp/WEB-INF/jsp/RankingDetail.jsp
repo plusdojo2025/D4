@@ -41,7 +41,7 @@
 </head>
 <body>
 
-<h2><%= friend.getName() %>さんの情報</h2>
+<h2><%= friend.getName() %>さんのユーザー情報</h2>
 <p>ID: <%= friend.getId() %></p>
 <p>ログイン日数: <%= friendHealth.size() %>日</p>
 
