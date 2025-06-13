@@ -14,43 +14,42 @@
 	</h1>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	<h2>プロフィールを編集</h2><p>現在のログイン日数:</p>
-<form>
-  <div class="profileBox">
-    <div class="iconArea">
-      <button class="iconBtn">アイコンボタン(仮)</button>
-    </div>
-
-    <div class="inputArea">
-      <div class="profile">
-        <div class="input-group2">
-          <label for="nickname">ニックネーム</label>
-          <input type="text" id="nickname">
-        </div>
-        <div class="input-group2">
-          <label for="height">身長</label>
-          <input type="text" id="height">
-        </div>
-        <div class="input-group2">
-          <label for="userid">ID</label>
-          <input type="text" id="userid">
-        </div>
-        <div class="input-group2">
-          <button class="themeBtn">テーマボタン(仮)</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    
-        <div class="noPublic">
-			非公開設定食事<input type="checkbox">睡眠<input type="checkbox">運動<input type="checkbox">
-		</div>
-		<div class="save">
-        	<button type="submit">保存</button>
-        </div>
 	
-</form>	
+<div class="profile">
+	<h2>プロフィールを編集</h2>
+	<p>現在の連続ログイン日数:${userInfo.nLogin}</p>
+	<form class="UserInfo" method="POST" action="/D4/UserOptionServlet">
+		<div class="input-group">
+ 		<label for="textbox1">ID</label>
+			${userInfo.id}
+  			<input type="hidden" name="myId" value="${userInfo.id}" class="textbox1">
+    	</div>
+		<div class="input-group">
+  			<label for="textbox2">新規パスワード</label>
+  			<input type="text" name = "pw" id="textbox2">
+   		</div>
+		<div class="input-group">
+			<label for="textbox3">新規パスワード(確認用)</label>
+ 			<input type="text" name = "checkPw" id="textbox3">
+   		</div>
+		<div class="input-group">
+			<label for="textbox4">現在の身長(cm)</label>
+			<input type="text" name="height" value="${userInfo.height}" class="textbox4">
+		</div>
+		<div class="input-group">
+			<label for="textbox5">ニックネーム</label>
+			<input type="text" name = "name" value="${userInfo.name}" id="textbox5">
+		</div>
+			<img src="${useInfo.icon}" alt="アイコン" style="width:100px;">
+			<button>テーマボタン(仮)</button><br>
+		非公開設定
+		食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
+		睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
+		運動<input type="checkbox" name ="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}><br>
+		<button type="submit" value="保存"></button>
+		</form>
+	</div>
+
 	<%-- メインここまで --%>
 </body>
 <script src="/D4/js/useroption.js"></script>
