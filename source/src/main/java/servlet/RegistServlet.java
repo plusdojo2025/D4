@@ -66,7 +66,7 @@ public class RegistServlet extends HttpServlet {
 		} else {
 			// 登録失敗時の処理（エラーメッセージ表示など）
 			request.setAttribute("error", "登録に失敗しました");
-			request.getRequestDispatcher("/register.jsp").forward(request, response);
+			request.getRequestDispatcher("/Regist.jsp").forward(request, response);
 			System.out.println("登録失敗");
 		}
 	}
