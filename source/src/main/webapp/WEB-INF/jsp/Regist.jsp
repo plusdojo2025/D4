@@ -59,6 +59,9 @@
 	
 	</div>
 </main>
+<footer>
+    <p class="copyright">&copy;2025HARU</p>
+</footer>
 	<%-- メインここまで --%>	
 </body>
 
