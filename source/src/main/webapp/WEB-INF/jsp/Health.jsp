@@ -10,7 +10,6 @@
 <body>
 <form  method="POST" action="/D4/HealthServlet">
 
-
 <p>野菜摂取量<br>
  一日の目標摂取量：３５０ｇ【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 <div class="rating">
@@ -79,10 +78,12 @@
 体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
 <br>
 </div>
-
-	<input type="submit">
-	<input type="reset">
 </div>	
-</form>	
+
+	<div class="button">
+		<input type="submit">
+		<input type="reset">
+	</div>
+</form>
 </body>
 </html>

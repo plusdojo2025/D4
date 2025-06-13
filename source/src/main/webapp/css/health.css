@@ -4,6 +4,10 @@ form{
 	text-align:center;
 }
 
+.hearth{
+	margin: 0 auto;
+}
+
 .box {
     display: flex;
     flex-wrap: wrap;
@@ -52,5 +56,12 @@ form{
   flex-direction: column; /* 縦に並べる：ボタン→文字 */
   align-items: center;
   font-size: 14px;
+}
+
+.button{
+	  display: flex;
+  justify-content: center; /* 中央揃え */
+  gap: 20px;               /* ボタン間のスペース */
+  margin-top: 20px;        /* 上部の余白（任意） */
 }
 
