@@ -94,7 +94,7 @@
 	  <!-- 時間（0～10時間） -->
 	 <div class="box"> 
 		<div class="info">  
-		  	<p>睡眠時間<br>
+		  	<p>睡眠時間</p><br>
 		  		<select class="pull" name="sleep_hour">
 					<option value="0" selected>時間</option>
 					<option value="1">1時間</option>
@@ -119,11 +119,11 @@
 		</div>
 	 	 		<br><br>
 				<div class="info">  	 
-					<p>運動量(歩数）<br><input type="text" name="walk"><br><br>
+					<p>運動量(歩数）</p><br><input type="text" name="walk"><br><br>
 				</div>
 	
 			<div class="info stress-level"> 
-				<div class="label"><p>ストレス度</div>
+				<div class="label"><p>ストレス度</p></div>
 					<div class="radio-group">
 		    			<label>
 		      				<input type="radio" name="stress" value="1" checked>
@@ -141,7 +141,7 @@
 			</div>
 		
 			<div class="info"> 
-				<p>体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
+				<p>体重（ｋｇ）</p><br><input type="text" name="weight" value="${sessionScope.weight}"><br>
 				<br>
 			</div>
 		</div>	
