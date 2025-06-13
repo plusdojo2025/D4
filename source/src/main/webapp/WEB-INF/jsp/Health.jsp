@@ -17,10 +17,10 @@
 <!-- ヘッダーナビ -->
 <nav class="nav-menu">
   <ul>
-    <li><img src="/D4/img/情報登録w.png"><a href="/D4/HealthServlet">情報登録</a></li>
-    <li class="with-border"><img src="/D4/img/評価w.png"><a href="/D4/EvaluationServlet">評価</a></li>
-    <li class="with-border"><img src="/D4/img/ランキングw.png"><a href="/D4/RankingServlet">ランキング</a></li>
-    <li class="with-border"><img src="/D4/img/フレンドw.png"><a href="/D4/FriendListServlet">フレンド</a></li>
+    <li><a href="/D4/HealthServlet"><img src="/D4/img/情報登録w.png" alt="情報登録">情報登録</a></li>
+    <li class="with-border"><a href="/D4/EvaluationServlet"><img src="/D4/img/評価w.png" alt="評価">評価</a></li>
+    <li class="with-border"><a href="/D4/RankingServlet"><img src="/D4/img/ランキングw.png" alt="ランキング">ランキング</a></li>
+    <li class="with-border"><a href="/D4/FriendListServlet"><img src="/D4/img/フレンドw.png" alt="フレンド">フレンド</a></li>
   </ul>
  </nav>
 </header>
@@ -124,7 +124,7 @@
       <img src="/D4/img/評価w.png" class="top-icon">
       TOP
     </a>
- </div>
+  </div>
 </main>
 <footer>
     <p class="copyright">&copy;2025HARU</p>
