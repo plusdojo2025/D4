@@ -8,6 +8,39 @@
 <link rel="stylesheet" type="text/css" href="css/health.css">
 </head>
 <body>
+<header>
+<div class="logo">
+<img src="/D4/img/情報登録w.png">
+<%--ここにロゴ画像を入れる --%>
+</div>
+
+<!-- ヘッダーナビ -->
+<nav class="nav-menu">
+  <ul>
+    <li><img src="/D4/img/情報登録w.png"><a href="/D4/HealthServlet">情報登録</a></li>
+    <li class="with-border"><img src="/D4/img/評価w.png"><a href="/D4/EvaluationServlet">評価</a></li>
+    <li class="with-border"><img src="/D4/img/ランキングw.png"><a href="/D4/RankingServlet">ランキング</a></li>
+    <li class="with-border"><img src="/D4/img/フレンドw.png"><a href="/D4/FriendListServlet">フレンド</a></li>
+  </ul>
+ </nav>
+</header>
+<!-- ヘッダーナビ -->
+
+<main>
+<!-- サイドパネル -->
+<section class="content">
+<aside class="side-panel"> 
+<nav class="nav-side">
+  <ul>
+  <li class="with-border"><img src="/D4/img/ボーナスw.png"><a href="/D4/BornusServlet">ログインボーナス</a></li>
+  <li class="with-border"><img src="/D4/img/ユーザー情報w.png"><a href="/D4/UserOptionServlet">ユーザー情報</a></li>
+  <li class="with-border logout-border"><img src="/D4/img/logoutw.png"><a href="/D4/LoginServlet">ログアウト</a></li>
+</ul>
+  
+ </nav>
+</aside>
+<!-- サイドパネル -->
+
 <div class="health">
 	<form  method="POST" action="/D4/HealthServlet">
 		<p>野菜摂取量<br>
@@ -85,5 +118,17 @@
 		</div>
 	</form>
 </div>
+</section>
+<div>
+    <a href="#top" class="page_top">
+      <img src="/D4/img/評価w.png" class="top-icon">
+      TOP
+    </a>
+ </div>
+</main>
+<footer>
+    <p class="copyright">&copy;2025HARU</p>
+</footer>
+
 </body>
 </html>

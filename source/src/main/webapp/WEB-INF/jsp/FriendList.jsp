@@ -38,29 +38,31 @@
 <!-- フォーム(id検索) -->
 <form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
 <!-- テキストボックス -->
-<label>ID検索<br>
-<input type="text" name="friendId" placeholder="idで検索"></label>
+ <label for="friendId" style="margin: 0;">ID検索</label>
+<input type="text" name="friendId" placeholder="idで検索">
 
 <!-- ボタン(詳細画面に移動) -->
-<input type="submit" name="searchSubmit" value="検索">
+<input type="submit" class="bt" name="searchSubmit" value="検索">
 <!-- フォーム終わり -->
 </form>
-
+<div class="application-list">
 <p>申請一覧</p>
 <!-- スクロールできるリスト(申請一覧を表示) -->
-<ul>
+<ul class="application-ul">
 <!-- forEach で状態が2のもののみ表示-->
 <c:forEach var="e" items="${friendList}">
 <c:if test="${e.state == 2}">
-	<li>
+	<li class="application-item">
 	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
 	<form class="checkApply" method="POST" action="/D4/FriendListServlet">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
+	<div class="application-row">
 	<!-- テキスト(相手の名前) -->
 	<p>${e.friendName}</p>
 	<!-- ボタン(詳細画面に移動) -->
-	<input type="submit" name="searchSubmit" value="詳細">
+	<input type="submit" class="bt" name="searchSubmit" value="詳細">
+	</div>
 	</form>
 	<!-- フォーム終わり -->
 	</li>
@@ -68,9 +70,10 @@
 </c:forEach>
 <!-- 繰り返し終わり -->
 </ul>
+</div>
 <!-- リスト終わり -->
 
-
+<div class="friend-list">
 <p>フレンド一覧</p>
 <!-- スクロールできるリスト(フレンドを一覧表示) -->
 <ul>
@@ -85,7 +88,7 @@
 	<!-- テキスト(相手の名前) -->
 	<p>${e.friendName}</p>
 	<!-- ボタン(詳細画面に移動) -->
-	<input type="submit" name="searchSubmit" value="確認">
+	<input type="submit" class="bt" name="searchSubmit" value="確認">
 	</form>
 	<!-- フォーム終わり -->
 	</li>
@@ -93,6 +96,7 @@
 </c:forEach>
 <!-- 繰り返し終わり -->
 </ul>
+</div>
 <!-- リスト終わり -->
 </section>
 <div>
