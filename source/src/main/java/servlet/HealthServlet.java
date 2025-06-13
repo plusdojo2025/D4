@@ -36,20 +36,26 @@ public class HealthServlet extends HttpServlet {
 			return;
 		}
 		
+		HealthDAO hDao = new HealthDAO();
+		Users loginUser = (Users) session.getAttribute("users");
+		String myId = loginUser.getId().toString();
+		
 		// weight がまだセッションに存在しない場合のみ追加
 		if (session.getAttribute("weight") == null) {
-			
-			HealthDAO hDao = new HealthDAO();
-			Users loginUser = (Users) session.getAttribute("users");
-			String myId = loginUser.getId().toString();
 			LocalDateTime yesterday = LocalDateTime.now().minusDays(1);
 			String date = yesterday.toLocalDate().toString();
-			
 			List<Health> healthList = hDao.select(new Health(myId, date));
-			
 			if (healthList != null && !healthList.isEmpty()) {
 			    session.setAttribute("weight", healthList.get(0).getWeight());
 			}
+		}
+		
+		//既に今日のデータがある場合は記録を取り出す
+		LocalDateTime yesterday = LocalDateTime.now();
+		String date = yesterday.toLocalDate().toString();
+		List<Health> healthList = hDao.select(new Health(myId, date));
+		if (healthList != null && !healthList.isEmpty()) {
+		    session.setAttribute("health", healthList.get(0));
 		}
 		
 		 //登録ページにフォワードする

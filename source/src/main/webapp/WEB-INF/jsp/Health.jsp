@@ -80,68 +80,72 @@
 		<p>野菜摂取量<br>
 		 一日の目標摂取量：３５０ｇ【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
-	  			<input type="radio" id="star1" name="vegetable" value="1" checked > 
-	  			<label for="star1" title="1 star"></label>
-	  			<input type="radio" id="star2" name="vegetable" value="2">
-	  			<label for="star2" title="2 stars"></label>
-	  			<input type="radio" id="star3" name="vegetable" value="3">
-	  			<label for="star3" title="3 stars"></label>
-	  			<input type="radio" id="star4" name="vegetable" value="4">
-	  			<label for="star4" title="4 stars"></label>
-	  			<input type="radio" id="star5" name="vegetable" value="5">
-	  			<label for="star5" title="5 stars"></label>
+				<c:forEach var="i" begin="1" end="5">
+				    <input type="radio" id="star${i}" name="vegetable" value="${i}"
+				    <c:if test="${not empty health && health.vegetable == i}">checked</c:if>
+				    <c:if test="${empty health && i == 1}">checked</c:if>>
+				    <label for="star${i}" title="${i} stars"></label>
+			  	</c:forEach>
 			</div>
-	  <!-- 時間（0～10時間） -->
-	 <div class="box"> 
+			
+			
+	<!-- 時間（0～10時間） -->
+	<c:set var="sleep_hour" value="${empty health || health.sleep == null ? 0 : ((health.sleep - (health.sleep % 60)) / 60)}" />
+	<c:set var="sleep_minute" value="${empty health || health.sleep == null ? 0 : health.sleep % 60}" />
+
+	<div class="box"> 
 		<div class="info">  
 		  	<p>睡眠時間<br>
 		  		<select name="sleep_hour">
-					<option value="0" selected>時間</option>
-					<option value="1">1時間</option>
-					<option value="2">2時間</option>
-					<option value="3">3時間</option>
-					<option value="4">4時間</option>
-					<option value="5">5時間</option>
-					<option value="6">6時間</option>
-					<option value="7">7時間</option>
-					<option value="8">8時間</option>
-					<option value="9">9時間</option>
-					<option value="10">10時間</option>
+					<option value="0" <c:if test="${sleep_hour == 0}">selected</c:if>>0時間</option>
+					<option value="1" <c:if test="${sleep_hour == 1}">selected</c:if>>1時間</option>
+					<option value="2" <c:if test="${sleep_hour == 2}">selected</c:if>>2時間</option>
+					<option value="3" <c:if test="${sleep_hour == 3}">selected</c:if>>3時間</option>
+					<option value="4" <c:if test="${sleep_hour == 4}">selected</c:if>>4時間</option>
+					<option value="5" <c:if test="${sleep_hour == 5}">selected</c:if>>5時間</option>
+					<option value="6" <c:if test="${sleep_hour == 6}">selected</c:if>>6時間</option>
+					<option value="7" <c:if test="${sleep_hour == 7}">selected</c:if>>7時間</option>
+					<option value="8" <c:if test="${sleep_hour == 8}">selected</c:if>>8時間</option>
+					<option value="9" <c:if test="${sleep_hour == 9}">selected</c:if>>9時間</option>
+					<option value="10"<c:if test="${sleep_hour == 10}">selected</c:if>>10時間</option>
 	  			</select>
 	
-	  <!-- 分（0分,  30分, ） -->
+	  <!-- 分（0分, 15分, 30分, 45分） -->
 				<select name="sleep_minute">
-					<option value="0" selected>分</option>
-					<option value="15">15分</option>
-					<option value="30">30分</option>
-					<option value="45">45分</option>
+					<option value="0" <c:if test="${sleep_minute == 0}">selected</c:if>>0分</option>
+					<option value="15"<c:if test="${sleep_minute == 15}">selected</c:if>>15分</option>
+					<option value="30"<c:if test="${sleep_minute == 30}">selected</c:if>>30分</option>
+					<option value="45"<c:if test="${sleep_minute == 45}">selected</c:if>>45分</option>
 				</select>
 		</div>
 	 	 		<br><br>
 				<div class="info">  	 
-					運動量(歩数）<br><input type="text" name="walk"><br><br>
+				<input type="text" name="walk" value="<c:out value='${health.walk}' default=''/>">
 				</div>
 	
 			<div class="info stress-level"> 
 				<div class="label">ストレス度</div>
 					<div class="radio-group">
-		    			<label>
-		      				<input type="radio" name="stress" value="1" checked>
-		      				<span>低い</span>
-		    			</label>
-		    			<label>
-					     	<input type="radio" name="stress" value="2">
-					      	<span>普通</span>
-					    </label>
-					    <label>
-					      <input type="radio" name="stress" value="3">
-					      <span>高い</span>
-					    </label>
-		  			</div>
-			</div>
-		
+					  <label>
+					    <input type="radio" name="stress" value="1"
+					    <c:if test="${empty health || health.stress == 1}">checked</c:if>>
+					    <span>低い</span>
+					  </label>
+					  <label>
+					    <input type="radio" name="stress" value="2"
+					    <c:if test="${not empty health && health.stress == 2}">checked</c:if>>
+					    <span>普通</span>
+					  </label>
+					  <label>
+					    <input type="radio" name="stress" value="3"
+					    <c:if test="${not empty health && health.stress == 3}">checked</c:if>>
+					    <span>高い</span>
+					  </label>
+					</div>
+				</div>
+				
 			<div class="info"> 
-				体重（ｋｇ）<br><input type="text" name="weight" value="${sessionScope.weight}"><br>
+				体重（ｋｇ）<br><input type="text" name="weight" value="<c:choose><c:when test='${not empty health.weight}'>${health.weight}</c:when><c:when test='${not empty sessionScope.weight}'>${sessionScope.weight}</c:when><c:otherwise></c:otherwise></c:choose>"><br>
 				<br>
 			</div>
 		</div>	
