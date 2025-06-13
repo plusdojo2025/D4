@@ -96,6 +96,7 @@ form{
 }
 
 /*各フォーム、ボタンデザイン*/
+/*サイドパネル*/
 .side-panel {
   position: fixed;
   top: 55%;
@@ -143,7 +144,7 @@ form{
 .nav-side li a:hover {
   color: #fbd5de; /* ホバー時の文字色 */
 }
-
+/*サイドパネル*/
 
 
 
