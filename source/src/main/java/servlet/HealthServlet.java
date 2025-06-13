@@ -109,12 +109,26 @@ public class HealthServlet extends HttpServlet {
 	
 		// 登録処理を行う
 		HealthDAO bDao = new HealthDAO();
-		bDao.insert(new Health(id, date, vegetable,sleep,walk,stress,weight));
-				
-		if (bDao.insert(new Health(id, date, vegetable,sleep,walk,stress,weight))) { // 登録成功
-		request.setAttribute("result", new Result("今日の記録を登録しました。", "/D4/EvaluationServlet"));
-		} else { // 登録失敗
-		request.setAttribute("result", new Result("記録の登録に失敗しました。", "/D4/EvaluationServlet"));
+		Health health = new Health(id, date, vegetable, sleep, walk, stress, weight);
+		
+		//既にデータがある場合は更新
+		
+		List<Health> healthList = bDao.select(health);
+		boolean success;
+		
+		if (healthList.size() != 0) {
+		    success = bDao.update(health);
+		} else {
+		    success = bDao.insert(health);
 		}
+		if (success) {
+		    request.setAttribute("result", new Result("今日の記録を保存しました。", "/D4/EvaluationServlet"));
+		} else {
+		    request.setAttribute("result", new Result("記録の保存に失敗しました。", "/D4/EvaluationServlet"));
+		}
+		
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp");
+		dispatcher.forward(request, response);
 	}
 }

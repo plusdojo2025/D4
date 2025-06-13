@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,8 @@ public class  AddFriendServlet extends HttpServlet {
 			return;
 		}
 		
+		System.out.println("a");
+		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		Users loginUser = (Users) session.getAttribute("users");
@@ -39,6 +42,7 @@ public class  AddFriendServlet extends HttpServlet {
 		String friendId = request.getParameter("friendId");
 		String action = request.getParameter("submit");
 		
+		System.out.println("b");
 		//パラメーターの種類を使って処理を切り替え・各処理に応じて画面遷移
 		FriendDAO fDao = new FriendDAO();
 		switch (action) {
@@ -60,9 +64,12 @@ public class  AddFriendServlet extends HttpServlet {
 		    //承認
 		    case "承認":
 		    	try {
+		    		System.out.println("d");
 					if (fDao.update(new Friend(myId, friendId, 0))) { // 更新成功
+						System.out.println("e");
 						request.setAttribute("result", new Result("フレンド申請を承認しました。", "/D4/FriendListServlet"));
 					} else { // 更新失敗
+						System.out.println("f");
 						request.setAttribute("result", new Result("フレンド申請の承認に失敗しました。", "/D4/FriendListServlet"));
 					}
 				} catch (Exception e) {
@@ -109,6 +116,10 @@ public class  AddFriendServlet extends HttpServlet {
 		    default:
 		    	
 		}
+		
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp");
+		dispatcher.forward(request, response);
 		
 	}
 
