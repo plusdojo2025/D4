@@ -123,7 +123,7 @@
 				</div>
 	
 			<div class="info stress-level"> 
-				<div class="label"><p>ストレス度</div>
+				<div class="label"><p>ストレス度</p></div>
 					<div class="radio-group">
 					  <label>
 					    <input type="radio" name="stress" value="1"
