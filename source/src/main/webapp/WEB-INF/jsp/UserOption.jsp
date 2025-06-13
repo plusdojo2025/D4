@@ -46,7 +46,7 @@
 		食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
 		睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 		運動<input type="checkbox" name ="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}><br>
-		<button type="submit" value="保存"></button>
+		<button type="submit" value="保存">保存</button>
 		</form>
 	</div>
 
