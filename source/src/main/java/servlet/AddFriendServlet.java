@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
 import dto.Friend;
+import dto.Result;
 import dto.Users;
 
 
@@ -45,9 +46,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "申請":
 		    	try {
 					if (fDao.insert(new Friend(myId, friendId, 0))) { // 更新成功
-						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("申請を行いました。", "/D4/FriendListServlet"));
 					} else { // 更新失敗
-						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("申請に失敗しました。", "/D4/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -60,9 +61,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "承認":
 		    	try {
 					if (fDao.update(new Friend(myId, friendId, 0))) { // 更新成功
-						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("フレンド申請を承認しました。", "/D4/FriendListServlet"));
 					} else { // 更新失敗
-						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("フレンド申請の承認に失敗しました。", "/D4/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -75,9 +76,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "拒否":
 		    	try {
 					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
-						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("申請を拒否しました。", "/D4/FriendListServlet"));
 					} else { // 更新失敗
-						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("申請の拒否に失敗しました。", "/D4/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -89,9 +90,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "削除":
 		    	try {
 					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
-						//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("フレンドを削除しました。", "/D4/FriendListServlet"));
 					} else { // 更新失敗
-						//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+						request.setAttribute("result", new Result("フレンドの削除に失敗しました。", "/D4/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック

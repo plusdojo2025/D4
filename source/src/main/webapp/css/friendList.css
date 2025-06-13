@@ -1,18 +1,26 @@
 @charset "UTF-8";
+
 body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   background-color: #8bdb9f;
-  /*color: #ffffff;  */
+  color: #ffffff;  
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 header {
   background-color: #8bdb9f;
   text-align: center;
   padding: 20px 0;
-  font-weight: bold; /* 文字を太くする */
+  font-weight: bold;
 }
-/*白いところ*/
+
+main {
+  flex: 1;
+}
+
 main .content {
   background-color: white;
   min-height: 800px;
@@ -20,10 +28,7 @@ main .content {
   border-top-right-radius: 1000px 300px;
   padding: 40px;
 }
-
-
-
-  
+ 
 html, body {
   height: 100%;
 }
@@ -44,17 +49,17 @@ main {
   height: auto;
 }
 
-
 /*フッター*/
 footer {
   text-align: center;
   padding: 8px 0;
-  background-color: #8bdb9f;/*変更*/
+  background-color: #8bdb9f;
   font-size: 12px;
   font-weight: bold; /* 文字を太くする */
   color: #ffffff;
 }
-/*右のバー*/
+
+/* 右のサイドバー */
 .side-panel {
   position: fixed;
   top: 55%;
@@ -67,67 +72,70 @@ footer {
   color: white;
 }
 
-.nav-side li img {
-  width: 40px; /* 横幅を小さく */
-  height: auto; /* 高さは自動調整でバランスを保つ */
-  margin-right: 5px; /* テキストとの余白 */
-  vertical-align: middle; /* 行の中央に揃える */
-}
 .nav-side ul {
-  list-style: none; /* ・を消す */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .nav-side li {
   display: flex;
-  flex-direction: column; /* 画像の下に文字 */
-  align-items: center;     /* 中央揃え */
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.nav-side li a {
-  text-decoration: none; /* 下線を消す */
-  color: white;          /* お好みの文字色 */
-  font-size: 14px;
-  transition: color 0.3s;
-  font-weight: bold; /* 文字を太くする */
+.nav-side li img {
+  width: 40px;
+  height: auto;
+  margin-right: 5px;
+  vertical-align: middle;
 }
-.logout-border {
-  border-top: 1px solid white;
-  padding-top: 10px; /* 線と内容の間に余白を追加（任意） */
-  margin-top: 10px;  /* 線と上の項目との間隔を追加（任意） */
+
+.nav-side li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav-side li a:hover {
-  color: #fbd5de; /* ホバー時の文字色 */
+  color: #fbd5de;
 }
-/*ページトップボタン*/
+
+.logout-border {
+  border-top: 1px solid white;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/* ページトップボタン */
 .page_top {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #89eca0; /*色の変更*/
-  width: 80px;              /* 幅を大きく */
-  height: 80px;             /* 高さを大きく */
+  background-color: #89eca0;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;          /* 文字サイズアップ */
+  font-size: 16px;
   margin: 0 auto;
   position: relative;
-  bottom: -20px;            /* 必要に応じて調整 */
+  bottom: -20px;
 }
 
 .page_top img.top-icon {
-  width: 32px;              /* アイコンを大きく */
+  width: 32px;
   height: 32px;
   margin-bottom: 6px;
 }
 
-/*メニュー*/
+/* メニュー */
 .nav-menu ul {
   display: flex;
   list-style: none;
@@ -136,18 +144,19 @@ footer {
   padding: 0;
   margin: 0;
 }
+
 .nav-menu li {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-/* 評価の左側に白い縦線を表示 */
 .nav-menu li.with-border {
   border-left: 1px solid #ffffff;
   padding-left: 20px;
   margin-left: 20px;
 }
+
 .nav-menu li a {
   display: flex;
   flex-direction: column;
@@ -158,16 +167,174 @@ footer {
 
 .nav-menu li img {
   width: 40px;
-  /*height: 40px;*/
-  margin-bottom: 5px;
   height: auto;
+  margin-bottom: 5px;
 }
-/*リンクの文字の色*/
+
 .nav-menu a {
   color: white;
-  text-decoration: none; /* 下線を消す */
+  text-decoration: none;
 }
 
 .nav-menu a:hover {
-  color: #fbd5de; /* ホバー時に少し色を変える */
+  color: #fbd5de;
+}
+
+/* ID検索フォーム */
+.searchFriend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 5px solid #8bdb9f;
+  border-radius: 30px;
+  padding: 20px;
+  width: 40%;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #d2f8d8;
+}
+
+
+.searchFriend input[type="text"] {
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #d2f8d8;
+  border-radius: 10px;
+  background-color: #ffffff;
+  width: 200px;
+}
+
+.searchFriend .bt {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 15px;
+  background-color: #a6e9c2;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchFriend .bt:hover {
+  background-color: #8fdab0;
+}
+
+.searchFriend label {
+  font-size: 18px;
+  color: #000000;
+  margin-right: 10px;
+}
+/*申請一覧フレンド一覧横線*/
+.application-item:not(:last-child),
+.friend-list li:not(:last-child) {
+  border-bottom: 5px solid #8bdb9f;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* 共通: 申請一覧とフレンド一覧の外枠 */
+.application-list,
+.friend-list {
+  background-color: #d2f8d8;
+  border: 5px solid #8bdb9f;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 40%;
+  max-width: 800px;
+}
+
+/* 申請一覧タイトルとフレンド一覧タイトル */
+.application-list > p,
+.friend-list > p {
+  font-size: 20px;
+  font-weight: normal;
+  color: #000;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* リストのスタイル共通 */
+.application-ul,
+.friend-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 各リストアイテム */
+.application-item,
+.friend-list li {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* 申請一覧: 名前とボタンを横並びに */
+.application-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* 申請一覧: 名前のスタイル */
+.application-row p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* 申請一覧のフォーム */
+.checkApply {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 中央揃え */
+  padding: 10px 0;
+  width: fit-content;
+  margin: 10px auto;
+  border: none;
+  background: none;
+}
+
+/* フレンド一覧のフォーム */
+.friend-list form.check {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+
+/* フレンド一覧の名前 */
+.friend-list form.check p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* 申請一覧とフレンド一覧のボタン共通 */
+.checkApply .bt,
+.checkApply input[type="submit"],
+.friend-list .bt,
+.friend-list input[type="submit"] {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #a6e9c2;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.checkApply .bt:hover,
+.checkApply input[type="submit"]:hover,
+.friend-list .bt:hover,
+.friend-list input[type="submit"]:hover {
+  background-color: #8fdab0;
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.HealthDAO;
 import dto.Health;
+import dto.Result;
 import dto.Users;
 
 /**
@@ -110,17 +111,10 @@ public class HealthServlet extends HttpServlet {
 		HealthDAO bDao = new HealthDAO();
 		bDao.insert(new Health(id, date, vegetable,sleep,walk,stress,weight));
 				
-		//if (bDao.insert(new Health(id, date, vegetable,sleep,walk,stress,weight))) { // 登録成功
-		//request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/D4/Servlet"));
-		//} else { // 登録失敗
-		//request.setAttribute("result", new Result("登録失敗！", "レコードを登録できませんでした。", "/D4/Servlet"));
-		//}
-	
-		// 結果ページにフォワードする
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-			//dispatcher.forward(request, response);
+		if (bDao.insert(new Health(id, date, vegetable,sleep,walk,stress,weight))) { // 登録成功
+		request.setAttribute("result", new Result("今日の記録を登録しました。", "/D4/EvaluationServlet"));
+		} else { // 登録失敗
+		request.setAttribute("result", new Result("記録の登録に失敗しました。", "/D4/EvaluationServlet"));
+		}
 	}
-	}
-
-
-
+}

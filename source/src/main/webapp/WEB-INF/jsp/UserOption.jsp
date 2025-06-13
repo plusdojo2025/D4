@@ -9,9 +9,19 @@
 </head>
 <body>
 	<%-- ヘッダー --%>
+	<header>
 	<h1>
 	<%--ここにロゴ画像を入れる --%>
 	</h1>
+	<nav>
+	<ul>
+		<li class=""><a href = "/D4/HealthServlet">情報登録</a></li>
+		<li class=""><a href= "/D4/EvaluationServlet">評価</a></li>
+		<li class=""><a href="/D4/RankingServlet">ランキング</a></li>
+		<li class=""><a href="/D4/FriendListServlet">フレンド</a></li>
+	</ul>
+	</nav>
+	</header>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
 	
@@ -109,6 +119,20 @@
 </div>
 
 <%-- メインここまで --%>
+	<%--　TOPボタン --%>
+	<a href="#" id="to-top">
+	<img src="" alt="TOP">
+	</a>
+	<%-- メインここまで --%>
+	<%-- フッター --%>
+	<footer>
+		<div>
+		<a href="#top" class="page_top">ページのトップへ戻る</a>
+		</div>
+		<p>&copy;2025HAL</p>
+	</footer>
+	<%-- フッターここまで --%>
+
 </body>
 <script src="/D4/js/useroption.js"></script>
 </html>
