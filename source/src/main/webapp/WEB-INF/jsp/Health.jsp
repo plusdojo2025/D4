@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>情報登録</title>
+<link rel="stylesheet" type="text/css" href="css/health.css">
 </head>
 <body>
 <form  method="POST" action="/D4/HealthServlet">
