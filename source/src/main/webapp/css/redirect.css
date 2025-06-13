@@ -1,1 +1,59 @@
 @charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+  background-color: #8bdb9f;
+  color: #ffffff;  
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  background-color: #8bdb9f;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+}
+
+main .content {
+  background-color: white;
+  min-height: 800px;
+  border-top-left-radius: 1000px 300px;
+  border-top-right-radius: 1000px 300px;
+  padding: 40px;
+}
+ 
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/*ロゴ画像*/
+.logo img{
+  align-items: center;
+  width: 30px;
+  height: auto;
+}
+
+/*フッター*/
+footer {
+  text-align: center;
+  padding: 8px 0;
+  background-color: #8bdb9f;
+  font-size: 12px;
+  font-weight: bold; /* 文字を太くする */
+  color: #ffffff;
+}
