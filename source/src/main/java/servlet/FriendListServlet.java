@@ -113,6 +113,4 @@ public class FriendListServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-
 }

@@ -18,13 +18,16 @@
 <div class="profile">
   <h2>プロフィールを編集</h2>
   <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
-  <form class="UserInfo" method="POST" action="/D4/UserOptionServlet">
+  <form class="UserInfo" method="POST" action="/D4/UserOptionServlet" onsubmit="return checkPassword()">
 
     <div class="input-group">
       <label for="textbox1">ID</label>
       ${userInfo.id}
       <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1">
     </div>
+    
+    <!-- 現在のパスワード（サーバーから渡される値） -->
+	<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 
     <div class="input-group">
       <label for="textbox2">新規パスワード</label>
@@ -38,7 +41,7 @@
 
     <div class="input-group">
       <label for="textbox4">現在の身長(cm)</label>
-      <input type="text" name="height" value="${userInfo.height}" class="textbox4">
+      <input type="text" name="height" value="${userInfo.height}"  id="textbox4">
     </div>
 
     <div class="input-group">
@@ -56,11 +59,11 @@
 
     <!-- テーマ表示＆選択ボタン -->
     <div class="input-group">
-  <label>テーマ</label><br>
-  <span id="Theme">${userInfo.themeName}</span>
-  <input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
-  <button type="button" onclick="openPopup('themePopup')">テーマを選択</button>
-</div>
+  		<label>テーマ</label><br>
+  		<span id="Theme">${userInfo.theme}</span>
+  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
+  		<button type="button" onclick="openPopup('themePopup')">テーマを選択</button>
+	</div>
 
     <!-- 非公開設定 -->
     <div>
@@ -75,13 +78,13 @@
 </div>
 
 <!-- アイコン選択ポップアップ -->
-<div id="iconPopup" class="popup" style="display:none;">
-  <div class="popup-content">
+<div id="iconPopup" class="popup-overlay" style="display:none;">
+  <div class="popup-window">
     <h3>アイコンを選択</h3>
-    <div class="selection-list">
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <c:forEach var="icon" items="${iconList}">
-        <div class="selection-item" onclick="selectIcon('${icon.id}', '${icon.path}')">
-          <img src="${icon.path}" alt="icon" class="icon-thumb">
+        <div style="cursor:pointer; text-align:center;" onclick="selectIcon('${icon.id}', '${icon.path}')">
+          <img src="${icon.path}" alt="icon" style="width:50px; height:50px;">
           <div>ID: ${icon.id}</div>
         </div>
       </c:forEach>
@@ -91,12 +94,12 @@
 </div>
 
 <!-- テーマ選択ポップアップ -->
-<div id="themePopup" class="popup" style="display:none;">
-  <div class="popup-content">
+<div id="themePopup" class="popup-overlay" style="display:none;">
+  <div class="popup-window">
     <h3>テーマを選択</h3>
-    <div class="selection-list">
+    <div>
       <c:forEach var="theme" items="${themeList}">
-        <div class="selection-item" onclick="selectTheme('${theme.name}')">
+        <div style="cursor:pointer; margin-bottom:8px;" onclick="selectTheme('${theme.name}')">
           ${theme.name}
         </div>
       </c:forEach>
@@ -104,7 +107,6 @@
     <button onclick="closePopup('themePopup')">閉じる</button>
   </div>
 </div>
-
 
 <%-- メインここまで --%>
 </body>

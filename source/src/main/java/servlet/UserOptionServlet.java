@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.IconDAO;
+import dao.ThemeDAO;
 import dao.UsersDAO;
+import dto.Icon;
+import dto.Theme;
 import dto.Users;
 
 /**
@@ -39,9 +44,15 @@ public class UserOptionServlet extends HttpServlet {
 		// 検索処理を行う
 		UsersDAO uDao = new UsersDAO();
 		Users user = uDao.select(myId);
+		IconDAO iDao = new IconDAO();
+		List<Icon> iconList = iDao.select();
+		ThemeDAO tDao = new ThemeDAO();
+		List<Theme> themeList = tDao.select();
 		
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("userInfo", user);
+		request.setAttribute("iconList", iconList);
+		request.setAttribute("themeList", themeList);
 		
 		// ユーザー編集ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UserOption.jsp");
@@ -52,8 +63,39 @@ public class UserOptionServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users") == null) {
+			response.sendRedirect("/D4/LoginServlet");
+			return;
+		}
+		
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("myId");
+		String pw = request.getParameter("pw");
+		int height = Integer.parseInt(request.getParameter("height"));
+		String name = request.getParameter("name");
+		String icon = request.getParameter("icon");
+		String theme = request.getParameter("theme");
+		// チェックボックスはnullかどうかで判断
+		int vPrivate = request.getParameter("vegetable") != null ? 1 : 0;
+		int sPrivate = request.getParameter("sleep") != null ? 1 : 0;
+		int wPrivate = request.getParameter("walk") != null ? 1 : 0;
+		
+		// friendLsitの情報と対象のユーザー情報を取得
+		UsersDAO uDao = new UsersDAO();
+		Users user = new Users(id, pw, height, name, theme, icon, vPrivate, sPrivate, wPrivate);
+		
+		try {
+			if (uDao.update(user)) { // 更新成功
+				//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+			} else { // 更新失敗
+				//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+			}
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 	}
-
 }

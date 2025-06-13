@@ -12,7 +12,7 @@ public class IconDAOTest {
         for (Icon icon : iconList) {
             System.out.println("ID: " + icon.getId());
             System.out.println("Days: " + icon.getDays());
-            System.out.println("Pass: " + icon.getPass());
+            System.out.println("Path: " + icon.getPath());
             System.out.println();
         }
     }
@@ -22,7 +22,7 @@ public class IconDAOTest {
 
         // select()のテスト
         System.out.println("---------- findAll()のテスト ----------");
-        List<Icon> iconList = dao.findAll();
+        List<Icon> iconList = dao.select();
         showAllData(iconList);
         
     }

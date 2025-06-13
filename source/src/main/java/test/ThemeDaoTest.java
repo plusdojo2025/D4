@@ -12,7 +12,7 @@ public class ThemeDaoTest {
         System.out.println("=== テーマ一覧の取得テスト ===");
 
         // DAOのselectメソッドを呼び出す
-        List<Theme> themeList = dao.select(null); // select(Theme List) なので一応 null 渡す
+        List<Theme> themeList = dao.select();
 
         // 結果の出力
         if (themeList != null && !themeList.isEmpty()) {

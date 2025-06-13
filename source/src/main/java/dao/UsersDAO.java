@@ -228,7 +228,7 @@ public class UsersDAO {
 			
 			
 			//ユーザー情報の更新
-			String sql ="UPDATE users SET height = ?, name = ?, theme = ?, icon = ?, "
+			String sql ="UPDATE users SET pw = ? height = ?, name = ?, theme = ?, icon = ?, "
 					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 	
@@ -264,22 +264,27 @@ public class UsersDAO {
 			 }
 			 
 			// SQL文を完成
-			stmt.setInt(1, user.getHeight());
+			 if (user.getPw() != null) {
+					stmt.setString(1, user.getPw());
+				} else {
+					stmt.setString(1, "");
+				}
+			stmt.setInt(2, user.getHeight());
 		
 			if (user.getName() != null) {
-				stmt.setString(2, user.getName());
+				stmt.setString(3, user.getName());
 			} else {
-				stmt.setString(2, "");
+				stmt.setString(3, "");
 			}
-			stmt.setInt(3, themeId);
-			stmt.setInt(4, iconId);
-			stmt.setInt(5, user.getvPrivate());
-			stmt.setInt(6, user.getsPrivate());
-			stmt.setInt(7, user.getwPrivate());
+			stmt.setInt(4, themeId);
+			stmt.setInt(5, iconId);
+			stmt.setInt(6, user.getvPrivate());
+			stmt.setInt(7, user.getsPrivate());
+			stmt.setInt(8, user.getwPrivate());
 			if (user.getId() != null) {
-				stmt.setString(8, user.getId());
+				stmt.setString(9, user.getId());
 			} else {
-				stmt.setString(8, "");
+				stmt.setString(9, "");
 			}
 			
 			// SQL文を実行し、結果表を取得する
