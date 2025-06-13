@@ -77,8 +77,8 @@
 
 <div class="health" id="select-animate">
 	<form  method="POST" action="/D4/HealthServlet">
-		<p>野菜摂取量<br>
-		 一日の目標摂取量：３５０ｇ【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
+		<p>野菜摂取量</p>
+		 一日の目標摂取量：３５０ｇ<br>【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
 	  			<input type="radio" id="star1" name="vegetable" value="1" checked > 
 	  			<label for="star1" title="1 star"></label>
@@ -95,7 +95,7 @@
 	 <div class="box"> 
 		<div class="info">  
 		  	<p>睡眠時間<br>
-		  		<select name="sleep_hour" id="select-animate">
+		  		<select class="pull" name="sleep_hour">
 					<option value="0" selected>時間</option>
 					<option value="1">1時間</option>
 					<option value="2">2時間</option>
@@ -110,7 +110,7 @@
 	  			</select>
 	
 	  <!-- 分（0分,  30分, ） -->
-				<select name="sleep_minute" id="select-animate">
+				<select class="pull" name="sleep_minute">
 					<option value="0" selected>分</option>
 					<option value="15">15分</option>
 					<option value="30">30分</option>
@@ -148,7 +148,7 @@
 		
 		<div class="button">
 			<input type="submit" class="bt"  id="log">
-			<input type="reset"  class="bt"  id="log">
+			<input type="reset"  class="bt"  id="res">
 		</div>
 	</form>
 </div>

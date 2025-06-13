@@ -181,6 +181,17 @@ input {
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
 
+.pull{
+	border: 5px solid #98e4ab; /* 枠線の色と太さ */
+	border-radius: 30px; /* 角を丸くする */
+	padding: 20px; /* 内側の余白 */
+	width: 96px; /* フォームの幅 */
+	height:65px;	/* フォームの高さ */
+	margin: 0 auto; /* 中央揃え */
+	background-color:#fcfefc;
+	margin-top:10px;
+}
+
 #select-animate {
   opacity: 0;
   transform: translateY(10px);
@@ -196,10 +207,15 @@ input {
   }
 }
 
+.button{
+	margin-left:120px;
+}
+
 #log{
 	font-size:22px;
 	width:130px;
 	height:70px;
+
 }
 
 #res{
