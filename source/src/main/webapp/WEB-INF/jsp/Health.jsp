@@ -32,9 +32,9 @@
 <aside class="side-panel"> 
 <nav class="nav-side">
   <ul>
-  <li class="with-border"><img src="/D4/img/ボーナスw.png"><a href="/D4/BornusServlet">ログインボーナス</a></li>
-  <li class="with-border"><img src="/D4/img/ユーザー情報w.png"><a href="/D4/UserOptionServlet">ユーザー情報</a></li>
-  <li class="with-border logout-border"><img src="/D4/img/logoutw.png"><a href="/D4/LoginServlet">ログアウト</a></li>
+  <li class="with-border"><a href="/D4/BornusServlet"><img src="/D4/img/ボーナスw.png"><br>ログインボーナス</a></li>
+  <li class="with-border"><a href="/D4/UserOptionServlet"><img src="/D4/img/ユーザー情報w.png">ユーザー情報</a></li>
+  <li class="with-border logout-border"><a href="/D4/LoginServlet"><img src="/D4/img/logoutw.png">ログアウト</a></li>
 </ul>
   
  </nav>
