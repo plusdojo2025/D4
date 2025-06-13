@@ -44,6 +44,14 @@ public class RegistServlet extends HttpServlet {
 	    int height = Integer.parseInt(request.getParameter("height"));
 	    int weight = Integer.parseInt(request.getParameter("weight"));
 	    String name = request.getParameter("name");
+	    
+	    // パスワード確認チェック
+	    if (!pw.equals(pw2)) {
+	        // 一致しないときの処理（例：エラーメッセージを表示して登録画面に戻す）
+	        request.setAttribute("errorMsg", "パスワードが一致しません。");
+	        request.getRequestDispatcher("/WEB-INF/jsp/Regist.jsp").forward(request, response);
+	        return;
+	    }
 
 	    Users user = new Users(id, pw, height, name);
 	 	
