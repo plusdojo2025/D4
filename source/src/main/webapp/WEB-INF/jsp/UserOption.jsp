@@ -63,15 +63,15 @@
 	      <label>アイコン</label><br>
 	      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
 	      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
-	      <button type="button" onclick="openPopup('iconPopup')">アイコンを選択</button>
+	      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
 	    </div>
 	
 	    <!-- テーマ表示＆選択ボタン -->
 	    <div class="input-group">
 	  		<label>テーマ</label><br>
 	  		<span id="Theme">${userInfo.theme}</span>
-	  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
-	  		<button type="button" onclick="openPopup('themePopup')">テーマを選択</button>
+	  		<input type="hidden"  name="theme" id="ThemeName" value="${userInfo.theme}">
+	  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
 		</div>
 	
 	    <!-- 非公開設定 -->
