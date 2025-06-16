@@ -228,7 +228,7 @@ public class UsersDAO {
 			
 			
 			//ユーザー情報の更新
-			String sql ="UPDATE users SET pw = ? height = ?, name = ?, theme = ?, icon = ?, "
+			String sql ="UPDATE users SET pw = ?, height = ?, name = ?, theme = ?, icon = ?, "
 					+ "vPrivate = ?, sPrivate = ?, wPrivate = ? WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 	
@@ -248,6 +248,7 @@ public class UsersDAO {
 			} else {
 				iStmt.setString(1, "");
 			}
+			System.out.println("path:"+user.getIcon());
 			
 			//SQL文を実行
 			ResultSet trs = tStmt.executeQuery();
@@ -262,6 +263,8 @@ public class UsersDAO {
 				 iconId = irs.getInt("id");
 				 if (irs.wasNull()) iconId = 0;
 			 }
+			 System.out.println("theme:"+themeId);
+			 System.out.println("icon:"+iconId);
 			 
 			// SQL文を完成
 			 if (user.getPw() != null) {
