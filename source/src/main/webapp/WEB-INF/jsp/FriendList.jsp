@@ -9,13 +9,14 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
 </head>
-<body id="top">
-<%-- ヘッダー --%>
+<body>
 <header>
 <div class="logo">
 <img src="/D4/img/情報登録w.png">
 <%--ここにロゴ画像を入れる --%>
 </div>
+
+<!-- ヘッダーナビ -->
 <nav class="nav-menu">
   <ul>
     <li>
@@ -44,10 +45,11 @@
     </li>
   </ul>
 </nav>
-
-
 </header>
+<!-- ヘッダーナビ -->
+
 <main>
+<!-- サイドパネル -->
 <section class="content">
 <aside class="side-panel"> 
   <nav class="nav-side">
@@ -73,9 +75,9 @@
     </ul>
   </nav>
 </aside>
+<!-- サイドパネル -->
 
 <!-- フォーム(id検索) -->
-<div id="select-animate">
 <form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
 <!-- テキストボックス -->
  <label for="friendId" style="margin: 0;">ID検索</label>
@@ -137,9 +139,10 @@
 <!-- 繰り返し終わり -->
 </ul>
 </div>
-</div>
+
 <!-- リスト終わり -->
 </section>
+
 <div>
     <a href="#top" class="page_top">
       <img src="/D4/img/評価w.png" class="top-icon">
