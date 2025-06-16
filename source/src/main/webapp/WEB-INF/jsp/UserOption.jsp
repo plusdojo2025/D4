@@ -73,7 +73,7 @@
 	  		<label>テーマ</label><br>
 	  		<span id="Theme">${userInfo.theme}</span>
 	  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
-	  		<button type="button" onclick="openPopup('themePopup')">テーマを選択</button>
+	  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
 	  	</div>
 	
 	    <!-- 非公開設定 -->
