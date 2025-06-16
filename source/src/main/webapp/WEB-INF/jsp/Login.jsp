@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面にしかないもの --%>
-<link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>
