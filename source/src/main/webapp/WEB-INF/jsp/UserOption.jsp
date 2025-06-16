@@ -28,7 +28,7 @@
 <div class="profile">
   <h2>プロフィールを編集</h2>
   <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
-  <form class="UserInfo" method="POST" action="/D4/UserOptionServlet" onsubmit="return checkPassword()">
+  <form class="UserInfo" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
 
     <div class="input-group">
       <label for="textbox1">ID</label>
@@ -41,12 +41,12 @@
 
     <div class="input-group">
       <label for="textbox2">新規パスワード</label>
-      <input type="text" name="pw" id="textbox2">
+      <input type="password" name="newPw" id="textbox2">
     </div>
 
     <div class="input-group">
       <label for="textbox3">新規パスワード(確認用)</label>
-      <input type="text" name="checkPw" id="textbox3">
+      <input type="password" name="checkPw" id="textbox3">
     </div>
 
     <div class="input-group">
