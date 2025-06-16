@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/userOption.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/theme1.css">
+<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
 </head>
 <body>
 	<%-- ヘッダー --%>
