@@ -24,10 +24,12 @@
 	</header>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	  <h2>プロフィールを編集</h2>
-	  <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
-	 <div class="form-wrapper">
-	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" onsubmit="return checkPassword()">
+	
+<div class="profile">
+  <h2>プロフィールを編集</h2>
+  <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
+  <div class="form-wrapper">
+	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
 	
 	    <div class="input-group">
 	      <label for="textbox1">ID</label>
@@ -39,13 +41,13 @@
 		<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 	
 	    <div class="input-group">
-	      <label for="textbox2">現在のパスワード</label>
-	      <input type="text" name="pw" id="textbox2">
+	      <label for="textbox2">新規パスワード</label>
+	      <input type="password" name="newPw" id="textbox2">
 	    </div>
 	
 	    <div class="input-group">
-	      <label for="textbox3">新規パスワード</label>
-	      <input type="text" name="checkPw" id="textbox3">
+	      <label for="textbox3">新規パスワード(確認用)</label>
+	      <input type="password" name="checkPw" id="textbox3">
 	    </div>
 	
 	    <div class="input-group">
@@ -70,9 +72,9 @@
 	    <div class="input-group">
 	  		<label>テーマ</label><br>
 	  		<span id="Theme">${userInfo.theme}</span>
-	  		<input type="hidden"  name="theme" id="ThemeName" value="${userInfo.theme}">
-	  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
-		</div>
+	  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
+	  		<button type="button" onclick="openPopup('themePopup')">テーマを選択</button>
+	  	</div>
 	
 	    <!-- 非公開設定 -->
 	    <div>
@@ -81,13 +83,16 @@
 	      睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
 	    </div>
-	  </form>
-	<div class="button-container">
-		<button type="submit" class="save" value="保存">保存</button>
-	</div>
-</div>	
-	<!-- アイコン選択ポップアップ -->
-	<div id="iconPopup" class="popup-overlay" style="display:none;">
+	
+		<div class="button-container">
+			<button type="submit" class="save" value="保存">保存</button>
+		</div>
+		</form>
+	</div>	
+</div>
+
+<!-- アイコン選択ポップアップ -->
+<div id="iconPopup" class="popup-overlay" style="display:none;">
 	  <div class="popup-window">
 	    <h3>アイコンを選択</h3>
 	    <div style="display:flex; flex-wrap:wrap; gap:10px;">

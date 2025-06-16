@@ -22,7 +22,7 @@ main {
 
 main .content {
   background-color: white;
-  min-height: 800px;
+  min-height: 500px;
   border-top-left-radius: 1000px 300px;
   border-top-right-radius: 1000px 300px;
   padding: 40px;
@@ -57,7 +57,20 @@ footer {
   font-weight: bold; /* 文字を太くする */
   color: #ffffff;
 }
-/*ボタン*/
+
+/* 全体中央配置用ラッパー */
+.container {
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* 画面の高さに合わせる */
+  position: relative;
+   padding-top: 50px; /* 上からの余白 */
+  justify-content: flex-start; /* ← 上に寄せる */
+}
+
+/* ボタン */
 button.bt {
   padding: 10px 20px;
   font-size: 15px;
@@ -66,10 +79,43 @@ button.bt {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 0;
+  margin-top: 20px; /* 吹き出しとの間に余白 */
   margin-bottom: 0;
 }
 
 button.bt:hover {
   background-color: #8fdab0;
 }
+
+/* 吹き出し */
+.balloon3 {
+  width: 280px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: bold;
+  background: #8fdab0;
+  border-radius: 50% / 50%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.balloon3:before {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  margin-left: -20px;
+  border: 20px solid transparent;
+  border-top: 20px solid #8fdab0;
+  z-index: 0;
+}
+
+/* メッセージ文字サイズ */
+.redirect-message {
+  font-size: 20px;
+}
+
