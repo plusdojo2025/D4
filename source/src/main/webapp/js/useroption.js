@@ -79,7 +79,7 @@ document.getElementById('UserInfo').onsubmit = function(event) {
 	else{
 		alert('新たなパスワードが確認用パスワードと一致しません！');
  		event.preventDefault();
- 		retrun;
+ 		return;
 	}
 	
     
@@ -87,25 +87,25 @@ document.getElementById('UserInfo').onsubmit = function(event) {
     if(height === ''){
 		alert('身長の値を入力してください');
  		event.preventDefault();
- 		retrun;
+ 		return;
 	}
    	else if (/[^0-9]/.test(height)) {
 		alert('整数値以外は入力出来ません');
  		event.preventDefault();
- 		retrun;
+ 		return;
 	}
 	
 	//入力制限(名前)
 	if(name === ''){
 		alert('ニックネームを設定してください');
  		event.preventDefault();
- 		retrun;
+ 		return;
 	}
 	
 	//変更前の確認
 	if (!window.confirm(`変更します。よろしいですか？`)) {
-            event.preventDefault();
-            retrun;
+		event.preventDefault();
+		return;
     }
 };
 

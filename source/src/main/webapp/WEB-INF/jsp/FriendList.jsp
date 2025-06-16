@@ -48,7 +48,7 @@
 
 </header>
 <main>
- <section class="content">
+<section class="content">
 <aside class="side-panel"> 
   <nav class="nav-side">
     <ul>
@@ -75,6 +75,7 @@
 </aside>
 
 <!-- フォーム(id検索) -->
+<div id="select-animate">
 <form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
 <!-- テキストボックス -->
  <label for="friendId" style="margin: 0;">ID検索</label>
@@ -135,6 +136,7 @@
 </c:forEach>
 <!-- 繰り返し終わり -->
 </ul>
+</div>
 </div>
 <!-- リスト終わり -->
 </section>
