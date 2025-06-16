@@ -73,7 +73,6 @@
 </aside>
 
 <!-- 詳細情報表示 -->
-<div id="select-animate">
 <!-- ボタンで送るためのフォーム -->
 <form class="friendInfo" method="POST" action="/D4/AddFriendServlet" id="friendInfo">
 <!-- 非表示でidを持つ -->
@@ -138,7 +137,6 @@
 </form>
 <!-- フォーム終わり -->
 </section>
-</div>
 <div>
     <a href="#top" class="page_top">
       <img src="/D4/img/評価w.png" class="top-icon">
