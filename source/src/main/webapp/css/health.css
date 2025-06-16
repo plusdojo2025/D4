@@ -1,35 +1,4 @@
 @charset "UTF-8";
-
-/*レイアウト*/
-body {
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #8bdb9f;
-  /*color: #ffffff;  */
-}
-
-header {
-  background-color: #8bdb9f;
-  text-align: center;
-  padding: 20px 0;
-  font-weight: bold; /* 文字を太くする */
-}
-/*白いところ*/
-main .content {
-  background-color: white;
-  min-height: 800px;
-  border-top-left-radius: 1000px 300px;
-  border-top-right-radius: 1000px 300px;
-  padding: 40px;
-}
-
-/*ロゴ画像*/
-.logo img{
-  align-items: center;
-  width: 30px;
-  height: auto;
-}
-
 form{
 	text-align:center;
 }
@@ -94,66 +63,7 @@ form{
   gap: 20px;               /* ボタン間のスペース */
   margin-top: 20px;        /* 上部の余白（任意） */
 }
-
 /*各フォーム、ボタンデザイン*/
-/*サイドパネル*/
-.side-panel {
-  position: fixed;
-  top: 55%;
-  transform: translateY(-50%);
-  right: 20px;
-  background-color: #8bdb9f;
-  border-radius: 20px;
-  padding: 10px;
-  width: 120px;
-  color: white;
-}
-
-.nav-side ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-side li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.nav-side li img {
-  width: 40px;
-  height: auto;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.nav-side li a {
-  display: flex;              
-  flex-direction: column;     
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.nav-side li a:hover {
-  color: #fbd5de;
-}
-
-.logout-border {
-  border-top: 1px solid white;
-  padding-top: 10px;
-  margin-top: 10px;
-}
-/*サイドパネル*/
-
-
-
-
 /*全体の枠*/
 .health{
   border: 5px solid #98e4ab; /* 枠線の色と太さ */
@@ -164,7 +74,7 @@ form{
   background-color:#d2f8d8;
 }
 
-p{
+.health p{
 	font-size: 26px;
 }
 
@@ -173,12 +83,10 @@ label {
 }
 
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
       	padding: 10px;
       	font-size: 15px;
       	margin-top :15px;
       	border-radius: 15px; /* 角を丸くする */
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
 
 .pull{
@@ -188,7 +96,6 @@ input {
 	width: 90px; /* フォームの幅 */
 	height:55px;	/* フォームの高さ */
 	margin: 0 auto; /* 中央揃え */
-	background-color:#fcfefc;
 	margin-top:10px;
 }
 
@@ -225,103 +132,14 @@ input {
 
 
 .bt{
-	background-color: #b4ebc1; /* ボタンの背景色 */
-  	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
   	border: none; /* 枠線を削除 */
   	border-radius: 30px; /* 角を丸くする */
   	cursor: pointer; /* ホバー時にポインターを表示 */
-  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
 }
 
-.bt:hover {
-  background-color: #88df9b; /* ホバー時の背景色 */
-}
 
 .bt:active {
-  background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
-
-/*ページトップボタン*/
-.page_top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #89eca0; /*色の変更*/
-  width: 80px;              /* 幅を大きく */
-  height: 80px;             /* 高さを大きく */
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;          /* 文字サイズアップ */
-  margin: 0 auto;
-  position: relative;
-  bottom: -20px;            /* 必要に応じて調整 */
-}
-
-.page_top img.top-icon {
-  width: 32px;              /* アイコンを大きく */
-  height: 32px;
-  margin-bottom: 6px;
-}
-
-/*メニュー*/
-.nav-menu ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu li {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-menu li.with-border {
-  border-left: 1px solid #ffffff;
-  padding-left: 20px;
-  margin-left: 20px;
-}
-
-.nav-menu li a {
-  display: flex;
-  flex-direction: row; /* ここを row に変更して横並びにする */
-  align-items: center;
-  text-decoration: none;
-  color: #ffffff;
-  gap: 5px; /* 画像と文字の間隔 */
-}
-
-.nav-menu li img {
-  width: 40px;
-  height: auto;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-menu a:hover {
-  color: #fbd5de;
-}
-
-footer {
-  text-align: center;
-  padding: 8px 0;
-  font-size: 12px;
-}
-
-.copyright{
-	color:#fff;
-}
-
-

@@ -7,7 +7,6 @@
 <title>ログインページ|けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面にしかないもの --%>
 <link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
-<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css"><%-- テーマを変えたときのみ変わるもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>
@@ -19,7 +18,7 @@
 <%-- ヘッダーここまで --%>
 <main>
 <div class="login-form">
-	<form method="post" action="${pageContext.request.contextPath}/LoginServlet">
+	<form method="post" action="${pageContext.request.contextPath}/LoginServlet" id="loginForm">
 		<div class="login">
 			<div class="input-group">
 				<label for="textbox1">ID</label> 
@@ -51,6 +50,6 @@
     <p class="copyright">&copy;2025HARU</p>
 </footer>
 </body>
-<!-- <script src="/D4/js/login.js"></script> -->
+<script src="js/login.js"></script>
 
 </html>
