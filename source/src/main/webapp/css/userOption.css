@@ -70,8 +70,8 @@
 
 /* モーダル本体 */
 .popup-window {
-  background: #b4ebc1;
-  border: 2px solid #bef5c7;
+  background: #fcfefc;
+  border: 5px solid #98e4ab;
   border-radius: 8px;
   padding: 20px;
   max-width: 90vw;		/* 最大横幅 */
@@ -117,6 +117,27 @@
 }
 
 .Themebutton:active {
+  background-color: #66d780; /* クリック時の背景色 */
+  transform: scale(0.98); /* クリック時の軽い縮小効果 */
+}
+
+
+.back{
+	background-color: #b4ebc1; /* ボタンの背景色 */
+  	/*color: white; /* テキストの色 */
+  	font-size: 16px; /* フォントサイズ */
+  	padding: 10px 20px; /* 内側の余白 */
+  	border: none; /* 枠線を削除 */
+  	border-radius: 30px; /* 角を丸くする */
+  	cursor: pointer; /* ホバー時にポインターを表示 */
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */		
+}
+
+.back:hover {
+  background-color: #88df9b; /* ホバー時の背景色 */
+}
+
+.back:active {
   background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
