@@ -21,7 +21,7 @@
 	<%-- メイン --%>	
 <main>	
 	<div class="regist-form" id="select-animate">
-		<form method="POST" action="/D4/RegistServlet">
+		<form method="POST" action="/D4/RegistServlet" id="registForm">
 			<div class="regist">
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>
