@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.profileBox {
+/*.profileBox {
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -33,7 +33,7 @@
 .input-group2 {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 /* モーダル背景 */
 .popup-overlay {
@@ -59,3 +59,42 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
 }
 
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-group{
+	  	display: flex;
+  		flex-direction: column;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.save {
+  padding: 10px 30px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save:hover {
+  background-color: #45a049;
+}
