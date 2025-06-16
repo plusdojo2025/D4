@@ -1,16 +1,13 @@
 @charset "UTF-8";
 body {
   margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-  background-color: #8bdb9f;
-  color: #ffffff;  
+  font-family: "Hiragino Kaku Gothic ProN", sans-serif;  
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 header {
-  background-color: #8bdb9f;
   text-align: center;
   padding: 20px 0;
   font-weight: bold;
@@ -21,8 +18,7 @@ main {
 }
 
 main .content {
-  background-color: white;
-  min-height: 500px;
+  min-height: 800px;
   border-top-left-radius: 1000px 300px;
   border-top-right-radius: 1000px 300px;
   padding: 40px;
@@ -52,12 +48,9 @@ main {
 footer {
   text-align: center;
   padding: 8px 0;
-  background-color: #8bdb9f;
   font-size: 12px;
   font-weight: bold; /* 文字を太くする */
-  color: #ffffff;
 }
-
 /* 全体中央配置用ラッパー */
 .container {
   display: flex;
@@ -74,7 +67,6 @@ footer {
 button.bt {
   padding: 10px 20px;
   font-size: 15px;
-  background-color: #a6e9c2;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -82,21 +74,14 @@ button.bt {
   margin-top: 20px; /* 吹き出しとの間に余白 */
   margin-bottom: 0;
 }
-
-button.bt:hover {
-  background-color: #8fdab0;
-}
-
 /* 吹き出し */
 .balloon3 {
   width: 280px;
   height: 200px;
   line-height: 200px;
   text-align: center;
-  color: #FFF;
   font-size: 30px;
   font-weight: bold;
-  background: #8fdab0;
   border-radius: 50% / 50%;
   box-sizing: border-box;
   position: relative;
@@ -110,7 +95,6 @@ button.bt:hover {
   left: 50%;
   margin-left: -20px;
   border: 20px solid transparent;
-  border-top: 20px solid #8fdab0;
   z-index: 0;
 }
 

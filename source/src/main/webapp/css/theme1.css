@@ -114,3 +114,21 @@ footer {
 .friend-list input[type="submit"]:hover {
   background-color: #8fdab0;
 }
+/* 結果表示画面ボタン */
+button.bt {
+  background-color: #a6e9c2;
+}
+
+button.bt:hover {
+  background-color: #8fdab0;
+}
+
+/* 吹き出し */
+.balloon3 {
+  color: #FFF;
+  background: #8fdab0;
+}
+
+.balloon3:before {
+  border-top: 20px solid #8fdab0;
+}

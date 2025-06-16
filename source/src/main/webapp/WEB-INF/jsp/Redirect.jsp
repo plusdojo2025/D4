@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>処理結果 | けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="css/redirect.css">
-<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css">
+<link rel="stylesheet" type="text/css" href="css/theme1.css">
 </head>
 <body>
 <%-- ヘッダー --%>
