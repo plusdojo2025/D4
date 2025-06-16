@@ -90,7 +90,7 @@ public class UsersDAO {
 	//selectを実装 idのみを引数に検索
 	public Users select(String id) {
 		Connection conn = null;
-		Users user = new Users();
+		Users user = null;
 		
 		try {
 			/*JDBCドライバの読み込み*/
