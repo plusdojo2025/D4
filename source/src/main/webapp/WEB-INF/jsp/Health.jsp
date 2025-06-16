@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>情報登録</title>
 <link rel="stylesheet" type="text/css" href="css/health.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
 </head>
 <body>
 <header>
@@ -164,7 +166,7 @@
   </div>
 </main>
 <footer>
-    <p class="copyright">&copy;2025HARU</p>
+     <p>&copy;2025HARU</p>
 </footer>
 
 </body>
