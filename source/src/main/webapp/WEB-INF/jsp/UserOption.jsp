@@ -79,54 +79,60 @@
   <div class="form-wrapper">
   <h2>プロフィールを編集</h2>
   <p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
-	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
-	
-	    <div class="input-group">
-	      <label for="textbox1">ID</label>
-	      ${userInfo.id}
-	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1">
-	    </div>
-	    
-	    <!-- 現在のパスワード（サーバーから渡される値） -->
-		<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
-	
-	    <div class="input-group">
-	      <label for="textbox2">新規パスワード</label>
-	      <input type="password" name="newPw" id="textbox2">
-	    </div>
-	
-	    <div class="input-group">
-	      <label for="textbox3">新規パスワード(確認用)</label>
-	      <input type="password" name="checkPw" id="textbox3">
-	    </div>
-	
-	    <div class="input-group">
-	      <label for="textbox4">現在の身長(cm)</label>
-	      <input type="text" name="height" value="${userInfo.height}"  id="textbox4">
-	    </div>
-	
-	    <div class="input-group">
-	      <label for="textbox5">ニックネーム</label>
-	      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
-	    </div>
-	
-	    <!-- アイコン表示＆選択ボタン -->
+  
+  	    <!-- アイコン表示＆選択ボタン -->
+  <div class="profile">	    
 	    <div class="input-group">
 	      <label>アイコン</label><br>
 	      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
 	      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
 	      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
 	    </div>
-	
-	    <!-- テーマ表示＆選択ボタン -->
+	    
+	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
+		
+		<div class="input-group">
+	      <label for="textbox1">ニックネーム</label>
+	      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
+	    </div>
+	    
+	    <div class="input-group">
+	      <label for="textbox5">現在の身長(cm)</label>
+	      <input type="text" name="height" value="${userInfo.height}"  id="textbox4">
+	    </div>
+		
+	    <div class="input-group">
+	      <label for="textbox2">ID</label>
+	      ${userInfo.id}
+	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1">
+	    </div>
+	    
+	    	    <!-- テーマ表示＆選択ボタン -->
 	    <div class="input-group">
 	  		<label>テーマ</label><br>
 	  		<span id="Theme">${userInfo.theme}</span>
 	  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
 	  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
 	  	</div>
+	    
+	    <!-- 現在のパスワード（サーバーから渡される値） -->
+		<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 	
-	    <!-- 非公開設定 -->
+	    <div class="input-group">
+	      <label for="textbox3">新規パスワード</label>
+	      <input type="password" name="newPw" id="textbox2">
+	    </div>
+	
+	    <div class="input-group">
+	      <label for="textbox4">新規パスワード(確認用)</label>
+	      <input type="password" name="checkPw" id="textbox3">
+	    </div>
+		
+		</form>
+
+	</div>	
+	
+				    	    <!-- 非公開設定 -->
 	    <div class="non-public">
 	      非公開設定
 	      食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
@@ -134,8 +140,6 @@
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
 	    </div>
 	
-		</form>
-		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
