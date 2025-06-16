@@ -71,6 +71,9 @@ public class FriendListServlet extends HttpServlet {
 			return;
 		}
 		
+		boolean UserExist = false; //対象のユーザーが存在するか
+		boolean hasFriend = false; // フレンドリストに登録があるか
+		
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		
@@ -91,19 +94,22 @@ public class FriendListServlet extends HttpServlet {
 			request.setAttribute("friendList", friendList);
 			request.setAttribute("user", friendUser);
 			
-			boolean hasFriend = false; // フレンドリストにない場合の処理に使う
-
-			// friendList の中を1つずつ調べる
-			for (Friend f : friendList) {
-			    //対象がフレンドリストに登録されているなら
-			    if (f.getFriendId().equals(friendUser.getId())) {
-			        hasFriend = true;  // 存在している判定
-			        break;
-			    }
+			if(friendUser != null) {
+				UserExist = true;
+				
+				// friendList の中を1つずつ調べる
+				for (Friend f : friendList) {
+				    //対象がフレンドリストに登録されているなら
+				    if (f.getFriendId().equals(friendUser.getId())) {
+				        hasFriend = true;  // 存在している判定
+				        break;
+				    }
+				}
+				// JSPで使うためにリクエストにセット
+				request.setAttribute("hasFriend", hasFriend);
 			}
 
-			// JSPで使うためにリクエストにセット
-			request.setAttribute("hasFriend", hasFriend);
+			request.setAttribute("UserExist", UserExist);
 			
 			// フレンド詳細ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AddFriend.jsp");
