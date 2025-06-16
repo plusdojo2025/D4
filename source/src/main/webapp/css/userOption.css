@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.profileBox {
+/*.profileBox {
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -33,7 +33,7 @@
 .input-group2 {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 /* モーダル背景 */
 .popup-overlay {
@@ -57,5 +57,75 @@
   max-height: 90vh;		/* 最大縦幅 */
   overflow-y: auto;     /* 縦スクロール可 */
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
+}
+
+/*フォーム*/
+
+/*配置*/
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-group{
+	  	display: flex;
+  		flex-direction: column;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  border: 5px solid #98e4ab; /* 枠線の色と太さ */
+  border-radius: 30px; /* 角を丸くする */
+  padding: 20px; /* 内側の余白 */
+  width: 600px; /* フォームの幅 */
+  margin: 0 auto; /* 中央揃え */
+  background-color:#d2f8d8;
+}
+
+/*テキストボックスデザイン*/
+label {
+      font-size: 20px;
+}
+
+input {
+    	background-color: #fcfefc; /*テキストボックス背景色*/
+      	padding: 10px;
+      	font-size: 15px;
+      	margin-top :15px;
+      	border-radius: 15px; /* 角を丸くする */
+      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+}
+
+/*保存ボタン*/
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.save {
+	background-color: #b4ebc1; /* ボタンの背景色 */
+  	/*color: white; /* テキストの色 */
+  	font-size: 16px; /* フォントサイズ */
+  	padding: 10px 20px; /* 内側の余白 */
+  	border: none; /* 枠線を削除 */
+  	border-radius: 30px; /* 角を丸くする */
+  	cursor: pointer; /* ホバー時にポインターを表示 */
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.save:hover {
+  background-color: #45a049;
+}
+
+.save:active {
+  background-color: #66d780; /* クリック時の背景色 */
+  transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
