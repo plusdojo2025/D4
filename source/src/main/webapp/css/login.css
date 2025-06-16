@@ -1,19 +1,19 @@
 @charset "UTF-8";
-/*body {
+body {
   margin: 0;
   font-family: "Hiragino Kaku Gothic ProN", sans-serif;
   background-color: #8bdb9f;
   color: #ffffff;
-}*/
+}
 
-/*header {
+header {
   background-color: #8bdb9f;
   text-align: center;
   padding: 20px 0;
   font-weight: bold; 
 }
 /*ロゴ画像*/
-/*.logo img{
+.logo img{
   align-items: center;
   width: 30px;
   height: auto;
@@ -24,7 +24,7 @@ main {
   border-top-left-radius: 1000px 300px;
   border-top-right-radius: 1000px 300px;
   padding: 40px;
-}*/
+}
 .login {
       display: flex;
       flex-direction: column;
