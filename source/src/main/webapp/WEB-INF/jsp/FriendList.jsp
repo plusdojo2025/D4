@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>フレンド一覧|健康日和</title>
 <link rel="stylesheet" type="text/css" href="css/friendList.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css">
 </head>
 <body id="top">
 <%-- ヘッダー --%>
