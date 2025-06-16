@@ -120,6 +120,10 @@ a:hover {
 footer {
   text-align: center;
   padding: 8px 0;
+
+
+  background-color: #8bdb9f;
+
   font-size: 12px;
   font-weight: bold;
 }
