@@ -44,8 +44,8 @@ function closePopup(id) {
 
 //アイコンの更新
 function selectIcon(id, path) {
-  document.getElementById('IconId').value = id;
   document.getElementById('Icon').src = path;
+  document.getElementById('IconId').value = path;
   closePopup('iconPopup');
 }
 
@@ -90,7 +90,7 @@ document.getElementById('UserInfo').onsubmit = function(event) {
  		retrun;
 	}
    	else if (/[^0-9]/.test(height)) {
-		alert('数字以外は入力出来ません');
+		alert('整数値以外は入力出来ません');
  		event.preventDefault();
  		retrun;
 	}
