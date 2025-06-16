@@ -1,148 +1,5 @@
 @charset "UTF-8";
 
-body {
-  background-color: #8bdb9f;
-  color: #ffffff;  
-}
-
-header {
-  background-color: #8bdb9f;
-}
-main .content {
-  background-color: white;
-}
-/*フッター*/
-footer {
-  background-color: #8bdb9f;
-  color: #ffffff;
-}
-
-/* 右のサイドバー */
-.side-panel {
-  position: fixed;
-  top: 55%;
-  transform: translateY(-50%);
-  right: 20px;
-  background-color: #8bdb9f;
-  border-radius: 20px;
-  padding: 10px;
-  width: 120px;
-  color: white;
-}
-
-.nav-side ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-side li {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.nav-side li img {
-  width: 40px;
-  height: auto;
-  margin-right: 5px;
-  vertical-align: middle;
-}
-
-.nav-side li a {
-  display: flex;              
-  flex-direction: column;     
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.nav-side li a:hover {
-  color: #fbd5de;
-}
-
-.logout-border {
-  border-top: 1px solid white;
-  padding-top: 10px;
-  margin-top: 10px;
-}
-
-/* ページトップボタン */
-.page_top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #89eca0;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  margin: 0 auto;
-  position: relative;
-  bottom: -20px;
-}
-
-.page_top img.top-icon {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 6px;
-}
-
-/* メニュー */
-.nav-menu ul {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-menu li {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.nav-menu li.with-border {
-  border-left: 1px solid #ffffff;
-  padding-left: 20px;
-  margin-left: 20px;
-}
-
-.nav-menu li a {
-  display: flex;
-  flex-direction: row; /* ここを row に変更して横並びにする */
-  align-items: center;
-  text-decoration: none;
-  color: #ffffff;
-  gap: 5px; /* 画像と文字の間隔 */
-}
-
-.nav-menu li img {
-  width: 40px;
-  height: auto;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-menu a:hover {
-  color: #fbd5de;
-}
-
-
-
 /* ID検索フォーム */
 .searchFriend {
   display: flex;
@@ -151,22 +8,18 @@ footer {
   gap: 10px;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 5px solid #8bdb9f;
   border-radius: 30px;
   padding: 20px;
   width: 40%;
   max-width: 800px;
   margin: 20px auto;
-  background-color: #d2f8d8;
 }
 
 
 .searchFriend input[type="text"] {
   padding: 10px;
   font-size: 15px;
-  border: 2px solid #d2f8d8;
   border-radius: 10px;
-  background-color: #ffffff;
   width: 200px;
 }
 
@@ -174,26 +27,19 @@ footer {
   padding: 10px 20px;
   margin-left: 10px;
   font-size: 15px;
-  background-color: #a6e9c2;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.searchFriend .bt:hover {
-  background-color: #8fdab0;
-}
-
 .searchFriend label {
   font-size: 18px;
-  color: #000000;
   margin-right: 10px;
 }
 /*申請一覧フレンド一覧横線*/
 .application-item:not(:last-child),
 .friend-list li:not(:last-child) {
-  border-bottom: 5px solid #8bdb9f;
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -201,8 +47,6 @@ footer {
 /* 共通: 申請一覧とフレンド一覧の外枠 */
 .application-list,
 .friend-list {
-  background-color: #d2f8d8;
-  border: 5px solid #8bdb9f;
   border-radius: 30px;
   padding: 20px;
   margin: 20px auto;
@@ -215,7 +59,6 @@ footer {
 .friend-list > p {
   font-size: 20px;
   font-weight: normal;
-  color: #000;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -286,7 +129,6 @@ footer {
 .friend-list input[type="submit"] {
   padding: 10px 20px;
   font-size: 15px;
-  background-color: #a6e9c2;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -295,9 +137,45 @@ footer {
   margin-bottom: 0;
 }
 
-.checkApply .bt:hover,
-.checkApply input[type="submit"]:hover,
-.friend-list .bt:hover,
-.friend-list input[type="submit"]:hover {
-  background-color: #8fdab0;
+.application-ul {
+  max-height: 300px; /* 1項目100px想定 × 5項目分 */
+  overflow-y: auto; /* 縦スクロール表示 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 各項目の高さを調整（デザインに合わせて変更可能） */
+.application-item {
+  padding: 10px;
+  height: 100px; /* 高さを一定にすることで5項目計算 */
+  box-sizing: border-box;
+}
+.friend-list ul {
+  max-height: 500px; /* 1項目100px想定 × 5項目分 */
+  overflow-y: auto; /* 縦スクロール表示 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 各項目の高さを調整（デザインに合わせて変更可能） */
+.friend-list li {
+  padding: 10px;
+  height: 100px; /* 高さを一定にすることで5項目計算 */
+  box-sizing: border-box;
+}
+#select-animate {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

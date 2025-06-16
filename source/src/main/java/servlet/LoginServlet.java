@@ -40,7 +40,8 @@ public class LoginServlet extends HttpServlet {
 		UsersDAO dao = new UsersDAO();
 		if (dao.isLoginOK(loginUser)) {
 			HttpSession session = request.getSession();
-			session.setAttribute("users", loginUser);
+			Users logedUser = dao.select(id);
+			session.setAttribute("users", logedUser);
 
 			String today = java.time.LocalDate.now().toString();
 			

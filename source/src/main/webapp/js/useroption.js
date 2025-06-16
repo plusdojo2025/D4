@@ -44,8 +44,8 @@ function closePopup(id) {
 
 //アイコンの更新
 function selectIcon(id, path) {
-  document.getElementById('IconId').value = id;
   document.getElementById('Icon').src = path;
+  document.getElementById('IconId').value = path;
   closePopup('iconPopup');
 }
 
@@ -56,26 +56,56 @@ function selectTheme(name) {
   closePopup('themePopup');
 }
 
-function checkPassword() {
-  const newPw = document.getElementById('textbox2');
-  const checkPw = document.getElementById('textbox3');
-  const pw = document.getElementById('pw').value;
+document.getElementById('UserInfo').onsubmit = function(event) {
+	//pw
+	const pw = document.getElementById('pw');
+	//pwチェック用
+	const newPw = document.getElementById('textbox2').value;
+	const checkPw = document.getElementById('textbox3').value;
+	//身長チェック用
+	const height = document.getElementById('textbox4').value;
+	//ニックネームチェック用
+	const name = document.getElementById('textbox5').value;
+	
+	//PW変更なし
+    if (newPw === '' && checkPw === ''){
+    }
+    //PW変更有(問題なし)
+    else if(newPw === checkPw){
+		pw.value = newPw;
+	}
+	
+	//PW変更エラー
+	else{
+		alert('新たなパスワードが確認用パスワードと一致しません！');
+ 		event.preventDefault();
+ 		return;
+	}
+	
+    
+    //入力制限(身長)
+    if(height === ''){
+		alert('身長の値を入力してください');
+ 		event.preventDefault();
+ 		return;
+	}
+   	else if (/[^0-9]/.test(height)) {
+		alert('整数値以外は入力出来ません');
+ 		event.preventDefault();
+ 		return;
+	}
+	
+	//入力制限(名前)
+	if(name === ''){
+		alert('ニックネームを設定してください');
+ 		event.preventDefault();
+ 		return;
+	}
+	
+	//変更前の確認
+	if (!window.confirm(`変更します。よろしいですか？`)) {
+		event.preventDefault();
+		return;
+    }
+};
 
-  const pwVal = newPw.value.trim();
-  const checkPwVal = checkPw.value.trim();
-
-  //現在のパスワードを使う
-  if (pwVal === '' && checkPwVal === '') {
-    newPw.value = pw;
-    checkPw.value = pw;
-    return true;
-  }
-
-  // 一致確認
-  if (pwVal !== checkPwVal) {
-    alert('新しいパスワードと確認用パスワードが一致しません。');
-    return false;
-  }
-
-  return true;
-}

@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>情報登録</title>
 <link rel="stylesheet" type="text/css" href="css/health.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
 </head>
 <body>
 <header>
@@ -76,7 +78,7 @@
 <!-- サイドパネル -->
 
 <div class="health" id="select-animate">
-	<form  method="POST" action="/D4/HealthServlet">
+	<form  method="POST" action="/D4/HealthServlet" name="health">
 		<p>野菜摂取量</p>
 		 一日の目標摂取量：３５０ｇ<br>【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
@@ -164,8 +166,8 @@
   </div>
 </main>
 <footer>
-    <p class="copyright">&copy;2025HARU</p>
+     <p>&copy;2025HARU</p>
 </footer>
-
+<script src="js/health.js"></script>
 </body>
 </html>
