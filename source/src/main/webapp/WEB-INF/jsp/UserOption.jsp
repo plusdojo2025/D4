@@ -84,7 +84,7 @@
 	    <div class="input-group">
 	      <label for="textbox1">ID</label>
 	      ${userInfo.id}
-	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1">
+	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1" id="textbox1">
 	    </div>
 	    
 	    <!-- 現在のパスワード（サーバーから渡される値） -->
@@ -132,15 +132,12 @@
 	      食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
 	      睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
-	    </div>
-	
-		</form>
-		
+	    </div>		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
-		
-	</div>	
+	</form>
+</div>	
 
 <!-- アイコン選択ポップアップ -->
 <div id="iconPopup" class="popup-overlay" style="display:none;">
