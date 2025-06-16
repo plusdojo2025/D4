@@ -48,7 +48,7 @@
 
 </header>
 <main>
- <section class="content">
+<section class="content">
 <aside class="side-panel"> 
   <nav class="nav-side">
     <ul>
