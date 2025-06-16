@@ -242,3 +242,32 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+.application-ul {
+  max-height: 300px; /* 1項目100px想定 × 5項目分 */
+  overflow-y: auto; /* 縦スクロール表示 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 各項目の高さを調整（デザインに合わせて変更可能） */
+.application-item {
+  padding: 10px;
+  height: 100px; /* 高さを一定にすることで5項目計算 */
+  box-sizing: border-box;
+}
+.friend-list ul {
+  max-height: 500px; /* 1項目100px想定 × 5項目分 */
+  overflow-y: auto; /* 縦スクロール表示 */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* 各項目の高さを調整（デザインに合わせて変更可能） */
+.friend-list li {
+  padding: 10px;
+  height: 100px; /* 高さを一定にすることで5項目計算 */
+  box-sizing: border-box;
+}

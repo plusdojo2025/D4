@@ -15,6 +15,7 @@ import dao.IconDAO;
 import dao.ThemeDAO;
 import dao.UsersDAO;
 import dto.Icon;
+import dto.Result;
 import dto.Theme;
 import dto.Users;
 
@@ -89,13 +90,17 @@ public class UserOptionServlet extends HttpServlet {
 		
 		try {
 			if (uDao.update(user)) { // 更新成功
-				//request.setAttribute("result", new Result("更新成功！", "名刺情報を更新しました。", "/webapp/RedirectServlet"));
+				request.setAttribute("result", new Result("ユーザー情報を更新しました。", "/D4/UserOptionServlet"));
 			} else { // 更新失敗
-				//request.setAttribute("result", new Result("更新失敗！", "名刺情報を更新できませんでした。", "/webapp/RedirectServlet"));
+				request.setAttribute("result", new Result("ユーザー情報を更新できませんでした。", "/D4/UserOptionServlet"));
 			}
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+		
+		// 結果ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp");
+		dispatcher.forward(request, response);
 	}
 }
