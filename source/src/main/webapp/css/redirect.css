@@ -57,3 +57,19 @@ footer {
   font-weight: bold; /* 文字を太くする */
   color: #ffffff;
 }
+/*ボタン*/
+button.bt {
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: #a6e9c2;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+button.bt:hover {
+  background-color: #8fdab0;
+}

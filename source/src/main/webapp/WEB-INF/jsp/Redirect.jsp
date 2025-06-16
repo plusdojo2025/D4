@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>処理結果 | けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="css/redirect.css">
+<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css">
 </head>
 <body>
 <%-- ヘッダー --%>
@@ -17,12 +18,14 @@
 </header>
 <%-- ヘッダーここまで --%>
 <main>
+ <section class="content">
 <h1><img src="" alt="キャラクター表示"></h1>
 <p>${redirect.message}</p>
 <img src="">
 <form action="${redirect.backTo}" method="get">
-<button type="submit">OK</button>
+<button class="bt "type="submit">OK</button>
 </form>
+</section>
 </main>
 <footer>
     <p>&copy;2025HARU</p>
