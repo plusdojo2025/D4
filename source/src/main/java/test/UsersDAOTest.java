@@ -46,7 +46,7 @@ public class UsersDAOTest {
 	//Update テスト
 	public static void updateTest() {
 		UsersDAO dao = new UsersDAO();
-		if(dao.update(new Users("user002", "", 179, "Tanaka", "theme1", "icon_apple.png", 0, 0, 0))) {
+		if(dao.update(new Users("user002", "pass321", 179, "Tanaka", "theme1", "icon_apple.png", 0, 0, 0))) {
 			System.out.println("updateTestが成功しました");
 		} else {
 			System.out.println("updateTest：テストが失敗しました");
