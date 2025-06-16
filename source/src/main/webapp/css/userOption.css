@@ -36,7 +36,7 @@
 }*/
 
 .loginday{
-	text-align:right;
+	color:#000000;
 }
 
 /* モーダル背景 */
@@ -107,6 +107,7 @@
 
 /*フォーム*/
 
+
 /*配置*/
 .form-grid {
   display: grid;
@@ -138,6 +139,7 @@
 /*テキストボックスデザイン*/
 label {
       font-size: 20px;
+      color:#000000;
 }
 
 input {
@@ -151,8 +153,8 @@ input {
 
 /*保存ボタン*/
 .button-container {
-  margin-top: 20px;
-  text-align: center;
+  margin-top: 50px;
+  text-align:center;
 }
 
 .save {
@@ -174,4 +176,5 @@ input {
   background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
+
 
