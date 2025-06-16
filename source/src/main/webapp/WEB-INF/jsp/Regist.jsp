@@ -28,24 +28,24 @@
       				<input type="text" id="textbox1" name="id">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">新規パスワード</label>
-      				<input type="text" id="textbox1" name="pw">
+      				<label for="textbox2">新規パスワード</label>
+      				<input type="text" id="textbox2" name="pw">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">新規パスワード(確認用)</label>
-      				<input type="text" id="textbox1" name="pw2">
+      				<label for="textbox3">新規パスワード(確認用)</label>
+      				<input type="text" id="textbox3" name="pw2">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">現在の身長(cm)</label>
-      				<input type="text" id="textbox1" name="height">
+      				<label for="textbox4">現在の身長(cm)</label>
+      				<input type="text" id="textbox4" name="height">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox1">現在の体重(kg)</label>
-      				<input type="text" id="textbox1" name="weight">
-    			</div>    			    							
+      				<label for="textbox5">現在の体重(kg)</label>
+      				<input type="text" id="textbox5" name="weight">
+    			</div>
 			    <div class="input-group">
-      				<label for="textbox1">ニックネーム</label>
-      				<input type="text" id="textbox1" name="name">
+      				<label for="textbox6">ニックネーム</label>
+      				<input type="text" id="textbox6" name="name">
     			</div>	
 				
 				<div class="button">
