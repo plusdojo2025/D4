@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>フレンド一覧|健康日和</title>
 <link rel="stylesheet" type="text/css" href="css/friendList.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body id="top">
 <%-- ヘッダー --%>

@@ -7,8 +7,8 @@ public class Users implements Serializable{
 	private String pw; 		/*パスワード*/
 	private int height; 	/*身長*/
 	private String name; 	/*ニックネーム*/
-	private String theme; 		/*テーマ*/
-	private String icon; 		/*アイコン*/
+	private String theme; 	/*テーマのパス*/
+	private String icon; 	/*アイコンのパス*/
 	private int vPrivate; 	/*野菜情報の公開設定*/
 	private int sPrivate; 	/*睡眠情報の公開設定*/
 	private int wPrivate; 	/*運動情報の公開設定*/
