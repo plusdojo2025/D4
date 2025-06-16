@@ -1,4 +1,22 @@
 @charset "UTF-8";
+
+body {
+  background-color: #8bdb9f;
+  color: #ffffff;  
+}
+
+header {
+  background-color: #8bdb9f;
+}
+main .content {
+  background-color: white;
+}
+/*フッター*/
+footer {
+  background-color: #8bdb9f;
+  color: #ffffff;
+}
+
 /* 右のサイドバー */
 .side-panel {
   position: fixed;
