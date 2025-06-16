@@ -39,6 +39,22 @@
 	color:#000000;
 }
 
+/*フォームのフェードイン*/
+#select-animate {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* モーダル背景 */
 .popup-overlay {
 		position: fixed;      /* 画面固定 */

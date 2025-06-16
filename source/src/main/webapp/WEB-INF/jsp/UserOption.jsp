@@ -76,7 +76,7 @@
 <!-- サイドパネル -->
 	
 <%-- メイン --%>
-<div class="form-wrapper">
+<div class="form-wrapper"  id="select-animate">
   <h2>プロフィールを編集</h2>
   	<p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
  	<div class="profile"> 
@@ -185,7 +185,6 @@
 
 <%-- フッター --%>
 <footer>
-
 	<p>&copy;2025HAL</p>
 </footer>
 <%-- フッターここまで --%>
