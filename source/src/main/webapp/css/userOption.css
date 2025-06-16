@@ -106,7 +106,9 @@
 
 
 /*フォーム*/
-
+.profile{
+	display:flex;
+}
 
 /*配置*/
 .form-grid {
@@ -149,6 +151,12 @@ input {
       	margin-top :15px;
       	border-radius: 15px; /* 角を丸くする */
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+}
+
+.non-public{
+	font-size:20px;
+	margin-top:30px;
+	text-align:center;
 }
 
 /*保存ボタン*/
