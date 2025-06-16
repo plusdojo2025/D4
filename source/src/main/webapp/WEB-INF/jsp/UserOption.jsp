@@ -138,5 +138,5 @@
 	<%-- フッターここまで --%>
 
 </body>
-<script src="/D4/js/useroption.js"></script>
+<script src="/js/useroption.js"></script>
 </html>
