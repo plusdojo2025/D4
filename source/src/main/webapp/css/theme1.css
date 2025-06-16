@@ -1,1 +1,116 @@
 @charset "UTF-8";
+body {
+  background-color: #8bdb9f;
+  color: #ffffff;  
+}
+
+header {
+  background-color: #8bdb9f;
+}
+main .content {
+  background-color: white;
+}
+/*フッター*/
+footer {
+  background-color: #8bdb9f;
+  color: #ffffff;
+}
+/* 右のサイドバー */
+.side-panel {
+  background-color: #8bdb9f;
+  border-radius: 20px;
+  color: white;
+}
+
+.nav-side li a {
+  color: white;
+}
+
+.nav-side li a:hover {
+  color: #fbd5de;
+}
+
+.logout-border {
+  border-top: 1px solid white;
+}
+
+/* ページトップボタン */
+.page_top {
+  background-color: #89eca0;
+  color: white;
+}
+/* メニュー */
+
+.nav-menu li.with-border {
+  border-left: 1px solid #ffffff;
+}
+
+.nav-menu li a {
+  color: #ffffff;
+}
+.nav-menu a {
+  color: white;
+}
+
+.nav-menu a:hover {
+  color: #fbd5de;
+}
+
+
+
+/* ID検索フォーム */
+.searchFriend {
+  border: 5px solid #8bdb9f;
+  background-color: #d2f8d8;
+}
+
+
+.searchFriend input[type="text"] {
+  border: 2px solid #d2f8d8;
+  background-color: #ffffff;
+}
+
+.searchFriend .bt {
+  background-color: #a6e9c2;
+}
+
+.searchFriend .bt:hover {
+  background-color: #8fdab0;
+}
+
+.searchFriend label {
+  color: #000000;
+}
+/*申請一覧フレンド一覧横線*/
+.application-item:not(:last-child),
+.friend-list li:not(:last-child) {
+  border-bottom: 5px solid #8bdb9f;
+}
+
+/* 共通: 申請一覧とフレンド一覧の外枠 */
+.application-list,
+.friend-list {
+  background-color: #d2f8d8;
+  border: 5px solid #8bdb9f;
+}
+
+/* 申請一覧タイトルとフレンド一覧タイトル */
+.application-list > p,
+.friend-list > p {
+  color: #000;
+}
+
+/* 申請一覧とフレンド一覧のボタン共通 */
+.checkApply .bt,
+.checkApply input[type="submit"],
+.friend-list .bt,
+.friend-list input[type="submit"] {
+  background-color: #a6e9c2;
+}
+
+.checkApply .bt:hover,
+.checkApply input[type="submit"]:hover,
+.friend-list .bt:hover,
+.friend-list input[type="submit"]:hover {
+  background-color: #8fdab0;
+}
