@@ -12,21 +12,41 @@
 </head>
 <body>
 	<%-- ヘッダー --%>
-	<header>
-	<h1>
-	<%--ここにロゴ画像を入れる --%>
-	</h1>
-	<nav>
-	<ul>
-		<li class=""><a href = "/D4/HealthServlet">情報登録</a></li>
-		<li class=""><a href= "/D4/EvaluationServlet">評価</a></li>
-		<li class=""><a href="/D4/RankingServlet">ランキング</a></li>
-		<li class=""><a href="/D4/FriendListServlet">フレンド</a></li>
-	</ul>
-	</nav>
+<header>
+	<div class="logo">
+		<img src="/D4/img/情報登録w.png">
+	</div>
+<nav class="nav-menu">
+  <ul>
+    <li>
+      <a href="/D4/HealthServlet">
+        <img src="/D4/img/情報登録w.png" alt="情報登録">
+        <span>情報登録</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/EvaluationServlet">
+        <img src="/D4/img/評価w.png" alt="評価">
+        <span>評価</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/RankingServlet">
+        <img src="/D4/img/ランキングw.png" alt="ランキング">
+        <span>ランキング</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="/D4/FriendListServlet">
+        <img src="/D4/img/フレンドw.png" alt="フレンド">
+        <span>フレンド</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 	</header>
 	<%-- ヘッダーここまで --%>
-	
+<main>		
 	<!-- サイドパネル -->
 <section class="content">
 <aside class="side-panel"> 
@@ -58,7 +78,7 @@
 	<%-- メイン --%>
   <div class="form-wrapper">
   <h2>プロフィールを編集</h2>
-  <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
+  <p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
 	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
 	
 	    <div class="input-group">
@@ -107,17 +127,19 @@
 	  	</div>
 	
 	    <!-- 非公開設定 -->
-	    <div>
+	    <div class="non-public">
 	      非公開設定
 	      食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
 	      睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
 	    </div>
 	
+		</form>
+		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
-		</form>
+		
 	</div>	
 
 <!-- アイコン選択ポップアップ -->
@@ -151,22 +173,23 @@
 	  </div>
 	</div>
 </section>
+
+<%--　TOPボタン --%>
+	<div>
+		<a href="#top" class="page_top">
+			<img src="/D4/img/評価w.png" class="top-icon">
+			TOP
+		</a>
+	</div>
+</main>	
 <%-- メインここまで --%>
-	<%--　TOPボタン --%>
-	<a href="#" id="to-top">
-	<img src="" alt="TOP">
-	</a>
-	<%-- メインここまで --%>
-	<%-- フッター --%>
-	<footer>
-		<div>
 
-		<a href="#top" class="page_top">ページのトップへ戻る</a>
-		</div>
-		<p>&copy;2025HAL</p>
-	</footer>
-	<%-- フッターここまで --%>
+<%-- フッター --%>
+<footer>
 
+	<p>&copy;2025HAL</p>
+</footer>
+<%-- フッターここまで --%>
 </body>
 <script src="/js/useroption.js"></script>
 </html>
