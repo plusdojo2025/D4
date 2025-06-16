@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面二しかないもの --%>
+<link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面にしかないもの --%>
 <link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
-<link rel="stylesheet" type="text/css" href="css/theme1.css"><%-- テーマを変えたときのみ変わるもの --%>
+<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css"><%-- テーマを変えたときのみ変わるもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>

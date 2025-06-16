@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>フレンド詳細|健康日和</title>
+<link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
 <link rel="stylesheet" type="text/css" href="css/AddFriend.css">
+<link rel="stylesheet" type="text/css" href="/css/${sessionScope.users.theme}.css"><%-- テーマを変えたときのみ変わるもの --%>
 </head>
 <body id="top">
 <%-- ヘッダー --%>
