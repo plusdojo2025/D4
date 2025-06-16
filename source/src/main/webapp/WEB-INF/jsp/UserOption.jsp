@@ -73,6 +73,7 @@
     </ul>
   </nav>
 </aside>
+</section>
 <!-- サイドパネル -->
 	
 	<%-- メイン --%>
@@ -156,7 +157,6 @@
 	    </div>
 	    <button onclick="closePopup('iconPopup')">閉じる</button>
 	  </div>
-	</div>
 	
 	<!-- テーマ選択ポップアップ -->
 	<div id="themePopup" class="popup-overlay" style="display:none;">
@@ -172,7 +172,7 @@
 	    <button onclick="closePopup('themePopup')">閉じる</button>
 	  </div>
 	</div>
-</section>
+</div>
 
 <%--　TOPボタン --%>
 	<div>
@@ -182,6 +182,7 @@
 		</a>
 	</div>
 </main>	
+
 <%-- メインここまで --%>
 
 <%-- フッター --%>
@@ -191,5 +192,5 @@
 </footer>
 <%-- フッターここまで --%>
 </body>
-<script src="/js/useroption.js"></script>
+<script src="js/useroption.js"></script>
 </html>
