@@ -73,7 +73,6 @@
     </ul>
   </nav>
 </aside>
-</section>
 <!-- サイドパネル -->
 	
 	<%-- メイン --%>
@@ -145,35 +144,35 @@
 
 <!-- アイコン選択ポップアップ -->
 <div id="iconPopup" class="popup-overlay" style="display:none;">
-	  <div class="popup-window">
-	    <h3>アイコンを選択</h3>
-	    <div style="display:flex; flex-wrap:wrap; gap:10px;">
-	      <c:forEach var="icon" items="${iconList}">
-	        <div style="cursor:pointer; text-align:center;" onclick="selectIcon('${icon.id}', '${icon.path}')">
-	          <img src="${icon.path}" alt="icon" style="width:50px; height:50px;">
-	          <div>ID: ${icon.id}</div>
-	        </div>
-	      </c:forEach>
-	    </div>
-	    <button onclick="closePopup('iconPopup')">閉じる</button>
-	  </div>
-	
-	<!-- テーマ選択ポップアップ -->
-	<div id="themePopup" class="popup-overlay" style="display:none;">
-	  <div class="popup-window">
-	    <h3>テーマを選択</h3>
-	    <div>
-	      <c:forEach var="theme" items="${themeList}">
-	        <div style="cursor:pointer; margin-bottom:8px;" onclick="selectTheme('${theme.name}')">
-	          ${theme.name}
-	        </div>
-	      </c:forEach>
-	    </div>
-	    <button onclick="closePopup('themePopup')">閉じる</button>
-	  </div>
-	</div>
+  <div class="popup-window">
+    <h3>アイコンを選択</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <c:forEach var="icon" items="${iconList}">
+        <div style="cursor:pointer; text-align:center;" onclick="selectIcon('${icon.id}', '${icon.path}')">
+          <img src="${icon.path}" alt="icon" style="width:50px; height:50px;">
+          <div>ID: ${icon.id}</div>
+        </div>
+      </c:forEach>
+    </div>
+    <button onclick="closePopup('iconPopup')">閉じる</button>
+  </div>
 </div>
 
+<!-- テーマ選択ポップアップ -->
+<div id="themePopup" class="popup-overlay" style="display:none;">
+  <div class="popup-window">
+    <h3>テーマを選択</h3>
+    <div>
+      <c:forEach var="theme" items="${themeList}">
+        <div style="cursor:pointer; margin-bottom:8px;" onclick="selectTheme('${theme.name}')">
+          ${theme.name}
+        </div>
+      </c:forEach>
+    </div>
+    <button onclick="closePopup('themePopup')">閉じる</button>
+  </div>
+</div>
+</section>
 <%--　TOPボタン --%>
 	<div>
 		<a href="#top" class="page_top">
