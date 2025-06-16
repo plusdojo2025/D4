@@ -35,6 +35,10 @@
   flex-direction: column;
 }*/
 
+.loginday{
+	text-align:right;
+}
+
 /* モーダル背景 */
 .popup-overlay {
 		position: fixed;      /* 画面固定 */

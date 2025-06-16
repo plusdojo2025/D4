@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー編集 | けんこう日和</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" type="text/css" href="css/userOption.css">
 </head>
 <body>
@@ -24,11 +25,9 @@
 	</header>
 	<%-- ヘッダーここまで --%>
 	<%-- メイン --%>
-	
-<div class="profile">
+  <div class="form-wrapper">
   <h2>プロフィールを編集</h2>
   <p>現在の連続ログイン日数: ${userInfo.nLogin}</p>
-  <div class="form-wrapper">
 	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
 	
 	    <div class="input-group">
@@ -89,7 +88,6 @@
 		</div>
 		</form>
 	</div>	
-</div>
 
 <!-- アイコン選択ポップアップ -->
 <div id="iconPopup" class="popup-overlay" style="display:none;">
