@@ -142,7 +142,7 @@
 	
 <!-- アイコン選択ポップアップ -->
 <div id="iconPopup" class="popup-overlay" style="display:none;">
-  <div class="popup-window">
+  <div class="popup-window" id="select-animate">
     <h3>アイコンを選択</h3>
     <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <c:forEach var="icon" items="${iconList}">
@@ -158,7 +158,7 @@
 
 <!-- テーマ選択ポップアップ -->
 <div id="themePopup" class="popup-overlay" style="display:none;">
-  <div class="popup-window">
+  <div class="popup-window" id="select-animate">
     <h3>テーマを選択</h3>
     <div>
       <c:forEach var="theme" items="${themeList}">
