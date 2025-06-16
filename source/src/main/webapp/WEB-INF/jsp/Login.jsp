@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面二しかないもの --%>
+<link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
+<link rel="stylesheet" type="text/css" href="css/theme1.css"><%-- テーマを変えたときのみ変わるもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>
