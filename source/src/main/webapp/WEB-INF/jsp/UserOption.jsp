@@ -89,43 +89,51 @@
 	    </div>
 	  <form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
 	
-	    <div class="input-group">
-	      <label for="textbox1">ID</label>
-	      ${userInfo.id}
-	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1" id="textbox1">
-	    </div>
-	    
-	    <!-- 現在のパスワード（サーバーから渡される値） -->
-		<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
-	
-	    <div class="input-group">
-	      <label for="textbox2">新規パスワード</label>
-	      <input type="password" name="newPw" id="textbox2">
-	    </div>
-	
-	    <div class="input-group">
-	      <label for="textbox3">新規パスワード(確認用)</label>
-	      <input type="password" name="checkPw" id="textbox3">
+		<div class="input-group">
+	      <label for="textbox5">ニックネーム</label>
+	      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
 	    </div>
 	
 	    <div class="input-group">
 	      <label for="textbox4">現在の身長(cm)</label>
 	      <input type="text" name="height" value="${userInfo.height}"  id="textbox4">
 	    </div>
-	
-	    <div class="input-group">
-	      <label for="textbox5">ニックネーム</label>
-	      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
-	    </div>
-
 	    
+	    <div class="input-group">
+	      <label for="textbox1">ID</label>
+	      ${userInfo.id}
+	      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1" id="textbox1">
+	    </div>
+	
 	    <!-- テーマ表示＆選択ボタン -->
 	    <div class="input-group">
 	  		<label>テーマ</label><br>
 	  		<span id="Theme">${userInfo.theme}</span>
 	  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
 	  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
-	  	</div>	
+	  	</div>		
+	    
+	    <!-- 現在のパスワード（サーバーから渡される値） -->
+		<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
+	
+	    <div class="input-group">
+	      <label for="textbox2">現在のパスワード</label>
+	      <input type="password" name="newPw" id="textbox2">
+	    </div>
+	
+
+	
+	    <div class="input-group">
+	      <label for="textbox3">新規パスワード(確認用)</label>
+	      <input type="password" name="checkPw" id="textbox3">
+	    </div>
+	
+
+	
+
+
+	    
+
 	  	
 		</form>
 		</div>
