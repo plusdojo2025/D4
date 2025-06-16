@@ -23,11 +23,9 @@ footer {
   top: 55%;
   transform: translateY(-50%);
   right: 20px;
-  background-color: #8bdb9f;
   border-radius: 20px;
   padding: 10px;
   width: 120px;
-  color: white;
 }
 
 .nav-side ul {
@@ -55,18 +53,11 @@ footer {
   flex-direction: column;     
   align-items: center;
   text-decoration: none;
-  color: white;
   font-size: 14px;
   font-weight: bold;
   transition: color 0.3s;
 }
-
-.nav-side li a:hover {
-  color: #fbd5de;
-}
-
 .logout-border {
-  border-top: 1px solid white;
   padding-top: 10px;
   margin-top: 10px;
 }
@@ -77,11 +68,9 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #89eca0;
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  color: white;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
@@ -113,7 +102,6 @@ footer {
 }
 
 .nav-menu li.with-border {
-  border-left: 1px solid #ffffff;
   padding-left: 20px;
   margin-left: 20px;
 }
@@ -123,7 +111,6 @@ footer {
   flex-direction: row; /* ここを row に変更して横並びにする */
   align-items: center;
   text-decoration: none;
-  color: #ffffff;
   gap: 5px; /* 画像と文字の間隔 */
 }
 
@@ -133,15 +120,8 @@ footer {
 }
 
 .nav-menu a {
-  color: white;
   text-decoration: none;
 }
-
-.nav-menu a:hover {
-  color: #fbd5de;
-}
-
-
 
 /* ID検索フォーム */
 .searchFriend {
@@ -151,22 +131,18 @@ footer {
   gap: 10px;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 5px solid #8bdb9f;
   border-radius: 30px;
   padding: 20px;
   width: 40%;
   max-width: 800px;
   margin: 20px auto;
-  background-color: #d2f8d8;
 }
 
 
 .searchFriend input[type="text"] {
   padding: 10px;
   font-size: 15px;
-  border: 2px solid #d2f8d8;
   border-radius: 10px;
-  background-color: #ffffff;
   width: 200px;
 }
 
@@ -174,26 +150,19 @@ footer {
   padding: 10px 20px;
   margin-left: 10px;
   font-size: 15px;
-  background-color: #a6e9c2;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.searchFriend .bt:hover {
-  background-color: #8fdab0;
-}
-
 .searchFriend label {
   font-size: 18px;
-  color: #000000;
   margin-right: 10px;
 }
 /*申請一覧フレンド一覧横線*/
 .application-item:not(:last-child),
 .friend-list li:not(:last-child) {
-  border-bottom: 5px solid #8bdb9f;
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -201,8 +170,6 @@ footer {
 /* 共通: 申請一覧とフレンド一覧の外枠 */
 .application-list,
 .friend-list {
-  background-color: #d2f8d8;
-  border: 5px solid #8bdb9f;
   border-radius: 30px;
   padding: 20px;
   margin: 20px auto;
@@ -215,7 +182,6 @@ footer {
 .friend-list > p {
   font-size: 20px;
   font-weight: normal;
-  color: #000;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -286,18 +252,10 @@ footer {
 .friend-list input[type="submit"] {
   padding: 10px 20px;
   font-size: 15px;
-  background-color: #a6e9c2;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.checkApply .bt:hover,
-.checkApply input[type="submit"]:hover,
-.friend-list .bt:hover,
-.friend-list input[type="submit"]:hover {
-  background-color: #8fdab0;
 }
