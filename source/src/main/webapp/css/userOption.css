@@ -70,8 +70,8 @@
 
 /* モーダル本体 */
 .popup-window {
-  background: #d2f8d8;
-  border: 2px solid #bef5c7;
+  background: #fcfefc;
+  border: 5px solid #98e4ab;
   border-radius: 8px;
   padding: 20px;
   max-width: 90vw;		/* 最大横幅 */
