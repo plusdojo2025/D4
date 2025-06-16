@@ -5,8 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザー編集 | けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/common.css">
+
 <link rel="stylesheet" type="text/css" href="css/userOption.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/theme1.css">
 </head>
 <body>
 	<%-- ヘッダー --%>
@@ -24,6 +26,35 @@
 	</nav>
 	</header>
 	<%-- ヘッダーここまで --%>
+	
+	<!-- サイドパネル -->
+<section class="content">
+<aside class="side-panel"> 
+  <nav class="nav-side">
+    <ul>
+      <li class="with-border">
+        <a href="/D4/BornusServlet">
+          <img src="/D4/img/ボーナスw.png" alt="ログインボーナス">
+          ログインボーナス
+        </a>
+      </li>
+      <li class="with-border">
+        <a href="/D4/UserOptionServlet">
+          <img src="/D4/img/ユーザー情報w.png" alt="ユーザー情報">
+          ユーザー情報
+        </a>
+      </li>
+      <li class="with-border logout-border">
+        <a href="/D4/LoginServlet">
+          <img src="/D4/img/logoutw.png" alt="ログアウト">
+          ログアウト
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+<!-- サイドパネル -->
+	
 	<%-- メイン --%>
   <div class="form-wrapper">
   <h2>プロフィールを編集</h2>
@@ -119,7 +150,7 @@
 	    <button onclick="closePopup('themePopup')">閉じる</button>
 	  </div>
 	</div>
-
+</section>
 <%-- メインここまで --%>
 	<%--　TOPボタン --%>
 	<a href="#" id="to-top">
@@ -129,6 +160,7 @@
 	<%-- フッター --%>
 	<footer>
 		<div>
+
 		<a href="#top" class="page_top">ページのトップへ戻る</a>
 		</div>
 		<p>&copy;2025HAL</p>
