@@ -165,6 +165,7 @@
   height: 100px; /* 高さを一定にすることで5項目計算 */
   box-sizing: border-box;
 }
+
 #select-animate {
   opacity: 0;
   transform: translateY(10px);
