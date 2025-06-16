@@ -152,7 +152,7 @@
         </div>
       </c:forEach>
     </div>
-    <button onclick="closePopup('iconPopup')">閉じる</button>
+    <button class="back" onclick="closePopup('iconPopup')">閉じる</button>
   </div>
 </div>
 
@@ -167,7 +167,7 @@
         </div>
       </c:forEach>
     </div>
-    <button onclick="closePopup('themePopup')">閉じる</button>
+    <button class="back" onclick="closePopup('themePopup')">閉じる</button>
   </div>
 </div>
 
