@@ -46,7 +46,6 @@
 	</header>
 <%-- ヘッダーここまで --%>
 	<h1>ログインボーナス</h1>
-    <p>あなたの最長連続ログイン日数は <strong>${mLogin}</strong> 日です。</p>
 </body>
 <script src="<c:url value='/js/bornus.js' />"></script>
 </html>
