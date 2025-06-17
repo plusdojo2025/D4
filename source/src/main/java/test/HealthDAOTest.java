@@ -9,12 +9,14 @@ public class HealthDAOTest {
 	public static void showAllData(List<Health> cardList) {
 		for (Health card : cardList) {
 
+
 			System.out.println("プレイヤーID：" + card.getId());
 			System.out.println("日付：" + card.getDate());
 			System.out.println("野菜：" + card.getVegetable());
 			System.out.println("睡眠：" + card.getSleep());
 			System.out.println("運動：" + card.getWalk());
 			System.out.println("ストレス：" + card.getStress());
+
 			System.out.println("体重：" + card.getWeight());		
 			System.out.println();
 		}
@@ -56,6 +58,5 @@ public class HealthDAOTest {
 			System.out.println("更新失敗！");
 		}
 	}
-
 
 }
