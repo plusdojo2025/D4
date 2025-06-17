@@ -56,8 +56,6 @@ public class RegistServlet extends HttpServlet {
 	        request.getRequestDispatcher("/WEB-INF/jsp/Regist.jsp").forward(request, response);
 	        return;
 	    }
-
-	    Users user = new Users(id, pw, height, name);
 	 	
 		// 登録処理を行う
 		UsersDAO bDao = new UsersDAO();
