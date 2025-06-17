@@ -117,7 +117,7 @@
 			<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 		
 		    <div class="input-group">
-		      <label for="textbox4">現在のパスワード</label>
+		      <label for="textbox4">新規パスワード</label>
 		      <input type="password" name="newPw" id="textbox2">
 		    </div>
 		
