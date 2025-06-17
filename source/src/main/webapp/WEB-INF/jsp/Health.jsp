@@ -132,17 +132,17 @@
 					  <label>
 					    <input type="radio" name="stress" value="1"
 					    <c:if test="${empty health || health.stress == 1}">checked</c:if>>
-					    <span>低い</span>
+					    <span class="stress-icon">低い</span>
 					  </label>
 					  <label>
 					    <input type="radio" name="stress" value="2"
 					    <c:if test="${not empty health && health.stress == 2}">checked</c:if>>
-					    <span>普通</span>
+					    <span class="stress-icon">普通</span>
 					  </label>
 					  <label>
 					    <input type="radio" name="stress" value="3"
 					    <c:if test="${not empty health && health.stress == 3}">checked</c:if>>
-					    <span>高い</span>
+					    <span class="stress-icon">高い</span>
 					  </label>
 					</div>
 				</div>
