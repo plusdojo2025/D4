@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,172 +18,172 @@ import dto.Users;
 
 @WebServlet("/EvaluationServlet")
 public class EvaluationServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-	        throws ServletException, IOException {
-	    
-	    HttpSession session = request.getSession();
-	    Users user = (Users) session.getAttribute("users");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	    if (user == null) {
-	        response.sendRedirect(request.getContextPath() + "/LoginServlet");
-	        return;
-	    }
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("users");
 
-	    // 表示したい年月を取得。なければ今月
-	    String yearParam = request.getParameter("year");
-	    String monthParam = request.getParameter("month");
-	    LocalDate baseDate;
-	    if (yearParam != null && monthParam != null) {
-	        int year = Integer.parseInt(yearParam);
-	        int month = Integer.parseInt(monthParam);
-	        baseDate = LocalDate.of(year, month, 1);
-	    } else {
-	        baseDate = LocalDate.now().withDayOfMonth(1);
-	    }
+        if (user == null) {
+            response.sendRedirect("/D4/LoginServlet");
+            return;
+        }
 
-	    // 年月をJSPに渡す
-	    request.setAttribute("year", baseDate.getYear());
-	    request.setAttribute("month", baseDate.getMonthValue());
+        // 表示したい年月を取得。なければ今月
+        String yearParam = request.getParameter("year");
+        String monthParam = request.getParameter("month");
 
-	    // 今日の日付（カレンダークリックで詳細取得する想定の当日情報）
-	    LocalDate todayDate = LocalDate.now();
-	    LocalDate yesterdayDate = todayDate.minusDays(1);
+        LocalDate baseDate;
+        if (yearParam != null && monthParam != null) {
+            int year = Integer.parseInt(yearParam);
+            int month = Integer.parseInt(monthParam);
+            baseDate = LocalDate.of(year, month, 1);
+        } else {
+            baseDate = LocalDate.now().withDayOfMonth(1);
+        }
 
-	    String today = todayDate.toString();
-	    String yesterday = yesterdayDate.toString();
+        // 年月をJSPに渡す
+        request.setAttribute("year", baseDate.getYear());
+        request.setAttribute("month", baseDate.getMonthValue());
 
-	    HealthDAO healthDao = new HealthDAO();
+        // 今日の日付（カレンダークリックで詳細取得する想定）
+        LocalDate todayDate = LocalDate.now();
+        LocalDate yesterdayDate = todayDate.minusDays(1);
 
-	    // 今日の情報を取得
-	    Health todayCondition = new Health();
-	    todayCondition.setId(user.getId());
-	    todayCondition.setDate(today);
-	    java.util.List<Health> todayList = healthDao.select(todayCondition);
-	    Health todayData = todayList.isEmpty() ? null : todayList.get(0);
+        String today = todayDate.toString();
+        String yesterday = yesterdayDate.toString();
 
-	    // 昨日の情報を取得
-	    Health yesterdayCondition = new Health();
-	    yesterdayCondition.setId(user.getId());
-	    yesterdayCondition.setDate(yesterday);
-	    java.util.List<Health> yesterdayList = healthDao.select(yesterdayCondition);
-	    Health yesterdayData = yesterdayList.isEmpty() ? null : yesterdayList.get(0);
+        HealthDAO healthDao = new HealthDAO();
 
-	    // 今日と昨日の評価値を初期化
-	    int vegetableRatingToday = 0;
-	    int sleepRatingToday = 0;
-	    int walkRatingToday = 0;
+        // 今日の情報を取得
+        Health todayCondition = new Health();
+        todayCondition.setId(user.getId());
+        todayCondition.setDate(today);
+        List<Health> todayList = healthDao.select(todayCondition);
+        Health todayData = todayList.isEmpty() ? null : todayList.get(0);
 
-	    int vegetableRatingYesterday = 0;
-	    int sleepRatingYesterday = 0;
-	    int walkRatingYesterday = 0;
+        // 昨日の情報を取得
+        Health yesterdayCondition = new Health();
+        yesterdayCondition.setId(user.getId());
+        yesterdayCondition.setDate(yesterday);
+        List<Health> yesterdayList = healthDao.select(yesterdayCondition);
+        Health yesterdayData = yesterdayList.isEmpty() ? null : yesterdayList.get(0);
 
-	    // 生データ変換
-	    if (todayData != null) {
-	        vegetableRatingToday = convertVegetableToRating(todayData.getVegetable());
-	        sleepRatingToday = convertSleepToRating(todayData.getSleep());
-	        walkRatingToday = convertWalkToRating(todayData.getWalk());
-	    }
-	    if (yesterdayData != null) {
-	        vegetableRatingYesterday = convertVegetableToRating(yesterdayData.getVegetable());
-	        sleepRatingYesterday = convertSleepToRating(yesterdayData.getSleep());
-	        walkRatingYesterday = convertWalkToRating(yesterdayData.getWalk());
-	    }
+        // 前日データが取得できた場合のみ差分を計算
+        boolean showDiff = yesterdayData != null;
 
-	    // 評価値差分計算
-	    int vegDiff = vegetableRatingToday - vegetableRatingYesterday;
-	    int sleepDiff = sleepRatingToday - sleepRatingYesterday;
-	    int walkDiff = walkRatingToday - walkRatingYesterday;
+        // 今日と前日の評価値を初期化
+        int vegetableRatingToday = 0;
+        int sleepRatingToday = 0;
+        int walkRatingToday = 0;
+        int vegetableRatingYesterday = 0;
+        int sleepRatingYesterday = 0;
+        int walkRatingYesterday = 0;
 
-	    // コメント作成
-	    String vegetableComment = createComment(vegetableRatingToday);
-	    String sleepComment = createComment(sleepRatingToday);
-	    String walkComment = createComment(walkRatingToday);
+        if (todayData != null) {
+            vegetableRatingToday = convertVegetableToRating(todayData.getVegetable());
+            sleepRatingToday = convertSleepToRating(todayData.getSleep());
+            walkRatingToday = convertWalkToRating(todayData.getWalk());
+        }
 
-	    //全体スコア
-	    double averageScore = 0.0;
-	    if (todayData != null) {
-	        int totalScore = vegetableRatingToday + sleepRatingToday + walkRatingToday;
-	        averageScore = totalScore / 3.0;
-	    }
+        if (yesterdayData != null) {
+            vegetableRatingYesterday = convertVegetableToRating(yesterdayData.getVegetable());
+            sleepRatingYesterday = convertSleepToRating(yesterdayData.getSleep());
+            walkRatingYesterday = convertWalkToRating(yesterdayData.getWalk());
+        }
 
-	    int averageRating = (int) Math.round(averageScore);
-	    
-	    // BMI計算
-	    double weight = 0.0;
-	    if (todayData != null) {
-	        weight = todayData.getWeight();
-	    }else{
-	    	System.out.println("データなし");	
-	    }
-	    
-	    double height = user.getHeight();
-	    	System.out.println(height);
-	    double bmi = 0.0;
+        // 差分計算（前日データがある場合のみ）
+        int vegDiff   = showDiff ? vegetableRatingToday   - vegetableRatingYesterday   : 0;
+        int sleepDiff = showDiff ? sleepRatingToday       - sleepRatingYesterday       : 0;
+        int walkDiff  = showDiff ? walkRatingToday        - walkRatingYesterday        : 0;
 
-	    if (height > 0 && weight > 0) {
-	        bmi = weight / (height * height);
-	    } else {
-	        System.out.println("BMI計算に必要な身長または体重がありません");
-	    }
-	    request.setAttribute("bmi", String.format("%.2f", bmi));
 
-	    request.setAttribute("vegetableRating", vegetableRatingToday);
-	    request.setAttribute("sleepRating", sleepRatingToday);
-	    request.setAttribute("walkRating", walkRatingToday);
+        // 差分が0でない場合のみ表示
+        boolean showVegDiff = vegDiff != 0;
+        boolean showSleepDiff = sleepDiff != 0;
+        boolean showWalkDiff = walkDiff != 0;
 
-	    request.setAttribute("vegetableDiff", vegDiff);
-	    request.setAttribute("sleepDiff", sleepDiff);
-	    request.setAttribute("walkDiff", walkDiff);
+        // コメント作成
+        String vegetableComment = createComment(vegetableRatingToday);
+        String sleepComment = createComment(sleepRatingToday);
+        String walkComment = createComment(walkRatingToday);
 
-	    request.setAttribute("vegetableComment", vegetableComment);
-	    request.setAttribute("sleepComment", sleepComment);
-	    request.setAttribute("walkComment", walkComment);
-	    
-	    request.setAttribute("averageScore", String.format("%.2f", averageScore));
-	    request.setAttribute("averageRating", averageRating);
-	    
-	    request.setAttribute("todayData", todayData);
-	    request.setAttribute("user", user);
+        // 全体スコア計算
+        double averageScore = 0.0;
+        if (todayData != null) {
+            int totalScore = vegetableRatingToday + sleepRatingToday + walkRatingToday;
+            averageScore = totalScore / 3.0;
+        }
 
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
-	    dispatcher.forward(request, response);
-	}
+        int averageRating = (int) Math.round(averageScore);
 
-	private int convertWalkToRating(int walk) {
-	    if (walk >= 6500 && walk <= 8000) return 5;
-	    if (walk >= 5000) return 4;
-	    if (walk >= 3500) return 3;
-	    if (walk >= 2000) return 2;
-	    return 1;
-	}
+        // BMI計算
+        int height = user.getHeight();
+        double weight = todayData.getWeight();
+        double heightInMeters = height / 100.0;
+        double bmi = weight / (heightInMeters * heightInMeters);
 
-	private int convertSleepToRating(int sleep) {
-	    if (sleep >= 450) return 5;
-	    if (sleep >= 400) return 4;
-	    if (sleep >= 350) return 3;
-	    if (sleep >= 300) return 2;
-	    return 1;
-	}
+        request.setAttribute("bmi", String.format("%.2f", bmi));
+        request.setAttribute("vegetableRating", vegetableRatingToday);
+        request.setAttribute("sleepRating", sleepRatingToday);
+        request.setAttribute("walkRating", walkRatingToday);
+        request.setAttribute("vegetableDiff", vegDiff);
+        request.setAttribute("sleepDiff", sleepDiff);
+        request.setAttribute("walkDiff", walkDiff);
+        request.setAttribute("vegetableComment", vegetableComment);
+        request.setAttribute("sleepComment", sleepComment);
+        request.setAttribute("walkComment", walkComment);
+        request.setAttribute("averageScore", String.format("%.2f", averageScore));
+        request.setAttribute("averageRating", averageRating);
+        request.setAttribute("showVegDiff", showVegDiff);
+        request.setAttribute("showSleepDiff", showSleepDiff);
+        request.setAttribute("showWalkDiff", showWalkDiff);
+        request.setAttribute("todayData", todayData);
+        request.setAttribute("user", user);
+        
+        request.setAttribute("showDiff", showDiff);
 
-	private int convertVegetableToRating(int veg) {
-	    if (veg >= 1 && veg <= 5) return veg;
-	    return 1;
-	}
+        // JSPへフォワード
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
+        dispatcher.forward(request, response);
 
-	private String createComment(int score) {
-	    if (score == 5) {
-	        return "完璧!! 維持していこう!!";
-	    } else if (score == 4) {
-	        return "いい感じ!! このまま☆5を目指そう!!";
-	    } else if (score == 3) {
-	        return "もう少し頑張ろう!!";
-	    } else if (score == 2) {
-	        return "見直して!!";
-	    } else {
-	        return "コメント";
-	    }
-	}
+        System.out.println("セッションのユーザーID: " + user.getId());
+    }
 
+    private int convertWalkToRating(int walk) {
+        if (walk >= 6500 && walk <= 8000) return 5;
+        if (walk >= 5000) return 4;
+        if (walk >= 3500) return 3;
+        if (walk >= 2000) return 2;
+        return 1;
+    }
+
+    private int convertSleepToRating(int sleep) {
+        if (sleep >= 450) return 5;
+        if (sleep >= 400) return 4;
+        if (sleep >= 350) return 3;
+        if (sleep >= 300) return 2;
+        return 1;
+    }
+
+    private int convertVegetableToRating(int veg) {
+        if (veg >= 1 && veg <= 5) return veg;
+        return 1;
+    }
+
+    private String createComment(int score) {
+        if (score == 5) {
+            return "完璧!! 維持していこう!!";
+        } else if (score == 4) {
+            return "いい感じ!! このまま☆5を目指ろう!!";
+        } else if (score == 3) {
+            return "もう少し頑張ろう!!";
+        } else if (2 >= score) {
+            return "見直して!!";
+        } else {
+            return "コメント";
+        }
+    }
 }
