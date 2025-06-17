@@ -22,7 +22,7 @@ public class  AddFriendServlet extends HttpServlet {
 	       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.sendRedirect("/D4/FriendListServlet");
+		response.sendRedirect(request.getContextPath() + "/FriendListServlet");
 
 	}
 	/**
@@ -33,7 +33,7 @@ public class  AddFriendServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("users") == null) {
-			response.sendRedirect("/D4/LoginServlet");
+			response.sendRedirect(request.getContextPath() + "/LoginServlet");
 			return;
 		}
 		
@@ -51,9 +51,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "申請":
 		    	try {
 					if (fDao.insert(new Friend(myId, friendId, 0))) { // 更新成功
-						request.setAttribute("redirect", new Result("申請を行いました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("申請を行いました。", request.getContextPath() + "/FriendListServlet"));
 					} else { // 更新失敗
-						request.setAttribute("redirect", new Result("申請に失敗しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("申請に失敗しました。", request.getContextPath() + "/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -66,9 +66,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "承認":
 		    	try {
 					if (fDao.update(new Friend(myId, friendId, 0))) { // 更新成功
-						request.setAttribute("redirect", new Result("フレンド申請を承認しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("フレンド申請を承認しました。", request.getContextPath() + "/FriendListServlet"));
 					} else { // 更新失敗
-						request.setAttribute("redirect", new Result("フレンド申請の承認に失敗しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("フレンド申請の承認に失敗しました。", request.getContextPath() + "/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -81,9 +81,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "拒否":
 		    	try {
 					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
-						request.setAttribute("redirect", new Result("申請を拒否しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("申請を拒否しました。", request.getContextPath() + "/FriendListServlet"));
 					} else { // 更新失敗
-						request.setAttribute("redirect", new Result("申請の拒否に失敗しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("申請の拒否に失敗しました。", request.getContextPath() + "/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -95,9 +95,9 @@ public class  AddFriendServlet extends HttpServlet {
 		    case "削除":
 		    	try {
 					if (fDao.delete(new Friend(myId, friendId, 0))) { // 更新成功
-						request.setAttribute("redirect", new Result("フレンドを削除しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("フレンドを削除しました。", request.getContextPath() + "/FriendListServlet"));
 					} else { // 更新失敗
-						request.setAttribute("redirect", new Result("フレンドの削除に失敗しました。", "/D4/FriendListServlet"));
+						request.setAttribute("redirect", new Result("フレンドの削除に失敗しました。", request.getContextPath() + "/FriendListServlet"));
 					}
 				} catch (Exception e) {
 					// TODO 自動生成された catch ブロック
@@ -108,7 +108,7 @@ public class  AddFriendServlet extends HttpServlet {
 		    //戻る
 		    case "戻る":
 		    	//フレンドリストに戻る
-		    	response.sendRedirect("/D4/FriendListServlet");
+		    	response.sendRedirect(request.getContextPath() + "/FriendListServlet");
 				return;
 		    
 		    default:

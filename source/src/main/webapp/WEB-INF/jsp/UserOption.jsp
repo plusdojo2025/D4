@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>ユーザー編集 | けんこう日和</title>
 
-<link rel="stylesheet" type="text/css" href="css/userOption.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/userOption.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
 	<%-- ヘッダー --%>
@@ -190,5 +190,5 @@
 </footer>
 <%-- フッターここまで --%>
 </body>
-<script src="js/useroption.js"></script>
+<script src="<c:url value='/js/useroption.js' />"></script>
 </html>
