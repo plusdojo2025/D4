@@ -138,11 +138,11 @@ button.bt:hover {
   background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
+    	background-color: wite; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:#fcfefc;
+	background-color:wite;
 }
 .bt{
 	background-color: #b4ebc1; /* ボタンの背景色 */
@@ -186,7 +186,7 @@ input {
 }
 /* モーダル本体 */
 .popup-window {
-  background: #fcfefc;
+  background: wite;
   border: 5px solid #98e4ab;
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
@@ -194,7 +194,7 @@ input {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Iconbutton:hover {
-  background-color: #66d780;
+  background-color: #45a049;
 }
 .Iconbutton:active {
   background-color: #66d780; /* クリック時の背景色 */
@@ -203,7 +203,7 @@ input {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Themebutton:hover {
-  background-color: #66d780;
+  background-color: #45a049;
 }
 .Themebutton:active {
   background-color: #66d780; /* クリック時の背景色 */
@@ -224,20 +224,15 @@ label {
       color:#000000;
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
-      	border-radius: 15px; /* 角を丸くする */
-      	padding: 10px;
-      	font-size: 15px;
-      	margin-top :15px
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .save {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .save:hover {
-  background-color: #66d780;
+  background-color: #45a049;
 }
-
 .save:active {
   background-color: #66d780; /* クリック時の背景色 */
 }
