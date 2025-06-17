@@ -57,6 +57,109 @@ form{
   font-size: 14px;
 }
 
+
+input[type=radio]+label:before{  /*ラジオボタンの感覚を広げる*/
+    content: "";
+    display: inline-block;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+
+/* ラジオボタンを非表示に */
+input[type="radio"] {
+  display: none;
+}
+
+/* 共通の画像スタイル */
+input[type="radio"] + label:before {
+  content: "";
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  opacity: 0.4; /* 非選択状態は薄く表示 */
+  transition: 0.2s ease;
+}
+
+/* 画像を指定（テストURL） */
+#star1 + label:before {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+}
+#star2 + label:before {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+}
+#star3 + label:before {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+}
+#star4 + label:before {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+}
+#star5 + label:before {
+  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+}
+
+/* 左から順に選択されたところまでハイライト */
+#star1:checked ~ #star2 + label:before,
+#star1:checked ~ #star3 + label:before,
+#star1:checked ~ #star4 + label:before,
+#star1:checked ~ #star5 + label:before {
+  opacity: 0.4;
+}
+#star1:checked + label:before {
+  opacity: 1;
+}
+
+#star2:checked ~ #star3 + label:before,
+#star2:checked ~ #star4 + label:before,
+#star2:checked ~ #star5 + label:before {
+  opacity: 0.4;
+}
+#star2:checked + label:before,
+#star1 + label:before {
+  opacity: 1;
+}
+
+#star3:checked ~ #star4 + label:before,
+#star3:checked ~ #star5 + label:before {
+  opacity: 0.4;
+}
+#star3:checked + label:before,
+#star2 + label:before,
+#star1 + label:before {
+  opacity: 1;
+}
+
+#star4:checked ~ #star5 + label:before {
+  opacity: 0.4;
+}
+#star4:checked + label:before,
+#star3 + label:before,
+#star2 + label:before,
+#star1 + label:before {
+  opacity: 1;
+}
+
+#star5:checked + label:before,
+#star4 + label:before,
+#star3 + label:before,
+#star2 + label:before,
+#star1 + label:before {
+  opacity: 1;
+}
+
+/* 選択された画像に枠と効果をつける */
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #98e4ab;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+
+/*ストレス度のボタン*/
+
 .button{
 	  display: flex;
   justify-content: center; /* 中央揃え */
