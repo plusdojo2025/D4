@@ -1,11 +1,13 @@
 <!-- Copyright (c) 2014-2024 Chart.js Contributors -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="dto.Ranking, dto.Health, java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="dto.Ranking, dto.Health, dto.Users, java.util.List" %>
 
 <%
     Ranking friend = (Ranking) request.getAttribute("friend");
     Ranking myself = (Ranking) request.getAttribute("myself");
+    Users frienddata = (Users) request.getAttribute("frienddata");
 
     List<Health> friendHealth = friend.getHealthList();
     List<Health> myHealth = myself.getHealthList();
@@ -17,10 +19,7 @@
     <meta charset="UTF-8">
     <title><%= friend.getName() %>とあなたの比較 ｜ けんこう日和</title>
 
-    <!-- Chart.js -->
-    <script src="<c:url value='/WEB-INF/lib/chart.js' />"></script>
-    <!-- 外部JS -->
-    <script src="<c:url value='/js/ranking.js' />" defer></script>
+    
     
     <style>
         .tab-content { display: none; }
@@ -45,16 +44,16 @@
 
 <h2><%= friend.getName() %>さんのユーザー情報</h2>
 <p>ID: <%= friend.getId() %></p>
-<p>ログイン日数: <%= friend.getnLogin() %>日</p>
+<p>ログイン日数: <%= frienddata.getnLogin() %>日</p>
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
 <!-- タブ -->
 <div id="tab-menu">
     <div class="tab active" data-tab="average">平均</div>
-    <div class="tab" data-tab="food">食事</div>
-    <div class="tab" data-tab="sleep">睡眠</div>
-    <div class="tab" data-tab="walk">運動</div>
+    <div class="tab" data-tab="food" data-disabled="${frienddata.getvPrivate ? '1' : '0'}">食事</div>
+    <div class="tab" data-tab="sleep" data-disabled="${frienddata.getsPrivate ? '1' : '0'}">睡眠</div>
+    <div class="tab" data-tab="walk" data-disabled="${frienddata.getwPrivate ? '1' : '0'}">運動</div>
 </div>
 
 <!-- タブコンテンツ -->
@@ -103,4 +102,10 @@
 </form>
 
 </body>
+
+<!-- Chart.js -->
+    <script src="<c:url value='/js/chart.umd.js' />"></script>
+    <!-- 外部JS -->
+    <script src="<c:url value='/js/ranking.js' />"></script>
+
 </html>
