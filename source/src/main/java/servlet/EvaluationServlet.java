@@ -2,7 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,14 +50,27 @@ public class EvaluationServlet extends HttpServlet {
         request.setAttribute("year", baseDate.getYear());
         request.setAttribute("month", baseDate.getMonthValue());
 
+        HealthDAO healthDao = new HealthDAO();
+        
+        String datePattern = baseDate.getYear() + "-" + String.format("%02d", baseDate.getMonthValue());
+        List<Health> healthList = healthDao.selectByMonth(user.getId(), datePattern);
+
+        Map<String, String> calendarIcons = new HashMap<>();
+        for (Health health : healthList) {
+            int stress = health.getStress();
+            String iconPath = iconForStress(stress);
+            calendarIcons.put(health.getDate(), iconPath);
+        }
+        request.setAttribute("calendarIcons", calendarIcons);
+
+        
+        
         // 今日の日付（カレンダークリックで詳細取得する想定）
         LocalDate todayDate = LocalDate.now();
         LocalDate yesterdayDate = todayDate.minusDays(1);
 
         String today = todayDate.toString();
         String yesterday = yesterdayDate.toString();
-
-        HealthDAO healthDao = new HealthDAO();
 
         // 今日の情報を取得
         Health todayCondition = new Health();
@@ -95,9 +110,9 @@ public class EvaluationServlet extends HttpServlet {
         }
 
         // 差分計算（前日データがある場合のみ）
-        int vegDiff   = showDiff ? vegetableRatingToday   - vegetableRatingYesterday   : 0;
-        int sleepDiff = showDiff ? sleepRatingToday       - sleepRatingYesterday       : 0;
-        int walkDiff  = showDiff ? walkRatingToday        - walkRatingYesterday        : 0;
+        int vegDiff   = showDiff ? vegetableRatingToday - vegetableRatingYesterday : 0;
+        int sleepDiff = showDiff ? sleepRatingToday - sleepRatingYesterday : 0;
+        int walkDiff  = showDiff ? walkRatingToday - walkRatingYesterday : 0;
 
 
         // 差分が0でない場合のみ表示
@@ -105,7 +120,7 @@ public class EvaluationServlet extends HttpServlet {
         boolean showSleepDiff = sleepDiff != 0;
         boolean showWalkDiff = walkDiff != 0;
 
-        // コメント作成
+        // コメント
         String vegetableComment = createComment(vegetableRatingToday);
         String sleepComment = createComment(sleepRatingToday);
         String walkComment = createComment(walkRatingToday);
@@ -180,10 +195,19 @@ public class EvaluationServlet extends HttpServlet {
             return "いい感じ!! このまま☆5を目指ろう!!";
         } else if (score == 3) {
             return "もう少し頑張ろう!!";
-        } else if (2 >= score) {
+        } else if (score <= 2) {
             return "見直して!!";
         } else {
             return "コメント";
         }
     }
+    
+    private String iconForStress(int stress) { 
+        if (stress == 1) return "/images/stamp_sad.png";
+        if (stress == 2) return "/images/stamp_normal.png";
+        if (stress == 3) return "/images/stamp_happy.png";
+
+        return "/images/stamp_default.png";
+    }
+
 }

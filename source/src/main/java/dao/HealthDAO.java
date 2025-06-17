@@ -182,7 +182,70 @@ public class HealthDAO {
 		return result;
 	}	
 	
-	
+	public List<Health> selectByMonth(String id, String datePattern) {
+	    Connection conn = null;
+	    List<Health> healthList = new ArrayList<>();
+	    PreparedStatement ps = null;
+	    ResultSet rs = null;
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/d4?"
+	                + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+	                "root", "password");
+
+	        String sql = "SELECT * FROM healthList WHERE id = ? AND date LIKE ?";
+	        ps = conn.prepareStatement(sql);
+	        ps.setString(1, id);
+	        ps.setString(2, datePattern + "%");
+
+	        rs = ps.executeQuery();
+
+	        while (rs.next()) {
+	            Health health = new Health();
+	            health.setId(rs.getString("id"));
+	            health.setDate(rs.getString("date"));
+	            health.setWeight(rs.getDouble("weight"));
+	            health.setWalk(rs.getInt("walk"));
+	            health.setSleep(rs.getInt("sleep"));
+	            health.setVegetable(rs.getInt("vegetable"));
+	            health.setStress(rs.getInt("stress"));
+	            healthList.add(health);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (rs != null) {
+	            try {
+	                rs.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (ps != null) {
+	            try {
+	                ps.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+	    //結果を返す
+	    return healthList;
+	}
+
+
 	
 	public boolean delete(String Id, String date) {
 	    String sql = "DELETE FROM healthlist WHERE id = ? AND date = ?";
@@ -198,8 +261,7 @@ public class HealthDAO {
 	        e.printStackTrace();
 	        return false;
 	    }
-	}	
-
+	}
 }			
 
 	
