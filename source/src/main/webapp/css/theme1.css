@@ -135,6 +135,7 @@ button.bt:hover {
 /*friendlistおわり*/
 /*health*/
 .health{
+  border: 5px solid #8bdb9f;/*メインカラー*/
   background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 input {

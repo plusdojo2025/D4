@@ -1,6 +1,7 @@
 <!-- Copyright (c) 2014-2024 Chart.js Contributors -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="dto.Ranking, dto.Health, java.util.List" %>
 
 <%
@@ -17,10 +18,7 @@
     <meta charset="UTF-8">
     <title><%= friend.getName() %>とあなたの比較 ｜ けんこう日和</title>
 
-    <!-- Chart.js -->
-    <script src="<c:url value='/WEB-INF/lib/chart.js' />"></script>
-    <!-- 外部JS -->
-    <script src="<c:url value='/js/ranking.js' />" defer></script>
+    
     
     <style>
         .tab-content { display: none; }
@@ -103,4 +101,10 @@
 </form>
 
 </body>
+
+<!-- Chart.js -->
+    <script src="<c:url value='/js/chart.umd.js' />"></script>
+    <!-- 外部JS -->
+    <script src="<c:url value='/js/ranking.js' />"></script>
+
 </html>
