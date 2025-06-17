@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面にしかないもの --%>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/login.css' />"><%-- ログイン画面にしかないもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>
 <header>
 <div class="logo"><%--ここにロゴ画像を入れる --%>
-<img src="/D4/img/情報登録w.png">
+<img src="<c:url value='/img/情報登録w.png' />">
 </div>
 </header>
 <%-- ヘッダーここまで --%>
@@ -37,7 +37,8 @@
 
 
 	<div class="back">
-		<a href="/D4/RegistServlet">新規登録はこちらから</a>
+		<a href="<c:url value='/RegistServlet' />">新規登録はこちらから</a>
+		
 	</div>
 </div>
 	<%-- メインここまで --%>
@@ -49,6 +50,6 @@
     <p class="copyright">&copy;2025HARU</p>
 </footer>
 </body>
-<script src="js/login.js"></script>
+<script src="<c:url value='/js/login.js' />"></script>
 
 </html>

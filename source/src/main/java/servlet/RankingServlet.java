@@ -35,7 +35,7 @@ public class RankingServlet extends HttpServlet {
 
         // もしもログインしていなかったらログインサーブレットにリダイレクトする
      		if (session.getAttribute("users") == null) {
-     			response.sendRedirect("/D4/LoginServlet");
+     			response.sendRedirect(request.getContextPath() + "/LoginServlet");
      			return;
      		}
         

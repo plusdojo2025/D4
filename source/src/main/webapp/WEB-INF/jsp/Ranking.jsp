@@ -33,7 +33,7 @@
             <td>スコア：<%= String.format("%.2f", r.getScore()) %></td>
             <td>
                 <% if (!isMyself) { %>
-                	<form action="RankingServlet" method="post">
+                	<form action="<c:url value='/RankingServlet' />" method="post">
                 		<input type="hidden" name="friendId" value="<%= r.getId() %>">
             			<input type="submit" value="詳細を表示">
             		</form>

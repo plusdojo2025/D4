@@ -5,47 +5,46 @@
 <head>
 <meta charset="UTF-8">
 <title>情報登録</title>
-<link rel="stylesheet" type="text/css" href="css/health.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/health.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
+<%-- ヘッダー --%>
 <header>
-<div class="logo">
-<img src="/D4/img/情報登録w.png">
-<%--ここにロゴ画像を入れる --%>
-</div>
-
-<!-- ヘッダーナビ -->
+	<div class="logo">
+		<img src="<c:url value='/img/情報登録w.png' />">
+	</div>
 <nav class="nav-menu">
   <ul>
     <li>
-      <a href="/D4/HealthServlet">
-        <img src="/D4/img/情報登録w.png" alt="情報登録">
+      <a href="<c:url value='/HealthServlet' />">
+        <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/EvaluationServlet">
-        <img src="/D4/img/評価w.png" alt="評価">
+      <a href="<c:url value='/EvaluationServlet' />">
+        <img src="<c:url value='/img/評価w.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/RankingServlet">
-        <img src="/D4/img/ランキングw.png" alt="ランキング">
+      <a href="<c:url value='/RankingServlet' />">
+        <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/FriendListServlet">
-        <img src="/D4/img/フレンドw.png" alt="フレンド">
+      <a href="<c:url value='/FriendListServlet' />">
+        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
     </li>
   </ul>
 </nav>
-</header>
+	</header>
+<%-- ヘッダーここまで --%>
 <!-- ヘッダーナビ -->
 
 <main>
@@ -55,20 +54,20 @@
   <nav class="nav-side">
     <ul>
       <li class="with-border">
-        <a href="/D4/BornusServlet">
-          <img src="/D4/img/ボーナスw.png" alt="ログインボーナス">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/ボーナスw.png' />" alt="ログインボーナス">
           ログインボーナス
         </a>
       </li>
       <li class="with-border">
-        <a href="/D4/UserOptionServlet">
-          <img src="/D4/img/ユーザー情報w.png" alt="ユーザー情報">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/ユーザー情報w.png' />" alt="ユーザー情報">
           ユーザー情報
         </a>
       </li>
       <li class="with-border logout-border">
-        <a href="/D4/LoginServlet">
-          <img src="/D4/img/logoutw.png" alt="ログアウト">
+        <a href="<c:url value='/LoginServlet' />">
+          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
           ログアウト
         </a>
       </li>
@@ -78,7 +77,10 @@
 <!-- サイドパネル -->
 
 <div class="health" id="select-animate">
-	<form  method="POST" action="<c:url value='/HealthServlet' />"> name="health">
+	<form  method="POST" name="health" action="<c:url value='/HealthServlet' />"> 
+	 <!--  <input type="text" name="health">-->
+
+    
 		<p>野菜摂取量</p>
 		 一日の目標摂取量：３５０ｇ<br>【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
@@ -160,7 +162,7 @@
 </section>
 <div>
     <a href="#top" class="page_top">
-      <img src="/D4/img/評価w.png" class="top-icon">
+      <img src="<c:url value='/img/評価w.png' />" class="top-icon">
       TOP
     </a>
   </div>
@@ -168,6 +170,6 @@
 <footer>
      <p>&copy;2025HARU</p>
 </footer>
-<script src="js/health.js"></script>
+<script src="<c:url value='/js/health.js' />"></script>
 </body>
 </html>

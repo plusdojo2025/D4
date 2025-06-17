@@ -74,8 +74,46 @@ input:checked + label {
 }
   
 </style>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/evaluation.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
+<%-- ヘッダー --%>
+<header>
+	<div class="logo">
+		<img src="<c:url value='/img/情報登録w.png' />">
+	</div>
+<nav class="nav-menu">
+  <ul>
+    <li>
+      <a href="<c:url value='/HealthServlet' />">
+        <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
+        <span>情報登録</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/EvaluationServlet' />">
+        <img src="<c:url value='/img/評価w.png' />" alt="評価">
+        <span>評価</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/RankingServlet' />">
+        <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
+        <span>ランキング</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/FriendListServlet' />">
+        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
+        <span>フレンド</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+	</header>
+<%-- ヘッダーここまで --%>
 
 <div class="nav-links">
   <a href="EvaluationServlet?year=<%= prev.getYear() %>&month=<%= prev.getMonthValue() %>">＜ 先月</a>
@@ -211,4 +249,5 @@ input:checked + label {
 	<p>BMI : <c:out value="${bmi}" /> </p>
 
 </body>
+<script src="<c:url value='/js/evaluation.js' />"></script>
 </html>

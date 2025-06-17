@@ -6,14 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>処理結果 | けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/redirect.css">
-<link rel="stylesheet" type="text/css" href="css/theme1.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/redirect.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
+
 </head>
 <body>
 <%-- ヘッダー --%>
 <header>
 <div class="logo"><%--ここにロゴ画像を入れる --%>
-<img src="/D4/img/情報登録w.png">
+<img src="<c:url value='/img/情報登録w.png' />">
 </div>
 </header>
 <%-- ヘッダーここまで --%>
