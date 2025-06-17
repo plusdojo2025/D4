@@ -159,57 +159,7 @@ input[type="radio"]:checked + label:before {
 
 
 /*ストレス度のボタン*/
-/* ストレスラジオボタンを非表示 */
-.radio-group input[type="radio"] {
-  display: none;
-}
 
-/* 画像スタイルを before に */
-.radio-group .stress-icon label:before {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 10px;
-  opacity: 0.4; /* 非選択状態 */
-  transition: 0.2s ease;
-  margin-bottom: 5px;
-}
-
-/* 各ストレスレベル画像（テストURL） */
-.radio-group input[value="1"] + span:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg"); /* 低い：笑顔 */
-}
-.radio-group input[value="2"] + span:before {
-  background-image: url("https://cdn.pixabay.com/photo/2020/04/14/16/35/emoji-5044115_1280.png"); /* 普通：中立顔 */
-}
-.radio-group input[value="3"] + span:before {
-  background-image: url("https://cdn.pixabay.com/photo/2020/04/14/16/35/emoji-5044114_1280.png"); /* 高い：怒り顔 */
-}
-
-/* 選択したストレスレベルまでハイライト（左から右） */
-.radio-group input[value="1"]:checked ~ label:before {
-  opacity: 0.4;
-}
-.radio-group input[value="1"]:checked + span:before {
-  opacity: 1;
-}
-
-.radio-group input[value="2"]:checked + span:before,
-.radio-group input[value="2"]:checked ~ label:nth-of-type(1):before {
-  opacity: 1;
-}
-.radio-group input[value="2"]:checked ~ label:nth-of-type(3):before {
-  opacity: 0.4;
-}
-
-.radio-group input[value="3"]:checked + span:before,
-.radio-group input[value="3"]:checked ~ label:nth-of-type(1):before,
-.radio-group input[value="3"]:checked ~ label:nth-of-type(2):before {
-  opacity: 1;
-}
 
 
 
