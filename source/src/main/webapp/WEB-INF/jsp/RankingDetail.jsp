@@ -18,9 +18,9 @@
     <title><%= friend.getName() %>とあなたの比較 ｜ けんこう日和</title>
 
     <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="<c:url value='/WEB-INF/lib/chart.js' />"></script>
     <!-- 外部JS -->
-    <script src="<%= request.getContextPath() %>/js/ranking.js" defer></script>
+    <script src="<c:url value='/js/ranking.js' />" defer></script>
     
     <style>
         .tab-content { display: none; }
@@ -98,7 +98,7 @@
     const friendName = "<%= friend.getName() %>";
 </script>
 
-<form action="RankingServlet" method="get">
+<form action="<c:url value='/RankingServlet' />" method="get">
     <input type="submit" value="← ランキング画面へ戻る">
 </form>
 
