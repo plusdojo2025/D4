@@ -70,11 +70,13 @@ public class HealthDAO {
 	}
 
 		// 結果を返す
+
 		return healthList;
 	}		
 
 	
 	// レコードの登録 insert
+
 	public boolean insert(Health card) {
 		Connection conn = null;
 		boolean result = false;
@@ -124,7 +126,9 @@ public class HealthDAO {
 		return result;
 	}
 
-	// レコードの更新し
+
+
+	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
 	public boolean update(Health card) {
 		Connection conn = null;
 		boolean result = false;
@@ -153,6 +157,8 @@ public class HealthDAO {
 			pStmt.setString(8, card.getId());
 			pStmt.setString(9, card.getDate());
 			
+
+
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -193,6 +199,7 @@ public class HealthDAO {
 	        return false;
 	    }
 	}	
+
 }			
 
 	

@@ -78,7 +78,10 @@
 <!-- サイドパネル -->
 
 <div class="health" id="select-animate">
-	<form  method="POST" action="<c:url value='/HealthServlet' />"> name="health">
+	<form  method="POST" name="health" action="<c:url value='/HealthServlet' />"> 
+	 <!--  <input type="text" name="health">-->
+
+    
 		<p>野菜摂取量</p>
 		 一日の目標摂取量：３５０ｇ<br>【手のひらサイズの小鉢一皿分（約７０ｇ）】<br>
 			<div class="rating">
@@ -168,6 +171,6 @@
 <footer>
      <p>&copy;2025HARU</p>
 </footer>
-<script src="js/health.js"></script>
+
 </body>
 </html>
