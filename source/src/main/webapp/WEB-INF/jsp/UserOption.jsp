@@ -83,9 +83,7 @@
  	
 <div class="profile"> 	    
 	<form class="UserInfo form-grid" method="POST" action="<c:url value='/UserOptionServlet' />" id="UserInfo">
-
-
-	  		<div class="profile"> 
+ 
 	  		<!-- アイコン表示＆選択ボタン -->
 		    <div class="input-group">
 		      <label>アイコン</label><br>
