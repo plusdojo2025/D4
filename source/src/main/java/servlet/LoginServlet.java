@@ -60,9 +60,9 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 			if (isFirstLogin) {
-				response.sendRedirect("HealthServlet");
+				response.sendRedirect(request.getContextPath() + "/HealthServlet");
 			} else {
-				response.sendRedirect("EvaluationServlet");
+				response.sendRedirect(request.getContextPath() + "/EvaluationServlet");
 			}
 		} else {
 			request.setAttribute("errorMsg", "ログイン失敗！IDまたはPWに間違いがあります。");

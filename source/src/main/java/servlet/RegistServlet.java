@@ -56,8 +56,6 @@ public class RegistServlet extends HttpServlet {
 	        request.getRequestDispatcher("/WEB-INF/jsp/Regist.jsp").forward(request, response);
 	        return;
 	    }
-
-	    Users user = new Users(id, pw, height, name);
 	 	
 		// 登録処理を行う
 		UsersDAO bDao = new UsersDAO();
@@ -65,7 +63,7 @@ public class RegistServlet extends HttpServlet {
 		
 		if(bDao.insert(new Users(id, pw, height,name))) {
 			// 登録成功ならログイン画面などにリダイレクト	
-			response.sendRedirect("/D4/LoginServlet");
+			response.sendRedirect(request.getContextPath() + "/LoginServlet");
 			System.out.println("登録成功");
 		} else {
 			// 登録失敗時の処理（エラーメッセージ表示など）

@@ -11,7 +11,7 @@
 <%-- ヘッダー --%>
 <header>
 <div class="logo"><%--ここにロゴ画像を入れる --%>
-<img src="/D4/img/情報登録w.png">
+<img src="<c:url value='/img/情報登録w.png' />">
 </div>
 </header>
 <%-- ヘッダーここまで --%>
@@ -37,7 +37,8 @@
 
 
 	<div class="back">
-		<a href="/D4/RegistServlet">新規登録はこちらから</a>
+		<a href="<c:url value='/RegistServlet' />">新規登録はこちらから</a>
+		
 	</div>
 </div>
 	<%-- メインここまで --%>

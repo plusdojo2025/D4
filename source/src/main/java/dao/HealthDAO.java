@@ -48,7 +48,7 @@ public class HealthDAO {
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
 					Health newHealth = new Health(rs.getString("id"), rs.getString("date"), rs.getInt("vegetable"),
-							rs.getInt("sleep"), rs.getInt("walk"), rs.getInt("stress"),rs.getInt("weight"));
+							rs.getInt("sleep"), rs.getInt("walk"), rs.getInt("stress"),rs.getDouble("weight"));
 					healthList.add(newHealth);
 				}
 		} catch (SQLException e) {

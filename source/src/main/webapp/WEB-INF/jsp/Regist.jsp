@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,7 @@
 <header>
 <div class="logo">
 <%--ここにロゴ画像を入れる --%>
-<img src="/D4/img/情報登録w.png">
+<img src="<c:url value='/img/情報登録w.png' />">
 </div>
 
 </header>	
@@ -21,7 +21,7 @@
 	<%-- メイン --%>	
 <main>	
 	<div class="regist-form" id="select-animate">
-		<form method="POST" action="/D4/RegistServlet" id="registForm">
+		<form method="POST" action="<c:url value='/RegistServlet' />" id="registForm">
 			<div class="regist">
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>

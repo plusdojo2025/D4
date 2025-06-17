@@ -760,7 +760,7 @@ class DatasetController {
             };
         }
         return parsed;
-    }
+    };
  parseArrayData(meta, data, start, count) {
         const { xScale , yScale  } = meta;
         const parsed = new Array(count);
@@ -818,7 +818,7 @@ class DatasetController {
         }
         range.min = Math.min(range.min, value);
         range.max = Math.max(range.max, value);
-    }
+    };
  getMinMax(scale, canStack) {
         const meta = this._cachedMeta;
         const _parsed = meta._parsed;
