@@ -128,11 +128,11 @@
 		
 		<!-- 非公開設定 -->
 	    <div class="non-public">
-	      非公開設定
+	      非公開設定&nbsp;&nbsp;
 	      食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
 	      睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
-	    </div>	
+	    </div>	<br>
 		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
