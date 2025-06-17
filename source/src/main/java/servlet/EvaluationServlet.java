@@ -203,11 +203,11 @@ public class EvaluationServlet extends HttpServlet {
     }
     
     private String iconForStress(int stress) { 
-        if (stress == 1) return "/images/stamp_sad.png";
-        if (stress == 2) return "/images/stamp_normal.png";
-        if (stress == 3) return "/images/stamp_happy.png";
+        if (stress == 1) return "/images/stamp_sad.png";		//ストレス値画像パス
+        if (stress == 2) return "/images/stamp_normal.png";		//ストレス値画像パス
+        if (stress == 3) return "/images/stamp_happy.png";		//ストレス値画像パス
 
-        return "/images/stamp_default.png";
+        return "/images/stamp_default.png";		//適当な画像のパス (基本表示されない)
     }
 
 }
