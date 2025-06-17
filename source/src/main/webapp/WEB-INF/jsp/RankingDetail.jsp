@@ -45,7 +45,7 @@
 
 <h2><%= friend.getName() %>さんのユーザー情報</h2>
 <p>ID: <%= friend.getId() %></p>
-<p>ログイン日数: <%= friendHealth.size() %>日</p>
+<p>ログイン日数: <%= friend.getnLogin() %>日</p>
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
