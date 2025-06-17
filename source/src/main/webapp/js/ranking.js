@@ -1,3 +1,10 @@
+document.querySelectorAll('#tab-manu .tab').forEach(tab => {
+	tab.addEventListener('click', () => {
+		if (tab.dataset.disabled === '1'){
+			alert('aaa');
+			return;
+		}
+
 document.addEventListener("DOMContentLoaded", function () {
     // タブ切替
     const tabs = document.querySelectorAll(".tab");
