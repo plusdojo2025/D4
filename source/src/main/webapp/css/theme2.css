@@ -140,7 +140,7 @@ button.bt:hover {
 }
 input {
     	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #ebf6f7 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
+      	border: 2px solid #ebf6f7;/*メインカラーより明るく薄い*/
 }
 .pull{
 	background-color:wite;
@@ -182,3 +182,61 @@ input {
 }
 
 /*addfriendおわり*/
+/*useroption*/
+/* モーダル背景 */
+.popup-overlay {
+		background-color: rgba(0,0,0,0.5); /* 半透明の黒背景 */
+}
+/* モーダル本体 */
+.popup-window {
+  background:#ebf6f7;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db;/*メインカラー*/
+  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
+}
+.Iconbutton{
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
+}
+.Iconbutton:hover {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.Iconbutton:active {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.Themebutton{
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
+}
+.Themebutton:hover {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.Themebutton:active {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.back{
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
+  	/*color: white; /* テキストの色 */	
+}
+.back:hover {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.form-wrapper {
+  border: 5px solid #8bd0db;/*メインカラー*/
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
+}
+/*テキストボックスデザイン*/
+label {
+      color:#000000;
+}
+input {
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #8bd0db;/*メインカラー*/
+}
+.save {
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
+}
+.save:hover {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+.save:active {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+}
+/*useroptionおわり*/
