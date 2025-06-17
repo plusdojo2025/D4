@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>フレンド一覧|健康日和</title>
-<link rel="stylesheet" type="text/css" href="css/friendList.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/friendList.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
 <header>
@@ -156,5 +156,5 @@
     <p>&copy;2025HARU</p>
 </footer>
 </body>
-<script src="js/friendList.js"></script>
+<script src="<c:url value='/js/friendList.js' />"></script>
 </html>

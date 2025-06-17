@@ -65,6 +65,9 @@ input:checked + label {
 }
   
 </style>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/evaluation.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
 
@@ -176,4 +179,5 @@ input:checked + label {
 	<p>BMI : <c:out value="${bmi}" /> </p>
 
 </body>
+<script src="<c:url value='/js/evaluation.js' />"></script>
 </html>

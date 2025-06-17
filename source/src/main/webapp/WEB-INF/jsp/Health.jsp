@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>情報登録</title>
-<link rel="stylesheet" type="text/css" href="css/health.css">
-<link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/health.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
 <header>
@@ -168,6 +168,6 @@
 <footer>
      <p>&copy;2025HARU</p>
 </footer>
-<script src="js/health.js"></script>
+<script src="<c:url value='/js/health.js' />"></script>
 </body>
 </html>

@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>フレンド詳細|健康日和</title>
-<link rel="stylesheet" type="text/css" href="css/common.css"><%-- 全画面にあるもの --%>
-<link rel="stylesheet" type="text/css" href="css/AddFriend.css">
-<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css"><%-- テーマを変えたときのみ変わるもの --%>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/AddFriend.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body id="top">
 <%-- ヘッダー --%>
@@ -149,5 +149,5 @@
     <p>&copy;2025HARU</p>
 </footer>
 </body>
-<script src="js/addFriend.js"></script>
+<script src="<c:url value ='/js/addFriend.js' />"></script>
 </html>
