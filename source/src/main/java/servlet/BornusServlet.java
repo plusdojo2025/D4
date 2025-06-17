@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.IconDAO;
+import dto.Icon;
 import dto.Users;
 
 /**
@@ -38,6 +41,10 @@ public class BornusServlet extends HttpServlet {
 		int mLogin= user.getmLogin();
 		request.setAttribute("mLogin", mLogin);
 		
+		//報酬配布日数
+		IconDAO iDao = new IconDAO();
+		List<Icon> iconList = iDao.select();		
+		request.setAttribute("iconList", iconList);
 				
 		// ログインボーナスページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Bornus.jsp");

@@ -46,7 +46,18 @@
 	</header>
 <%-- ヘッダーここまで --%>
 	<h1>ログインボーナス</h1>
-    <p>あなたの最長連続ログイン日数は <strong>${mLogin}</strong> 日です。</p>
+    <p>あなたの最長連続ログイン日数は <strong>${mLogin}</strong> 日です。</p>   
+<body>
+  <div class="card">
+    <div class="stamps">
+      <c:forEach var="icon" items="${iconList}" varStatus="status">
+        <div class="stamp" style="background-color: ${icon.color};">
+          <img src="${icon.imagePath}" alt="${icon.name}" />
+          <div class="day-label">${status.index + 1}日目</div>
+        </div>
+      </c:forEach>
+    </div>
+    
 </body>
 <script src="<c:url value='/js/bornus.js' />"></script>
 </html>
