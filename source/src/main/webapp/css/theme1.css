@@ -226,6 +226,10 @@ label {
 input {
     	background-color: #fcfefc; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+      	border-radius: 15px; /* 角を丸くする */
+      	padding: 10px;
+      	font-size: 15px;
+      	margin-top :15px
 }
 .save {
 	background-color: #b4ebc1; /* ボタンの背景色 */
