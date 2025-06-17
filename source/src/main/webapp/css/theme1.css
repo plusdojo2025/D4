@@ -138,11 +138,11 @@ button.bt:hover {
   background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
+    	background-color: wite; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:#fcfefc;
+	background-color:wite;
 }
 .bt{
 	background-color: #b4ebc1; /* ボタンの背景色 */
@@ -186,54 +186,54 @@ input {
 }
 /* モーダル本体 */
 .popup-window {
-  background: #fcfefc;
-  border: 5px solid #98e4ab;
+  background: wite;
+  border: 5px solid #8bdb9f;/*メインカラー*/
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
 .Iconbutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .Iconbutton:hover {
-  background-color: #45a049;
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .Iconbutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #ff8282; /* クリック時の背景色 */
 }
 .Themebutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .Themebutton:hover {
-  background-color: #45a049;
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .Themebutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .back{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
   	/*color: white; /* テキストの色 */	
 }
 .back:hover {
-  background-color: #88df9b; /* ホバー時の背景色 */
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .form-wrapper {
-  border: 5px solid #98e4ab; /* 枠線の色と太さ */
-  background-color:#d2f8d8;
+  border: 5px solid #8bdb9f;/*メインカラー*/
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 /*テキストボックスデザイン*/
 label {
       color:#000000;
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #d2f8d8;/*メインカラーより明るく薄い*/
 }
 .save {
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .save:hover {
-  background-color: #45a049;
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .save:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 /*useroptionおわり*/

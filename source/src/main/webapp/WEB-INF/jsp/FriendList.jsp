@@ -18,25 +18,25 @@
 <nav class="nav-menu">
   <ul>
     <li>
-      <a href="/D4/HealthServlet">
+      <a href="<c:url value='/HealthServlet' />">
         <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/EvaluationServlet">
+      <a href="<c:url value='/EvaluationServlet' />">
         <img src="<c:url value='/img/評価w.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/RankingServlet">
+      <a href="<c:url value='/RankingServlet' />">
         <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/FriendListServlet">
+      <a href="<c:url value='/FriendListServlet' />">
         <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
@@ -55,20 +55,20 @@
   <nav class="nav-side">
     <ul>
       <li class="with-border">
-        <a href="/D4/BornusServlet">
-          <img src="/D4/img/ボーナスw.png" alt="ログインボーナス">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/ボーナスw.png' />" alt="ログインボーナス">
           ログインボーナス
         </a>
       </li>
       <li class="with-border">
-        <a href="/D4/UserOptionServlet">
-          <img src="/D4/img/ユーザー情報w.png" alt="ユーザー情報">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/ユーザー情報w.png' />" alt="ユーザー情報">
           ユーザー情報
         </a>
       </li>
       <li class="with-border logout-border">
-        <a href="/D4/LoginServlet">
-          <img src="/D4/img/logoutw.png" alt="ログアウト">
+        <a href="<c:url value='/LoginServlet' />">
+          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
           ログアウト
         </a>
       </li>
@@ -78,7 +78,7 @@
 <!-- サイドパネル -->
 
 <!-- フォーム(id検索) -->
-<form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
+<form class="searchFriend" method="POST" action="<c:url value='/FriendListServlet' />" id="searchFriend_form">
 <!-- テキストボックス -->
  <label for="friendId" style="margin: 0;">ID検索</label>
 <input type="text" name="friendId" placeholder="idで検索">
@@ -96,7 +96,7 @@
 <c:if test="${e.state == 2}">
 	<li class="application-item">
 	<!-- フォーム(申請者1人を対象に詳細ページへ移動する) -->
-	<form class="checkApply" method="POST" action="/D4/FriendListServlet">
+	<form class="checkApply" method="POST" action="<c:url value='/FriendListServlet' />">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<div class="application-row">
@@ -124,7 +124,7 @@
 <c:if test="${e.state == 3}">
 	<li>
 	<!-- フォーム(フレンド1人を対象に詳細ページへ移動する) -->
-	<form class="check" method="POST" action="/D4/FriendListServlet">
+	<form class="check" method="POST" action="<c:url value='/FriendListServlet' />">
 	<!-- 非表示でidを持つ -->
 	<input type="hidden" name="friendId" value="${e.friendId}">
 	<!-- テキスト(相手の名前) -->
@@ -145,7 +145,7 @@
 
 	<div>
     <a href="#top" class="page_top">
-      <img src="/D4/img/評価w.png" class="top-icon">
+      <img src="<c:url value='/img/評価w.png' />" class="top-icon">
       TOP
     </a>
   </div>

@@ -48,7 +48,7 @@ public class HealthDAO {
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
 					Health newHealth = new Health(rs.getString("id"), rs.getString("date"), rs.getInt("vegetable"),
-							rs.getInt("sleep"), rs.getInt("walk"), rs.getInt("stress"),rs.getInt("weight"));
+							rs.getInt("sleep"), rs.getInt("walk"), rs.getInt("stress"),rs.getDouble("weight"));
 					healthList.add(newHealth);
 				}
 		} catch (SQLException e) {
@@ -71,11 +71,15 @@ public class HealthDAO {
 
 		// 結果を返す
 
+
 		return healthList;
 	}		
 
 	
 	// レコードの登録 insert
+
+	
+	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 
 	public boolean insert(Health card) {
 		Connection conn = null;
@@ -125,7 +129,6 @@ public class HealthDAO {
 		// 結果を返す
 		return result;
 	}
-
 
 
 	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
@@ -199,6 +202,7 @@ public class HealthDAO {
 	        return false;
 	    }
 	}	
+
 
 }			
 
