@@ -20,7 +20,11 @@ import dto.Users;
 public class  AddFriendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.sendRedirect("/D4/FriendListServlet");
 
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
