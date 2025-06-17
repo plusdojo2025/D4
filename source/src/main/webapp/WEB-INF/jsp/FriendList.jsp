@@ -76,7 +76,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
-<div class="form-wrapper"  id="select-animate">
+
 <!-- フォーム(id検索) -->
 <form class="searchFriend" method="POST" action="/D4/FriendListServlet" id="searchFriend_form">
 <!-- テキストボックス -->
@@ -140,7 +140,6 @@
 </ul>
 </div>
 <!-- リスト終わり -->
-</div>
 </section>
 
 <div>
