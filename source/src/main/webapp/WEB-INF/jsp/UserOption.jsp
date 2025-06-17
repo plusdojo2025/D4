@@ -81,9 +81,9 @@
   <h2>プロフィールを編集</h2>
   	<p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
  	
-	    
+<div class="profile"> 	    
 	<form class="UserInfo form-grid" method="POST" action="<c:url value='/UserOptionServlet' />" id="UserInfo">
-	  		<div class="profile"> 
+ 
 	  		<!-- アイコン表示＆選択ボタン -->
 		    <div class="input-group">
 		      <label>アイコン</label><br>
@@ -140,8 +140,8 @@
 			<button type="submit" class="save" value="保存">保存</button>
 
 		</div>
-	</div>
 	</form>
+</div>
 </div>	
 	
 <!-- アイコン選択ポップアップ -->

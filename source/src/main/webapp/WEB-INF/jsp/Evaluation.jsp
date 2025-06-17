@@ -64,6 +64,15 @@ input:checked + label {
   color: gold;
 }
   
+.star {
+  color: #ccc;
+  font-size: 30px;
+}
+
+.star.filled {
+  color: gold;
+}
+  
 </style>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/evaluation.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
@@ -150,65 +159,91 @@ input:checked + label {
 </table>
 
 	<div class="overall-score">
-	  全体スコア
+	  全体スコア 
 	  <c:forEach var="i" begin="1" end="5">
-	    <input type="radio" id="average-star${i}" name="average" disabled
-	      <c:if test="${i <= averageRating}">checked</c:if>>
-	    <label for="average-star${i}" title="${i} star">★</label>
-	  </c:forEach>
+    	<c:choose>
+        	<c:when test="${i <= averageRating}">
+            	<span class="star filled">★</span>
+        	</c:when>
+        	<c:otherwise>
+        		<span class="star">★</span>
+       		</c:otherwise>
+    	</c:choose>
+		</c:forEach>
 	</div>
 
 
 	<div class="vegetable">
-		野菜
-		<c:forEach var="i" begin="1" end="5">
-			<input type="radio" id="vegetable-star${i}" name="vegetable" disabled
-				<c:if test="${i <= todayData.vegetable}">checked</c:if>>
-			<label for="vegetable-star${i}" title="${i} star">★</label>
-		</c:forEach>
+	  野菜 ${vegetableRating}点
+	  <c:forEach var="i" begin="1" end="5">
+    	<c:choose>
+        	<c:when test="${i <= vegetableRating}">
+            	<span class="star filled">★</span>
+        	</c:when>
+        	<c:otherwise>
+        		<span class="star">★</span>
+       		</c:otherwise>
+    	</c:choose>
+	</c:forEach>
 	
-		<span class="difference"> 
-			前日比: <c:out value="${vegetableDiff}" />
-		</span> 
-		
-		<span class="comment"> 
-			<c:out value="${vegetableComment}" />
-		</span>
+	  <span class="difference">
+	  	<c:if test="${showDiff}">
+	    	前日比: <c:out value="${vegetableDiff}" />
+	    </c:if>
+	  </span> 
+	  <span class="comment">
+	    <c:out value="${vegetableComment}" />
+	  </span>
 	</div>
+
 
 	<div class="sleep">
-		睡眠
-		<c:forEach var="i" begin="1" end="5">
-			<input type="radio" id="sleep-star${i}" name="sleep" disabled 
-			<c:if test="${i <= todayData.sleep}">checked</c:if>>
-			<label for="sleep-star${i}" title="${i} star">★</label>
-		</c:forEach>
+	  睡眠 ${sleepRating}点
+	  <c:forEach var="i" begin="1" end="5">
+      	<c:choose>
+        	<c:when test="${i <= sleepRating}">
+            	<span class="star filled">★</span>
+        	</c:when>
+        	<c:otherwise>
+            	<span class="star">★</span>
+        	</c:otherwise>
+    	</c:choose>
+	</c:forEach>
 	
-		<span class="difference"> 
-			前日比: <c:out value="${sleepDiff}" />
-		</span> 
-		
-		<span class="comment"> 
-			<c:out value="${sleepComment}" />
-		</span>
+	  <span class="difference">
+	  	<c:if test="${showDiff}">
+	    	前日比: <c:out value="${sleepDiff}" />
+	    </c:if>
+	  </span> 
+	  <span class="comment">
+	    <c:out value="${sleepComment}" />
+	  </span>
 	</div>
 
+
 	<div class="steps">
-		運動量
-		<c:forEach var="i" begin="1" end="5">
-			<input type="radio" id="steps-star${i}" name="steps" disabled
-				<c:if test="${i <= todayData.walk}">checked</c:if>>
-			<label for="steps-star${i}" title="${i} star">★</label>
-		</c:forEach>
+	  運動量 ${walkRating}点
+	<c:forEach var="i" begin="1" end="5">
+		<c:choose>
+	    	<c:when test="${i <= walkRating}">
+		    	<span class="star filled">★</span>
+		    </c:when>
+		    <c:otherwise>
+		    	<span class="star">★</span>
+		    </c:otherwise>
+	    </c:choose>
+	</c:forEach>
 	
-		<span class="difference"> 
-			前日比: <c:out value="${walkDiff}" />
-		</span> 
-		
-		<span class="comment"> 
-			<c:out value="${walkComment}" />
-		</span>
+	  <span class="difference">
+	  	<c:if test="${showDiff}">
+	    	前日比: <c:out value="${walkDiff}" />
+	  	</c:if>
+	  </span> 
+	  <span class="comment">
+	    <c:out value="${walkComment}" />
+	  </span>
 	</div>
+
 
 	<p>あなたのBMI</p>
 	<p>BMI : <c:out value="${bmi}" /> </p>
