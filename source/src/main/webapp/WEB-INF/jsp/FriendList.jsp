@@ -50,6 +50,7 @@
 
 <main>
 <!-- サイドパネル -->
+
 <section class="content">
 <aside class="side-panel"> 
   <nav class="nav-side">
@@ -140,9 +141,10 @@
 </ul>
 </div>
 <!-- リスト終わり -->
+
 </section>
 
-<div>
+	<div>
     <a href="#top" class="page_top">
       <img src="/D4/img/評価w.png" class="top-icon">
       TOP
