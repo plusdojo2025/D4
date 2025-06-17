@@ -10,42 +10,41 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
+<%-- ヘッダー --%>
 <header>
-<div class="logo">
-<img src="/D4/img/情報登録w.png">
-<%--ここにロゴ画像を入れる --%>
-</div>
-
-<!-- ヘッダーナビ -->
+	<div class="logo">
+		<img src="<c:url value='/img/情報登録w.png' />">
+	</div>
 <nav class="nav-menu">
   <ul>
     <li>
       <a href="/D4/HealthServlet">
-        <img src="/D4/img/情報登録w.png" alt="情報登録">
+        <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
       <a href="/D4/EvaluationServlet">
-        <img src="/D4/img/評価w.png" alt="評価">
+        <img src="<c:url value='/img/評価w.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
       <a href="/D4/RankingServlet">
-        <img src="/D4/img/ランキングw.png" alt="ランキング">
+        <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
       <a href="/D4/FriendListServlet">
-        <img src="/D4/img/フレンドw.png" alt="フレンド">
+        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
     </li>
   </ul>
 </nav>
-</header>
+	</header>
+<%-- ヘッダーここまで --%>
 <!-- ヘッダーナビ -->
 
 <main>
@@ -88,7 +87,7 @@
 <input type="submit" class="bt" name="searchSubmit" value="検索">
 <!-- フォーム終わり -->
 </form>
-<div class="application-list">
+<div class="application-list" id="form-fadein">
 <p>申請一覧</p>
 <!-- スクロールできるリスト(申請一覧を表示) -->
 <ul class="application-ul">
@@ -116,7 +115,7 @@
 </div>
 <!-- リスト終わり -->
 
-<div class="friend-list">
+<div class="friend-list" id="form-fadein">
 <p>フレンド一覧</p>
 <!-- スクロールできるリスト(フレンドを一覧表示) -->
 <ul>
