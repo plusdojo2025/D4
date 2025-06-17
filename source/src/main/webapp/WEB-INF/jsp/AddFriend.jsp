@@ -74,8 +74,8 @@
 
 <!-- 詳細情報表示 -->
 <!-- ボタンで送るためのフォーム -->
-<form class="friendInfo" method="POST" action="/D4/AddFriendServlet" id="friendInfo">
-<!-- 非表示でidを持つ -->
+<form class="friendInfo" method="POST" action="<c:url value='/AddFriendServlet' />" id="friendInfo">
+<!-- 非表示でidを持つ --
 <input type="hidden" name="friendId" value="${user.id}" class="id">
 
 <!-- ユーザーが存在しない場合 -->

@@ -79,16 +79,17 @@
 <div class="form-wrapper"  id="select-animate">
   <h2>プロフィールを編集</h2>
   	<p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
- 	<div class="profile"> 
-  		<!-- アイコン表示＆選択ボタン -->
-	    <div class="input-group">
-	      <label>アイコン</label><br>
-	      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
-	      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
-	      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
-	    </div>
+ 	
 	    
-	  	<form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
+	<form class="UserInfo form-grid" method="POST" action="<c:url value='/UserOptionServlet' />" id="UserInfo">
+	  	<div class="profile"> 
+	  		<!-- アイコン表示＆選択ボタン -->
+		    <div class="input-group">
+		      <label>アイコン</label><br>
+		      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
+		      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
+		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
+		    </div>
 			<div class="input-group">
 		      <label for="textbox1">ニックネーム</label>
 		      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
@@ -137,8 +138,8 @@
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
-	</form>
 	</div>
+	</form>
 </div>	
 	
 <!-- アイコン選択ポップアップ -->
