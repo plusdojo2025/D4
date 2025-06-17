@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.FriendDAO;
 import dao.RankingDAO;
+import dao.UsersDAO;
 import dto.Friend;
 import dto.Ranking;
 import dto.Users; // ★追記
@@ -106,10 +107,14 @@ public class RankingServlet extends HttpServlet {
                     friend = r;
                 }
             }
+            
+            UsersDAO uDao = new UsersDAO();
+            Users friendData = uDao.select(friendId);
 
             if (myself != null && friend != null) {
                 request.setAttribute("myself", myself);
                 request.setAttribute("friend", friend);
+                request.setAttribute("frienddata", friendData);
                 request.getRequestDispatcher("/WEB-INF/jsp/RankingDetail.jsp").forward(request, response);
             } else {
                 response.setContentType("text/html; charset=UTF-8");
