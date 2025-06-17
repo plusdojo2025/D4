@@ -1,4 +1,5 @@
 使用したライブラリ Chart.js
+
 ↓↓↓↓↓↓↓以下、Chart.jsのライセンス↓↓↓↓↓↓↓
 
 The MIT License (MIT)
