@@ -36,7 +36,7 @@ footer {
 
 /* ページトップボタン */
 .page_top {
-  background-color: #89eca0;/*メインカラーより再度高め*/
+  background-color: #94e5e8;/*メインカラーより再度高め*/
   color: white;
 }
 /* メニュー */
@@ -71,11 +71,11 @@ footer {
 }
 
 .searchFriend .bt {
-  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 
 .searchFriend .bt:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 
 .searchFriend label {
@@ -105,32 +105,32 @@ footer {
 .checkApply input[type="submit"],
 .friend-list .bt,
 .friend-list input[type="submit"] {
-  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 
 .checkApply .bt:hover,
 .checkApply input[type="submit"]:hover,
 .friend-list .bt:hover,
 .friend-list input[type="submit"]:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 /* 結果表示画面ボタン */
 button.bt {
-  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 
 button.bt:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 
 /* 吹き出し */
 .balloon3 {
   color: #FFF;
-  background: #8fdab0;/*メインカラーより若干暗め*/
+  background: #6fc5db;/*メインカラーより若干暗め*/
 }
 
 .balloon3:before {
-  border-top: 20px solid #8fdab0;/*メインカラーより若干暗め*/
+  border-top: 20px solid #6fc5db;/*メインカラーより若干暗め*/
 }
 /*friendlistおわり*/
 /*health*/
@@ -138,11 +138,11 @@ button.bt:hover {
   background-color:#ebf6f7;/*メインカラーより明るく薄い*/
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
+    	background-color: wite; /*テキストボックス背景色*/
       	border: 2px solid #ebf6f7 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:#fcfefc;
+	background-color:wite;
 }
 .bt{
 	background-color: #b4ebc1; /* ボタンの背景色 */
@@ -164,19 +164,19 @@ input {
   color: #000;
 }
 .friendInfo input[type="submit"] {
-  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 .friendInfo input[type="submit"]:hover:not([disabled]) {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .friendInfo input[type="submit"]:disabled {
   background-color: #ccc;
 }
 .friend-buttons input[type="submit"] {
-  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 .friend-buttons input[type="submit"]:hover:not([disabled]) {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 
 /*addfriendおわり*/

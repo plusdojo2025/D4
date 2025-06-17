@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
+
 <%-- ヘッダー --%>
 <header>
 	<div class="logo">
@@ -137,6 +138,7 @@
 		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
+
 		</div>
 	</div>
 	</form>
