@@ -66,12 +66,12 @@ form{
 /*各フォーム、ボタンデザイン*/
 /*全体の枠*/
 .health{
-  border: 5px solid #98e4ab; /* 枠線の色と太さ */
+  /*border: 5px solid #98e4ab; /* 枠線の色と太さ */
   border-radius: 30px; /* 角を丸くする */
   padding: 20px; /* 内側の余白 */
   width: 600px; /* フォームの幅 */
   margin: 0 auto; /* 中央揃え */
-  background-color:#d2f8d8;
+  /*background-color:#d2f8d8;*/
 }
 
 .health p{
@@ -90,7 +90,7 @@ input {
 }
 
 .pull{
-	border: 3px solid #98e4ab; /* 枠線の色と太さ */
+	/*border: 3px solid #98e4ab; /* 枠線の色と太さ */
 	border-radius: 30px; /* 角を丸くする */
 	padding: 20px; /* 内側の余白 */
 	width: 90px; /* フォームの幅 */
