@@ -171,23 +171,6 @@
   /*background-color:#d2f8d8;*/
 }
 
-/*テキストボックスデザイン*/
-label {
-      font-size: 20px;
-      /*color:#000000;*/
-}
-
-input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
-      	/*padding: 10px;
-      	font-size: 15px;
-      	margin-top :15px;
-      	border-radius: 15px; /* 角を丸くする */
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
-}
-
-
-
 
 /*保存ボタン*/
 .button-container {
