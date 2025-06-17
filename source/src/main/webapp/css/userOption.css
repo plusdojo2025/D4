@@ -61,7 +61,7 @@
 		top: 0; left: 0;      /* 画面左上 */
 		width: 100vw;         /* 画面幅いっぱい */
 		height: 100vh;        /* 画面高さいっぱい */
-		background-color: rgba(0,0,0,0.5); /* 半透明の黒背景 */
+/*		background-color: rgba(0,0,0,0.5);  半透明の黒背景 */
 		display: none;        /* 初期非表示 */
 		justify-content: center; /* 中央寄せ（flexbox） */
 		align-items: center;     /* 中央寄せ */
@@ -70,20 +70,20 @@
 
 /* モーダル本体 */
 .popup-window {
-  background: #fcfefc;
-  border: 5px solid #98e4ab;
+/*  background: #fcfefc;
+  border: 5px solid #98e4ab;*/
   border-radius: 8px;
   padding: 20px;
   max-width: 90vw;		/* 最大横幅 */
   max-height: 90vh;		/* 最大縦幅 */
   overflow-y: auto;     /* 縦スクロール可 */
-  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
+/*  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
   
 }
 
 
 .Iconbutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	/*background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
@@ -93,17 +93,13 @@
   	transition: background-color 0.3s ease; /* ホバー時のアニメーション */	
 }
 
-.Iconbutton:hover {
-  background-color: #45a049;
-}
-
 .Iconbutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  /*background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
 .Themebutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	/*background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
@@ -112,19 +108,14 @@
   	cursor: pointer; /* ホバー時にポインターを表示 */
   	transition: background-color 0.3s ease; /* ホバー時のアニメーション */	
 }
-
-.Themebutton:hover {
-  background-color: #45a049;
-}
-
 .Themebutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  /*background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
 
 .back{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	/*background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
@@ -134,12 +125,8 @@
   	transition: background-color 0.3s ease; /* ホバー時のアニメーション */		
 }
 
-.back:hover {
-  background-color: #88df9b; /* ホバー時の背景色 */
-}
-
 .back:active {
-  background-color: #66d780; /* クリック時の背景色 */
+ /* background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
@@ -175,23 +162,24 @@
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-  border: 5px solid #98e4ab; /* 枠線の色と太さ */
+  /*border: 5px solid #98e4ab; /* 枠線の色と太さ */
   border-radius: 30px; /* 角を丸くする */
   padding: 20px; /* 内側の余白 */
-  width: 600px; /* フォームの幅 */
+  max-width: 600px;  /* 最大幅を指定 */
+  width: 100%;
   margin: 0 auto; /* 中央揃え */
-  background-color:#d2f8d8;
+  /*background-color:#d2f8d8;*/
 }
 
 /*テキストボックスデザイン*/
 label {
       font-size: 20px;
-      color:#000000;
+      /*color:#000000;*/
 }
 
 input {
     	background-color: #fcfefc; /*テキストボックス背景色*/
-      	padding: 10px;
+      	/*padding: 10px;
       	font-size: 15px;
       	margin-top :15px;
       	border-radius: 15px; /* 角を丸くする */
@@ -208,7 +196,7 @@ input {
 }
 
 .save {
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	/*background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */
   	font-size: 16px; /* フォントサイズ */
   	padding: 10px 20px; /* 内側の余白 */
@@ -218,12 +206,10 @@ input {
   	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
 }
 
-.save:hover {
-  background-color: #45a049;
-}
+
 
 .save:active {
-  background-color: #66d780; /* クリック時の背景色 */
+ /* background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 

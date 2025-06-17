@@ -8,6 +8,7 @@ import dto.Health;
 public class HealthDAOTest {
 	public static void showAllData(List<Health> cardList) {
 		for (Health card : cardList) {
+
 			System.out.println("プレイヤーID：" + card.getId());
 			System.out.println("日付：" + card.getDate());
 			System.out.println("野菜：" + card.getVegetable());
@@ -55,5 +56,6 @@ public class HealthDAOTest {
 			System.out.println("更新失敗！");
 		}
 	}
+
 
 }

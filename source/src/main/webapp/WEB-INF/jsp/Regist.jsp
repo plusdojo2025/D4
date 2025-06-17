@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>新規ユーザー登録 | けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/regist.css">
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/regist.css' />">
 </head>
 <body>
     <%-- ヘッダー --%>
@@ -55,7 +55,7 @@
 		</div>
 	</form>
 	<div class="back">
-		<a href="/D4/LoginServlet">戻る</a>
+		<a href="<c:url value='/LoginServlet' />">戻る</a>
 	</div>
 	
 	</div>
@@ -66,5 +66,5 @@
 	<%-- メインここまで --%>	
 </body>
 
-<script src="/D4/js/regist.js"></script>
+<script src="<c:url value='/js/regist.js' />"></script>
 </html>
