@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログインページ|けんこう日和</title>
-<link rel="stylesheet" type="text/css" href="css/login.css"><%-- ログイン画面にしかないもの --%>
+<link rel="stylesheet" type="text/css" href="<c:url value ='/css/login.css' />"><%-- ログイン画面にしかないもの --%>
 </head>
 <body>
 <%-- ヘッダー --%>
@@ -49,6 +49,6 @@
     <p class="copyright">&copy;2025HARU</p>
 </footer>
 </body>
-<script src="js/login.js"></script>
+<script src="<c:url value='/js/login.js' />"></script>
 
 </html>
