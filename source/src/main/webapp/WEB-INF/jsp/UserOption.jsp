@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/userOption.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/theme1.css">
+<link rel="stylesheet" type="text/css" href="css/${sessionScope.users.theme}.css">
 </head>
 <body>
 	<%-- ヘッダー --%>
@@ -117,7 +117,7 @@
 			<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 		
 		    <div class="input-group">
-		      <label for="textbox4">現在のパスワード</label>
+		      <label for="textbox4">新規パスワード</label>
 		      <input type="password" name="newPw" id="textbox2">
 		    </div>
 		
@@ -125,19 +125,20 @@
 		      <label for="textbox5">新規パスワード(確認用)</label>
 		      <input type="password" name="checkPw" id="textbox3">
 		    </div>
-		</form>
-	</div>
+		
 		<!-- 非公開設定 -->
 	    <div class="non-public">
-	      非公開設定
+	      非公開設定&nbsp;&nbsp;
 	      食事<input type="checkbox" name="vegetable" ${userInfo.vPrivate == '1' ? 'checked' : ''}>
 	      睡眠<input type="checkbox" name="sleep" ${userInfo.sPrivate == '1' ? 'checked' : ''}>
 	      運動<input type="checkbox" name="walk" ${userInfo.wPrivate == '1' ? 'checked' : ''}>
-	    </div>	
+	    </div>	<br>
 		
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
+	</form>
+	</div>
 </div>	
 	
 <!-- アイコン選択ポップアップ -->
@@ -185,7 +186,7 @@
 
 <%-- フッター --%>
 <footer>
-	<p>&copy;2025HAL</p>
+	<p>&copy;2025HARU</p>
 </footer>
 <%-- フッターここまで --%>
 </body>

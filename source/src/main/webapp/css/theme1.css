@@ -1,23 +1,23 @@
 @charset "UTF-8";
 body {
-  background-color: #8bdb9f;
+  background-color: #8bdb9f; /*メインカラー*/
   color: #000000;  
 }
 
 header {
-  background-color: #8bdb9f;
+  background-color: #8bdb9f;/*メインカラー*/
 }
 main .content {
   background-color: white;
 }
 /*フッター*/
 footer {
-  background-color: #8bdb9f;
+  background-color: #8bdb9f;/*メインカラー*/
   color: #ffffff;
 }
 /* 右のサイドバー */
 .side-panel {
-  background-color: #8bdb9f;
+  background-color: #8bdb9f;/*メインカラー*/
   border-radius: 20px;
   color: white;
 }
@@ -27,7 +27,7 @@ footer {
 }
 
 .nav-side li a:hover {
-  color: #fbd5de;
+  color: #fbd5de;/*反対色？*/
 }
 
 .logout-border {
@@ -53,25 +53,25 @@ footer {
 }
 
 .nav-menu a:hover {
-  color: #fbd5de;
+  color: #fbd5de;/*反対色？*/
 }
 
 
 /*friendlist*/
 /* ID検索フォーム */
 .searchFriend {
-  border: 5px solid #8bdb9f;
-  background-color: #d2f8d8;
+  border: 5px solid #8bdb9f;/*メインカラー*/
+  background-color: #d2f8d8;/*メインカラーより明るく薄い*/
 }
 
 
 .searchFriend input[type="text"] {
-  border: 2px solid #d2f8d8;
+  border: 2px solid #d2f8d8;/*メインカラーより明るく薄い*/
   background-color: #ffffff;
 }
 
 .searchFriend .bt {
-  background-color: #a6e9c2;
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 
 .searchFriend .bt:hover {
@@ -84,14 +84,14 @@ footer {
 /*申請一覧フレンド一覧横線*/
 .application-item:not(:last-child),
 .friend-list li:not(:last-child) {
-  border-bottom: 5px solid #8bdb9f;
+  border-bottom: 5px solid #8bdb9f;/*メインカラー*/
 }
 
 /* 共通: 申請一覧とフレンド一覧の外枠 */
 .application-list,
 .friend-list {
-  background-color: #d2f8d8;
-  border: 5px solid #8bdb9f;
+  background-color: #d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
 }
 
 /* 申請一覧タイトルとフレンド一覧タイトル */
@@ -105,7 +105,7 @@ footer {
 .checkApply input[type="submit"],
 .friend-list .bt,
 .friend-list input[type="submit"] {
-  background-color: #a6e9c2;
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 
 .checkApply .bt:hover,
@@ -116,7 +116,7 @@ footer {
 }
 /* 結果表示画面ボタン */
 button.bt {
-  background-color: #a6e9c2;
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 
 button.bt:hover {
@@ -135,11 +135,11 @@ button.bt:hover {
 /*friendlistおわり*/
 /*health*/
 .health{
-  background-color:#d2f8d8;
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 input {
     	background-color: #fcfefc; /*テキストボックス背景色*/
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
 	background-color:#fcfefc;
@@ -157,14 +157,14 @@ input {
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
-  background-color: #d2f8d8;
-  border: 5px solid #8bdb9f;
+  background-color: #d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
 }
 .friendInfo p {
   color: #000;
 }
 .friendInfo input[type="submit"] {
-  background-color: #a6e9c2;
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .friendInfo input[type="submit"]:hover:not([disabled]) {
   background-color: #8fdab0;
@@ -173,7 +173,7 @@ input {
   background-color: #ccc;
 }
 .friend-buttons input[type="submit"] {
-  background-color: #a6e9c2;
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .friend-buttons input[type="submit"]:hover:not([disabled]) {
   background-color: #8fdab0;

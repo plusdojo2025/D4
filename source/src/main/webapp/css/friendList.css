@@ -166,6 +166,7 @@
   box-sizing: border-box;
 }
 
+/*フェードイン*/
 #select-animate {
   opacity: 0;
   transform: translateY(10px);
