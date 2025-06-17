@@ -187,7 +187,7 @@ input {
 }
 /* モーダル本体 */
 .popup-window {
-  background: wite;
+  background:#d2f8d8;/*メインカラーより明るく薄い*/
   border: 5px solid #8bdb9f;/*メインカラー*/
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
