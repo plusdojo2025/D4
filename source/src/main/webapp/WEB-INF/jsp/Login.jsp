@@ -37,7 +37,8 @@
 
 
 	<div class="back">
-		<a href="/D4/RegistServlet">新規登録はこちらから</a>
+		<a href="<c:url value='/RegistServlet' />">新規登録はこちらから</a>
+		
 	</div>
 </div>
 	<%-- メインここまで --%>
