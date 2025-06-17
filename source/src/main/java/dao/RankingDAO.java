@@ -45,11 +45,19 @@ public class RankingDAO {
                 "JOIN users ON healthList.id = users.id " +
                 "WHERE users.id = ? " +
                 "AND healthList.date BETWEEN ? AND DATE_ADD(?, INTERVAL 6 DAY)";
+            
+            String sql2 = 
+                    "SELECT id, name " +
+                    "FROM users " +
+                    "WHERE id = ? ";
 
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, userid);
             pStmt.setString(2, startDate);
             pStmt.setString(3, startDate);
+            
+            PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+            pStmt2.setString(1, userid);
 
             ResultSet rs = pStmt.executeQuery();
 
@@ -74,6 +82,15 @@ public class RankingDAO {
 
                 // Healthオブジェクトをリストに追加
                 healthList.add(new Health(id, date, vegetable, sleep, walk, stress, weight));
+            }
+            
+            if (healthList.size() == 0) {
+            	ResultSet rs2 = pStmt2.executeQuery();
+            	
+            	rs2.next();
+                    
+            	id = rs2.getString("id");
+                name = rs2.getString("name");
             }
 
             // 平均スコアを算出し、Rankingオブジェクトを生成

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dto.Users;
-
 /**
  * Servlet implementation class BornusServlet
  */
@@ -30,19 +28,9 @@ public class BornusServlet extends HttpServlet {
 			return;
 		}
 		
-		//セッションからUsersオブジェクトを取り出す
-		Users user = (Users) session.getAttribute("users");
-		
-		
-		//最長連続ログイン日数を取得
-		int mLogin= user.getmLogin();
-		request.setAttribute("mLogin", mLogin);
-		
-				
 		// ログインボーナスページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Bornus.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 	/**

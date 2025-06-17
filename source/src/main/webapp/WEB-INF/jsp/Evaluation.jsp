@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
 
 <%
   Integer year = (Integer) request.getAttribute("year");
@@ -129,32 +131,47 @@ input:checked + label {
   </thead>
   <tbody>
     <%
-      for (int row = 0; row < 6; row++) {
-    %>
-    <tr>
-      <%
-        for (int col = 0; col < 7; col++) {
-          if (row == 0 && col < firstWeekDay) {
-      %>
-        <td></td>
-      <%
-          } else if (dayCounter <= lastDay) {
-      %>
-        <td><%= dayCounter %></td>
-      <%
-            dayCounter++;
-          } else {
-      %>
-        <td></td>
-      <%
+  for (int row = 0; row < 6; row++) {
+%>
+<tr>
+<%
+  for (int col = 0; col < 7; col++) {
+    if (row == 0 && col < firstWeekDay) {
+%>
+      <td></td>
+<%
+    } else if (dayCounter <= lastDay) {
+      // その日の LocalDate を文字列で作成（yyyy-MM-dd形式）
+      String dayStr = String.format("%04d-%02d-%02d", year, month, dayCounter);
+%>
+      <td>
+        <%= dayCounter %>
+        <%
+          // calendarIconsはMap<LocalDate,String>だがJSP側でLocalDateは扱いづらいのでキーを文字列に変換している想定
+          // リクエストスコープのcalendarIconsをMap<String, String>として取得
+          Map<String, String> icons = (Map<String, String>)request.getAttribute("calendarIcons");
+          if (icons != null && icons.containsKey(dayStr)) {
+        %>
+          <img src="<%= icons.get(dayStr) %>" alt="スタンプ" style="width:20px; height:20px;">
+        <%
           }
-        }
-      %>
-    </tr>
-    <%
-        if (dayCounter > lastDay) break;
-      }
-    %>
+        %>
+      </td>
+<%
+      dayCounter++;
+    } else {
+%>
+      <td></td>
+<%
+    }
+  }
+%>
+</tr>
+<%
+  if (dayCounter > lastDay) break;
+}
+%>
+
   </tbody>
 </table>
 

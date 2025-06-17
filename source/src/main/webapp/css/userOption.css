@@ -1,5 +1,40 @@
 @charset "UTF-8";
 
+/*.profileBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.iconArea {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconBtn {
+  padding: 10px 15px;
+  height: 50px;
+}
+
+.inputArea {
+  flex: 1;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.input-group2 {
+  display: flex;
+  flex-direction: column;
+}*/
+
 .loginday{
 	color:#000000;
 }
@@ -106,7 +141,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -136,23 +171,6 @@
   /*background-color:#d2f8d8;*/
 }
 
-/*テキストボックスデザイン*/
-label {
-      font-size: 20px;
-      /*color:#000000;*/
-}
-
-input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
-    	padding: 10px;
-      	font-size: 15px;
-      	margin-top :15px;
-      	border-radius: 15px; /* 角を丸くする */
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
-}
-
-
-
 
 /*保存ボタン*/
 .button-container {
@@ -176,48 +194,6 @@ input {
 .save:active {
  /* background-color: #66d780; /* クリック時の背景色 */
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
-}
-
-/* ----- レイアウト調整（アイコン左、その他2列） ----- */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* アイコン・入力欄×2 */
-  gap: 20px;
-  max-width: 1100px; /* 👈 幅を広げた */
-  margin: 0 auto;
-}
-
-/* アイコン部分を左側に固定配置 */
-.form-grid .input-group:first-of-type {
-  grid-column: 1 / 2;
-  grid-row: 1 / span 6;
-  align-items: center;
-}
-
-/* 他の入力項目は右2列に流し込む */
-.form-grid .input-group:not(:first-of-type) {
-  grid-column: span 1;
-}
-
-/* 非公開設定は右側2列ぶち抜き */
-.non-public {
-  grid-column: 2 / span 2;
-  text-align: center;
-  font-size: 20px;
-}
-
-/* 保存ボタンも右側2列ぶち抜き */
-.button-container {
-  grid-column: 2 / span 2;
-  text-align: center;
-}
-
-/* ラベルが折り返されないように */
-.input-group label {
-  white-space: nowrap;      /* 👈 折り返さない */
-  overflow: hidden;
-  text-overflow: ellipsis;  /* 長すぎる場合は「…」に */
-  font-size: 20px;
 }
 
 
