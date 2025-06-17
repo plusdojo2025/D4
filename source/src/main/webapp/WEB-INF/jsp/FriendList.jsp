@@ -87,7 +87,7 @@
 <input type="submit" class="bt" name="searchSubmit" value="検索">
 <!-- フォーム終わり -->
 </form>
-<div class="application-list">
+<div class="application-list" id="form-fadein">
 <p>申請一覧</p>
 <!-- スクロールできるリスト(申請一覧を表示) -->
 <ul class="application-ul">
@@ -115,7 +115,7 @@
 </div>
 <!-- リスト終わり -->
 
-<div class="friend-list">
+<div class="friend-list" id="form-fadein">
 <p>フレンド一覧</p>
 <!-- スクロールできるリスト(フレンドを一覧表示) -->
 <ul>

@@ -167,7 +167,7 @@
 }
 
 /*フェードイン*/
-#select-animate {
+#searchFriend_form  {
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInUp 0.8s ease-out forwards;
@@ -180,4 +180,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#form-fadein{
+	opacity: 0;
+	transform: translateY(10px);
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.3s;
 }

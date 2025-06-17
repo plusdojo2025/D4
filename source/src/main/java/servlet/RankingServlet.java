@@ -35,7 +35,7 @@ public class RankingServlet extends HttpServlet {
 
         // もしもログインしていなかったらログインサーブレットにリダイレクトする
      		if (session.getAttribute("users") == null) {
-     			response.sendRedirect("/D4/LoginServlet");
+     			response.sendRedirect(request.getContextPath() + "/LoginServlet");
      			return;
      		}
         
@@ -62,8 +62,7 @@ public class RankingServlet extends HttpServlet {
             session.setAttribute("rankingList", rankingList);
 
             request.setAttribute("rankingList", rankingList);
-            request.getRequestDispatcher("/WEB-INF/jsp/Ranking.jsp").forward(request, response);
-
+            request.getRequestDispatcher(request.getContextPath() + "/WEB-INF/jsp/Ranking.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.setContentType("text/html; charset=UTF-8");
@@ -110,7 +109,7 @@ public class RankingServlet extends HttpServlet {
             if (myself != null && friend != null) {
                 request.setAttribute("myself", myself);
                 request.setAttribute("friend", friend);
-                request.getRequestDispatcher("/WEB-INF/jsp/RankingDetail.jsp").forward(request, response);
+                request.getRequestDispatcher(request.getContextPath() + "/WEB-INF/jsp/RankingDetail.jsp").forward(request, response);
             } else {
                 response.setContentType("text/html; charset=UTF-8");
                 response.getWriter().println("<h2>ユーザー情報が見つかりません。</h2>");
