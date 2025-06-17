@@ -19,25 +19,25 @@
 <nav class="nav-menu">
   <ul>
     <li>
-      <a href="/D4/HealthServlet">
+      <a href="<c:url value='/HealthServlet' />">
         <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/EvaluationServlet">
+      <a href="<c:url value='/EvaluationServlet' />">
         <img src="<c:url value='/img/評価w.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/RankingServlet">
+      <a href="<c:url value='/RankingServlet' />">
         <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
-      <a href="/D4/FriendListServlet">
+      <a href="<c:url value='/FriendListServlet' />">
         <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
@@ -53,20 +53,20 @@
   <nav class="nav-side">
     <ul>
       <li class="with-border">
-        <a href="/D4/BornusServlet">
-          <img src="/D4/img/ボーナスw.png" alt="ログインボーナス">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/ボーナスw.png' />" alt="ログインボーナス">
           ログインボーナス
         </a>
       </li>
       <li class="with-border">
-        <a href="/D4/UserOptionServlet">
-          <img src="/D4/img/ユーザー情報w.png" alt="ユーザー情報">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/ユーザー情報w.png' />" alt="ユーザー情報">
           ユーザー情報
         </a>
       </li>
       <li class="with-border logout-border">
-        <a href="/D4/LoginServlet">
-          <img src="/D4/img/logoutw.png" alt="ログアウト">
+        <a href="<c:url value='/LoginServlet' />">
+          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
           ログアウト
         </a>
       </li>
@@ -79,16 +79,17 @@
 <div class="form-wrapper"  id="select-animate">
   <h2>プロフィールを編集</h2>
   	<p class="loginday">現在の連続ログイン日数: ${userInfo.nLogin}</p>
- 	<div class="profile"> 
-  		<!-- アイコン表示＆選択ボタン -->
-	    <div class="input-group">
-	      <label>アイコン</label><br>
-	      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
-	      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
-	      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
-	    </div>
+ 	
 	    
-	  	<form class="UserInfo form-grid" method="POST" action="/D4/UserOptionServlet" id="UserInfo">
+	<form class="UserInfo form-grid" method="POST" action="<c:url value='/UserOptionServlet' />" id="UserInfo">
+	  	<div class="profile"> 
+	  		<!-- アイコン表示＆選択ボタン -->
+		    <div class="input-group">
+		      <label>アイコン</label><br>
+		      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
+		      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
+		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
+		    </div>
 			<div class="input-group">
 		      <label for="textbox1">ニックネーム</label>
 		      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
@@ -137,8 +138,8 @@
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
-	</form>
 	</div>
+	</form>
 </div>	
 	
 <!-- アイコン選択ポップアップ -->
@@ -176,7 +177,7 @@
 <%--　TOPボタン --%>
 	<div>
 		<a href="#top" class="page_top">
-			<img src="/D4/img/評価w.png" class="top-icon">
+			<img src="<c:url value='/img/評価w.png' />" class="top-icon">
 			TOP
 		</a>
 	</div>

@@ -194,7 +194,7 @@ input {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Iconbutton:hover {
-  background-color: #45a049;
+  background-color: #66d780;
 }
 .Iconbutton:active {
   background-color: #66d780; /* クリック時の背景色 */
@@ -203,7 +203,7 @@ input {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Themebutton:hover {
-  background-color: #45a049;
+  background-color: #66d780;
 }
 .Themebutton:active {
   background-color: #66d780; /* クリック時の背景色 */
@@ -226,13 +226,18 @@ label {
 input {
     	background-color: #fcfefc; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+      	border-radius: 15px; /* 角を丸くする */
+      	padding: 10px;
+      	font-size: 15px;
+      	margin-top :15px
 }
 .save {
 	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .save:hover {
-  background-color: #45a049;
+  background-color: #66d780;
 }
+
 .save:active {
   background-color: #66d780; /* クリック時の背景色 */
 }
