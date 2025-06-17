@@ -33,6 +33,7 @@ public class BornusServlet extends HttpServlet {
 			return;
 		}
 		
+
 		//セッションからUsersオブジェクトを取り出す
 		Users user = (Users) session.getAttribute("users");
 		
@@ -45,11 +46,10 @@ public class BornusServlet extends HttpServlet {
 		IconDAO iDao = new IconDAO();
 		List<Icon> iconList = iDao.select();		
 		request.setAttribute("iconList", iconList);
-				
+
 		// ログインボーナスページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Bornus.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 	/**

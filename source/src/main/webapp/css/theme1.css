@@ -135,15 +135,14 @@ button.bt:hover {
 /*friendlistおわり*/
 /*health*/
 .health{
-  border: 5px solid #8bdb9f;/*メインカラー*/
   background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 input {
-    	background-color: wite; /*テキストボックス背景色*/
+    	background-color: #fcfefc; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:wite;
+	background-color:#fcfefc;
 }
 .bt{
 	background-color: #b4ebc1; /* ボタンの背景色 */
@@ -187,54 +186,59 @@ input {
 }
 /* モーダル本体 */
 .popup-window {
-  background:#d2f8d8;/*メインカラーより明るく薄い*/
-  border: 5px solid #8bdb9f;/*メインカラー*/
+  background: #fcfefc;
+  border: 5px solid #98e4ab;
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
 .Iconbutton{
-	background-color: #a6e9c2;/*メインカラーより透明感がある*/
+	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Iconbutton:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #66d780;
 }
 .Iconbutton:active {
-  background-color: #ff8282; /* クリック時の背景色 */
+  background-color: #66d780; /* クリック時の背景色 */
 }
 .Themebutton{
-	background-color: #a6e9c2;/*メインカラーより透明感がある*/
+	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .Themebutton:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #66d780;
 }
 .Themebutton:active {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #66d780; /* クリック時の背景色 */
 }
 .back{
-	background-color: #a6e9c2;/*メインカラーより透明感がある*/
+	background-color: #b4ebc1; /* ボタンの背景色 */
   	/*color: white; /* テキストの色 */	
 }
 .back:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #88df9b; /* ホバー時の背景色 */
 }
 .form-wrapper {
-  border: 5px solid #8bdb9f;/*メインカラー*/
-  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #98e4ab; /* 枠線の色と太さ */
+  background-color:#d2f8d8;
 }
 /*テキストボックスデザイン*/
 label {
       color:#000000;
 }
 input {
-    	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #d2f8d8;/*メインカラーより明るく薄い*/
+    	background-color: #fcfefc; /*テキストボックス背景色*/
+      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
+      	border-radius: 15px; /* 角を丸くする */
+      	padding: 10px;
+      	font-size: 15px;
+      	margin-top :15px
 }
 .save {
-	background-color: #a6e9c2;/*メインカラーより透明感がある*/
+	background-color: #b4ebc1; /* ボタンの背景色 */
 }
 .save:hover {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #66d780;
 }
+
 .save:active {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #66d780; /* クリック時の背景色 */
 }
 /*useroptionおわり*/
