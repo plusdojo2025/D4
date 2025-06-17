@@ -125,8 +125,7 @@
 		      <label for="textbox5">新規パスワード(確認用)</label>
 		      <input type="password" name="checkPw" id="textbox3">
 		    </div>
-		</form>
-	</div>
+		
 		<!-- 非公開設定 -->
 	    <div class="non-public">
 	      非公開設定
@@ -138,6 +137,8 @@
 		<div class="button-container">
 			<button type="submit" class="save" value="保存">保存</button>
 		</div>
+	</form>
+	</div>
 </div>	
 	
 <!-- アイコン選択ポップアップ -->
