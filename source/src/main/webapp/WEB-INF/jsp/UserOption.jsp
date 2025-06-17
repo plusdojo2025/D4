@@ -185,7 +185,7 @@
 
 <%-- フッター --%>
 <footer>
-	<p>&copy;2025HAL</p>
+	<p>&copy;2025HARU</p>
 </footer>
 <%-- フッターここまで --%>
 </body>
