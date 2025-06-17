@@ -90,11 +90,11 @@ public class UserOptionServlet extends HttpServlet {
 		
 		try {
 			if (uDao.update(user)) { // 更新成功
-				request.setAttribute("result", new Result("ユーザー情報を更新しました。", request.getContextPath() + "/UserOptionServlet"));
+				request.setAttribute("redirect", new Result("ユーザー情報を更新しました。", request.getContextPath() + "/UserOptionServlet"));
 				Users logedUser = uDao.select(id);
 				session.setAttribute("users", logedUser);
 			} else { // 更新失敗
-				request.setAttribute("result", new Result("ユーザー情報を更新できませんでした。", request.getContextPath() + "/UserOptionServlet"));
+				request.setAttribute("redirect", new Result("ユーザー情報を更新できませんでした。", request.getContextPath() + "/UserOptionServlet"));
 			}
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
