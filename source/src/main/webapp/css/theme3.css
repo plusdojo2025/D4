@@ -156,6 +156,10 @@ input {
 .bt:active {
   background-color: #ef9bc2;/*メインカラーより若干暗め*/
 }
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #f9b6c6;/*メインカラー*/
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
@@ -179,6 +183,10 @@ input {
 }
 .friend-buttons input[type="submit"]:hover:not([disabled]) {
   background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #f9b6c6;/*メインカラー*/
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
 /*addfriendおわり*/
