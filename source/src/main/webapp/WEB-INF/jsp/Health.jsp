@@ -129,18 +129,18 @@
 			<div class="info stress-level"> 
 				<div class="label"><p>ストレス度</p></div>
 					<div class="radio-group">
-					  <label>
-					    <input type="radio" name="stress" value="1"
+					  <label for="stress1"></label>
+					    <input type="radio" name="stress" value="1" id="stress1"
 					    <c:if test="${empty health || health.stress == 1}">checked</c:if>>
 					    <span>低い</span>
-					  </label>
+					  
 					  <label>
-					    <input type="radio" name="stress" value="2"
+					    <input type="radio" name="stress" value="2" id="stress2"
 					    <c:if test="${not empty health && health.stress == 2}">checked</c:if>>
 					    <span>普通</span>
 					  </label>
 					  <label>
-					    <input type="radio" name="stress" value="3"
+					    <input type="radio" name="stress" value="3" id="stress3"
 					    <c:if test="${not empty health && health.stress == 3}">checked</c:if>>
 					    <span>高い</span>
 					  </label>
