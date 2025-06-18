@@ -81,7 +81,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
-<div class="rankinglist">
+<div class="rankinglist" id="form-fadein">
     <h2>ランキング</h2>
     <table class="ranking">
         <tr>

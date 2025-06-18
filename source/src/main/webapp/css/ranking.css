@@ -10,7 +10,7 @@
   height:500px;
   text-align:center; 
   overflow-y: auto;  /*スクロールバ－*/
-  overflow-x: hidden　/*横スクロールバーの削除*/
+  overflow-x: hidden; /* 横スクロールを非表示 */
 }
 
 /*タイトル*/
@@ -26,7 +26,6 @@
 	margin: 0 auto;
 	width:800px;
 	height:800px;
-	/*overflow-y: auto; */
 	/*border: none;*/
 	border-radius: 30px;
 }
@@ -38,6 +37,7 @@ h{
 }
 
 th{
+	font-size:20px;
     background:#fff;		/*テーブルヘッダー背景色*/
     border-radius: 30px;	/*角を丸く*/
     /*position: sticky;
@@ -64,4 +64,20 @@ td{
 
 .bt:active {
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
+}
+
+/*フェードイン効果*/
+#form-fadein{
+	opacity: 0;
+	transform: translateY(10px);
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
