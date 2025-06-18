@@ -41,6 +41,10 @@ public class BornusServlet extends HttpServlet {
 		//最長連続ログイン日数を取得
 		int mLogin= user.getmLogin();
 		request.setAttribute("mLogin", mLogin);
+		int start =((mLogin-1)/10)*10+1;
+		int end = start +9;
+		request.setAttribute("start", start );
+		request.setAttribute("end", end);
 		
 		//報酬配布日数
 		IconDAO iDao = new IconDAO();
