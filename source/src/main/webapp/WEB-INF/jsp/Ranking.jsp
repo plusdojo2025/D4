@@ -102,7 +102,7 @@
                 <% if (!isMyself) { %>
                 	<form action="<c:url value='/RankingServlet' />" method="post">
                 		<input type="hidden" name="friendId" value="<%= r.getId() %>">
-            			<input type="submit" value="詳細を表示">
+            			<input type="submit" class="bt" value="詳細を表示">
             		</form>
     			<% } else { %>
     			<% } %>	
