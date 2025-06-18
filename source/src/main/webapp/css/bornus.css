@@ -31,8 +31,8 @@
 	.stamp.checked {
       background-color: #a3e6a3;
       border-color: #6ccc6c;
-      background-image: url("../img/friendw.png");
-      background-size: cover; /* 画像を要素に合わせて調整 */
+      background-image: url("../img/check.png");
+      background-size: 70%;
   	  background-position: center; /* 画像を中央に配置 */
   	  background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
     }
