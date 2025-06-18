@@ -84,7 +84,7 @@ public class UserOptionServlet extends HttpServlet {
 		int sPrivate = request.getParameter("sleep") != null ? 1 : 0;
 		int wPrivate = request.getParameter("walk") != null ? 1 : 0;
 		
-		// friendLsitの情報と対象のユーザー情報を取得
+		// 対象のユーザー情報を取得
 		UsersDAO uDao = new UsersDAO();
 		Users user = new Users(id, pw, height, name, theme, icon, vPrivate, sPrivate, wPrivate);
 		
