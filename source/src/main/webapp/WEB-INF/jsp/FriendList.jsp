@@ -13,31 +13,31 @@
 <%-- ヘッダー --%>
 <header>
 	<div class="logo">
-		<img src="<c:url value='/img/情報登録w.png' />">
+		<img src="<c:url value='/img/regist.png' />">
 	</div>
 <nav class="nav-menu">
   <ul>
     <li>
       <a href="<c:url value='/HealthServlet' />">
-        <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
+        <img src="<c:url value='/img/regist.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/EvaluationServlet' />">
-        <img src="<c:url value='/img/評価w.png' />" alt="評価">
+        <img src="<c:url value='/img/evaluation.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/RankingServlet' />">
-        <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
+        <img src="<c:url value='/img/ranking.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/FriendListServlet' />">
-        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
+        <img src="<c:url value='/img/friendw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
     </li>
@@ -45,24 +45,21 @@
 </nav>
 	</header>
 <%-- ヘッダーここまで --%>
-<!-- ヘッダーナビ -->
-
-<main>
-<!-- サイドパネル -->
-
+<main>		
+	<!-- サイドパネル -->
 <section class="content">
 <aside class="side-panel"> 
   <nav class="nav-side">
     <ul>
       <li class="with-border">
         <a href="<c:url value='/BornusServlet' />">
-          <img src="<c:url value='/img/ボーナスw.png' />" alt="ログインボーナス">
+          <img src="<c:url value='/img/bornusw.png' />" alt="ログインボーナス">
           ログインボーナス
         </a>
       </li>
       <li class="with-border">
         <a href="<c:url value='/UserOptionServlet' />">
-          <img src="<c:url value='/img/ユーザー情報w.png' />" alt="ユーザー情報">
+          <img src="<c:url value='/img/useroption.png' />" alt="ユーザー情報">
           ユーザー情報
         </a>
       </li>
