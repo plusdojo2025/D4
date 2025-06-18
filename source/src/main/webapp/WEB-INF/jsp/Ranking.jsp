@@ -81,9 +81,9 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
-<div class="application-list">
+<div class="rankinglist">
     <h2>ランキング</h2>
-    <table class="ranking" id="application-item">
+    <table class="ranking">
         <tr>
             <th>順位</th>
             <th>ニックネーム</th>

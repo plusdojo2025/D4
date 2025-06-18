@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*外枠 */
-.application-list{
+.rankinglist{
   border-radius: 30px;
   padding: 20px;
   margin: 20px auto;
@@ -14,7 +14,7 @@
 }
 
 /*タイトル*/
-.application-list > p{
+.rankinglist > p{
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 15px;
@@ -47,13 +47,8 @@ th{						/*見出し固定*/
 }
 
 td{
+	text-align:center;
 	border-bottom: 5px solid;
-	padding-bottom: 15px;
+	padding-bottom:px;
 }
 
-/*リストスタイル*/
-.application-ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
