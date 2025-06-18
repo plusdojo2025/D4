@@ -78,6 +78,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
+<div class="form-wrapper"  id="select-animate">
 <h2 style="text-align:center;">ログインスタンプカード</h2>
 <div class="card-container" id="stampCard">
 
@@ -96,6 +97,7 @@
 	${i}日目
 	</div></div>
 </c:forEach>
+</div>
 </div>
 </section>
 </main>
