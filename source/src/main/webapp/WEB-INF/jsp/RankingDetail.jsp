@@ -9,6 +9,18 @@
     Ranking myself = (Ranking) request.getAttribute("myself");
     Users frienddata = (Users) request.getAttribute("frienddata");
 
+    if (friend == null || myself == null || frienddata == null) {
+%>
+    <h2>表示に必要なデータが取得できませんでした。</h2>
+    <form action="<c:url value='/RankingServlet' />" method="get">
+        <input type="submit" value="← ランキング画面へ戻る">
+    </form>
+</body>
+</html>
+<%
+        return;
+    }
+
     List<Health> friendHealth = friend.getHealthList();
     List<Health> myHealth = myself.getHealthList();
 %>
@@ -51,9 +63,9 @@
 <!-- タブ -->
 <div id="tab-menu">
     <div class="tab active" data-tab="average">平均</div>
-    <div class="tab" data-tab="food" data-disabled="${frienddata.getvPrivate ? '1' : '0'}">食事</div>
-    <div class="tab" data-tab="sleep" data-disabled="${frienddata.getsPrivate ? '1' : '0'}">睡眠</div>
-    <div class="tab" data-tab="walk" data-disabled="${frienddata.getwPrivate ? '1' : '0'}">運動</div>
+    <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">食事</div>
+	<div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
+	<div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
 </div>
 
 <!-- タブコンテンツ -->
