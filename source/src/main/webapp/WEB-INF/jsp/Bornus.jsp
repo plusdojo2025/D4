@@ -52,6 +52,8 @@
 <%-- ヘッダーここまで --%>
 	<!-- <h1>ログインボーナス</h1> -->
     <!--<p>あなたの最長連続ログイン日数は <strong>${mLogin}</strong> 日です。</p> -->  
+<main>
+ <section class="content">
 <body>
 <h2 style="text-align:center;">ログインスタンプカード</h2>
 <div class="card-container" id="stampCard">
@@ -72,5 +74,10 @@
 	</div></div>
 </c:forEach>
 </div>
+</section>
+</main>
+<footer>
+    <p>&copy;2025HARU</p>
+</footer>
 </body>
 </html>
