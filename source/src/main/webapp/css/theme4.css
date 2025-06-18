@@ -208,7 +208,7 @@ input[type="radio"]:checked + label:before {
   background-color: #bfa885;/*メインカラーより若干暗め*/
 }
 .Themebutton{
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+	background-color: #ead7a4;/*メインカラーより透明感がある*/
 }
 .Themebutton:hover {
   background-color: #bfa885;/*メインカラーより若干暗め*/
