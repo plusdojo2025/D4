@@ -221,7 +221,7 @@ input[type="radio"]:checked + label:before {
 }
 .form-wrapper {
   border: 5px solid #8bdb9f;/*メインカラー*/
-  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
 }
 /*テキストボックスデザイン*/
 label {
