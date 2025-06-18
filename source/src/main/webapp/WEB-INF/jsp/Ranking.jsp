@@ -81,6 +81,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
+<div class="application-list">
     <h2>ランキング</h2>
     <table border="1">
         <tr>
@@ -111,6 +112,7 @@
             }
         %>
     </table>
+</div>    
 </section>
 	
 <%--　TOPボタン --%>
