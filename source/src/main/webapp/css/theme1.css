@@ -136,6 +136,7 @@ button.bt:hover {
 /*health*/
 .health{
   background-color:#d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
 }
 input {
     	background-color: #fcfefc; /*テキストボックス背景色*/
