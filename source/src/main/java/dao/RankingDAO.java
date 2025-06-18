@@ -86,8 +86,10 @@ public class RankingDAO {
             
             if (healthList.size() == 0) {
             	ResultSet rs2 = pStmt2.executeQuery();
-            	
-            	rs2.next();
+   
+            	if (!rs2.next()) {
+                    return null;
+                }
                     
             	id = rs2.getString("id");
                 name = rs2.getString("name");
@@ -179,12 +181,18 @@ public class RankingDAO {
         // フレンドリストから状態3のユーザーを対象にランキングデータを取得
         for (Friend friend : friendList) {
             if (friend.getState() == 3) {
-                rankingList.add(select(friend.getFriendId(), startDate));
+            	Ranking r = select(friend.getFriendId(), startDate);
+            	if (r != null) {
+            	    rankingList.add(r);
+            	}
             }
         }
 
         // 自分自身のランキングも追加
-        rankingList.add(select(friendList.get(0).getMyId(), startDate));
+        Ranking me = select(friendList.get(0).getMyId(), startDate);
+        if (me != null) {
+            rankingList.add(me);
+        }
 
         // 順位を付けて返す
         return addRankToRankingList(rankingList);
