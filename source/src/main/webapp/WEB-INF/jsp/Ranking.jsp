@@ -83,7 +83,7 @@
 <!-- サイドパネル -->
 <div class="application-list">
     <h2>ランキング</h2>
-    <table class="ranking">
+    <table class="ranking" id="application-item">
         <tr>
             <th>順位</th>
             <th>ニックネーム</th>
