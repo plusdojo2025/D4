@@ -83,6 +83,7 @@ input[type="radio"] + label:before {
   background-image: url("../img/vegetable.png");
 }
 
+/*ストレス度の画像(テスト用のため後で差し替え)*/
 #stress1 + label:before {
   background-image: url("../img/vegetable.png");
 }
@@ -93,6 +94,14 @@ input[type="radio"] + label:before {
 
 #stress3 + label:before {
   background-image: url("../img/vegetable.png");
+}
+
+/*アイコン選択時に浮かび上がる*/
+input[type="radio"]:checked + label:before {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px 4px rgba(152, 228, 171, 0.8); /* やさしく光るグリーン */
+  transition: all 0.3s ease;
 }
 
 /* 左から順に選択されたところまでハイライト */
