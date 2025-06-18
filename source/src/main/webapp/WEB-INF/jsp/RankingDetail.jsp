@@ -55,8 +55,9 @@
 <body>
 
 <h2><%= friend.getName() %>さんのユーザー情報</h2>
+<p>（アイコン）</p>
 <p>ID: <%= friend.getId() %></p>
-<p>ログイン日数: <%= frienddata.getnLogin() %>日</p>
+<p>連続ログイン日数: <%= frienddata.getnLogin() %>日</p>
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
@@ -69,18 +70,34 @@
 </div>
 
 <!-- タブコンテンツ -->
-<div id="tab-content">
-    <div class="tab-content active" id="tab-average">
+<div class="tab-content active" id="tab-average">
+    <div id="average-food-block">
         <h3>平均：食事</h3>
         <canvas id="chart-average-food"></canvas>
+    </div>
+    <div id="average-sleep-block">
         <h3>平均：睡眠</h3>
         <canvas id="chart-average-sleep"></canvas>
+    </div>
+    <div id="average-walk-block">
         <h3>平均：運動</h3>
         <canvas id="chart-average-walk"></canvas>
     </div>
-    <div class="tab-content" id="tab-food"><h3>食事</h3><canvas id="chart-food"></canvas></div>
-    <div class="tab-content" id="tab-sleep"><h3>睡眠</h3><canvas id="chart-sleep"></canvas></div>
-    <div class="tab-content" id="tab-walk"><h3>運動</h3><canvas id="chart-walk"></canvas></div>
+</div>
+
+<div class="tab-content" id="tab-food">
+    <h3>食事</h3>
+    <canvas id="chart-food"></canvas>
+</div>
+
+<div class="tab-content" id="tab-sleep">
+    <h3>睡眠</h3>
+    <canvas id="chart-sleep"></canvas>
+</div>
+
+<div class="tab-content" id="tab-walk">
+    <h3>運動</h3>
+    <canvas id="chart-walk"></canvas>
 </div>
 
 <!-- グラフ用データ -->
@@ -107,17 +124,20 @@
     const friendWalkData = [<% for (int i = 0; i < friendHealth.size(); i++) { %><%= friendHealth.get(i).getWalk() %><%= (i < friendHealth.size() - 1) ? "," : "" %><% } %>];
 
     const friendName = "<%= friend.getName() %>";
+    
+    const isFoodPrivate = <%= frienddata.getvPrivate() == 1 %>;
+    const isSleepPrivate = <%= frienddata.getsPrivate() == 1 %>;
+    const isWalkPrivate = <%= frienddata.getwPrivate() == 1 %>;
 </script>
 
 <form action="<c:url value='/RankingServlet' />" method="get">
     <input type="submit" value="← ランキング画面へ戻る">
 </form>
 
-</body>
-
-<!-- Chart.js -->
+	<!-- Chart.js -->
     <script src="<c:url value='/js/chart.umd.js' />"></script>
     <!-- 外部JS -->
-    <script src="<c:url value='/js/ranking.js' />"></script>
+    <script src="<c:url value='/js/ranking.js' />" defer></script>
 
+</body>
 </html>

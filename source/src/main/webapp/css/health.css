@@ -86,20 +86,21 @@ input[type="radio"] + label:before {
 
 /* 画像を指定（テストURL） */
 #star1 + label:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+  background-image: url("../img/vegetable.png");
 }
 #star2 + label:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+  background-image: url("../img/vegetable.png");
 }
 #star3 + label:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+  background-image: url("../img/vegetable.png");
 }
 #star4 + label:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+  background-image: url("../img/vegetable.png");
 }
 #star5 + label:before {
-  background-image: url("https://cdn.pixabay.com/photo/2017/01/20/15/06/salad-1995056_1280.jpg");
+  background-image: url("../img/vegetable.png");
 }
+
 
 /* 左から順に選択されたところまでハイライト */
 #star1:checked ~ #star2 + label:before,
@@ -159,6 +160,7 @@ input[type="radio"]:checked + label:before {
 
 
 /*ストレス度のボタン*/
+
 
 .button{
 	  display: flex;
