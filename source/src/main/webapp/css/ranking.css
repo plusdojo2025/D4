@@ -5,8 +5,11 @@
   border-radius: 30px;
   padding: 20px;
   margin: 20px auto;
-  width: 40%;
-  max-width: 800px;
+  /*width: 40%;*/
+  max-width: 1000px;
+  height:700px;
+  text-align:center; 
+  overflow-y: auto;
 }
 
 /*タイトル*/
@@ -15,6 +18,21 @@
   font-weight: normal;
   margin-bottom: 15px;
   text-align: center;
+}
+
+/*ランキングテーブル*/
+.ranking{
+	margin: 80px auto;
+	width:1000px;
+	height:1000px;
+	/*overflow-y: auto; */
+	border: none;
+}
+
+h,th{						/*見出し固定*/
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 /*リストスタイル*/
