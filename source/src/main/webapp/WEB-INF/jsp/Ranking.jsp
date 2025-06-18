@@ -81,7 +81,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
-<div class="application-list">
+<div class="rankinglist" id="form-fadein">
     <h2>ランキング</h2>
     <table class="ranking">
         <tr>
@@ -102,7 +102,7 @@
                 <% if (!isMyself) { %>
                 	<form action="<c:url value='/RankingServlet' />" method="post">
                 		<input type="hidden" name="friendId" value="<%= r.getId() %>">
-            			<input type="submit" value="詳細を表示">
+            			<input type="submit" class="bt" value="詳細を表示">
             		</form>
     			<% } else { %>
     			<% } %>	
