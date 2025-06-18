@@ -101,6 +101,17 @@ input[type="radio"] + label:before {
   background-image: url("../img/vegetable.png");
 }
 
+#stress1 + label:before {
+  background-image: url("../img/vegetable.png");
+}
+
+#stress2 + label:before {
+  background-image: url("../img/vegetable.png");
+}
+
+#stress3 + label:before {
+  background-image: url("../img/vegetable.png");
+}
 
 /* 左から順に選択されたところまでハイライト */
 #star1:checked ~ #star2 + label:before,
