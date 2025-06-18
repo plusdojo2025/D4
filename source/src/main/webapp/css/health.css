@@ -152,8 +152,8 @@ input[type="radio"] + label:before {
 
 /* 選択された画像に枠と効果をつける */
 input[type="radio"]:checked + label:before {
-  outline: 3px solid #98e4ab;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+ /* outline: 3px solid #98e4ab;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);*/
   transform: scale(1.1);
 }
 

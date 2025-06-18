@@ -155,6 +155,10 @@ input {
 .bt:active {
   background-color: #66d780; /* クリック時の背景色 */
 }
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #8bdb9f;/*メインカラー*/
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
@@ -179,6 +183,7 @@ input {
 .friend-buttons input[type="submit"]:hover:not([disabled]) {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
+
 /*addfriendおわり*/
 /*useroption*/
 /* モーダル背景 */
