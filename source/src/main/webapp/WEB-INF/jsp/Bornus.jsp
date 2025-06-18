@@ -54,7 +54,31 @@
     <!--<p>あなたの最長連続ログイン日数は <strong>${mLogin}</strong> 日です。</p> -->  
 <main>
  <section class="content">
-<body>
+<aside class="side-panel"> 
+  <nav class="nav-side">
+    <ul>
+      <li class="with-border">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/ボーナスw.png' />" alt="ログインボーナス">
+          ログインボーナス
+        </a>
+      </li>
+      <li class="with-border">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/ユーザー情報w.png' />" alt="ユーザー情報">
+          ユーザー情報
+        </a>
+      </li>
+      <li class="with-border logout-border">
+        <a href="<c:url value='/LoginServlet' />">
+          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
+          ログアウト
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+<!-- サイドパネル -->
 <h2 style="text-align:center;">ログインスタンプカード</h2>
 <div class="card-container" id="stampCard">
 
