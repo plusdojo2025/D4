@@ -55,7 +55,7 @@
 <body>
 
 <h2><%= friend.getName() %>さんのユーザー情報</h2>
-<p>（アイコン）</p>
+<img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
 <p>ID: <%= friend.getId() %></p>
 <p>連続ログイン日数: <%= frienddata.getnLogin() %>日</p>
 
