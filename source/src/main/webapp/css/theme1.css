@@ -135,36 +135,28 @@ button.bt:hover {
 /*friendlistおわり*/
 /*health*/
 .health{
-  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
-  border: 5px solid #f9b6c6;/*メインカラー*/
-}
-input {
-    	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #ffe5e9;/*メインカラーより明るく薄い*/
-}
-.pull{
-	background-color:wite;
-	border: 3px solid #f9b6c6;/*メインカラー*/
-}
-.bt{
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
-  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
-}
-.bt:hover {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
-}
-.bt:active {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
-}
-input[type="radio"]:checked + label:before {
-  outline: 3px solid #f9b6c6;/*メインカラー*/
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-}
-.info{
- 
-	border: 3px solid #f9b6c6;/*メインカラー*/
+  background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
 }
 
+.pull{
+	background-color:#ffffff;
+	border: 3px solid #8bdb9f;/*メインカラー*/
+}
+.bt{
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  	
+}
+.bt:hover {
+  background-color:#8fdab0;/*メインカラーより若干暗め*/
+}
+.bt:active {
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
+}
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #8bdb9f;/*メインカラー*/
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
@@ -198,12 +190,12 @@ input[type="radio"]:checked + label:before {
 }
 /* モーダル本体 */
 .popup-window {
-  background:#ffe5e9;/*メインカラーより明るく薄い*/
-  border: 5px solid #8bd0db; /*メインカラー*/
+  background:#d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
 .Iconbutton{
-	background-color: #94e5e8;/*メインカラーより透明感がある*/
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
 }
 .Iconbutton:hover {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
@@ -212,7 +204,7 @@ input[type="radio"]:checked + label:before {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .Themebutton{
-	background-color:#94e5e8;/*メインカラーより透明感がある*/
+	background-color:#a6e9c2;/*メインカラーより透明感がある*/
 }
 .Themebutton:hover {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
@@ -221,14 +213,14 @@ input[type="radio"]:checked + label:before {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .back{
-	background-color: #94e5e8;/*メインカラーより透明感がある*/
+	background-color: #a6e9c2;/*メインカラーより透明感がある*/
   	/*color: white; /* テキストの色 */	
 }
 .back:hover {
   background-color: #8fdab0;/*メインカラーより若干暗め*/
 }
 .form-wrapper {
-  border: 5px solid #8bd0db; /*メインカラー*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
   background-color:#ebf6f7;/*メインカラーより明るく薄い*/
 }
 /*テキストボックスデザイン*/
@@ -237,10 +229,10 @@ label {
 }
 input {
     	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #8bd0db; /*メインカラー*/
+      	border: 2px solid #8bdb9f;/*メインカラー*/
 }
 .save {
-	background-color:#94e5e8;/*メインカラーより透明感がある*/
+	background-color:#a6e9c2;/*メインカラーより透明感がある*/
 }
 .save:hover {
   background-color: #8fdab0;/*メインカラーより若干暗め*/

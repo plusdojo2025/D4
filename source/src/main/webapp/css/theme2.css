@@ -138,10 +138,7 @@ button.bt:hover {
   background-color:#ebf6f7;/*メインカラーより明るく薄い*/
   border: 5px solid #8bd0db; /*メインカラー*/
 }
-input {
-    	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #ebf6f7 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
-}
+
 .pull{
 	background-color:wite;
 	border: 3px solid #f9b6c6;/*メインカラー*/
@@ -233,6 +230,7 @@ input {
     	background-color: wite; /*テキストボックス背景色*/
       	border: 2px solid #8bd0db; /*メインカラー*/
 }
+
 .save {
 	background-color:#94e5e8;/*メインカラーより透明感がある*/
 }
