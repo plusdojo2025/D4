@@ -139,11 +139,11 @@ button.bt:hover {
   border: 5px solid #8bdb9f;/*メインカラー*/
 }
 input {
-    	background-color: #fcfefc; /*テキストボックス背景色*/
+    	background-color: #ffffff; /*テキストボックス背景色*/
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:#fcfefc;
+	background-color:#ffffff;
 }
 .bt{
 	background-color: #b4ebc1; /* ボタンの背景色 */
@@ -187,54 +187,54 @@ input {
 }
 /* モーダル本体 */
 .popup-window {
-  background: #fcfefc;
-  border: 5px solid #98e4ab;
+  background:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db; /*メインカラー*/
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
 .Iconbutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 .Iconbutton:hover {
-  background-color: #66d780;
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Iconbutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Themebutton{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color:#94e5e8;/*メインカラーより透明感がある*/
 }
 .Themebutton:hover {
-  background-color: #66d780;
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Themebutton:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .back{
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
   	/*color: white; /* テキストの色 */	
 }
 .back:hover {
-  background-color: #88df9b; /* ホバー時の背景色 */
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .form-wrapper {
-  border: 5px solid #98e4ab; /* 枠線の色と太さ */
-  background-color:#d2f8d8;
+  border: 5px solid #8bd0db; /*メインカラー*/
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
 }
 /*テキストボックスデザイン*/
 label {
       color:#000000;
 }
 input {
-    	background-color: #ffffff; /*テキストボックス背景色*/
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #8bd0db; /*メインカラー*/
 }
 .save {
-	background-color: #b4ebc1; /* ボタンの背景色 */
+	background-color:#94e5e8;/*メインカラーより透明感がある*/
 }
 .save:hover {
-  background-color: #66d780;
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
-
 .save:active {
-  background-color: #66d780; /* クリック時の背景色 */
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 /*useroptionおわり*/
