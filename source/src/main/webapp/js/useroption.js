@@ -75,13 +75,13 @@ document.getElementById('UserInfo').onsubmit = function(event) {
 		pw.value = newPw;
 	}
 	
-	else if (/^[\x20-\x7E]+$/.test(newPw)) {
+	else if (/[^a-zA-Z0-9!-/:-@#]/.test(newPw)) {
 		alert('パスワードには英数字と記号以外入力できません');
  		event.preventDefault();
  		return;
 	}
 	
-	else if (/^[\x20-\x7E]+$/.test(checkPw)) {
+	else if (/[^a-zA-Z0-9!-/:-@#]/.test(checkPw)) {
 		alert('パスワードには英数字と記号以外入力できません');
  		event.preventDefault();
  		return;
