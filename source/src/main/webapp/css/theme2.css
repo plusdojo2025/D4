@@ -158,7 +158,7 @@ input {
 /*addfriend*/
 .friendInfo {
   background-color: #ebf6f7;/*メインカラーより明るく薄い*/
-  border: 5px solid #8bd0db;/*メインカラー*/
+  border: 5px solid #8bd0db; /*メインカラー*/
 }
 .friendInfo p {
   color: #000;
@@ -188,37 +188,37 @@ input {
 /* モーダル本体 */
 .popup-window {
   background:#ffe5e9;/*メインカラーより明るく薄い*/
-  border: 5px solid #f9b6c6;/*メインカラー*/
+  border: 5px solid #8bd0db; /*メインカラー*/
   box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
 }
 .Iconbutton{
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
 }
 .Iconbutton:hover {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Iconbutton:active {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Themebutton{
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+	background-color:#94e5e8;/*メインカラーより透明感がある*/
 }
 .Themebutton:hover {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .Themebutton:active {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .back{
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+	background-color: #94e5e8;/*メインカラーより透明感がある*/
   	/*color: white; /* テキストの色 */	
 }
 .back:hover {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .form-wrapper {
-  border: 5px solid #f9b6c6;/*メインカラー*/
-  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db; /*メインカラー*/
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
 }
 /*テキストボックスデザイン*/
 label {
@@ -226,15 +226,15 @@ label {
 }
 input {
     	background-color: wite; /*テキストボックス背景色*/
-      	border: 2px solid #f9b6c6;/*メインカラー*/
+      	border: 2px solid #8bd0db; /*メインカラー*/
 }
 .save {
-	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+	background-color:#94e5e8;/*メインカラーより透明感がある*/
 }
 .save:hover {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 .save:active {
-  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 /*useroptionおわり*/
