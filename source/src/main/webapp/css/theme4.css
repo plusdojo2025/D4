@@ -156,6 +156,10 @@ input {
 .bt:active {
   background-color: #ef9bc2;/*メインカラーより若干暗め*/
 }
+input[type="radio"]:checked + label:before {
+  outline: 3px solid #8bdb9f;/*メインカラー*/
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
