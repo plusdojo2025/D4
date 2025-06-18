@@ -39,7 +39,7 @@
     </li>
     <li class="with-border">
       <a href="<c:url value='/FriendListServlet' />">
-        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
+        <img src="<c:url value='/img/friendw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
     </li>
