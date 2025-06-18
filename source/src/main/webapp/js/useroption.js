@@ -75,6 +75,18 @@ document.getElementById('UserInfo').onsubmit = function(event) {
 		pw.value = newPw;
 	}
 	
+	else if (/^[\x20-\x7E]+$/.test(newPw)) {
+		alert('パスワードには英数字と記号以外入力できません');
+ 		event.preventDefault();
+ 		return;
+	}
+	
+	else if (/^[\x20-\x7E]+$/.test(checkPw)) {
+		alert('パスワードには英数字と記号以外入力できません');
+ 		event.preventDefault();
+ 		return;
+	}
+	
 	//PW変更エラー
 	else{
 		alert('新たなパスワードが確認用パスワードと一致しません！');

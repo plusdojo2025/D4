@@ -24,8 +24,8 @@ document.getElementById('loginForm').onsubmit = function(event) {
  		return;
 	}
 	
-	if(/[^a-zA-Z0-9]/.test(id)){
-		alert('パスワードには英数字以外入力できません');
+	if(/^[\x20-\x7E]+$/.test(id)){
+		alert('パスワードには英数字と記号以外入力できません');
  		event.preventDefault();
  		return;
 	}
