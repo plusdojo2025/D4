@@ -160,6 +160,11 @@ input[type="radio"]:checked + label:before {
   outline: 3px solid #f9b6c6;/*メインカラー*/
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
+.info{
+ 
+	border: 3px solid #f9b6c6;/*メインカラー*/
+}
+
 /*healthおわり*/
 /*addfriend*/
 .friendInfo {
