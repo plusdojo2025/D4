@@ -180,3 +180,61 @@ input {
 }
 
 /*addfriendおわり*/
+/*useroption*/
+/* モーダル背景 */
+.popup-overlay {
+		background-color: rgba(0,0,0,0.5); /* 半透明の黒背景 */
+}
+/* モーダル本体 */
+.popup-window {
+  background:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #f9b6c6;/*メインカラー*/
+  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */  
+}
+.Iconbutton{
+	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+}
+.Iconbutton:hover {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.Iconbutton:active {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.Themebutton{
+	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+}
+.Themebutton:hover {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.Themebutton:active {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.back{
+	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+  	/*color: white; /* テキストの色 */	
+}
+.back:hover {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.form-wrapper {
+  border: 5px solid #f9b6c6;/*メインカラー*/
+  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
+}
+/*テキストボックスデザイン*/
+label {
+      color:#000000;
+}
+input {
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #f9b6c6;/*メインカラー*/
+}
+.save {
+	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+}
+.save:hover {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+.save:active {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+}
+/*useroptionおわり*/
