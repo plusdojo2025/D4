@@ -135,29 +135,29 @@ button.bt:hover {
 /*friendlistおわり*/
 /*health*/
 .health{
-  background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
-  border: 5px solid #8bdb9f;/*メインカラー*/
+  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #f9b6c6;/*メインカラー*/
 }
 input {
-    	background-color: #ffffff; /*テキストボックス背景色*/
-      	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*//*メインカラーより明るく薄い*/
+    	background-color: wite; /*テキストボックス背景色*/
+      	border: 2px solid #ffe5e9;/*メインカラーより明るく薄い*/
 }
 .pull{
-	background-color:#ffffff;
-	border: 3px solid #8bdb9f;/*メインカラー*/
+	background-color:wite;
+	border: 3px solid #f9b6c6;/*メインカラー*/
 }
 .bt{
-	background-color: #a6e9c2;/*メインカラーより透明感がある*/
-  	
+	background-color: #ffc6e1;/*メインカラーより透明感がある*/
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
 }
 .bt:hover {
-  background-color:#8fdab0;/*メインカラーより若干暗め*/
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
 }
 .bt:active {
-  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
 }
 input[type="radio"]:checked + label:before {
-  outline: 3px solid #8bdb9f;/*メインカラー*/
+  outline: 3px solid #f9b6c6;/*メインカラー*/
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 /*healthおわり*/
