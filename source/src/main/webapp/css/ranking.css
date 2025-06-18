@@ -1,20 +1,20 @@
 @charset "UTF-8";
 
 /*外枠 */
-.application-list{
+.rankinglist{
   border-radius: 30px;
   padding: 20px;
   margin: 20px auto;
   /*width: 40%;*/
-  max-width: 1000px;
-  height:700px;
+  max-width: 800px;
+  height:500px;
   text-align:center; 
-  overflow-y: auto;
-  overflow-x: hidden
+  overflow-y: auto;  /*スクロールバ－*/
+  overflow-x: hidden; /* 横スクロールを非表示 */
 }
 
 /*タイトル*/
-.application-list > p{
+.rankinglist > p{
   font-size: 20px;
   font-weight: normal;
   margin-bottom: 15px;
@@ -23,22 +23,61 @@
 
 /*ランキングテーブル*/
 .ranking{
-	margin: 80px auto;
-	width:1000px;
-	height:1000px;
-	/*overflow-y: auto; */
-	border: none;
+	margin: 0 auto;
+	width:800px;
+	height:800px;
+	/*border: none;*/
+	border-radius: 30px;
 }
 
-h,th{						/*見出し固定*/
-    position: sticky;
+h{
+    position: sticky;	/*見出し固定*/
     top: 0;
     left: 0;
 }
 
-/*リストスタイル*/
-.application-ul{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+th{
+	font-size:20px;
+    background:#fff;		/*テーブルヘッダー背景色*/
+    border-radius: 30px;	/*角を丸く*/
+    /*position: sticky;
+    top: 0;
+    left: 0;
+    /*z-index: 1; /* ヘッダーが他の要素より上に表示されるように */
+}
+
+td{
+	text-align:center;
+	border-bottom: 4px solid;	/*下線の太さ*/
+}
+
+/*詳細表示ボタン*/
+.bt{
+  	font-size: 16px; /* フォントサイズ */
+  	padding: 10px 20px; /* 内側の余白 */
+  	border: none; /* 枠線を削除 */
+  	border-radius: 30px; /* 角を丸くする */
+  	cursor: pointer; /* ホバー時にポインターを表示 */
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+
+.bt:active {
+  transform: scale(0.98); /* クリック時の軽い縮小効果 */
+}
+
+/*フェードイン効果*/
+#form-fadein{
+	opacity: 0;
+	transform: translateY(10px);
+	animation: fadeInUp 0.8s ease-out forwards;
+	animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
