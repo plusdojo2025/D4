@@ -101,6 +101,13 @@
 </div>
 </div>
 </section>
+<%--　TOPボタン --%>
+	<div>
+		<a href="#top" class="page_top">
+			<img src="<c:url value='/img/carrot_1992.png' />" class="top-icon">
+			TOP
+		</a>
+	</div>
 </main>
 <footer>
     <p>&copy;2025HARU</p>
