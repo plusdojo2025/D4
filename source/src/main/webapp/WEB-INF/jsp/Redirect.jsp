@@ -13,9 +13,10 @@
 <body>
 <%-- ヘッダー --%>
 <header>
-<div class="logo"><%--ここにロゴ画像を入れる --%>
-<img src="<c:url value='/img/regist.png' />">
-</div>
+<div class="logo-set">
+		<div class="logo"><!-- ロゴを適応 -->
+		</div>
+	</div>
 </header>
 <%-- ヘッダーここまで --%>
 <main>
