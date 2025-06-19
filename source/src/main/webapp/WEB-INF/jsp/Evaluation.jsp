@@ -39,32 +39,33 @@
 <body>
 <%-- ヘッダー --%>
 <header>
-	<div class="logo">
-		<img src="<c:url value='/img/情報登録w.png' />">
+	<div class="logo-set">
+		<div class="logo">
+		</div>
 	</div>
 <nav class="nav-menu">
   <ul>
     <li>
       <a href="<c:url value='/HealthServlet' />">
-        <img src="<c:url value='/img/情報登録w.png' />" alt="情報登録">
+        <img src="<c:url value='/img/regist.png' />" alt="情報登録">
         <span>情報登録</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/EvaluationServlet' />">
-        <img src="<c:url value='/img/評価w.png' />" alt="評価">
+        <img src="<c:url value='/img/evaluation.png' />" alt="評価">
         <span>評価</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/RankingServlet' />">
-        <img src="<c:url value='/img/ランキングw.png' />" alt="ランキング">
+        <img src="<c:url value='/img/ranking.png' />" alt="ランキング">
         <span>ランキング</span>
       </a>
     </li>
     <li class="with-border">
       <a href="<c:url value='/FriendListServlet' />">
-        <img src="<c:url value='/img/フレンドw.png' />" alt="フレンド">
+        <img src="<c:url value='/img/friendw.png' />" alt="フレンド">
         <span>フレンド</span>
       </a>
     </li>
@@ -72,6 +73,36 @@
 </nav>
 	</header>
 <%-- ヘッダーここまで --%>
+<main>		
+	<!-- サイドパネル -->
+<section class="content">
+<aside class="side-panel"> 
+  <nav class="nav-side">
+    <ul>
+      <li class="with-border">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/bornusw.png' />" alt="ログインボーナス">
+          ログインボーナス
+        </a>
+      </li>
+      <li class="with-border">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/useroption.png' />" alt="ユーザー情報">
+          ユーザー情報
+        </a>
+      </li>
+      <li class="with-border logout-border">
+        <a href="<c:url value='/LogoutServlet' />" onclick="return confirmLogout();">
+	  		<img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
+	  		ログアウト
+		</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+<!-- サイドパネル -->
+	
+<%-- メイン --%>
 
 <div class="nav-links">
   <a href="EvaluationServlet?year=<%= prev.getYear() %>&month=<%= prev.getMonthValue() %>">＜ 先月</a>
@@ -442,6 +473,23 @@
 
 
 <script src="<c:url value='/js/calendar.js' />"></script>
+</section>
+<%--　TOPボタン --%>
+	<div>
+		<a href="#top" class="page_top">
+			<img src="<c:url value='/img/carrot_1992.png' />" class="top-icon">
+			TOP
+		</a>
+	</div>
+</main>	
+
+<%-- メインここまで --%>
+
+<%-- フッター --%>
+<footer>
+	<p>&copy;2025HARU</p>
+</footer>
+<%-- フッターここまで --%>
 </body>
 
 <script src="<c:url value='/js/evaluation.js' />"></script>
