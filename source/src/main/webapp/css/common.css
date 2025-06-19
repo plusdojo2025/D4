@@ -60,7 +60,7 @@ footer {
 /* 右のサイドバー */
 .side-panel {
   position: fixed;
-  top: 55%;
+  top: 67%;
   transform: translateY(-50%);
   right: 20px;
   border-radius: 20px;
