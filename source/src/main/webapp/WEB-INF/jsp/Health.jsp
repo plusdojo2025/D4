@@ -64,10 +64,10 @@
         </a>
       </li>
       <li class="with-border logout-border">
-        <a href="<c:url value='/LoginServlet' />">
-          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
-          ログアウト
-        </a>
+        <a href="<c:url value='/LogoutServlet' />" onclick="return confirmLogout();">
+	  		<img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
+	  		ログアウト
+		</a>
       </li>
     </ul>
   </nav>
@@ -168,5 +168,6 @@
      <p>&copy;2025HARU</p>
 </footer>
 <script src="<c:url value='/js/health.js' />"></script>
+<script src="<c:url value='/js/common.js' />"></script>
 </body>
 </html>
