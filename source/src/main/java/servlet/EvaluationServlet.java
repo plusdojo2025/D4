@@ -63,7 +63,7 @@ public class EvaluationServlet extends HttpServlet {
         }
         request.setAttribute("calendarIcons", calendarIcons);
 
-        
+        //aaaaaaa
         
         // 今日の日付（カレンダークリックで詳細取得する想定）
         LocalDate todayDate = LocalDate.now();
