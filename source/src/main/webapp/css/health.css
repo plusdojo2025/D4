@@ -85,7 +85,7 @@ input[type="radio"] + label:before {
 
 /*ストレス度の画像(テスト用のため後で差し替え)*/
 #stress1 + label:before {
-  background-image: url("../img/Nico_colorL.png");
+  background-image: url("../img/Nico_colorH.png");
 }
 
 #stress2 + label:before {
@@ -93,7 +93,7 @@ input[type="radio"] + label:before {
 }
 
 #stress3 + label:before {
-  background-image: url("../img/Nico_colorH.png");
+  background-image: url("../img/Nico_colorL.png");
 }
 
 /*アイコン選択時に浮かび上がる*/
