@@ -66,10 +66,10 @@
         </a>
       </li>
       <li class="with-border logout-border">
-        <a href="<c:url value='/LoginServlet' />">
-          <img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
-          ログアウト
-        </a>
+        <a href="<c:url value='/LogoutServlet' />" onclick="return confirmLogout();">
+	  		<img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
+	  		ログアウト
+		</a>
       </li>
     </ul>
   </nav>
@@ -194,4 +194,5 @@
 <%-- フッターここまで --%>
 </body>
 <script src="<c:url value='/js/useroption.js' />"></script>
+<script src="<c:url value='/js/common.js' />"></script>
 </html>
