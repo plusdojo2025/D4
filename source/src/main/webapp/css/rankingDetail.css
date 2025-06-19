@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/* タブ */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+.tab {
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin-right: 4px;
+}
+canvas {
+    max-width: 600px;
+    max-height: 400px;
+    width: 100%;
+    height: auto;
+}

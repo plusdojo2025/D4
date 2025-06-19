@@ -59,7 +59,7 @@ input[type="radio"] + label:before {
   display: inline-block;
   width: 60px;
   height: 60px;
-  background-size: cover;
+  background-size: contin;
   background-repeat: no-repeat;
   border-radius: 10px;
   opacity: 0.4; /* 非選択状態は薄く表示 */
@@ -85,15 +85,15 @@ input[type="radio"] + label:before {
 
 /*ストレス度の画像(テスト用のため後で差し替え)*/
 #stress1 + label:before {
-  background-image: url("../img/vegetable.png");
+  background-image: url("../img/Nico_colorL.png");
 }
 
 #stress2 + label:before {
-  background-image: url("../img/vegetable.png");
+  background-image: url("../img/Nico_colorM.png");
 }
 
 #stress3 + label:before {
-  background-image: url("../img/vegetable.png");
+  background-image: url("../img/Nico_colorH.png");
 }
 
 /*アイコン選択時に浮かび上がる*/
