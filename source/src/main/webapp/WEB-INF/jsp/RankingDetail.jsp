@@ -18,13 +18,80 @@
     <meta charset="UTF-8">
     <title><%= friend.getName() %>とあなたの比較 ｜ けんこう日和</title>
     <link rel="stylesheet" href="<c:url value='/css/rankingDetail.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
+    <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
+<%-- ヘッダー --%>
+<header>
+	<div class="logo">
+		<img src="<c:url value='/img/regist.png' />">
+	</div>
+<nav class="nav-menu">
+  <ul>
+    <li>
+      <a href="<c:url value='/HealthServlet' />">
+        <img src="<c:url value='/img/regist.png' />" alt="情報登録">
+        <span>情報登録</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/EvaluationServlet' />">
+        <img src="<c:url value='/img/evaluation.png' />" alt="評価">
+        <span>評価</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/RankingServlet' />">
+        <img src="<c:url value='/img/ranking.png' />" alt="ランキング">
+        <span>ランキング</span>
+      </a>
+    </li>
+    <li class="with-border">
+      <a href="<c:url value='/FriendListServlet' />">
+        <img src="<c:url value='/img/friendw.png' />" alt="フレンド">
+        <span>フレンド</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+	</header>
+<%-- ヘッダーここまで --%>
+<main>
+	<!-- サイドパネル -->
+<section class="content">
+<aside class="side-panel"> 
+  <nav class="nav-side">
+    <ul>
+      <li class="with-border">
+        <a href="<c:url value='/BornusServlet' />">
+          <img src="<c:url value='/img/bornusw.png' />" alt="ログインボーナス">
+          ログインボーナス
+        </a>
+      </li>
+      <li class="with-border">
+        <a href="<c:url value='/UserOptionServlet' />">
+          <img src="<c:url value='/img/useroption.png' />" alt="ユーザー情報">
+          ユーザー情報
+        </a>
+      </li>
+      <li class="with-border logout-border">
+        <a href="<c:url value='/LogoutServlet' />" onclick="return confirmLogout();">
+	  		<img src="<c:url value='/img/logoutw.png' />" alt="ログアウト">
+	  		ログアウト
+		</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+<!-- サイドパネル -->
 
-<h2><%= friend.getName() %>さんのユーザー情報</h2>
-<img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
-<p>ID: <%= friend.getId() %></p>
-<p>連続ログイン日数: <%= frienddata.getnLogin() %>日目</p>
+<div class="user-profile">
+	<h2><%= friend.getName() %>さんのユーザー情報</h2>
+	<img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
+	<p>ID: <%= friend.getId() %></p>
+	<p>連続ログイン日数: <%= frienddata.getnLogin() %>日目</p>
+</div>
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
@@ -117,6 +184,21 @@
 <form action="<c:url value='/RankingServlet' />" method="get">
     <input type="submit" value="← ランキング画面へ戻る">
 </form>
+
+</section>
+	
+<%--　TOPボタン --%>
+	<div>
+		<a href="#top" class="page_top">
+			<img src="<c:url value='/img/carrot_1992.png' />" class="top-icon">
+			TOP
+		</a>
+	</div>  
+</main>
+<%-- フッター --%>
+<footer>
+	<p>&copy;2025HARU</p>
+</footer>
 
 <!-- JavaScript -->
 <script src="<c:url value='/js/chart.umd.js' />"></script>
