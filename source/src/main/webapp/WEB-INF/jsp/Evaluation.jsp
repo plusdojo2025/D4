@@ -103,7 +103,7 @@
 <!-- サイドパネル -->
 	
 <%-- メイン --%>
-
+<div class="calendar-wrapper">
 <div class="nav-links">
   <a href="EvaluationServlet?year=<%= prev.getYear() %>&month=<%= prev.getMonthValue() %>">＜ 先月</a>
   <span><%= year %>年 <%= month %>月</span>
@@ -157,7 +157,7 @@
   %>
   </tbody>
 </table>
-
+</div>
 
 
 	<div class="overall-score">
@@ -279,6 +279,7 @@
 </script>
 	
 <h2>前日比</h2>
+
 <div class="chart-container">
   <div class="chart-box">
     <h4>野菜スコア</h4>
