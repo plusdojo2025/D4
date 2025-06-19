@@ -76,7 +76,7 @@ public class RankingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("【doPost開始】");
+    	//System.out.println("【doPost開始】");
 
         HttpSession session = request.getSession();
 
@@ -84,11 +84,11 @@ public class RankingServlet extends HttpServlet {
         String myId = (loginUser != null) ? loginUser.getId() : null;
         String friendId = request.getParameter("friendId");
 
-        System.out.println("myId: " + myId);
-        System.out.println("friendId: " + friendId);
+        //System.out.println("myId: " + myId);
+        //System.out.println("friendId: " + friendId);
 
         if (myId == null || friendId == null) {
-            System.out.println("IDが取得できずリダイレクトします。");
+            //System.out.println("IDが取得できずリダイレクト");
             response.sendRedirect("Ranking");
             return;
         }
@@ -97,9 +97,9 @@ public class RankingServlet extends HttpServlet {
             @SuppressWarnings("unchecked")
             List<Ranking> rankingList = (List<Ranking>) session.getAttribute("rankingList");
 
-            System.out.println("rankingList is null? → " + (rankingList == null));
+            //System.out.println("rankingListはnullか？ → " + (rankingList == null));
             if (rankingList == null) {
-                System.out.println("rankingListがnullなのでリダイレクトします。");
+                //System.out.println("rankingListがnullでリダイレクト");
                 response.sendRedirect("Ranking");
                 return;
             }
@@ -109,10 +109,10 @@ public class RankingServlet extends HttpServlet {
 
             for (Ranking r : rankingList) {
                 if (r == null) {
-                    System.out.println("rankingList に null の要素があります");
+                    //System.out.println("rankingListにnullの要素がある");
                     continue;
                 }
-                System.out.println("ranking item: id=" + r.getId() + ", name=" + r.getName());
+                //System.out.println("ranking item: id=" + r.getId() + ", name=" + r.getName());
 
                 if (r.getId().equals(myId)) {
                     myself = r;
@@ -121,31 +121,31 @@ public class RankingServlet extends HttpServlet {
                 }
             }
 
-            if (myself == null) System.out.println("myself が null");
-            if (friend == null) System.out.println("friend が null");
+            //if (myself == null) System.out.println("myself が null");
+            //if (friend == null) System.out.println("friend が null");
 
             UsersDAO uDao = new UsersDAO();
             Users friendData = uDao.select(friendId);
 
-            if (friendData == null) {
-                System.out.println("friendData が null");
-            }
+            //if (friendData == null) {
+                //System.out.println("friendData が null");
+            //}
 
             if (myself != null && friend != null) {
-                System.out.println("すべてのデータ取得成功。JSP にフォワードします。");
+                //System.out.println("すべてのデータを取得できている、JSPにフォワード");
                 request.setAttribute("myself", myself);
                 request.setAttribute("friend", friend);
                 request.setAttribute("frienddata", friendData);
                 request.getRequestDispatcher("/WEB-INF/jsp/RankingDetail.jsp").forward(request, response);
             } else {
-                System.out.println("必要なデータが不足しているためエラー表示します。");
+                //System.out.println("必要なデータが不足している");
                 response.setContentType("text/html; charset=UTF-8");
                 response.getWriter().println("<h2>ユーザー情報が見つかりません。</h2>");
                 return;
             }
 
         } catch (Exception e) {
-            System.out.println("★★★ doPost内で例外発生 ★★★");
+            //System.out.println("doPost内で例外");
             e.printStackTrace();
             response.setContentType("text/html; charset=UTF-8");
             response.getWriter().println("<h2>詳細表示中にエラーが発生しました。</h2>");
