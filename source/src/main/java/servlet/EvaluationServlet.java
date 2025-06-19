@@ -224,8 +224,6 @@ public class EvaluationServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
         dispatcher.forward(request, response);
 
-        System.out.println("セッションのユーザーID: " + user.getId());
-
     }
 
     private int convertWalkToRating(int walk) {
