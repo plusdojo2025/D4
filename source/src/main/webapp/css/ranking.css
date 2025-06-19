@@ -10,7 +10,7 @@
   height:500px;
   text-align:center; 
   overflow-y: auto;  /*スクロールバ－*/
-  overflow-x: hidden; /* 横スクロールを非表示 */
+  overflow-x: hidden; /* 横スクロールを非表示 */  
 }
 
 /*タイトル*/
