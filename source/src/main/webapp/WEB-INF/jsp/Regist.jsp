@@ -10,9 +10,8 @@
 <body>
     <%-- ヘッダー --%>
 <header>
-<div class="logo">
-<%--ここにロゴ画像を入れる --%>
-<img src="<c:url value='/img/情報登録w.png' />">
+<div class="logo"><%--ここにロゴ画像を入れる --%>
+<img src="<c:url value='/img/titlelogo_theme1.png' />">
 </div>
 
 </header>	
