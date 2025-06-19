@@ -32,70 +32,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta charset="UTF-8">
 <title>評価表示 | 健康日和</title>
-<style>
-  table.calendar {
-    border-collapse: collapse;
-    width: 100%;
-    max-width: 600px;
-  }
-  table.calendar th, table.calendar td {
-    border: 1px solid #ccc;
-    width: 14.28%;
-    height: 60px;
-    text-align: center;
-    vertical-align: top;
-  }
-  table.calendar th {
-    background-color: #eee;
-  }
-  .nav-links {
-    margin-bottom: 10px;
-  }
-  .nav-links a {
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  input[type='radio'] {
-  display: none;
-}
-
-label {
-  font-size: 30px;
-  color: #ccc;
-}
-
-input:checked + label {
-  color: gold;
-}
-  
-.star {
-  color: #ccc;
-  font-size: 30px;
-}
-
-.star.filled {
-  color: gold;
-}
-  .chart-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 16px;                      
-    margin-top: 20px;
-    flex-wrap: wrap;               
-  }
-
-  .chart-box {
-    width: 30%;                    
-    min-width: 250px;            
-  }
-  canvas {
-    width: 100% !important;
-    height: auto !important;
-  }
-  
-</style>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/evaluation.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
@@ -363,12 +299,12 @@ input:checked + label {
             datasets: [
                 {
                     label: '当日スコア',
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',	//グラフ色
                     data: [<c:forEach var="score" items="${vegScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 },
                 {
                     label: '前日スコア',
-                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',	//グラフ色
                     data: [<c:forEach var="score" items="${vegPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 }
             ]
@@ -408,12 +344,12 @@ input:checked + label {
             datasets: [
                 {
                     label: '当日スコア',
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',	//グラフ色
                     data: [<c:forEach var="score" items="${sleepScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 },
                 {
                     label: '前日スコア',
-                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',	//グラフ色
                     data: [<c:forEach var="score" items="${sleepPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 }
             ]
@@ -453,12 +389,12 @@ input:checked + label {
             datasets: [
                 {
                     label: '当日スコア',
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',	//グラフ色
                     data: [<c:forEach var="score" items="${walkScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 },
                 {
                     label: '前日スコア',
-                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',	//グラフ色
                     data: [<c:forEach var="score" items="${walkPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
                 }
             ]

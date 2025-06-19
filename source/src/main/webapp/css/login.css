@@ -14,8 +14,8 @@ header {
 /*ロゴ画像*/
 .logo img{
   align-items: center;
-  width:480px;
-  height: 200px;
+  width:320px;
+  height:100px;
 }
 
 main {
