@@ -7,11 +7,13 @@
 
 .comparison{
 	text-align:center
+	
 }
 
 /* タブ */
 .tab-content {
     display: none;
+    text-align:center
 }
 .tab-content.active {
     display: block;
@@ -24,9 +26,21 @@
     margin-right: 4px;
 }
 canvas {
-	text-align:center;
     max-width: 600px;
     max-height: 400px;
     width: 100%;
     height: auto;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+/*グラフのスタイル*/
+#chart-average-score,
+#chart-food,
+#chart-sleep,
+#chart-walk {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
