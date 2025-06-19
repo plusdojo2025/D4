@@ -253,3 +253,14 @@ input {
   background-color: #6fc5db;/*メインカラーより若干暗め*/
 }
 /*useroptionおわり*/
+/*bornus*/
+.stamp {
+      background-color: #eee;
+      border: 2px solid #ccc;      
+    }
+.stamp.checked {
+      background-color: #94e5e8;/*メインカラーより透明感がある*/
+      border-color: #8bd0db; /*メインカラー*/     
+    }   
+  
+/*bornusおわり*/
