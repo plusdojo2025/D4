@@ -24,7 +24,7 @@
 <div class="balloon3">
 <p class="redirect-message">${redirect.message}</p>
 </div>
-<h1><img src="" alt="キャラクター表示"></h1>
+<div class="character-set"></div>
 <form action="${redirect.backTo}" method="get">
 <button class="bt "type="submit">OK</button>
 </form>

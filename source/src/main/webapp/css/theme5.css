@@ -132,6 +132,18 @@ button.bt:hover {
 .balloon3:before {
   border-top: 20px solid #ac8ddd;/*メインカラーより若干暗め*/
 }
+
+.character-set{
+	height: 150px;
+	width : 150px;
+	margin-top: 20px;
+	background-image:url("../img/character-tmp.png");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
+
 /*friendlistおわり*/
 /*health*/
 .health{
