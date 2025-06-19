@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.user-profile{
+	text-align:center;
+}
+
 /* タブ */
 .tab-content {
     display: none;
