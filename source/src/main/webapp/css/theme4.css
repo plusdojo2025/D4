@@ -1,4 +1,14 @@
 @charset "UTF-8";
+
+.logo{
+	background-image:url("../img/titlelogo_theme4.png");
+  	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contin;
+  	width:480px;
+  	height: 200px;
+}
+
 body {
   background-color: #d6bc98; /*メインカラー*/
   color: #000000;  
