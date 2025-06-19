@@ -90,8 +90,13 @@ public class EvaluationServlet extends HttpServlet {
         todayCondition.setDate(displayDateStr);
         List<Health> todayList = healthDao.select(todayCondition);
         Health todayData = todayList.isEmpty() ? null : todayList.get(0);
-
-
+        
+     // 今日の情報が登録がされてなかったら HealthServlet にリダイレクト
+        if (todayData == null) {
+            response.sendRedirect("/D4/HealthServlet?date=" + displayDateStr);
+            return;
+        }
+        
         // 昨日の情報を取得
         Health yesterdayCondition = new Health();
         yesterdayCondition.setId(user.getId());
@@ -155,7 +160,7 @@ public class EvaluationServlet extends HttpServlet {
         
         
      // グラフ表示用データ
-        LocalDate weekAgoDate = todayDate.minusDays(7);
+        LocalDate weekAgoDate = todayDate.minusDays(6);
         String weekAgo = weekAgoDate.toString();
 
         List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, todayDate.toString());
