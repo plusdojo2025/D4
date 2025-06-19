@@ -155,7 +155,7 @@ public class EvaluationServlet extends HttpServlet {
         
         
      // グラフ表示用データ
-        LocalDate weekAgoDate = todayDate.minusDays(7);
+        LocalDate weekAgoDate = todayDate.minusDays(6);
         String weekAgo = weekAgoDate.toString();
 
         List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, todayDate.toString());
