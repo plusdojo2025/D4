@@ -87,7 +87,7 @@
 	  		<!-- アイコン表示＆選択ボタン -->
 		    <div class="input-group">
 		      <label>アイコン</label><br>
-		      <img id="Icon" src="${userInfo.icon}" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
+		      <img id="Icon" src="<c:url value='/img/${userInfo.icon}' />" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
 		      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
 		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
 		    </div>
@@ -151,7 +151,7 @@
     <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <c:forEach var="icon" items="${iconList}">
         <div style="cursor:pointer; text-align:center;" onclick="selectIcon('${icon.id}', '${icon.path}')">
-          <img src="${icon.path}" alt="icon" style="width:50px; height:50px;">
+          <img id="" src="<c:url value='/img/${icon.path}' />" alt="icon">
           <div>ID: ${icon.id}</div>
         </div>
       </c:forEach>
