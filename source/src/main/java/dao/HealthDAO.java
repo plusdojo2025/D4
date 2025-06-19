@@ -182,6 +182,7 @@ public class HealthDAO {
 		return result;
 	}	
 	
+	//カレンダー表示ストレス値
 	public List<Health> selectByMonth(String id, String datePattern) {
 	    Connection conn = null;
 	    List<Health> healthList = new ArrayList<>();
@@ -242,6 +243,59 @@ public class HealthDAO {
 	        }
 	    }
 	    //結果を返す
+	    return healthList;
+	}
+
+	//グラフ表示1週間List
+	public List<Health> selectByRecentDays(String id, String startDate, String endDate) {
+	    Connection conn = null;
+	    List<Health> healthList = new ArrayList<>();
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/d4?"
+	            + "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+	            "root", "password"
+	        );
+
+	        String sql = "SELECT * FROM healthList "
+	                   + "WHERE id = ? AND date BETWEEN ? AND ? "
+	                   + "ORDER BY date ASC";
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+	        pStmt.setString(1, id);
+	        pStmt.setString(2, startDate);
+	        pStmt.setString(3, endDate);
+
+	        ResultSet rs = pStmt.executeQuery();
+
+	        while (rs.next()) {
+	            Health health = new Health(
+	                rs.getString("id"),
+	                rs.getString("date"),
+	                rs.getInt("vegetable"),
+	                rs.getInt("sleep"),
+	                rs.getInt("walk"),
+	                rs.getInt("stress"),
+	                rs.getDouble("weight")
+	            );
+	            healthList.add(health);
+	        }
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	        healthList = null;
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	                healthList = null;
+	            }
+	        }
+	    }
+
 	    return healthList;
 	}
 
