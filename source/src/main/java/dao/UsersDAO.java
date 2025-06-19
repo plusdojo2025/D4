@@ -248,7 +248,7 @@ public class UsersDAO {
 			} else {
 				iStmt.setString(1, "");
 			}
-			System.out.println("path:"+user.getIcon());
+			//System.out.println("path:"+user.getIcon());
 			
 			//SQL文を実行
 			ResultSet trs = tStmt.executeQuery();
@@ -263,8 +263,8 @@ public class UsersDAO {
 				 iconId = irs.getInt("id");
 				 if (irs.wasNull()) iconId = 0;
 			 }
-			 System.out.println("theme:"+themeId);
-			 System.out.println("icon:"+iconId);
+			 //System.out.println("theme:"+themeId);
+			 //System.out.println("icon:"+iconId);
 			 
 			// SQL文を完成
 			 if (user.getPw() != null) {
