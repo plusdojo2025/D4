@@ -150,25 +150,22 @@ input:checked + label {
     </tr>
   </thead>
   <tbody>
+  <%
+    for (int row = 0; row < 6; row++) {
+  %>
+  <tr>
     <%
-  for (int row = 0; row < 6; row++) {
-%>
-<tr>
-<%
-  for (int col = 0; col < 7; col++) {
-    if (row == 0 && col < firstWeekDay) {
-%>
+      for (int col = 0; col < 7; col++) {
+        if (row == 0 && col < firstWeekDay) {
+    %>
       <td></td>
-<%
-    } else if (dayCounter <= lastDay) {
-      // その日の LocalDate を文字列で作成（yyyy-MM-dd形式）
-      String dayStr = String.format("%04d-%02d-%02d", year, month, dayCounter);
-%>
-      <td>
-        <%= dayCounter %>
+    <%
+        } else if (dayCounter <= lastDay) {
+          String dayStr = String.format("%04d-%02d-%02d", year, month, dayCounter);
+    %>
+      <td class="calendar-cell" data-date="<%= dayStr %>" style="cursor:pointer;">
+        <div class="day-number"><%= dayCounter %></div>
         <%
-          // calendarIconsはMap<LocalDate,String>だがJSP側でLocalDateは扱いづらいのでキーを文字列に変換している想定
-          // リクエストスコープのcalendarIconsをMap<String, String>として取得
           Map<String, String> icons = (Map<String, String>)request.getAttribute("calendarIcons");
           if (icons != null && icons.containsKey(dayStr)) {
         %>
@@ -177,22 +174,24 @@ input:checked + label {
           }
         %>
       </td>
-<%
-      dayCounter++;
-    } else {
-%>
+    <%
+          dayCounter++;
+        } else {
+    %>
       <td></td>
-<%
+    <%
+        }
+      }
+    %>
+  </tr>
+  <%
+      if (dayCounter > lastDay) break;
     }
-  }
-%>
-</tr>
-<%
-  if (dayCounter > lastDay) break;
-}
-%>
+  %>
   </tbody>
 </table>
+
+
 
 	<div class="overall-score">
 	  全体スコア 
@@ -495,6 +494,19 @@ input:checked + label {
   createBarChart('walkChart', '運動', walkDiff, 'orange');
 </script>
 
+<script>
+  const dataDates = [
+    <c:forEach var="date" items="${calendarIcons.keySet()}" varStatus="status">
+      '${date}'<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+  ];
+</script>
+
+<script src="<c:url value='/js/calendar.js' />"></script>
+
+
+<script src="<c:url value='/js/calendar.js' />"></script>
 </body>
+
 <script src="<c:url value='/js/evaluation.js' />"></script>
 </html>
