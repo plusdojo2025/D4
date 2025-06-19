@@ -5,6 +5,10 @@
 	text-align:center;
 }
 
+.comparison{
+	text-align:center
+}
+
 /* タブ */
 .tab-content {
     display: none;
@@ -20,6 +24,7 @@
     margin-right: 4px;
 }
 canvas {
+	text-align:center;
     max-width: 600px;
     max-height: 400px;
     width: 100%;
