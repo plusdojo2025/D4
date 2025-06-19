@@ -139,11 +139,8 @@ button.bt:hover {
 	margin-top: 20px;
 	background-image: url("../img/kumadef.png");
 	background-repeat: no-repeat;
-	background-attachment: fixed;
 	background-position: center center;
-
-	/* 拡大しない・元サイズのまま表示 */
-	background-size: auto;
+	background-size: contin;
 }
 
 /*friendlistおわり*/
