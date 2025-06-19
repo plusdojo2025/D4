@@ -37,12 +37,20 @@ main {
   flex: 1;
 }
 
+.logo-set{
+	display: flex;
+ 	justify-content: center;
+  	align-items: center;
+}
+
 /*ロゴ画像*/
+/*
 .logo img{
   align-items: center;
-  width: 30px;
+  width:auto;
   height: auto;
 }
+*/
 
 /*フッター*/
 footer {
