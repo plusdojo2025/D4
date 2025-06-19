@@ -1,6 +1,5 @@
 <!-- Copyright (c) 2014-2024 Chart.js Contributors -->
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="dto.Ranking, dto.Health, dto.Users, java.util.List" %>
 
@@ -8,18 +7,6 @@
     Ranking friend = (Ranking) request.getAttribute("friend");
     Ranking myself = (Ranking) request.getAttribute("myself");
     Users frienddata = (Users) request.getAttribute("frienddata");
-
-    if (friend == null || myself == null || frienddata == null) {
-%>
-    <h2>表示に必要なデータが取得できませんでした。</h2>
-    <form action="<c:url value='/RankingServlet' />" method="get">
-        <input type="submit" value="← ランキング画面へ戻る">
-    </form>
-</body>
-</html>
-<%
-        return;
-    }
 
     List<Health> friendHealth = friend.getHealthList();
     List<Health> myHealth = myself.getHealthList();
@@ -30,27 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <title><%= friend.getName() %>とあなたの比較 ｜ けんこう日和</title>
-
-    
-    
-    <style>
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .tab {
-            cursor: pointer;
-            display: inline-block;
-            padding: 5px 10px;
-            border: 1px solid #ccc;
-            margin-right: 4px;
-        }
-        canvas {
-            max-width: 600px;
-            max-height: 400px;
-            width: 100%;
-            height: auto;
-        }
-    </style>
-
+    <link rel="stylesheet" href="<c:url value='/css/rankingDetail.css' />">
 </head>
 <body>
 
@@ -61,12 +28,12 @@
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
-<!-- タブ -->
+<!-- タブメニュー -->
 <div id="tab-menu">
     <div class="tab active" data-tab="average">平均</div>
     <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">食事</div>
-	<div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
-	<div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
+    <div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
+    <div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
 </div>
 
 <!-- タブコンテンツ -->
@@ -94,21 +61,54 @@
 
 <!-- グラフ用データ -->
 <script>
-    const sleepLabels = [<% for (int i = 0; i < myHealth.size(); i++) { %>"<%= myHealth.get(i).getDate() %>"<%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];
-    const mySleepData = [<% for (int i = 0; i < myHealth.size(); i++) { %><%= myHealth.get(i).getSleep() %><%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];
-    const friendSleepData = [<% for (int i = 0; i < friendHealth.size(); i++) { %><%= friendHealth.get(i).getSleep() %><%= (i < friendHealth.size() - 1) ? "," : "" %><% } %>];
+    const sleepLabels = [
+        <% for (int i = 0; i < myHealth.size(); i++) { %>
+            "<%= myHealth.get(i).getDate() %>"<%= (i < myHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
+
+    const mySleepData = [
+        <% for (int i = 0; i < myHealth.size(); i++) { %>
+            <%= myHealth.get(i).getSleep() %><%= (i < myHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
+
+    const friendSleepData = [
+        <% for (int i = 0; i < friendHealth.size(); i++) { %>
+            <%= friendHealth.get(i).getSleep() %><%= (i < friendHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
 
     const myAverageData = [<%= String.format("%.2f", myself.getScore()) %>];
     const friendAverageData = [<%= String.format("%.2f", friend.getScore()) %>];
 
     const foodLabels = sleepLabels;
-    const myFoodData = [<% for (int i = 0; i < myHealth.size(); i++) { %><%= myHealth.get(i).getVegetable() %><%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];
-    const friendFoodData = [<% for (int i = 0; i < friendHealth.size(); i++) { %><%= friendHealth.get(i).getVegetable() %><%= (i < friendHealth.size() - 1) ? "," : "" %><% } %>];
-    const myWalkData = [<% for (int i = 0; i < myHealth.size(); i++) { %><%= myHealth.get(i).getWalk() %><%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];
-    const friendWalkData = [<% for (int i = 0; i < friendHealth.size(); i++) { %><%= friendHealth.get(i).getWalk() %><%= (i < friendHealth.size() - 1) ? "," : "" %><% } %>];
+
+    const myFoodData = [
+        <% for (int i = 0; i < myHealth.size(); i++) { %>
+            <%= myHealth.get(i).getVegetable() %><%= (i < myHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
+
+    const friendFoodData = [
+        <% for (int i = 0; i < friendHealth.size(); i++) { %>
+            <%= friendHealth.get(i).getVegetable() %><%= (i < friendHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
+
+    const myWalkData = [
+        <% for (int i = 0; i < myHealth.size(); i++) { %>
+            <%= myHealth.get(i).getWalk() %><%= (i < myHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
+
+    const friendWalkData = [
+        <% for (int i = 0; i < friendHealth.size(); i++) { %>
+            <%= friendHealth.get(i).getWalk() %><%= (i < friendHealth.size() - 1) ? "," : "" %>
+        <% } %>
+    ];
 
     const friendName = "<%= friend.getName() %>";
-    
     const isFoodPrivate = <%= frienddata.getvPrivate() == 1 %>;
     const isSleepPrivate = <%= frienddata.getsPrivate() == 1 %>;
     const isWalkPrivate = <%= frienddata.getwPrivate() == 1 %>;
@@ -118,10 +118,9 @@
     <input type="submit" value="← ランキング画面へ戻る">
 </form>
 
-	<!-- Chart.js -->
-    <script src="<c:url value='/js/chart.umd.js' />"></script>
-    <!-- 外部JS -->
-    <script src="<c:url value='/js/ranking.js' />" defer></script>
+<!-- JavaScript -->
+<script src="<c:url value='/js/chart.umd.js' />"></script>
+<script src="<c:url value='/js/ranking.js' />" defer></script>
 
 </body>
 </html>
