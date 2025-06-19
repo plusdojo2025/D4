@@ -13,6 +13,13 @@
   overflow-x: hidden; /* 横スクロールを非表示 */  
 }
 
+/*ランキングの枠(切り取って各テーマに貼り付け)*/
+.rankinglist{ 
+  background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
+}
+/*ここまで*/
+
 /*タイトル*/
 .rankinglist > p{
   font-size: 20px;
