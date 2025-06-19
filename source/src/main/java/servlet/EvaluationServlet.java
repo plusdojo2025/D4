@@ -35,19 +35,25 @@ public class EvaluationServlet extends HttpServlet {
         }
 
         // 表示したい年月を取得。なければ今月
-        String yearParam = request.getParameter("year");
-        String monthParam = request.getParameter("month");
-
+        String dateParam = request.getParameter("date");  // yyyy-MM-dd形式で日付受け取り
         LocalDate baseDate;
-        if (yearParam != null && monthParam != null) {
-            int year = Integer.parseInt(yearParam);
-            int month = Integer.parseInt(monthParam);
-            baseDate = LocalDate.of(year, month, 1);
+
+        if (dateParam != null && !dateParam.isEmpty()) {
+            baseDate = LocalDate.parse(dateParam);
         } else {
-            baseDate = LocalDate.now().withDayOfMonth(1);
+            String yearParam = request.getParameter("year");
+            String monthParam = request.getParameter("month");
+
+            if (yearParam != null && monthParam != null) {
+                int year = Integer.parseInt(yearParam);
+                int month = Integer.parseInt(monthParam);
+                baseDate = LocalDate.of(year, month, 1);
+            } else {
+                baseDate = LocalDate.now().withDayOfMonth(1);
+            }
         }
 
-        // 年月をJSPに渡す
+        // カレンダー表示用に年月を渡す（baseDateの年月）
         request.setAttribute("year", baseDate.getYear());
         request.setAttribute("month", baseDate.getMonthValue());
 
@@ -64,26 +70,32 @@ public class EvaluationServlet extends HttpServlet {
         }
         request.setAttribute("calendarIcons", calendarIcons);
 
-        
-        
-        // 今日の日付（カレンダークリックで詳細取得する想定）
-        LocalDate todayDate = LocalDate.now();
-        LocalDate yesterdayDate = todayDate.minusDays(1);
+       
+        String selectedDateParam = request.getParameter("date");
+        LocalDate todayDate;
+        if (selectedDateParam != null && !selectedDateParam.isEmpty()) {
+            todayDate = LocalDate.parse(selectedDateParam); 
+        } else {
+            todayDate = LocalDate.now();
+        }
 
-        String today = todayDate.toString();
-        String yesterday = yesterdayDate.toString();
+        LocalDate displayDate = (dateParam != null && !dateParam.isEmpty()) ? LocalDate.parse(dateParam) : LocalDate.now();
+        String displayDateStr = displayDate.toString();
+        LocalDate prevDate = displayDate.minusDays(1);
+        String prevDateStr = prevDate.toString();
 
-        // 今日の情報を取得
+        // その日の情報を取得
         Health todayCondition = new Health();
         todayCondition.setId(user.getId());
-        todayCondition.setDate(today);
+        todayCondition.setDate(displayDateStr);
         List<Health> todayList = healthDao.select(todayCondition);
         Health todayData = todayList.isEmpty() ? null : todayList.get(0);
+
 
         // 昨日の情報を取得
         Health yesterdayCondition = new Health();
         yesterdayCondition.setId(user.getId());
-        yesterdayCondition.setDate(yesterday);
+        yesterdayCondition.setDate(prevDateStr);
         List<Health> yesterdayList = healthDao.select(yesterdayCondition);
         Health yesterdayData = yesterdayList.isEmpty() ? null : yesterdayList.get(0);
 
@@ -146,7 +158,7 @@ public class EvaluationServlet extends HttpServlet {
         LocalDate weekAgoDate = todayDate.minusDays(7);
         String weekAgo = weekAgoDate.toString();
 
-        List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, today);
+        List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, todayDate.toString());
         request.setAttribute("recentHealthList", recentHealthList);
 
         Map<String, Health> healthMap = new HashMap<>();
@@ -167,7 +179,7 @@ public class EvaluationServlet extends HttpServlet {
         LocalDate currentDate = weekAgoDate; 
 
         while (!currentDate.isAfter(todayDate)) {
-            LocalDate prevDate = currentDate.minusDays(1);
+            prevDate = currentDate.minusDays(1);
 
             Health todayHealth = healthMap.getOrDefault(currentDate.toString(), null);
             Health yesterdayHealth = healthMap.getOrDefault(prevDate.toString(), null);
