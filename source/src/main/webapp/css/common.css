@@ -38,6 +38,7 @@ main {
 }
 
 .logo-set{
+	height:100px;
 	display: flex;
  	justify-content: center;
   	align-items: center;
@@ -60,7 +61,7 @@ footer {
 /* 右のサイドバー */
 .side-panel {
   position: fixed;
-  top: 55%;
+  top: 60%;
   transform: translateY(-50%);
   right: 20px;
   border-radius: 20px;
