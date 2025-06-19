@@ -83,6 +83,7 @@
   </nav>
 </aside>
 <!-- サイドパネル -->
+<div class="form-wrapper"  id="select-animate">
 <div class="rankinglist" id="form-fadein">
     <h2>ランキング</h2>
     <table class="ranking">
@@ -114,7 +115,8 @@
             }
         %>
     </table>
-</div>    
+</div> 
+</div>   
 </section>
 	
 <%--　TOPボタン --%>
