@@ -12,8 +12,9 @@
 <body id="top">
 <%-- ヘッダー --%>
 <header>
-	<div class="logo">
-		<img src="<c:url value='/img/regist.png' />">
+	<div class="logo-set">
+		<div class="logo">
+		</div>
 	</div>
 <nav class="nav-menu">
   <ul>

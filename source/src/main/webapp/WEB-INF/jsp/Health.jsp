@@ -14,7 +14,6 @@
 <header>
 	<div class="logo-set">
 		<div class="logo">
-			<!-- img src="<c:url value='/img/titlelogo_theme1.png' />"-->
 		</div>
 	</div>
 <nav class="nav-menu">

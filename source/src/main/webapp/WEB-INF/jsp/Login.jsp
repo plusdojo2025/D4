@@ -11,7 +11,7 @@
 <%-- ヘッダー --%>
 <header>
 <div class="logo"><%--ここにロゴ画像を入れる --%>
-<img src="<c:url value='/img/regist.png' />">
+<img src="<c:url value='/img/titlelogo_theme1.png' />">
 </div>
 </header>
 <%-- ヘッダーここまで --%>

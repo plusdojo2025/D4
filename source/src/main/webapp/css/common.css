@@ -44,13 +44,11 @@ main {
 }
 
 /*ロゴ画像*/
-/*
 .logo img{
   align-items: center;
-  width:auto;
-  height: auto;
+  width:480px;
+  height: 200px;
 }
-*/
 
 /*フッター*/
 footer {
