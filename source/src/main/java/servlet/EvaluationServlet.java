@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +64,7 @@ public class EvaluationServlet extends HttpServlet {
         }
         request.setAttribute("calendarIcons", calendarIcons);
 
-        //aaaaaaa
+        
         
         // 今日の日付（カレンダークリックで詳細取得する想定）
         LocalDate todayDate = LocalDate.now();
@@ -109,7 +110,7 @@ public class EvaluationServlet extends HttpServlet {
             walkRatingYesterday = convertWalkToRating(yesterdayData.getWalk());
         }
 
-        // 差分計算（前日データがある場合のみ）
+        // 差分計算（前日データがある時）
         int vegDiff   = showDiff ? vegetableRatingToday - vegetableRatingYesterday : 0;
         int sleepDiff = showDiff ? sleepRatingToday - sleepRatingYesterday : 0;
         int walkDiff  = showDiff ? walkRatingToday - walkRatingYesterday : 0;
@@ -139,6 +140,59 @@ public class EvaluationServlet extends HttpServlet {
         double weight = todayData.getWeight();
         double heightInMeters = height / 100.0;
         double bmi = weight / (heightInMeters * heightInMeters);
+        
+        
+     // グラフ表示用データ（過去7日）
+     // 今日と7日前の日付を取得
+        LocalDate weekAgoDate = todayDate.minusDays(7);
+        String weekAgo = weekAgoDate.toString();
+
+        // 過去7日間の健康データをDAOから取得する想定
+        List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, today);
+        request.setAttribute("recentHealthList", recentHealthList);
+
+        List<Integer> vegScoreList = new ArrayList<>();
+        List<Integer> vegPrevScoreList = new ArrayList<>();
+        List<Integer> sleepScoreList = new ArrayList<>();
+        List<Integer> sleepPrevScoreList = new ArrayList<>();
+        List<Integer> walkScoreList = new ArrayList<>();
+        List<Integer> walkPrevScoreList = new ArrayList<>();
+        List<String> dayLabelList = new ArrayList<>();
+
+        if (recentHealthList != null && recentHealthList.size() >= 2) {
+            for (int i = 1; i < recentHealthList.size(); i++) {
+                Health prev = recentHealthList.get(i - 1);
+                Health curr = recentHealthList.get(i);
+
+                vegScoreList.add(convertVegetableToRating(curr.getVegetable()));
+                vegPrevScoreList.add(convertVegetableToRating(prev.getVegetable()));
+
+                sleepScoreList.add(convertSleepToRating(curr.getSleep()));
+                sleepPrevScoreList.add(convertSleepToRating(prev.getSleep()));
+
+                walkScoreList.add(convertWalkToRating(curr.getWalk()));
+                walkPrevScoreList.add(convertWalkToRating(prev.getWalk()));
+
+                try {
+                    LocalDate date = LocalDate.parse(curr.getDate());
+                    String[] jpWeekdays = {"月", "火", "水", "木", "金", "土", "日"};
+                    int dayOfWeekValue = date.getDayOfWeek().getValue(); // 1（月）〜 7（日）
+                    dayLabelList.add(jpWeekdays[dayOfWeekValue - 1]);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    dayLabelList.add("Err");
+                }
+            }
+        }
+
+        request.setAttribute("vegScoreList", vegScoreList);
+        request.setAttribute("vegPrevScoreList", vegPrevScoreList);
+        request.setAttribute("sleepScoreList", sleepScoreList);
+        request.setAttribute("sleepPrevScoreList", sleepPrevScoreList);
+        request.setAttribute("walkScoreList", walkScoreList);
+        request.setAttribute("walkPrevScoreList", walkPrevScoreList);
+        request.setAttribute("dayLabelList", dayLabelList);
+
 
         request.setAttribute("bmi", String.format("%.2f", bmi));
         request.setAttribute("vegetableRating", vegetableRatingToday);
@@ -165,6 +219,7 @@ public class EvaluationServlet extends HttpServlet {
         dispatcher.forward(request, response);
 
         System.out.println("セッションのユーザーID: " + user.getId());
+
     }
 
     private int convertWalkToRating(int walk) {

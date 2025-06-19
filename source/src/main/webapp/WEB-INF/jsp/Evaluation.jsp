@@ -1,3 +1,6 @@
+<!-- Copyright (c) 2014-2024 Chart.js Contributors -->
+
+
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.Map" %>
@@ -26,6 +29,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <meta charset="UTF-8">
 <title>評価表示 | 健康日和</title>
 <style>
@@ -74,6 +78,22 @@ input:checked + label {
 .star.filled {
   color: gold;
 }
+  .chart-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;                      
+    margin-top: 20px;
+    flex-wrap: wrap;               
+  }
+
+  .chart-box {
+    width: 30%;                    
+    min-width: 250px;            
+  }
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
   
 </style>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/evaluation.css' />">
@@ -171,7 +191,6 @@ input:checked + label {
   if (dayCounter > lastDay) break;
 }
 %>
-
   </tbody>
 </table>
 
@@ -264,6 +283,226 @@ input:checked + label {
 
 	<p>あなたのBMI</p>
 	<p>BMI : <c:out value="${bmi}" /> </p>
+	
+	
+	<script>
+  // JSPのリストをJS配列に変換
+  const dates = [
+    <c:forEach var="date" items="${dates}" varStatus="status">
+      '${date}'<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const vegetableRatings = [
+    <c:forEach var="v" items="${vegetableRatings}" varStatus="status">
+      ${v}<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const sleepRatings = [
+    <c:forEach var="s" items="${sleepRatings}" varStatus="status">
+      ${s}<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const walkRatings = [
+    <c:forEach var="w" items="${walkRatings}" varStatus="status">
+      ${w}<c:if test="${!status.last}">,</c:if>
+    </c:forEach>
+  ];
+</script>
+	
+<h2>前日比</h2>
+<div class="chart-container">
+  <div class="chart-box">
+    <h4>野菜スコア</h4>
+    <canvas id="vegetableChart" width="300" height="200"></canvas>
+  </div>
+  <div class="chart-box">
+    <h4>睡眠スコア</h4>
+    <canvas id="sleepChart" width="300" height="200"></canvas>
+  </div>
+  <div class="chart-box">
+    <h4>運動スコア</h4>
+    <canvas id="walkChart" width="300" height="200"></canvas>
+  </div>
+</div>
+
+<script>
+  const labels = [
+    <c:forEach var="label" items="${dayLabelList}" varStatus="s">
+      '${label}'<c:if test="${!s.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const vegDiff = [
+    <c:forEach var="v" items="${vegDiffList}" varStatus="s">
+      ${v}<c:if test="${!s.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const sleepDiff = [
+    <c:forEach var="val" items="${sleepDiffList}" varStatus="s">
+      ${val}<c:if test="${!s.last}">,</c:if>
+    </c:forEach>
+  ];
+
+  const walkDiff = [
+    <c:forEach var="w" items="${walkDiffList}" varStatus="s">
+      ${w}<c:if test="${!s.last}">,</c:if>
+    </c:forEach>
+  ];
+</script>
+
+<!-- 野菜グラフ -->
+<script>
+    const ctxVeg = document.getElementById('vegetableChart').getContext('2d');
+    new Chart(ctxVeg, {
+        type: 'bar',
+        data: {
+            labels: [<c:forEach var="label" items="${dayLabelList}" varStatus="loop">"${label}"<c:if test="${!loop.last}">,</c:if></c:forEach>],
+            datasets: [
+                {
+                    label: '当日スコア',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    data: [<c:forEach var="score" items="${vegScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                },
+                {
+                    label: '前日スコア',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    data: [<c:forEach var="score" items="${vegPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: 5,
+                    title: {
+                        display: true,
+                        text: '評価 (1〜5)'
+                    },
+                    ticks: {
+                        stepSize: 1 
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
+
+    });
+</script>
+
+<!-- 睡眠グラフ -->
+<script>
+    const ctxSleep = document.getElementById('sleepChart').getContext('2d');
+    new Chart(ctxSleep, {
+        type: 'bar',
+        data: {
+            labels: [<c:forEach var="label" items="${dayLabelList}" varStatus="loop">"${label}"<c:if test="${!loop.last}">,</c:if></c:forEach>],
+            datasets: [
+                {
+                    label: '当日スコア',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    data: [<c:forEach var="score" items="${sleepScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                },
+                {
+                    label: '前日スコア',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    data: [<c:forEach var="score" items="${sleepPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: 5,
+                    title: {
+                        display: true,
+                        text: '評価 (1〜5)'
+                    },
+                    ticks: {
+                        stepSize: 1 
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
+
+    });
+</script>
+
+<!-- 運動グラフ -->
+<script>
+    const ctxWalk = document.getElementById('walkChart').getContext('2d');
+    new Chart(ctxWalk, {
+        type: 'bar',
+        data: {
+            labels: [<c:forEach var="label" items="${dayLabelList}" varStatus="loop">"${label}"<c:if test="${!loop.last}">,</c:if></c:forEach>],
+            datasets: [
+                {
+                    label: '当日スコア',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    data: [<c:forEach var="score" items="${walkScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                },
+                {
+                    label: '前日スコア',
+                    backgroundColor: 'rgba(128, 128, 128, 0.6)',
+                    data: [<c:forEach var="score" items="${walkPrevScoreList}" varStatus="loop">${score}<c:if test="${!loop.last}">,</c:if></c:forEach>]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    suggestedMax: 5,
+                    title: {
+                        display: true,
+                        text: '評価 (1〜5)'
+                    },
+                    ticks: {
+                        stepSize: 1 
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
+
+    });
+</script>
+
+
+<script>
+  createBarChart('vegetableChart', '野菜', vegDiff, 'steelblue');
+  createBarChart('sleepChart', '睡眠', sleepDiff, 'seagreen');
+  createBarChart('walkChart', '運動', walkDiff, 'orange');
+</script>
+
+
+<script>
+  console.log("dates:", dates);
+  console.log("vegetableRatings:", vegetableRatings);
+  console.log("sleepRatings:", sleepRatings);
+  console.log("walkRatings:", walkRatings);
+</script>
 
 </body>
 <script src="<c:url value='/js/evaluation.js' />"></script>
