@@ -196,6 +196,7 @@
 </footer>
 <%-- フッターここまで --%>
 </body>
+<script>const contextPath = "${pageContext.request.contextPath}";</script>
 <script src="<c:url value='/js/useroption.js' />"></script>
 <script src="<c:url value='/js/common.js' />"></script>
 </html>

@@ -1,3 +1,4 @@
+
 //ポップアップを開く機能
 function openPopup(id) {
   const popup = document.getElementById(id);
@@ -44,9 +45,11 @@ function closePopup(id) {
 
 //アイコンの更新
 function selectIcon(id, path) {
-  document.getElementById('Icon').src = path;
-  document.getElementById('IconId').value = path;
-  closePopup('iconPopup');
+	const fullPath = contextPath + "/img/" + path;
+  	document.getElementById('Icon').src = fullPath;
+  	document.getElementById('IconId').value = path;
+  	
+  	closePopup('iconPopup');
 }
 
 //テーマの更新
@@ -103,6 +106,11 @@ document.getElementById('UserInfo').onsubmit = function(event) {
 	}
    	else if (/[^0-9]/.test(height)) {
 		alert('整数値以外は入力出来ません');
+ 		event.preventDefault();
+ 		return;
+	}
+	else if(height < 1000){
+		alert('身長に入力した数値を確認してください');
  		event.preventDefault();
  		return;
 	}
