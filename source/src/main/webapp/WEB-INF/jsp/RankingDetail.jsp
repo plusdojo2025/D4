@@ -57,7 +57,7 @@
 <h2><%= friend.getName() %>さんのユーザー情報</h2>
 <img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
 <p>ID: <%= friend.getId() %></p>
-<p>連続ログイン日数: <%= frienddata.getnLogin() %>日</p>
+<p>連続ログイン日数: <%= frienddata.getnLogin() %>日目</p>
 
 <h2><%= friend.getName() %>さんとあなたの比較</h2>
 
@@ -71,17 +71,9 @@
 
 <!-- タブコンテンツ -->
 <div class="tab-content active" id="tab-average">
-    <div id="average-food-block">
-        <h3>平均：食事</h3>
-        <canvas id="chart-average-food"></canvas>
-    </div>
-    <div id="average-sleep-block">
-        <h3>平均：睡眠</h3>
-        <canvas id="chart-average-sleep"></canvas>
-    </div>
-    <div id="average-walk-block">
-        <h3>平均：運動</h3>
-        <canvas id="chart-average-walk"></canvas>
+    <div id="average-score-block">
+        <h3>今週の平均スコア（15点満点）</h3>
+        <canvas id="chart-average-score"></canvas>
     </div>
 </div>
 
@@ -106,16 +98,8 @@
     const mySleepData = [<% for (int i = 0; i < myHealth.size(); i++) { %><%= myHealth.get(i).getSleep() %><%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];
     const friendSleepData = [<% for (int i = 0; i < friendHealth.size(); i++) { %><%= friendHealth.get(i).getSleep() %><%= (i < friendHealth.size() - 1) ? "," : "" %><% } %>];
 
-    const myAverageData = [
-        <%= myself.getHealthList().stream().mapToInt(h -> h.getVegetable()).average().orElse(0) %>,
-        <%= myself.getHealthList().stream().mapToInt(h -> h.getSleep()).average().orElse(0) %>,
-        <%= myself.getHealthList().stream().mapToInt(h -> h.getWalk()).average().orElse(0) %>
-    ];
-    const friendAverageData = [
-        <%= friend.getHealthList().stream().mapToInt(h -> h.getVegetable()).average().orElse(0) %>,
-        <%= friend.getHealthList().stream().mapToInt(h -> h.getSleep()).average().orElse(0) %>,
-        <%= friend.getHealthList().stream().mapToInt(h -> h.getWalk()).average().orElse(0) %>
-    ];
+    const myAverageData = [<%= String.format("%.2f", myself.getScore()) %>];
+    const friendAverageData = [<%= String.format("%.2f", friend.getScore()) %>];
 
     const foodLabels = sleepLabels;
     const myFoodData = [<% for (int i = 0; i < myHealth.size(); i++) { %><%= myHealth.get(i).getVegetable() %><%= (i < myHealth.size() - 1) ? "," : "" %><% } %>];

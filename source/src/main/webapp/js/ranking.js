@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 scales: {
                     y: {
                         beginAtZero: true,
+                        max: 15,
                         title: {
                             display: true,
                             text: `${label}（${unit}）`
@@ -83,24 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 平均グラフ（公開設定によって表示／非表示）
-    if (!isFoodPrivate) {
-        renderBarChart("chart-average-food", "食事", myAverageData[0], friendAverageData[0], "単位");
-    } else {
-        document.getElementById("average-food-block").style.display = "none";
-    }
-
-    if (!isSleepPrivate) {
-        renderBarChart("chart-average-sleep", "睡眠", myAverageData[1], friendAverageData[1], "分");
-    } else {
-        document.getElementById("average-sleep-block").style.display = "none";
-    }
-
-    if (!isWalkPrivate) {
-        renderBarChart("chart-average-walk", "運動", myAverageData[2], friendAverageData[2], "歩");
-    } else {
-        document.getElementById("average-walk-block").style.display = "none";
-    }
+    // スコアグラフ（常に表示）
+	renderBarChart("chart-average-score", "平均スコア", myAverageData[0], friendAverageData[0], "点");
 
     // 個別グラフ描画用関数（遅延描画）
     function renderFoodChart() {
