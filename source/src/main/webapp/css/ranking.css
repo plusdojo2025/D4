@@ -46,7 +46,7 @@ h{
 th{
 	font-size:20px;
 	padding-bottom:20px;
-    background:#fff;		/*テーブルヘッダー背景色*/
+    /*background:#fff;		/*テーブルヘッダー背景色*/
     border-radius: 30px;	/*角を丸く*/
     /*position: sticky;
     top: 0;

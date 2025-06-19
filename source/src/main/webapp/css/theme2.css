@@ -264,3 +264,10 @@ input {
     }   
   
 /*bornusおわり*/
+/*ranking*/
+/*ランキングの枠(切り取って各テーマに貼り付け)*/
+.rankinglist{ 
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db; /*メインカラー*/ 
+}
+/*rankingおわり*/
