@@ -150,10 +150,12 @@
     <h3>アイコンを選択</h3>
     <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <c:forEach var="icon" items="${iconList}">
+      <c:if test="${icon.days <= userInfo.mLogin}">
         <div style="cursor:pointer; text-align:center;" onclick="selectIcon('${icon.id}', '${icon.path}')">
           <img id="" src="<c:url value='/img/${icon.path}' />" alt="icon">
-          <div>ID: ${icon.id}</div>
+          <div>${icon.id}</div>
         </div>
+      </c:if>
       </c:forEach>
     </div>
     <button class="back" onclick="closePopup('iconPopup')">閉じる</button>
