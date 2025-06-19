@@ -31,7 +31,7 @@ public class FriendDAO {
 			// SQL文を準備する
 			sql = "SELECT f.myId, f.friendId, f.state, u.name "
 					+ "FROM friendList f JOIN users u ON f.friendId = u.id "
-					+ "WHERE f.myId = ?";
+					+ "WHERE f.myId = ? order by u.name ASC";
 			
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
