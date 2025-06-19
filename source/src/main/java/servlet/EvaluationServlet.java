@@ -142,15 +142,20 @@ public class EvaluationServlet extends HttpServlet {
         double bmi = weight / (heightInMeters * heightInMeters);
         
         
-     // グラフ表示用データ（過去7日）
-     // 今日と7日前の日付を取得
+     // グラフ表示用データ
         LocalDate weekAgoDate = todayDate.minusDays(7);
         String weekAgo = weekAgoDate.toString();
 
-        // 過去7日間の健康データをDAOから取得する想定
         List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, today);
         request.setAttribute("recentHealthList", recentHealthList);
 
+        Map<String, Health> healthMap = new HashMap<>();
+        if (recentHealthList != null) {
+            for (Health h : recentHealthList) {
+                healthMap.put(h.getDate(), h);
+            }
+        }
+     
         List<Integer> vegScoreList = new ArrayList<>();
         List<Integer> vegPrevScoreList = new ArrayList<>();
         List<Integer> sleepScoreList = new ArrayList<>();
@@ -159,31 +164,32 @@ public class EvaluationServlet extends HttpServlet {
         List<Integer> walkPrevScoreList = new ArrayList<>();
         List<String> dayLabelList = new ArrayList<>();
 
-        if (recentHealthList != null && recentHealthList.size() >= 2) {
-            for (int i = 1; i < recentHealthList.size(); i++) {
-                Health prev = recentHealthList.get(i - 1);
-                Health curr = recentHealthList.get(i);
+        LocalDate currentDate = weekAgoDate; 
 
-                vegScoreList.add(convertVegetableToRating(curr.getVegetable()));
-                vegPrevScoreList.add(convertVegetableToRating(prev.getVegetable()));
+        while (!currentDate.isAfter(todayDate)) {
+            LocalDate prevDate = currentDate.minusDays(1);
 
-                sleepScoreList.add(convertSleepToRating(curr.getSleep()));
-                sleepPrevScoreList.add(convertSleepToRating(prev.getSleep()));
+            Health todayHealth = healthMap.getOrDefault(currentDate.toString(), null);
+            Health yesterdayHealth = healthMap.getOrDefault(prevDate.toString(), null);
 
-                walkScoreList.add(convertWalkToRating(curr.getWalk()));
-                walkPrevScoreList.add(convertWalkToRating(prev.getWalk()));
+            vegScoreList.add(todayHealth != null ? convertVegetableToRating(todayHealth.getVegetable()) : 0);
+            vegPrevScoreList.add(yesterdayHealth != null ? convertVegetableToRating(yesterdayHealth.getVegetable()) : 0);
 
-                try {
-                    LocalDate date = LocalDate.parse(curr.getDate());
-                    String[] jpWeekdays = {"月", "火", "水", "木", "金", "土", "日"};
-                    int dayOfWeekValue = date.getDayOfWeek().getValue(); // 1（月）〜 7（日）
-                    dayLabelList.add(jpWeekdays[dayOfWeekValue - 1]);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    dayLabelList.add("Err");
-                }
-            }
+            sleepScoreList.add(todayHealth != null ? convertSleepToRating(todayHealth.getSleep()) : 0);
+            sleepPrevScoreList.add(yesterdayHealth != null ? convertSleepToRating(yesterdayHealth.getSleep()) : 0);
+
+            walkScoreList.add(todayHealth != null ? convertWalkToRating(todayHealth.getWalk()) : 0);
+            walkPrevScoreList.add(yesterdayHealth != null ? convertWalkToRating(yesterdayHealth.getWalk()) : 0);
+
+            String[] jpWeekdays = {"月", "火", "水", "木", "金", "土", "日"};
+            int dayOfWeekValue = currentDate.getDayOfWeek().getValue(); 
+            
+            dayLabelList.add(jpWeekdays[dayOfWeekValue - 1]);
+
+            currentDate = currentDate.plusDays(1);
         }
+
+
 
         request.setAttribute("vegScoreList", vegScoreList);
         request.setAttribute("vegPrevScoreList", vegPrevScoreList);
@@ -217,8 +223,6 @@ public class EvaluationServlet extends HttpServlet {
         // JSPへフォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Evaluation.jsp");
         dispatcher.forward(request, response);
-
-        System.out.println("セッションのユーザーID: " + user.getId());
 
     }
 

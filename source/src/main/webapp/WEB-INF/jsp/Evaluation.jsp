@@ -489,19 +489,10 @@ input:checked + label {
     });
 </script>
 
-
 <script>
   createBarChart('vegetableChart', '野菜', vegDiff, 'steelblue');
   createBarChart('sleepChart', '睡眠', sleepDiff, 'seagreen');
   createBarChart('walkChart', '運動', walkDiff, 'orange');
-</script>
-
-
-<script>
-  console.log("dates:", dates);
-  console.log("vegetableRatings:", vegetableRatings);
-  console.log("sleepRatings:", sleepRatings);
-  console.log("walkRatings:", walkRatings);
 </script>
 
 </body>
