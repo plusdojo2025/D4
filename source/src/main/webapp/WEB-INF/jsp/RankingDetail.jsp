@@ -93,39 +93,40 @@
 	<p>連続ログイン日数: <%= frienddata.getnLogin() %>日目</p>
 </div>
 
-<h2><%= friend.getName() %>さんとあなたの比較</h2>
-
-<!-- タブメニュー -->
-<div id="tab-menu">
-    <div class="tab active" data-tab="average">平均</div>
-    <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">食事</div>
-    <div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
-    <div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
+<div class="comparison">
+	<h2><%= friend.getName() %>さんとあなたの比較</h2>
+	
+	<!-- タブメニュー -->
+	<div id="tab-menu">
+	    <div class="tab active" data-tab="average">平均</div>
+	    <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">食事</div>
+	    <div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
+	    <div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
+	</div>
+	
+	<!-- タブコンテンツ -->
+	<div class="tab-content active" id="tab-average">
+	    <div id="average-score-block">
+	        <h3>今週の平均スコア（15点満点）</h3>
+	        <canvas id="chart-average-score"></canvas>
+	    </div>
+	</div>
+	
+	<div class="tab-content" id="tab-food">
+	    <h3>食事</h3>
+	    <canvas id="chart-food"></canvas>
+	</div>
+	
+	<div class="tab-content" id="tab-sleep">
+	    <h3>睡眠</h3>
+	    <canvas id="chart-sleep"></canvas>
+	</div>
+	
+	<div class="tab-content" id="tab-walk">
+	    <h3>運動</h3>
+	    <canvas id="chart-walk"></canvas>
+	</div>
 </div>
-
-<!-- タブコンテンツ -->
-<div class="tab-content active" id="tab-average">
-    <div id="average-score-block">
-        <h3>今週の平均スコア（15点満点）</h3>
-        <canvas id="chart-average-score"></canvas>
-    </div>
-</div>
-
-<div class="tab-content" id="tab-food">
-    <h3>食事</h3>
-    <canvas id="chart-food"></canvas>
-</div>
-
-<div class="tab-content" id="tab-sleep">
-    <h3>睡眠</h3>
-    <canvas id="chart-sleep"></canvas>
-</div>
-
-<div class="tab-content" id="tab-walk">
-    <h3>運動</h3>
-    <canvas id="chart-walk"></canvas>
-</div>
-
 <!-- グラフ用データ -->
 <script>
     const sleepLabels = [
