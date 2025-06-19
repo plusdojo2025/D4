@@ -2,18 +2,18 @@
 
 /*相手のユーザー情報*/
 .user-profile{
-	text-align:center;
-}
-
-.comparison{
-	text-align:center
-	
+	text-align:center;			/*文字の中央揃え*/
+	max-width:650px;
+	border-radius: 30px; /* 角を丸くする */
+	background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
+  	border: 5px solid #8bdb9f;/*メインカラー*/
+  	margin:0 auto;
 }
 
 /* タブ */
 .tab-content {
     display: none;
-    text-align:center
+    text-align:center;
 }
 .tab-content.active {
     display: block;
@@ -25,6 +25,15 @@
     border: 1px solid #ccc;
     margin-right: 4px;
 }
+
+#tab-menu{
+    padding: 10px 20px; /* 内側の余白 */
+  	border: none; /* 枠線を削除 */
+  	border-radius: 30px; /* 角を丸くする */
+  	cursor: pointer; /* ホバー時にポインターを表示 */
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
 canvas {
     max-width: 600px;
     max-height: 400px;
@@ -44,3 +53,21 @@ canvas {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*戻るボタン*/
+.bt{
+  	font-size: 16px; /* フォントサイズ */
+  	padding: 10px 20px; /* 内側の余白 */
+  	border: none; /* 枠線を削除 */
+  	border-radius: 30px; /* 角を丸くする */
+  	cursor: pointer; /* ホバー時にポインターを表示 */
+  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+	margin-top:10px;
+  	margin-bottom:10px;
+}
+
+
+.bt:active {
+  transform: scale(0.98); /* クリック時の軽い縮小効果 */
+}
+

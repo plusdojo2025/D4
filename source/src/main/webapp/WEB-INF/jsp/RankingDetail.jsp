@@ -92,9 +92,9 @@
 	<img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
 	<p>ID: <%= friend.getId() %></p>
 	<p>連続ログイン日数: <%= frienddata.getnLogin() %>日目</p>
-</div>
 
-<div class="comparison">
+
+
 	<h2><%= friend.getName() %>さんとあなたの比較</h2>
 	
 	<!-- タブメニュー -->
@@ -183,7 +183,7 @@
 </script>
 
 <form action="<c:url value='/RankingServlet' />" method="get">
-    <input type="submit" value="← ランキング画面へ戻る">
+    <input type="submit" class="bt" value="← ランキング画面へ戻る">
 </form>
 </div>
 </section>
