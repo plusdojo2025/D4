@@ -24,8 +24,9 @@
 <body>
 <%-- ヘッダー --%>
 <header>
-	<div class="logo">
-		<img src="<c:url value='/img/regist.png' />">
+	<div class="logo-set">
+		<div class="logo">
+		</div>
 	</div>
 <nav class="nav-menu">
   <ul>
@@ -126,7 +127,6 @@
 	    <h3>運動</h3>
 	    <canvas id="chart-walk"></canvas>
 	</div>
-</div>
 <!-- グラフ用データ -->
 <script>
     const sleepLabels = [
@@ -185,7 +185,7 @@
 <form action="<c:url value='/RankingServlet' />" method="get">
     <input type="submit" value="← ランキング画面へ戻る">
 </form>
-
+</div>
 </section>
 	
 <%--　TOPボタン --%>
