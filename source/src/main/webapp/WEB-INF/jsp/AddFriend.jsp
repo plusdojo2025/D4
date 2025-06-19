@@ -141,7 +141,7 @@
 </section>
 <div>
     <a href="#top" class="page_top">
-      <img src="<c:url value='/img/評価w.png' />" class="top-icon">
+      <img src="<c:url value='/img/carrot_1992.png' />" class="top-icon">
       TOP
     </a>
   </div>

@@ -133,15 +133,14 @@ button.bt:hover {
   border-top: 20px solid #8fdab0;/*メインカラーより若干暗め*/
 }
 
-.character-set{
+.character-set {
 	height: 150px;
 	width : 150px;
 	margin-top: 20px;
-	background-image:url("../img/character-tmp.png");
+	background-image: url("../img/kumadef.png");
 	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
+	background-position: center center;
+	background-size: contin;
 }
 
 /*friendlistおわり*/

@@ -80,7 +80,10 @@
 /*  box-shadow: 0 0 10px rgba(0,0,0,0.25); /* 影 */
   
 }
-
+popup-img{
+	width:50px; 
+	height:50px;
+}
 
 .Iconbutton{
 	/*background-color: #b4ebc1; /* ボタンの背景色 */
