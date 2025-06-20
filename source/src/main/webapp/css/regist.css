@@ -54,6 +54,11 @@ input {
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
 
+.error{
+	color:red;
+	font-size:14px;
+}
+
 .button{
 	margin: 0 auto;
 }

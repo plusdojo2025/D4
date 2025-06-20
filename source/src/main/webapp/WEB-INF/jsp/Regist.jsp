@@ -26,27 +26,28 @@
 			    <div class="input-group">
       				<label for="textbox1">新規ID</label>
       				<input type="text" id="textbox1" name="id">
+      				<span class="error">${error}</span>
     			</div>
     			
 			    <div class="input-group">
-      				<label for="textbox6">ニックネーム</label>
+      				<label for="textbox2">ニックネーム</label>
       				<input type="text" id="textbox6" name="name">
     			</div>    			
     			
 			    <div class="input-group">
-      				<label for="textbox2">新規パスワード</label>
+      				<label for="textbox3">新規パスワード</label>
       				<input type="password" id="textbox2" name="pw">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox3">新規パスワード(確認用)</label>
+      				<label for="textbox4">新規パスワード(確認用)</label>
       				<input type="password" id="textbox3" name="pw2">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox4">現在の身長(cm)</label>
+      				<label for="textbox5">現在の身長(cm)</label>
       				<input type="text" id="textbox4" name="height">
     			</div>
 			    <div class="input-group">
-      				<label for="textbox5">現在の体重(kg)</label>
+      				<label for="textbox6">現在の体重(kg)</label>
       				<input type="text" id="textbox5" name="weight">
     			</div>
 	
@@ -57,10 +58,11 @@
 				</div>
 		</div>
 	</form>
+
 	<div class="back">
 		<a href="<c:url value='/LoginServlet' />">戻る</a>
 	</div>
-	<p>${error}</p>
+
 	</div>
 </main>
 <footer>

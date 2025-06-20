@@ -67,7 +67,7 @@ public class RegistServlet extends HttpServlet {
 			
 		} else {
 			// 登録失敗時の処理（エラーメッセージ表示など）
-			request.setAttribute("error", "登録に失敗しました");
+			request.setAttribute("error", "このIDは既に使われています");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Regist.jsp");
 			dispatcher.forward(request, response);
 		}
