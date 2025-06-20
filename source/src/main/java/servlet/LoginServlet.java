@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/EvaluationServlet");
 			}
 		} else {
-			request.setAttribute("errorMsg", "ログイン失敗！IDまたはPWに間違いがあります。");
+			request.setAttribute("errorMsg", "IDまたはPWが違います。");
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
 			dispatcher.forward(request, response);

@@ -35,14 +35,14 @@
 		</div>
 	</form>
 
-
+<p class="errorMsg">${errorMsg}</p>
 
 	<div class="back">
 		<a href="<c:url value='/RegistServlet' />">新規登録はこちらから</a>
 		
 	</div>
 </div>
-<p>${errorMsg}</p>
+
 	<%-- メインここまで --%>
 	<%-- フッター --%>
 	<div></div>
