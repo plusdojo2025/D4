@@ -245,8 +245,7 @@
 	  </span> 
 	  <span class="comment">
 	    <c:out value="${walkComment}" />
-	  </span>
-	  
+	  </span>	  
 	</div>	
 </div>
 <div class="image-box">	
@@ -292,10 +291,12 @@
     </c:forEach>
   ];
 </script>
+<div class="zenjituhi">
 <div class="center">	
 <h2>前日比</h2>
 
 <div class="chart-container">
+<div></div>
   <div class="chart-box">
     <h4>野菜スコア</h4>
     <canvas id="vegetableChart" width="300" height="200"></canvas>
@@ -518,7 +519,7 @@
     }
   });
 </script>
-
+</div>
 
 <script src="<c:url value='/js/calendar.js' />"></script>
 
