@@ -472,12 +472,6 @@
 </script>
 
 <script>
-  createBarChart('vegetableChart', '野菜', vegDiff, 'steelblue');
-  createBarChart('sleepChart', '睡眠', sleepDiff, 'seagreen');
-  createBarChart('walkChart', '運動', walkDiff, 'orange');
-</script>
-
-<script>
   const dataDates = [
     <c:forEach var="date" items="${calendarIcons.keySet()}" varStatus="status">
       '${date}'<c:if test="${!status.last}">,</c:if>
@@ -543,6 +537,4 @@
 </footer>
 <%-- フッターここまで --%>
 </body>
-
-<script src="<c:url value='/js/evaluation.js' />"></script>
 </html>
