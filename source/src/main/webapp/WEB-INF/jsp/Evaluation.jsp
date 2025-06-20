@@ -104,7 +104,7 @@
 <!-- サイドパネル -->
 	
 <%-- メイン --%>
-<img src="/img/stress.png" alt="ストレス画像" class="stressimg">
+<div class="form-wrapper"  id="select-animate">
 <div class="calendar-wrapper">
 <div class="nav-links">
   <a href="EvaluationServlet?year=<%= prev.getYear() %>&month=<%= prev.getMonthValue() %>">＜ 先月</a>
@@ -138,7 +138,7 @@
           Map<String, String> icons = (Map<String, String>)request.getAttribute("calendarIcons");
           if (icons != null && icons.containsKey(dayStr)) {
         %>
-          <img src="<%= icons.get(dayStr) %>" alt="スタンプ" style="width:20px; height:20px;">
+          <img src="<%= icons.get(dayStr) %>" alt="スタンプ" class="stamp-img">
         <%
           }
         %>
@@ -160,8 +160,9 @@
   </tbody>
 </table>
 </div>
-
-
+</div>
+<div class="grid-container">
+<div class="class1">
 	<div class="overall-score">
 	  全体スコア 
 	  <c:forEach var="i" begin="1" end="5">
@@ -175,8 +176,6 @@
     	</c:choose>
 		</c:forEach>
 	</div>
-
-
 	<div class="vegetable">
 	  野菜 ${vegetableRating}点
 	  <c:forEach var="i" begin="1" end="5">
@@ -220,8 +219,9 @@
 	    </c:if>
 	  </span> 
 	  <span class="comment">
-	    <c:out value="${sleepComment}" />
+	    <c:out value="${sleepComment}" />	    
 	  </span>
+	  
 	</div>
 
 
@@ -237,7 +237,7 @@
 		    </c:otherwise>
 	    </c:choose>
 	</c:forEach>
-	
+
 	  <span class="difference">
 	  	<c:if test="${showDiff}">
 	    	前日比: <c:out value="${walkDiff}" />
@@ -246,9 +246,14 @@
 	  <span class="comment">
 	    <c:out value="${walkComment}" />
 	  </span>
-	</div>
+	  
+	</div>	
+</div>
+<div class="image-box">	
+<img src="<c:url value='/img/kasikoiusa.png' />" class="kasikoiusa">
+</div>
 
-
+ <div class="class2">
 	<p>あなたのBMI</p>
 	<p>BMI : <c:out value="${bmiValue}" /></p>
 	<p>標準値の<c:out value="${paValue}" />%</p>
@@ -257,6 +262,8 @@
     		<canvas id="bmiChart"></canvas>
   		</div>
 	</div>
+</div>
+</div>
 	
 	
 	<script>
@@ -285,7 +292,7 @@
     </c:forEach>
   ];
 </script>
-	
+<div class="center">	
 <h2>前日比</h2>
 
 <div class="chart-container">
@@ -517,6 +524,7 @@
 
 
 <script src="<c:url value='/js/calendar.js' />"></script>
+</div>
 </section>
 <%--　TOPボタン --%>
 	<div>
