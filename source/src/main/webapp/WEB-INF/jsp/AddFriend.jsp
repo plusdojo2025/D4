@@ -78,7 +78,7 @@
 <!-- 詳細情報表示 -->
 <!-- ボタンで送るためのフォーム -->
 <form class="friendInfo" method="POST" action="<c:url value='/AddFriendServlet' />" id="friendInfo">
-<!-- 非表示でidを持つ --
+<!-- 非表示でidを持つ -->
 <input type="hidden" name="friendId" value="${user.id}" class="id">
 
 <!-- ユーザーが存在しない場合 -->
@@ -132,8 +132,10 @@
 	<!-- リストに登録されていない場合の処理 -->
 	<c:if test="${hasFriend == false}">
 	<!-- ボタン(戻る/削除の処理) -->
-		<input type="submit" name="submit" value="戻る">
-		<input type="submit" name="submit" value="申請">
+		<div class="friend-buttons">
+			<input type="submit" name="submit" value="戻る">
+			<input type="submit" name="submit" value="申請">
+		</div>
 	</c:if>
 </c:if>
 <!-- 表示制御終わり -->
