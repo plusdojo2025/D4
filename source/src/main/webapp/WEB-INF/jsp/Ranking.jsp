@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ランキング ｜ けんこう日和</title>
+    <title>けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/ranking.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
