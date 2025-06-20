@@ -27,6 +27,12 @@
       				<label for="textbox1">新規ID</label>
       				<input type="text" id="textbox1" name="id">
     			</div>
+    			
+			    <div class="input-group">
+      				<label for="textbox6">ニックネーム</label>
+      				<input type="text" id="textbox6" name="name">
+    			</div>    			
+    			
 			    <div class="input-group">
       				<label for="textbox2">新規パスワード</label>
       				<input type="password" id="textbox2" name="pw">
@@ -43,10 +49,7 @@
       				<label for="textbox5">現在の体重(kg)</label>
       				<input type="text" id="textbox5" name="weight">
     			</div>
-			    <div class="input-group">
-      				<label for="textbox6">ニックネーム</label>
-      				<input type="text" id="textbox6" name="name">
-    			</div>	
+	
 				
 				<div class="button">
 					<input type="submit" class="bt"  id="log" value="登録">
