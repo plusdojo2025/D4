@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>情報登録</title>
+<title>けんこう日和</title>
+<link rel="icon" href="<c:url value ='/img/favicon.ico' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/health.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">

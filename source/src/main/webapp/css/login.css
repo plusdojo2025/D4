@@ -49,7 +49,7 @@ input {
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
 .button{
-	margin-left:50px;
+	text-align:center;
 }
 
 #log{

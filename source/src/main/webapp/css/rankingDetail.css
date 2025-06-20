@@ -5,8 +5,6 @@
 	text-align:center;			/*文字の中央揃え*/
 	max-width:650px;
 	border-radius: 30px; /* 角を丸くする */
-	background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
-  	border: 5px solid #8bdb9f;/*メインカラー*/
   	margin:0 auto;
 }
 
@@ -19,22 +17,28 @@
     display: block;
 }
 .tab {
+	background-color: #fff;
     cursor: pointer;
     display: inline-block;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
+    padding: 5px 50px;
+    border-radius: 30px; /* 角を丸くする */
     margin-right: 4px;
 }
 
-#tab-menu{
-    padding: 10px 20px; /* 内側の余白 */
-  	border: none; /* 枠線を削除 */
-  	border-radius: 30px; /* 角を丸くする */
-  	cursor: pointer; /* ホバー時にポインターを表示 */
-  	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+#tab-menu .tab:hover {
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+    cursor: pointer;          /* カーソルをポインターに */
+    color: #333;              /* テキスト色を少し濃くする */
+    transition: background-color 0.3s, color 0.3s; /* なめらかに変化 */
+}
+
+#tab-menu .tab:action{
+	transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
 canvas {
+	background-color: #fff;
+	border-radius: 30px; /* 角を丸くする */
     max-width: 600px;
     max-height: 400px;
     width: 100%;
@@ -71,3 +75,17 @@ canvas {
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
+#select-animate{
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

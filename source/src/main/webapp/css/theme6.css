@@ -286,3 +286,14 @@ input {
   border: 5px solid #ffbf8e;/*メインカラー*/ 
 }
 /*rankingおわり*/
+
+/*rankingdtail*/
+.user-profile{
+	background-color:#fff1dd ;/*メインカラーより明るく薄い*/
+  	border: 5px solid #ffbf8e;/*メインカラー*/
+}
+
+.tab {
+	border: 2px solid #ffbf8e;
+}
+/*rankingdetailおわり*/
