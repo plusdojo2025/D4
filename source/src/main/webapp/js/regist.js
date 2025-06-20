@@ -20,6 +20,11 @@ document.getElementById('registForm').onsubmit = function(event) {
  		event.preventDefault();
  		return;
 	}
+	if(name === ''){
+		alert('ニックネームが入力されていません');
+ 		event.preventDefault();
+ 		return;
+	}
 	if(pw === ''){
 		alert('パスワードが入力されていません');
  		event.preventDefault();
@@ -40,11 +45,7 @@ document.getElementById('registForm').onsubmit = function(event) {
  		event.preventDefault();
  		return;
 	}
-	if(name === ''){
-		alert('ニックネームが入力されていません');
- 		event.preventDefault();
- 		return;
-	}
+	
 	
 	//文字の種類による制限
 	if(/[^a-zA-Z0-9]/.test(id)){
