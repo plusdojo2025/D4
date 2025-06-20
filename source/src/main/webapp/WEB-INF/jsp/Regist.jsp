@@ -29,11 +29,11 @@
     			</div>
 			    <div class="input-group">
       				<label for="textbox2">新規パスワード</label>
-      				<input type="text" id="textbox2" name="pw">
+      				<input type="password" id="textbox2" name="pw">
     			</div>
 			    <div class="input-group">
       				<label for="textbox3">新規パスワード(確認用)</label>
-      				<input type="text" id="textbox3" name="pw2">
+      				<input type="password" id="textbox3" name="pw2">
     			</div>
 			    <div class="input-group">
       				<label for="textbox4">現在の身長(cm)</label>
@@ -57,7 +57,7 @@
 	<div class="back">
 		<a href="<c:url value='/LoginServlet' />">戻る</a>
 	</div>
-	
+	<p>${error}</p>
 	</div>
 </main>
 <footer>

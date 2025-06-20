@@ -43,7 +43,7 @@ public class RegistServlet extends HttpServlet {
 	    String pw = request.getParameter("pw");
 	    String pw2 = request.getParameter("pw2");
 	    int height = Integer.parseInt(request.getParameter("height"));
-	    int weight = Integer.parseInt(request.getParameter("weight"));
+	    double weight = Double.parseDouble(request.getParameter("weight"));
 	    String name = request.getParameter("name");
 	    
 	    HttpSession session = request.getSession();
@@ -64,12 +64,12 @@ public class RegistServlet extends HttpServlet {
 		if(bDao.insert(new Users(id, pw, height,name))) {
 			// 登録成功ならログイン画面などにリダイレクト	
 			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-			System.out.println("登録成功");
+			
 		} else {
 			// 登録失敗時の処理（エラーメッセージ表示など）
 			request.setAttribute("error", "登録に失敗しました");
-			request.getRequestDispatcher("/Regist.jsp").forward(request, response);
-			System.out.println("登録失敗");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Regist.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 }
