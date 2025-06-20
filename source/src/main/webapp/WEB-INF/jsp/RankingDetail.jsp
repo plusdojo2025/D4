@@ -87,7 +87,7 @@
 </aside>
 <!-- サイドパネル -->
 
-<div class="user-profile">
+<div class="user-profile" id="select-animate">
 	<h2><%= friend.getName() %>さんのユーザー情報</h2>
 	<img src="<c:url value='/img/${frienddata.icon}' />" alt="アイコン">
 	<p>ID: <%= friend.getId() %></p>

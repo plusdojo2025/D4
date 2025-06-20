@@ -75,3 +75,17 @@ canvas {
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }
 
+#select-animate{
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* アニメーション定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
