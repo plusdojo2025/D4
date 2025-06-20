@@ -272,7 +272,7 @@ public class EvaluationServlet extends HttpServlet {
         if (score == 5) {
             return "完璧!! 維持していこう!!";
         } else if (score == 4) {
-            return "いい感じ!! このまま☆5を目指ろう!!";
+            return "いい感じ!! このまま☆5を目指そう!!";
         } else if (score == 3) {
             return "もう少し頑張ろう!!";
         } else if (score <= 2) {
