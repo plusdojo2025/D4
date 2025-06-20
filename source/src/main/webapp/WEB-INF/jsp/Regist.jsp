@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>新規ユーザー登録 | けんこう日和</title>
+<title>けんこう日和</title>
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/regist.css' />">
 </head>
 <body>

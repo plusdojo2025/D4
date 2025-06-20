@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ユーザー編集 | けんこう日和</title>
+<title>けんこう日和</title>
 
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/userOption.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
