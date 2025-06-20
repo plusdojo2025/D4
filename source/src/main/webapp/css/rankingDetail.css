@@ -5,8 +5,6 @@
 	text-align:center;			/*文字の中央揃え*/
 	max-width:650px;
 	border-radius: 30px; /* 角を丸くする */
-	background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
-  	border: 5px solid #8bdb9f;/*メインカラー*/
   	margin:0 auto;
 }
 
@@ -24,7 +22,6 @@
     display: inline-block;
     padding: 5px 50px;
     border-radius: 30px; /* 角を丸くする */
-    border: 2px solid #ccc;
     margin-right: 4px;
 }
 
