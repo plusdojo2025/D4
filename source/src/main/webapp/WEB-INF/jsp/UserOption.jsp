@@ -90,7 +90,7 @@
 		      <label>アイコン</label><br>
 		      <img id="Icon" src="<c:url value='/img/${userInfo.icon}' />" alt="アイコン" class="selectable-image" onclick="openPopup('iconPopup')">
 		      <input type="hidden" name="icon" id="IconId" value="${userInfo.icon}">
-		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコンを選択</button>
+		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコン選択</button>
 		    </div>
 			<div class="input-group">
 		      <label for="textbox1">ニックネーム</label>
@@ -113,7 +113,7 @@
 		  		<label>テーマ</label><br>
 		  		<span id="Theme">${userInfo.theme}</span>
 		  		<input type="hidden" name="theme" id="ThemeName" value="${userInfo.theme}">
-		  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマを選択</button>
+		  		<button type="button" class="Themebutton" onclick="openPopup('themePopup')">テーマ選択</button>
 		  	</div>		
 		    
 		    <!-- 現在のパスワード（サーバーから渡される値） -->
