@@ -103,6 +103,7 @@
 <!-- サイドパネル -->
 	
 <%-- メイン --%>
+<img src="/img/stress.png" alt="ストレス画像" class="stressimg">
 <div class="calendar-wrapper">
 <div class="nav-links">
   <a href="EvaluationServlet?year=<%= prev.getYear() %>&month=<%= prev.getMonthValue() %>">＜ 先月</a>
