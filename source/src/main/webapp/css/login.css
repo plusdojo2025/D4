@@ -48,6 +48,11 @@ input {
       	border-radius: 15px; /* 角を丸くする */
       	border: 2px solid #d2f8d8 ; /*テキストボックス枠線の色*/
 }
+
+.errorMsg{
+	
+}
+
 .button{
 	text-align:center;
 }
