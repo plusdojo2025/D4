@@ -109,7 +109,7 @@ document.getElementById('UserInfo').onsubmit = function(event) {
  		event.preventDefault();
  		return;
 	}
-	else if(height < 1000){
+	else if(height > 999){
 		alert('身長に入力した数値を確認してください');
  		event.preventDefault();
  		return;
