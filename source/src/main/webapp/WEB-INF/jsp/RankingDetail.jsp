@@ -101,7 +101,7 @@
 	<!-- タブメニュー -->
 	<div id="tab-menu">
 	    <div class="tab active" data-tab="average">平均</div>
-	    <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">食事</div>
+	    <div class="tab" data-tab="food" data-disabled="${frienddata.vPrivate == 1 ? '1' : '0'}">野菜</div>
 	    <div class="tab" data-tab="sleep" data-disabled="${frienddata.sPrivate == 1 ? '1' : '0'}">睡眠</div>
 	    <div class="tab" data-tab="walk" data-disabled="${frienddata.wPrivate == 1 ? '1' : '0'}">運動</div>
 	</div>
@@ -115,7 +115,7 @@
 	</div>
 	
 	<div class="tab-content" id="tab-food">
-	    <h3>食事</h3>
+	    <h3>野菜</h3>
 	    <canvas id="chart-food"></canvas>
 	</div>
 	
