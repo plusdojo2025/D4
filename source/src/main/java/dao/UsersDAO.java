@@ -118,16 +118,6 @@ public class UsersDAO {
 					+ "AS streak_group, @prev_date := login_date FROM "
 					+ "(SELECT id AS user_id, date AS login_date FROM healthList WHERE id = ? ORDER BY login_date)"
 					+ " AS ordered";
-
-			//最長連続ログイン日数の算出
-			String mLogSql = "SELECT user_id, COUNT(*) AS longest_streak_days "
-					+ "FROM (SELECT user_id, login_date, "
-					+ "@sg := IF(DATEDIFF(login_date, @pd) = 1, @sg, @sg + 1) "
-					+ "AS streak_group, @pd := login_date FROM (SELECT id AS user_id, date "
-					+ "AS login_date FROM healthList WHERE id = ? ORDER BY login_date) AS t1, "
-					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
-					+ "streaks GROUP BY user_id, streak_group ORDER BY COUNT(*) "
-					+ "DESC, MAX(login_date) DESC LIMIT 1";
 			
 			//最新連続ログイン日数の算出
 			String nLogSql = "SELECT user_id, COUNT(*) AS latest_streak_days "
@@ -138,6 +128,9 @@ public class UsersDAO {
 					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
 					+ "streaks GROUP BY user_id, streak_group ORDER BY MAX(login_date) "
 					+ "DESC LIMIT 1";
+			
+			//合計ログイン日数の算出
+			String mLogSql = "SELECT COUNT(*) AS count FROM healthList WHERE id = ? ";
 			
 
 			//SQL文を完成
@@ -166,7 +159,7 @@ public class UsersDAO {
 				 int nLogin = 0;
 
 				 if (mrs.next()) {
-					 mLogin = mrs.getInt("longest_streak_days");
+					 mLogin = mrs.getInt("count");
 					 if (mrs.wasNull()) mLogin = 0;
 				 }
 

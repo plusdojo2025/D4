@@ -121,7 +121,7 @@ document.getElementById('UserInfo').onsubmit = function(event) {
  		event.preventDefault();
  		return;
 	}
-	if(name.length() >20){
+	if(name.length > 20){
 		alert('ニックネームは20文字までです');
  		event.preventDefault();
  		return;

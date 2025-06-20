@@ -93,17 +93,17 @@
 		      <button type="button" class="Iconbutton" onclick="openPopup('iconPopup')">アイコン選択</button>
 		    </div>
 			<div class="input-group">
-		      <label for="textbox1">ニックネーム</label>
+		      <label for="textbox5">ニックネーム</label>
 		      <input type="text" name="name" value="${userInfo.name}" id="textbox5">
 		    </div>
 		
 		    <div class="input-group">
-		      <label for="textbox2">現在の身長(cm)</label>
+		      <label for="textbox4">現在の身長(cm)</label>
 		      <input type="text" name="height" value="${userInfo.height}"  id="textbox4">
 		    </div>
 		    
 		    <div class="input-group">
-		      <label for="textbox3">ID</label>
+		      <label for="textbox1">ID</label>
 		      ${userInfo.id}
 		      <input type="hidden" name="myId" value="${userInfo.id}" class="textbox1" id="textbox1">
 		    </div>
@@ -120,12 +120,12 @@
 			<input type="hidden" name="pw" id="pw" value="${userInfo.pw}">
 		
 		    <div class="input-group">
-		      <label for="textbox4">新規パスワード</label>
+		      <label for="textbox2">新規パスワード</label>
 		      <input type="password" name="newPw" id="textbox2">
 		    </div>
 		
 		    <div class="input-group">
-		      <label for="textbox5">新規パスワード(確認用)</label>
+		      <label for="textbox3">新規パスワード(確認用)</label>
 		      <input type="password" name="checkPw" id="textbox3">
 		    </div>
 		

@@ -12,7 +12,7 @@ public class Users implements Serializable{
 	private int vPrivate; 	/*野菜情報の公開設定*/
 	private int sPrivate; 	/*睡眠情報の公開設定*/
 	private int wPrivate; 	/*運動情報の公開設定*/
-	private int mLogin;     /*最長連続ログイン日数*/
+	private int mLogin;     /*合計ログイン日数*/
 	private int nLogin;     /*最新連続ログイン日数*/
 	
 	public String getId() {
