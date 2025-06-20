@@ -89,7 +89,7 @@
 	
 		<c:forEach var="icon" items="${iconList}"> 
 			<c:if test="${icon.days==i}"> 
-			<img src="<c:url value='/img/${icon.path}' />" alt="報酬画像">
+			<img src="<c:url value='/img/${icon.path}' />" alt="報酬画像"class="reward-img">
 			</c:if>
 		
 		</c:forEach>
