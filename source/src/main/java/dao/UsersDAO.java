@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import dto.Users;
 
@@ -108,37 +109,16 @@ public class UsersDAO {
 					+ "FROM users u LEFT JOIN themeList t ON u.theme = t.id "
 					+ "LEFT JOIN iconList i ON u.icon = i.id WHERE u.id = ? ";
 			
-			//ユーザー変数を用いて連続ログイン日数を算出
-			
-			//ユーザー変数の初期化
-			String resetSql = "SET @prev_date := NULL, @streak_group := 0, @pd := NULL, @sg := 0";
-			//対象となるデータの切り出し
-			String cutSql = "SELECT user_id, login_date, @streak_group := "
-					+ "IF(DATEDIFF(login_date, @prev_date) = 1, @streak_group, @streak_group + 1) "
-					+ "AS streak_group, @prev_date := login_date FROM "
-					+ "(SELECT id AS user_id, date AS login_date FROM healthList WHERE id = ? ORDER BY login_date)"
-					+ " AS ordered";
-			
-			//最新連続ログイン日数の算出
-			String nLogSql = "SELECT user_id, COUNT(*) AS latest_streak_days "
-					+ "FROM (SELECT user_id, login_date, "
-					+ "@sg := IF(DATEDIFF(login_date, @pd) = 1, @sg, @sg + 1) "
-					+ "AS streak_group, @pd := login_date FROM (SELECT id AS user_id, date "
-					+ "AS login_date FROM healthList WHERE id = ? ORDER BY login_date) AS t1, "
-					+ "(SELECT @pd := NULL, @sg := 0) AS vars) AS "
-					+ "streaks GROUP BY user_id, streak_group ORDER BY MAX(login_date) "
-					+ "DESC LIMIT 1";
-			
 			//合計ログイン日数の算出
 			String mLogSql = "SELECT COUNT(*) AS count FROM healthList WHERE id = ? ";
+			
+			//ログイン記録を降順で(最新のものから)取得
+			String nLogSql = "SELECT date FROM healthList WHERE id = ? ORDER BY date DESC";
 			
 
 			//SQL文を完成
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, id);
-			PreparedStatement resetStmt = conn.prepareStatement(resetSql);
-			PreparedStatement cutStmt = conn.prepareStatement(cutSql);
-			cutStmt.setString(1, id);
 			PreparedStatement mlStmt = conn.prepareStatement(mLogSql);
 			mlStmt.setString(1, id);
 			PreparedStatement nlStmt = conn.prepareStatement(nLogSql);
@@ -146,8 +126,6 @@ public class UsersDAO {
 			
 			// SELECT文を実行し、結果表を取得する
 			ResultSet prs = pStmt.executeQuery();
-			resetStmt.executeQuery();
-			cutStmt.executeQuery();
 			ResultSet mrs = mlStmt.executeQuery();
 			ResultSet nrs = nlStmt.executeQuery();
 
@@ -163,10 +141,23 @@ public class UsersDAO {
 					 if (mrs.wasNull()) mLogin = 0;
 				 }
 
-				 if (nrs.next()) {
-					 nLogin = nrs.getInt("latest_streak_days");
-					 if (nrs.wasNull()) nLogin = 0;
-				 }
+				//最新の連続ログインを取得
+				LocalDate today = LocalDate.now();
+				LocalDate expectedDate = today;
+				//System.out.println("today:"+today);
+				while (nrs.next()) {
+				    LocalDate loginDate = nrs.getDate("date").toLocalDate();
+				    //System.out.println("loginDate:"+loginDate);
+				    if (loginDate.equals(expectedDate)) {
+				    	//System.out.println("o");
+				    	nLogin++;
+				    	expectedDate = expectedDate.minusDays(1);
+				    	//System.out.println("expectedDate:"+expectedDate);
+				    } else {
+				    	//System.out.println("x");
+				    	break;
+				    }
+				}
 			    
 				 user = new Users(
 						 prs.getString("id"), 
