@@ -248,7 +248,13 @@
 
 
 	<p>あなたのBMI</p>
-	<p>BMI : <c:out value="${bmi}" /> </p>
+	<p>BMI : <c:out value="${bmiValue}" /></p>
+	<p>標準値の<c:out value="${paValue}" />%</p>
+	<div class="chart-container">
+  		<div class="chart-box">
+    		<canvas id="bmiChart"></canvas>
+  		</div>
+	</div>
 	
 	
 	<script>
@@ -469,6 +475,41 @@
     </c:forEach>
   ];
 </script>
+
+<script>
+  const ctxBMI = document.getElementById('bmiChart').getContext('2d');
+  new Chart(ctxBMI, {
+    type: 'bar',
+    data: {
+      labels: ['標準BMI', 'あなたのBMI'],
+      datasets: [{
+        label: 'BMI比較',
+        data: [22, parseFloat('${bmiValue}')],  
+        backgroundColor: ['#aaa', '#4CAF50']
+      }]
+    },
+    options: {
+      indexAxis: 'y',  
+      responsive: true,
+      scales: {
+        x: {
+          beginAtZero: true,
+          suggestedMax: 30,
+          title: {
+            display: true,
+            text: 'BMI'
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      }
+    }
+  });
+</script>
+
 
 <script src="<c:url value='/js/calendar.js' />"></script>
 

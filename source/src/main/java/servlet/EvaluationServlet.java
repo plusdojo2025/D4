@@ -157,6 +157,9 @@ public class EvaluationServlet extends HttpServlet {
         double weight = todayData.getWeight();
         double heightInMeters = height / 100.0;
         double bmi = weight / (heightInMeters * heightInMeters);
+        double bmipa = bmi / 22 * 100;
+        String bmiFormatted = String.format("%.2f", bmi); 
+        String paFormatted = String.format("%.1f", bmipa);
         
         
      // グラフ表示用データ
@@ -217,7 +220,8 @@ public class EvaluationServlet extends HttpServlet {
         request.setAttribute("dayLabelList", dayLabelList);
 
 
-        request.setAttribute("bmi", String.format("%.2f", bmi));
+        request.setAttribute("bmiValue", bmiFormatted);
+        request.setAttribute("paValue", paFormatted);
         request.setAttribute("vegetableRating", vegetableRatingToday);
         request.setAttribute("sleepRating", sleepRatingToday);
         request.setAttribute("walkRating", walkRatingToday);
