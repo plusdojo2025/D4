@@ -53,12 +53,12 @@ document.getElementById('registForm').onsubmit = function(event) {
  		event.preventDefault();
  		return;
 	}
-	if(/[^a-zA-Z0-9]/.test(pw)){
+	if(/[^a-zA-Z0-9!-/:-@#]/.test(pw)){
 		alert('パスワードには英数字以外入力できません');
  		event.preventDefault();
  		return;
 	}
-	if(/[^a-zA-Z0-9]/.test(pw2)){
+	if(/[^a-zA-Z0-9!-/:-@#]/.test(pw2)){
 		alert('確認用パスワードには英数字以外入力できません');
  		event.preventDefault();
  		return;
