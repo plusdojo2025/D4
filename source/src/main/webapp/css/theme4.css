@@ -314,20 +314,20 @@ table.calendar th {
 }
 .nav-links {
   background-color: #ffeadd;  /* 優しい */
-  box-shadow: 0 4px 8px rgba(245, 222, 179, 0.15);
+  box-shadow: 0 4px 8px rgba(93, 64, 55, 0.15);
 
 }
 .nav-links a {
   background-color: #ead7a4;/*メインカラーより透明感がある*/
-  box-shadow: 0 2px 5px rgba(245, 222, 179, 0.3);
+  box-shadow: 0 2px 5px rgba(93, 64, 55, 0.3);
 }
 .nav-links a:hover {
   background-color: #bfa885;/*メインカラーより若干暗め*/
-  box-shadow: 0 4px 12px rgba(245, 222, 179, 0.6);
+  box-shadow: 0 4px 12px rgba(93, 64, 55, 0.6);
 }
 .nav-links span {
   background-color: #ffeadd;/* 優しい */
-   box-shadow: inset 0 0 5px rgba(245, 222, 179, 0.15);
+   box-shadow: inset 0 0 5px rgba(93, 64, 55, 0.15);
 }
 .zenjituhi{
   background-color:#f9f3ea ;/*メインカラーより明るく薄い*/
