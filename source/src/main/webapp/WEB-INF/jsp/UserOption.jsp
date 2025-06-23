@@ -8,7 +8,7 @@
 <link rel="icon" href="<c:url value ='/img/favicon.ico' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/userOption.css' />">
 <link rel="stylesheet" type="text/css" href="<c:url value ='/css/common.css' />">
-<link rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
+<link id="theme-css" rel="stylesheet" type="text/css" href="<c:url value ='/css/${sessionScope.users.theme}.css' />">
 </head>
 <body>
 
