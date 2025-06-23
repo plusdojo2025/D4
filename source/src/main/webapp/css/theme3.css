@@ -285,7 +285,6 @@ input {
 }
 /*rankingおわり*/
 
-/*rankingdtail*/
 .user-profile{
 	background-color:#ffe5e9 ;/*メインカラーより明るく薄い*/
   	border: 5px solid #f9b6c6;/*メインカラー*/
@@ -295,3 +294,42 @@ input {
 	border: 2px solid #f9b6c6;
 }
 /*rankingdetailおわり*/
+/*evaluation*/
+table.calendar th, table.calendar td {
+  border: 1px solid #000000;
+}
+table.calendar th {
+  background-color: #ffc6e1;/*メインカラーより透明感がある*/
+}
+.calendar th, .calendar td {
+  border: 1px solid #000000;
+}
+.comment {
+  background: #ffc6e1;/*メインカラーより透明感がある*/
+  color: #333;
+}
+.class1, .class2 {
+  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #f9b6c6;/*メインカラー*/
+}
+.nav-links {
+  background-color: #fce4ec;  /* 優しい */
+  box-shadow: 0 4px 8px rgba(255, 182, 193, 0.4);
+}
+.nav-links a {
+  background-color: #ffc6e1;/*メインカラーより透明感がある*/
+   box-shadow: 0 2px 5px rgba(173, 20, 87, 0.3);
+}
+.nav-links a:hover {
+  background-color: #ef9bc2;/*メインカラーより若干暗め*/
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.6);
+}
+.nav-links span {
+  background-color: #fce4ec;/* 優しい */
+  box-shadow: inset 0 0 5px rgba(136, 14, 79, 0.15);
+}
+.zenjituhi{
+  background-color:#ffe5e9;/*メインカラーより明るく薄い*/
+  border: 5px solid #f9b6c6;/*メインカラー*/
+}
+/*evaluationおわり*/

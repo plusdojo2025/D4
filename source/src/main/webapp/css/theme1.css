@@ -276,14 +276,14 @@ input {
 /*ranking*/
 /*ランキングの枠(切り取って各テーマに貼り付け)*/
 .rankinglist{ 
-  background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
   border: 5px solid #8bdb9f;/*メインカラー*/
 }
 /*rankingおわり*/
 
 /*rankingdtail*/
 .user-profile{
-	background-color:#d2f8d8 ;/*メインカラーより明るく薄い*/
+	background-color:#d2f8d8;/*メインカラーより明るく薄い*/
   	border: 5px solid #8bdb9f;/*メインカラー*/
 }
 
@@ -291,4 +291,55 @@ input {
 	border: 2px solid #8bdb9f;
 }
 /*rankingdetailおわり*/
+/*rankingおわり*/
 
+.user-profile{
+	background-color:#d2f8d8;/*メインカラーより明るく薄い*/
+  	border: 5px solid #f9b6c6;/*メインカラー*/
+}
+
+.tab {
+	border: 2px solid #f9b6c6;
+}
+/*rankingdetailおわり*/
+/*evaluation*/
+table.calendar th, table.calendar td {
+  border: 1px solid #000000;
+}
+table.calendar th {
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+}
+.calendar th, .calendar td {
+  border: 1px solid #000000;
+}
+.comment {
+  background: #a6e9c2;/*メインカラーより透明感がある*/
+  color: #333;
+}
+.class1, .class2 {
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
+}
+.nav-links {
+  background-color: #e8ffef;  /* 優しい */
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.15);
+
+}
+.nav-links a {
+  background-color: #a6e9c2;/*メインカラーより透明感がある*/
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+.nav-links a:hover {
+  background-color: #8fdab0;/*メインカラーより若干暗め*/
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.6);
+}
+.nav-links span {
+  background-color: #e8ffef;/* 優しい */
+   box-shadow: inset 0 0 5px rgba(76, 175, 80, 0.15);
+}
+.zenjituhi{
+  background-color:#d2f8d8;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bdb9f;/*メインカラー*/
+}
+/*
+/*evaluationおわり*/

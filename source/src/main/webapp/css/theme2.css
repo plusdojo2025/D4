@@ -291,3 +291,43 @@ input {
 	border: 2px solid #8bd0db;
 }
 /*rankingdetailおわり*/
+/*evaluation*/
+table.calendar th, table.calendar td {
+  border: 1px solid #000000;
+}
+table.calendar th {
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
+}
+.calendar th, .calendar td {
+  border: 1px solid #000000;
+}
+.comment {
+  background: #94e5e8;/*メインカラーより透明感がある*/
+  color: #333;
+}
+.class1, .class2 {
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db;/*メインカラー*/
+}
+.nav-links {
+  background-color: #e8f6ff;  /* 優しい */
+  box-shadow: 0 4px 8px rgba(129, 212, 250, 0.15);
+
+}
+.nav-links a {
+  background-color: #94e5e8;/*メインカラーより透明感がある*/
+  box-shadow: 0 2px 5px rgba(129, 212, 250, 0.3);
+}
+.nav-links a:hover {
+  background-color: #6fc5db;/*メインカラーより若干暗め*/
+  box-shadow: 0 4px 12px rgba(129, 212, 250, 0.6);
+}
+.nav-links span {
+  background-color: #e8f6ff;/* 優しい */
+   box-shadow: inset 0 0 5px rgba(129, 212, 250, 0.15);
+}
+.zenjituhi{
+  background-color:#ebf6f7;/*メインカラーより明るく薄い*/
+  border: 5px solid #8bd0db;/*メインカラー*/
+}
+/*evaluationおわり*/
