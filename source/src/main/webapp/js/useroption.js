@@ -56,6 +56,20 @@ function selectIcon(id, path) {
 function selectTheme(name) {
   document.getElementById('ThemeName').value = name;
   document.getElementById('Theme').textContent = name;
+  
+  const link = document.getElementById("theme-css");
+  // 現在のCSSファイル名を取得
+  const currentHref = link.getAttribute("href");
+  
+  // 例えば "/d4/x.css" → "x.css" を取得
+  const currentFile = currentHref.split("/").pop();
+
+  // 新しいテーマファイル名を決定
+  const newFile = document.getElementById('ThemeName').value + ".css";
+
+  // 同じディレクトリの新しいCSSに切り替え
+  const newHref = currentHref.replace(currentFile, newFile);
+  link.setAttribute("href", newHref);
   closePopup('themePopup');
 }
 

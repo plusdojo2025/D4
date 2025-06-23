@@ -297,3 +297,52 @@ input {
 	border: 2px solid #ffbf8e;
 }
 /*rankingdetailおわり*/
+/*evaluation*/
+table.calendar th, table.calendar td {
+  border: 1px solid #000000;
+}
+table.calendar th {
+  background-color: #ffe1b2;/*メインカラーより透明感がある*/
+}
+.calendar th, .calendar td {
+  border: 1px solid #000000;
+}
+.comment {
+  background: #ffe1b2;/*メインカラーより透明感がある*/
+  color: #333;
+}
+.class1, .class2 {
+  background-color:#fff1dd ;/*メインカラーより明るく薄い*/
+  border: 5px solid #ffbf8e;/*メインカラー*/
+}
+.nav-links {
+  background-color: #fffadd;  /* 優しい */
+  box-shadow: 0 4px 8px rgba(255, 87, 34, 0.15);
+
+}
+.nav-links a {
+  background-color: #ffe1b2;/*メインカラーより透明感がある*/
+  box-shadow: 0 2px 5px rgba(255, 87, 34, 0.3);
+}
+.nav-links a:hover {
+  background-color: #ffb672;/*メインカラーより若干暗め*/
+  box-shadow: 0 4px 12px rgba(255, 87, 34, 0.6);
+}
+.nav-links span {
+  background-color: #fffadd;/* 優しい */
+   box-shadow: inset 0 0 5px rgba(255, 87, 34, 0.15);
+}
+.zenjituhi{
+  background-color:#fff1dd ;/*メインカラーより明るく薄い*/
+  border: 5px solid #ffbf8e;/*メインカラー*/
+}
+.character-set1 {
+  height: 150px;
+  width: 150px;
+  background-image: url("../img/kasikoiusa.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/*evaluationおわり*/
