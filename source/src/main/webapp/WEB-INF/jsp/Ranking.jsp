@@ -100,7 +100,7 @@
         %>
         <tr>
             <td><%= r.getRank() %></td>
-            <td><%= isMyself ? r.getName() + "（あなた）" : r.getName() %></td>
+            <td><%= isMyself ? "<span class='myself-name'>" + r.getName() + "（あなた）</span>" : r.getName() %></td>
             <td>スコア：<%= String.format("%.2f", r.getScore()) %></td>
             <td>
                 <% if (!isMyself) { %>
