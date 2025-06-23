@@ -15,7 +15,8 @@ import dao.RankingDAO;
 import dao.UsersDAO;
 import dto.Friend;
 import dto.Ranking;
-import dto.Users; // ★追記
+import dto.Result;
+import dto.Users;
 
 @WebServlet("/RankingServlet")
 public class RankingServlet extends HttpServlet {
@@ -67,8 +68,12 @@ public class RankingServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.setContentType("text/html; charset=UTF-8");
-            response.getWriter().println("<h2>フレンドを追加してください！</h2>");
+
+            Result result = new Result("フレンドを追加してください。", request.getContextPath() + "/FriendListServlet");
+
+            request.setAttribute("redirect", result);
+
+            request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp").forward(request, response);
         }
     }
 
