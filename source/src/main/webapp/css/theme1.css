@@ -295,11 +295,11 @@ input {
 
 .user-profile{
 	background-color:#d2f8d8;/*メインカラーより明るく薄い*/
-  	border: 5px solid #f9b6c6;/*メインカラー*/
+  	border: 5px solid #8bdb9f;/*メインカラー*/
 }
 
 .tab {
-	border: 2px solid #f9b6c6;
+	border: 2px solid #8bdb9f;/*メインカラー*/
 }
 /*rankingdetailおわり*/
 /*evaluation*/
