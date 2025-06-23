@@ -30,7 +30,7 @@ public class EvaluationServlet extends HttpServlet {
         Users user = (Users) session.getAttribute("users");
 
         if (user == null) {
-            response.sendRedirect("/D4/LoginServlet");
+            response.sendRedirect("/d4/LoginServlet");
             return;
         }
 
@@ -93,7 +93,7 @@ public class EvaluationServlet extends HttpServlet {
         
      // 今日の情報が登録がされてなかったら HealthServlet にリダイレクト
         if (todayData == null) {
-            response.sendRedirect("/D4/HealthServlet?date=" + displayDateStr);
+            response.sendRedirect("/d4/HealthServlet?date=" + displayDateStr);
             return;
         }
         
@@ -283,9 +283,9 @@ public class EvaluationServlet extends HttpServlet {
     }
     
     private String iconForStress(int stress) { 
-        if (stress == 1) return "/D4/img/Nico_colorH.png";		//ストレス値画像パス
-        if (stress == 2) return "/D4/img/Nico_colorM.png";		//ストレス値画像パス
-        if (stress == 3) return "/D4/img/Nico_colorL.png";		//ストレス値画像パス
+        if (stress == 1) return "/d4/img/Nico_colorH.png";		//ストレス値画像パス
+        if (stress == 2) return "/d4/img/Nico_colorM.png";		//ストレス値画像パス
+        if (stress == 3) return "/d4/img/Nico_colorL.png";		//ストレス値画像パス
 
         return "/images/stamp_default.png";		//適当な画像のパス (基本表示されない)
     }
