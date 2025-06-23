@@ -164,9 +164,9 @@ public class EvaluationServlet extends HttpServlet {
         
      // グラフ表示用データ
         LocalDate weekAgoDate = todayDate.minusDays(6);
-        String weekAgo = weekAgoDate.toString();
+        LocalDate beforeWeekAgoDate = weekAgoDate.minusDays(1);
 
-        List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), weekAgo, todayDate.toString());
+        List<Health> recentHealthList = healthDao.selectByRecentDays(user.getId(), beforeWeekAgoDate.toString(), todayDate.toString());
         request.setAttribute("recentHealthList", recentHealthList);
 
         Map<String, Health> healthMap = new HashMap<>();
@@ -283,9 +283,9 @@ public class EvaluationServlet extends HttpServlet {
     }
     
     private String iconForStress(int stress) { 
-        if (stress == 1) return "/d4/img/Nico_colorH.png";		//ストレス値画像パス
-        if (stress == 2) return "/d4/img/Nico_colorM.png";		//ストレス値画像パス
-        if (stress == 3) return "/d4/img/Nico_colorL.png";		//ストレス値画像パス
+        if (stress == 1) return "/D4/img/Nico_colorH.png";		//ストレス値画像パス
+        if (stress == 2) return "/D4/img/Nico_colorM.png";		//ストレス値画像パス
+        if (stress == 3) return "/D4/img/Nico_colorL.png";		//ストレス値画像パス
 
         return "/images/stamp_default.png";		//適当な画像のパス (基本表示されない)
     }
