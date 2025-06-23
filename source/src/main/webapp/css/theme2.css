@@ -330,4 +330,13 @@ table.calendar th {
   background-color:#ebf6f7;/*メインカラーより明るく薄い*/
   border: 5px solid #8bd0db;/*メインカラー*/
 }
+/* キャラクター配置 */
+.character-set1 {
+  height: 150px;
+  width: 150px;
+  background-image: url("../img/dragondef.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
 /*evaluationおわり*/

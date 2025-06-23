@@ -332,4 +332,12 @@ table.calendar th {
   background-color:#ffe5e9;/*メインカラーより明るく薄い*/
   border: 5px solid #f9b6c6;/*メインカラー*/
 }
+.character-set1 {
+  height: 150px;
+  width: 150px;
+  background-image: url("../img/kasikoiusa.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
 /*evaluationおわり*/

@@ -248,9 +248,7 @@
 	  </span>	  
 	</div>	
 </div>
-<div class="image-box">	
-<img src="<c:url value='/img/kasikoiusa.png' />" class="kasikoiusa">
-</div>
+<div class="character-set1"></div>
 
  <div class="class2">
 	<p>あなたのBMI</p>

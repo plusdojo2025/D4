@@ -144,8 +144,15 @@ padding: 0;
   gap: 20px;
   align-items: center;
   margin: 20px 0;
+  justify-items: center; /* 各セル内の水平方向の中央揃え */
 }
-
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr; /* 左右が2倍、中央が半分の幅 */
+  gap: 20px;
+  align-items: center;
+  margin: 20px 0;
+}
 .class1, .class2 {
  /* background-color:#ffe5e9;/*メインカラーより明るく薄い*/
   padding: 15px;
@@ -153,18 +160,19 @@ padding: 0;
   text-align: center;
   border-radius: 30px; /* 角を丸くする */
   font-size: 16px;
+  width: 100%; 
  /* border: 5px solid #f9b6c6;/*メインカラー*/
 }
 
-.image-box img {
+/*.image-box img {
   width: 100%;   /* 画像は中央カラム幅いっぱい */
-  max-width: 100px;  /* 必要なら最大幅も指定 */
-  height: auto;
+  /*max-width: 100px;  /* 必要なら最大幅も指定 */
+ /* height: auto;
   display: block;
   border-radius: 10px;
   object-fit: contain;
   margin: 0 auto;
-}
+}*/
 .center{
 	text-align: center;
 }
