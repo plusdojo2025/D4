@@ -68,7 +68,7 @@ public class RankingServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             response.setContentType("text/html; charset=UTF-8");
-            response.getWriter().println("<h2>ランキングの取得に失敗しました。</h2>");
+            response.getWriter().println("<h2>フレンドを追加してください！</h2>");
         }
     }
 

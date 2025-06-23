@@ -129,6 +129,12 @@ document.getElementById('UserInfo').onsubmit = function(event) {
  		return;
 	}
 	
+	else if(height < 50){
+		alert('身長に入力した数値を確認してください');
+ 		event.preventDefault();
+ 		return;
+	}
+	
 	//入力制限(名前)
 	if(name === ''){
 		alert('ニックネームを設定してください');

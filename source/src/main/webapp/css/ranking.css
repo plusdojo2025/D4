@@ -76,7 +76,6 @@ td{
   font-weight: bold;
 }
 
-
 .bt:active {
   transform: scale(0.98); /* クリック時の軽い縮小効果 */
 }

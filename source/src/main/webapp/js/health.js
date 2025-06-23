@@ -38,6 +38,17 @@
 		event.preventDefault();
  		return false;
      } 
+     
+     if (parseFloat(weight) <= 0) {
+	  alert("体重は正の数で入力してください");
+	  event.preventDefault();
+	  return;
+	}
+	if (parseFloat(weight) >= 999) {
+	  alert("体重に入力した値を確認してください");
+	  event.preventDefault();
+	  return;
+	}
    
    
 	 //歩数と体重　未入力の場合の処理
