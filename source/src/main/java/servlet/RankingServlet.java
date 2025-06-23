@@ -69,7 +69,7 @@ public class RankingServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
 
-            Result result = new Result("フレンド追加か情報登録してください。", request.getContextPath() + "/FriendListServlet");
+            Result result = new Result("情報登録かフレンド追加してください。", request.getContextPath() + "/FriendListServlet");
 
             request.setAttribute("redirect", result);
 
