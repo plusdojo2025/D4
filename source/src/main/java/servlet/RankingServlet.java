@@ -144,16 +144,18 @@ public class RankingServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/jsp/RankingDetail.jsp").forward(request, response);
             } else {
                 //System.out.println("必要なデータが不足している");
-                response.setContentType("text/html; charset=UTF-8");
-                response.getWriter().println("<h2>ユーザー情報が見つかりません。</h2>");
-                return;
+            	Result result = new Result("ユーザー情報が見つかりません。", request.getContextPath() + "/RankingServlet");
+            	request.setAttribute("redirect", result);
+            	request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp").forward(request, response);
+            	return;
             }
 
         } catch (Exception e) {
             //System.out.println("doPost内で例外");
             e.printStackTrace();
-            response.setContentType("text/html; charset=UTF-8");
-            response.getWriter().println("<h2>詳細表示中にエラーが発生しました。</h2>");
+            Result result = new Result("詳細表示中にエラーが発生しました。", request.getContextPath() + "/RankingServlet");
+            request.setAttribute("redirect", result);
+            request.getRequestDispatcher("/WEB-INF/jsp/Redirect.jsp").forward(request, response);
         }
     }
 }
