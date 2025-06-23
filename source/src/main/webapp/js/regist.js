@@ -80,8 +80,19 @@ document.getElementById('registForm').onsubmit = function(event) {
 	  event.preventDefault();
 	  return;
 	}
+	if (parseFloat(height) >= 999) {
+	  alert("身長に入力した値を確認してください");
+	  event.preventDefault();
+	  return;
+	}
+	
 	if (parseFloat(weight) <= 0) {
 	  alert("体重は正の数で入力してください");
+	  event.preventDefault();
+	  return;
+	}
+	if (parseFloat(weight) >= 999) {
+	  alert("体重に入力した値を確認してください");
 	  event.preventDefault();
 	  return;
 	}

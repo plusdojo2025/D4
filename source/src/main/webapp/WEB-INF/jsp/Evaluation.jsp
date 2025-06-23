@@ -161,7 +161,7 @@
 </table>
 </div>
 </div>
-<div class="grid-container"id="select-animate">
+<div class="grid-container">
 <div class="class1">
 	<div class="overall-score">
 	  全体スコア 
@@ -289,7 +289,7 @@
     </c:forEach>
   ];
 </script>
-<div class="zenjituhi"id="select-animate">
+<div class="zenjituhi">
 <div class="center">	
 <h2>前日比</h2>
 
