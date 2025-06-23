@@ -30,7 +30,7 @@ public class EvaluationServlet extends HttpServlet {
         Users user = (Users) session.getAttribute("users");
 
         if (user == null) {
-            response.sendRedirect("/d4/LoginServlet");
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
             return;
         }
 
@@ -93,7 +93,7 @@ public class EvaluationServlet extends HttpServlet {
         
      // 今日の情報が登録がされてなかったら HealthServlet にリダイレクト
         if (todayData == null) {
-            response.sendRedirect("/d4/HealthServlet?date=" + displayDateStr);
+            response.sendRedirect(request.getContextPath() + "/HealthServlet?date=" + displayDateStr);
             return;
         }
         
