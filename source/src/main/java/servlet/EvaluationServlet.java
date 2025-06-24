@@ -282,12 +282,13 @@ public class EvaluationServlet extends HttpServlet {
         }
     }
     
-    private String iconForStress(int stress) { 
-        if (stress == 1) return "/D4/img/Nico_colorH.png";		//ストレス値画像パス
-        if (stress == 2) return "/D4/img/Nico_colorM.png";		//ストレス値画像パス
-        if (stress == 3) return "/D4/img/Nico_colorL.png";		//ストレス値画像パス
-
-        return "/images/stamp_default.png";		//適当な画像のパス (基本表示されない)
+    private String iconForStress(int stress) {
+        if (stress == 1) return "Nico_colorH.png";	//ストレス値画像パス
+        if (stress == 2) return "Nico_colorM.png";	//ストレス値画像パス
+        if (stress == 3) return "Nico_colorL.png";	//ストレス値画像パス
+        
+        return "stamp_default.png";	//適当な画像のパス (基本表示されない)
     }
+
 
 }

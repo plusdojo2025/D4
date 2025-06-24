@@ -134,14 +134,14 @@
     %>
       <td class="calendar-cell" data-date="<%= dayStr %>" style="cursor:pointer;">
         <div class="day-number"><%= dayCounter %></div>
-        <%
-          Map<String, String> icons = (Map<String, String>)request.getAttribute("calendarIcons");
-          if (icons != null && icons.containsKey(dayStr)) {
-        %>
-          <img src="<%= icons.get(dayStr) %>" alt="スタンプ" class="stamp-img">
-        <%
-          }
-        %>
+       <%
+    	Map<String, String> icons = (Map<String, String>) request.getAttribute("calendarIcons");
+   		String iconFile = icons != null ? icons.get(dayStr) : null;
+    	String contextPath = request.getContextPath();
+		%>
+		<% if (iconFile != null) { %>
+    		<img src="<%= contextPath %>/img/<%= iconFile %>" alt="スタンプ" class="stamp-img">
+		<% } %>
       </td>
     <%
           dayCounter++;
