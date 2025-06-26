@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.HealthDAO;
+import dao.UsersDAO;
 import dto.Health;
 import dto.Result;
 import dto.Users;
@@ -121,6 +122,7 @@ public class HealthServlet extends HttpServlet {
 		
 		List<Health> healthList = bDao.select(health);
 		boolean success;
+		UsersDAO uDao = new UsersDAO();
 		
 		if (healthList.size() != 0) {
 		    success = bDao.update(health);
@@ -129,6 +131,8 @@ public class HealthServlet extends HttpServlet {
 		}
 		if (success) {
 		    request.setAttribute("redirect", new Result("今日の記録を保存しました。", request.getContextPath() + "/EvaluationServlet"));
+		    Users logedUser = uDao.select(id);
+			session.setAttribute("users", logedUser);
 		} else {
 		    request.setAttribute("redirect", new Result("記録の保存に失敗しました。", request.getContextPath() + "/EvaluationServlet"));
 		}
