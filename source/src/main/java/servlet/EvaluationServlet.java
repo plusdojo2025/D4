@@ -248,7 +248,7 @@ public class EvaluationServlet extends HttpServlet {
     }
 
     private int convertWalkToRating(int walk) {
-        if (walk >= 6500 && walk <= 8000) return 5;
+        if (walk >= 6500 && walk == 8000) return 5;
         if (walk >= 5000) return 4;
         if (walk >= 3500) return 3;
         if (walk >= 2000) return 2;
