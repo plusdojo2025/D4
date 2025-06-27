@@ -1,1 +1,236 @@
+drop database d4;
+create database d4;
+use d4;
 
+create table themeList (
+id int primary key AUTO_INCREMENT,
+name VARCHAR(255) not null
+);
+
+CREATE TABLE iconList(
+days INT,
+id INT PRIMARY KEY AUTO_INCREMENT,
+path VARCHAR(255) NOT NULL
+);
+
+create table users (
+id varChar(20) primary key,
+pw varChar (20) not null,
+height int not null,
+name varChar (20) not null,
+theme int default 1,
+icon int  default 1,
+vPrivate int  default 0,
+sPrivate int  default 0,
+wPrivate int  default 0,
+FOREIGN KEY(theme) REFERENCES themeList(id),
+FOREIGN KEY(icon) REFERENCES iconList(id)
+);
+
+create table healthList(
+id varChar(20)  not null,
+date date  not null,
+vegetable int,
+sleep int,
+walk int,
+stress int,
+weight double,
+primary key (id,date),
+FOREIGN KEY(id) REFERENCES users(id)
+);
+
+create table friendList (
+myId varChar(20),
+friendId varChar(20),
+state int,
+primary key (myId, friendId),
+FOREIGN KEY(myid) REFERENCES users(id),
+FOREIGN KEY(friendId) REFERENCES users(id)
+);
+
+INSERT INTO themeList (id, name) VALUES (0, 'theme1');
+INSERT INTO themeList (id, name) VALUES (0, 'theme2');
+INSERT INTO themeList (id, name) VALUES (0, 'theme3');
+INSERT INTO themeList (id, name) VALUES (0, 'theme4');
+INSERT INTO themeList (id, name) VALUES (0, 'theme5');
+INSERT INTO themeList (id, name) VALUES (0, 'theme6');
+INSERT INTO iconList (id, days, path) VALUES (0, 0, 'icon1.png');
+INSERT INTO iconList (id, days, path) VALUES (0, 5, 'icon2.png');
+INSERT INTO iconList (id, days, path) VALUES (0, 10, 'icon3.png');
+INSERT INTO iconList (id, days, path) VALUES (0, 15, 'icon4.png');
+INSERT INTO iconList (id, days, path) VALUES (0, 20, 'icon5.png');
+INSERT INTO iconList (id, days, path) VALUES (0, 30, 'icon6.png');
+
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser1', '#SEplus2025SEplus', 170, '山田花子');
+INSERT INTO users (id, pw, height, name, theme, icon) VALUES ('dojouser2', '#SEplus2025SEplus', 180, '田中タナトス', 2, 2);
+INSERT INTO users (id, pw, height, name, theme, icon, vPrivate, sPrivate, wPrivate)
+VALUES ('dojouser3', '#SEplus2025SEplus', 165, '佐藤', 1, 1, 1, 1, 1);
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser4', '#SEplus2025SEplus', 160, 'スズキ');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser5', '#SEplus2025SEplus', 162, '山ちゃん');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser6', '#SEplus2025SEplus', 164, 'お野菜食べ美');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser7', '#SEplus2025SEplus', 163, 'Ayaka');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser8', '#SEplus2025SEplus', 164, '山ちゃん');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser9', '#SEplus2025SEplus', 167, 'たかし@お布団大好き');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser10', '#SEplus2025SEplus', 166, 'みさぴょん');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser11', '#SEplus2025SEplus', 154, 'マッスル藤田');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser12', '#SEplus2025SEplus', 155, 'りんたろう');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser13', '#SEplus2025SEplus', 159, 'ユキリン');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser14', '#SEplus2025SEplus', 160, 'ひなこっち');
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser15', '#SEplus2025SEplus', 160, '生湯葉食べたい！');
+
+INSERT INTO healthList (id, date, vegetable, sleep, walk, stress, weight) VALUES
+('dojouser1', '2025-05-01', 3, 255, 7200, 2, 60.2),
+('dojouser1', '2025-05-02', 4, 240, 8000, 3, 60.4),
+('dojouser1', '2025-05-03', 2, 270, 6900, 1, 60.1),
+('dojouser1', '2025-05-04', 5, 225, 8500, 2, 60.3),
+('dojouser1', '2025-05-05', 3, 255, 7800, 3, 60.5),
+('dojouser1', '2025-05-06', 1, 240, 7100, 1, 60.3),
+('dojouser1', '2025-05-07', 4, 270, 8300, 2, 60.2),
+('dojouser1', '2025-05-08', 3, 255, 7600, 3, 60.4),
+('dojouser1', '2025-05-09', 5, 240, 7900, 2, 60.6),
+('dojouser1', '2025-05-10', 2, 270, 7200, 1, 60.3),
+('dojouser1', '2025-05-11', 4, 255, 8100, 3, 60.5),
+('dojouser1', '2025-05-12', 3, 240, 7000, 2, 60.2),
+('dojouser1', '2025-05-13', 1, 270, 8300, 1, 60.0),
+('dojouser1', '2025-05-14', 5, 255, 7800, 2, 60.3),
+('dojouser1', '2025-05-15', 3, 240, 7600, 3, 60.4),
+('dojouser1', '2025-05-16', 2, 270, 7900, 2, 60.1),
+('dojouser1', '2025-05-17', 4, 255, 8100, 1, 60.3),
+('dojouser1', '2025-05-18', 3, 240, 7200, 2, 60.5),
+('dojouser1', '2025-05-19', 1, 270, 8300, 3, 60.4),
+('dojouser1', '2025-06-08', 4, 240, 7500, 3, 60.3),
+('dojouser1', '2025-06-09', 3, 255, 8000, 2, 60.5),
+('dojouser1', '2025-06-10', 4, 240, 7500, 3, 60.3),
+('dojouser1', '2025-06-11', 2, 270, 8200, 1, 60.4),
+('dojouser1', '2025-06-12', 5, 225, 7000, 2, 60.1),
+('dojouser1', '2025-06-13', 3, 255, 7800, 3, 60.0),
+('dojouser1', '2025-06-14', 1, 270, 8300, 1, 59.8),
+('dojouser2', '2025-06-09', 2, 240, 7100, 2, 58.4),
+('dojouser2', '2025-06-10', 3, 255, 7600, 1, 58.3),
+('dojouser2', '2025-06-11', 5, 270, 8200, 3, 58.6),
+('dojouser2', '2025-06-12', 4, 225, 7900, 2, 58.5),
+('dojouser2', '2025-06-13', 1, 240, 7300, 1, 58.2),
+('dojouser3', '2025-06-01', 3, 255, 7300, 2, 59.8),
+('dojouser3', '2025-06-02', 4, 240, 8100, 3, 60.0),
+('dojouser3', '2025-06-03', 2, 270, 7000, 1, 59.9),
+('dojouser3', '2025-06-04', 5, 225, 8600, 2, 60.2),
+('dojouser3', '2025-06-05', 3, 255, 7900, 3, 60.1),
+('dojouser3', '2025-06-06', 1, 240, 7200, 1, 59.9),
+('dojouser3', '2025-06-07', 4, 270, 8400, 2, 60.0),
+('dojouser3', '2025-06-08', 3, 255, 7700, 3, 60.2),
+('dojouser3', '2025-06-09', 5, 240, 8000, 2, 60.3),
+('dojouser3', '2025-06-10', 2, 270, 7300, 1, 60.0),
+('dojouser3', '2025-06-11', 4, 255, 8200, 3, 60.2),
+('dojouser3', '2025-06-12', 3, 240, 7100, 2, 59.8),
+('dojouser3', '2025-06-13', 1, 270, 8400, 1, 59.7),
+('dojouser3', '2025-06-14', 5, 255, 7900, 2, 60.1),
+('dojouser3', '2025-06-15', 3, 240, 7700, 3, 60.0),
+('dojouser3', '2025-06-16', 2, 270, 8000, 2, 59.9),
+('dojouser3', '2025-06-17', 4, 255, 8200, 1, 60.1),
+('dojouser3', '2025-06-18', 3, 240, 7300, 2, 60.3),
+('dojouser3', '2025-06-19', 1, 270, 8400, 3, 59.8),
+('dojouser3', '2025-06-20', 5, 255, 7900, 2, 60.0),
+('dojouser3', '2025-06-21', 3, 240, 7700, 3, 60.1),
+('dojouser3', '2025-06-22', 2, 270, 8100, 1, 59.9),
+('dojouser3', '2025-06-23', 4, 255, 8300, 2, 60.2),
+('dojouser3', '2025-06-24', 3, 240, 7200, 3, 59.8),
+('dojouser3', '2025-06-25', 1, 270, 8500, 1, 59.7),
+('dojouser3', '2025-06-26', 5, 255, 7800, 2, 60.0),
+('dojouser3', '2025-06-27', 3, 240, 7600, 3, 60.1),
+('dojouser3', '2025-06-28', 2, 270, 8000, 2, 59.9),
+('dojouser3', '2025-06-29', 4, 255, 8200, 1, 60.2),
+('dojouser1', '2025-06-29', 3, 255, 3300, 2, 58.5),
+('dojouser2', '2025-06-29', 5, 450, 8000, 2, 58.5),
+('dojouser2', '2025-06-30', 5, 450, 8000, 1, 58.2),
+('dojouser5', '2025-06-29', 5, 450, 8000, 2, 58.5),
+('dojouser5', '2025-06-30', 4, 405, 5500, 1, 58.2),
+('dojouser6', '2025-06-29', 5, 450, 8000, 2, 58.5),
+('dojouser6', '2025-06-30', 4, 405, 5500, 1, 58.2),
+('dojouser7', '2025-06-29', 1, 195, 1000, 2, 58.5),
+('dojouser7', '2025-06-30', 1, 285, 800, 1, 58.2),
+('dojouser8', '2025-06-29', 2, 345, 2200, 2, 58.5),
+('dojouser8', '2025-06-30', 2, 315, 2500, 1, 58.2),
+('dojouser9', '2025-06-29', 3, 405, 4000, 2, 58.5),
+('dojouser9', '2025-06-30', 3, 405, 3800, 1, 58.2),
+('dojouser10', '2025-06-29', 2, 225, 3000, 2, 58.5),
+('dojouser10', '2025-06-30', 2, 240, 3000, 1, 58.2),
+('dojouser11', '2025-06-29', 1, 225, 1000, 2, 58.5),
+('dojouser11', '2025-06-30', 1, 240, 200, 1, 58.2);
+
+
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser2', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser2', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser3', 2);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser3', 'dojouser1', 1);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser5', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser5', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser6', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser6', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser7', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser7', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser8', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser8', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser9', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser9', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser10', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser10', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser11', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser11', 'dojouser1', 3);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser12', 2);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser12', 'dojouser1', 1);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser13', 2);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser13', 'dojouser1', 1);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser14', 2);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser14', 'dojouser1', 1);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser1', 'dojouser15', 2);
+INSERT INTO friendList (myId, friendId, state) VALUES ('dojouser15', 'dojouser1', 1);
+
+
+
+INSERT INTO users (id, pw, height, name) VALUES ('dojouser20', '#SEplus2025SEplus', 160, '評価表示');
+
+
+INSERT INTO healthList (id, date, vegetable, sleep, walk, stress, weight) VALUES
+('dojouser20', '2025-05-18', 3, 240, 7200, 2, 60.5),
+('dojouser20', '2025-05-19', 1, 270, 8300, 3, 60.4),
+('dojouser20', '2025-05-20', 2, 270, 7200, 1, 60.4),
+('dojouser20', '2025-05-21', 4, 255, 8100, 3, 60.5),
+('dojouser20', '2025-05-22', 3, 240, 7000, 2, 60.4),
+('dojouser20', '2025-05-23', 1, 270, 8300, 1, 60.4),
+('dojouser20', '2025-05-24', 5, 255, 7800, 2, 60.4),
+('dojouser20', '2025-05-25', 3, 240, 7600, 3, 60.4),
+('dojouser20', '2025-05-26', 2, 270, 7900, 2, 60.4),
+('dojouser20', '2025-05-27', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-05-28', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-05-29', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-05-30', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-05-31', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-06-01', 3, 255, 7200, 2, 60.4),
+('dojouser20', '2025-06-02', 4, 240, 8000, 3, 60.4),
+('dojouser20', '2025-06-03', 2, 270, 6900, 1, 60.4),
+('dojouser20', '2025-06-04', 5, 225, 8500, 2, 60.4),
+('dojouser20', '2025-06-05', 3, 255, 7800, 3, 60.5),
+('dojouser20', '2025-06-06', 1, 240, 7100, 1, 60.4),
+('dojouser20', '2025-06-07', 4, 270, 8300, 2, 60.4),
+('dojouser20', '2025-06-08', 4, 240, 7500, 3, 60.4),
+('dojouser20', '2025-06-09', 3, 255, 8000, 2, 60.5),
+('dojouser20', '2025-06-10', 4, 240, 7500, 3, 60.4),
+('dojouser20', '2025-06-11', 2, 270, 8200, 1, 60.4),
+('dojouser20', '2025-06-12', 5, 225, 7000, 2, 60.4),
+('dojouser20', '2025-06-13', 3, 255, 7800, 3, 60.4),
+('dojouser20', '2025-06-14', 1, 270, 8300, 1, 60.4),
+('dojouser20', '2025-06-15', 3, 255, 7600, 3, 60.4),
+('dojouser20', '2025-06-16', 5, 240, 7900, 2, 60.5),
+('dojouser20', '2025-06-17', 2, 270, 7200, 1, 60.4),
+('dojouser20', '2025-06-18', 4, 255, 8100, 3, 60.5),
+('dojouser20', '2025-06-19', 3, 240, 7000, 2, 60.4),
+('dojouser20', '2025-06-20', 1, 270, 8300, 1, 60.4),
+('dojouser20', '2025-06-21', 5, 255, 7800, 2, 60.4),
+('dojouser20', '2025-06-27', 3, 240, 7600, 3, 60.4),
+('dojouser20', '2025-06-23', 2, 270, 7900, 2, 60.4),
+('dojouser20', '2025-06-24', 4, 255, 8100, 1, 60.4),
+('dojouser20', '2025-06-25', 3, 240, 7200, 2, 60.5),
+('dojouser20', '2025-06-26', 1, 270, 8300, 3, 60.4),
+('dojouser20', '2025-06-28', 3, 255, 8000, 2, 60.5),
+('dojouser20', '2025-06-29', 4, 240, 7500, 3, 60.4),
+('dojouser20', '2025-06-30', 2, 270, 8200, 1, 60.4);
